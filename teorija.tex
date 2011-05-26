@@ -1,0 +1,1678 @@
+\documentclass[a4paper,oneside,12pt,fleqn]{article}
+\usepackage[slovene]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage[usenames]{color}
+\usepackage[reqno]{amsmath}
+\usepackage{amssymb}
+\usepackage{icomma}
+\usepackage[bookmarks, colorlinks=true, %
+linkcolor=black, anchorcolor=black, citecolor=black, filecolor=black,%
+menucolor=black, runcolor=black, urlcolor=black%
+]{hyperref}
+\hypersetup{pdftitle={Teorija pri matematiki}}
+\hypersetup{pdfauthor={Jure Slak}}
+\hypersetup{pdfsubject={Zapiski}}
+\usepackage[
+    paper=a4paper,
+    top=2.5cm,
+    bottom=2.5cm,
+%    textheight=24cm,
+    textwidth=15cm,
+    ]{geometry}
+
+
+\usepackage{amsthm}
+{
+\newtheorem{izrek}{Izrek} %[section]
+\newtheorem{dokaz}[izrek]{Dokaz}
+\newtheorem{trditev}[izrek]{Trditev}
+\newtheorem{posledica}[izrek]{Posledica}
+{
+\theoremstyle{definition}
+\newtheorem{definicija}{Definicija}
+}
+}
+
+\usepackage{pst-plot}
+\usepackage{pst-math}
+\usepackage{auto-pst-pdf}
+\usepackage{subfigure}
+\usepackage{multido}
+
+\def\R{\ensuremath{\mathbb R}}
+\def\N{\ensuremath{\mathbb N}}
+\def\Z{\ensuremath{\mathbb Z}}
+\def\C{\ensuremath{\mathbb C}}
+\def\Q{\ensuremath{\mathbb Q}}
+\mathchardef\mhyphen="2D
+
+\newcommand{\edot}{\;\;\;.}
+\newcommand\krat\cdot
+\newcommand{\Rel}{\mathcal{R}}
+\newcommand{\comment}[1]{\ensuremath{\qquad\backslash\backslash\;}\textnormal{#1}}
+
+\makeatletter
+\newcommand{\rom}[1]{\romannumeral #1}
+\newcommand{\Rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+\newcommand{\beforecaptionskip}{\vspace{-12pt}}
+% your definitions here ... 
+
+% arrow resetings
+\renewcommand\implies\Rightarrow
+\renewcommand\iff\Leftrightarrow
+
+%counter settings
+\numberwithin{equation}{section}
+
+\title{Teorija pri matematiki}
+\author{Jure Slak}
+\date{\today}
+
+% space settings
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+
+\newenvironment{itemize*}%
+{
+\vspace{-12pt}%
+\begin{itemize}%
+\setlength{\itemsep}{0pt}%
+\setlength{\parskip}{2pt}}%
+{\end{itemize}}
+
+\newenvironment{enumerate*}%
+{
+\vspace{-12pt}%
+\begin{enumerate}%
+\setlength{\itemsep}{0pt}%
+\setlength{\parskip}{2pt}}%
+{\end{enumerate}}
+
+% aligned list
+\newenvironment{xlist}[1][\rule{0.75 cm}{0cm}]{%
+\vspace{-14pt}
+  \begin{list}{}{%
+    \settowidth{\labelwidth}{#1:}
+    \setlength{\labelsep}{0.5cm}
+    \setlength{\leftmargin}{\labelwidth}
+    \addtolength{\leftmargin}{\labelsep}
+    \addtolength{\leftmargin}{20pt}
+    \setlength{\rightmargin}{0pt}
+    \setlength{\parsep}{0.5ex plus 0.2ex minus 0.1ex}
+    \setlength{\itemsep}{0 ex plus 0.2ex}
+    \renewcommand{\makelabel}[1]{##1:\hfil}
+    }
+  }
+{\end{list}}
+
+% fixind description and list labels (using hyperref}
+\makeatletter
+\let\orgdescriptionlabel\descriptionlabel
+\renewcommand*{\descriptionlabel}[1]{%
+\let\orglabel\label
+\let\label\@gobble
+\phantomsection
+\edef\@currentlabel{#1}%
+\let\label\orglabel
+\orgdescriptionlabel{#1}%
+}
+\makeatother
+
+\begin{document}
+%set spacing 2
+\setlength{\abovedisplayskip}{3pt}
+\setlength{\belowdisplayskip}{6pt}
+
+% \renewcommand{\listfigurename}{Kazalo slik} 
+
+\thispagestyle{empty}
+% naslovnica
+
+\mbox{}\\
+\vspace{3ex}
+
+\noindent \scalebox{1.8}[2.1]{\textsf{{\Huge \bfseries Teorija pri}}} \\[5pt]
+\scalebox{1.8}[2.1]{\textsf{{\Huge \bfseries matematiki}}} \\[60pt]
+\scalebox{1}[1.2]{\textsf{\Huge \bfseries Jure Slak}}
+
+\vspace{50pt}
+\noindent \mbox{} \hspace{-20pt} \scalebox{35}{$e^{\pi i}$}
+\pagebreak
+
+\thispagestyle{empty}
+\tableofcontents
+\pagebreak
+
+\section{Izjave}
+\label{sec:izjave}
+\textbf{Izjava} je smiseln povedni stavek, ki mu lahko določimo njegovo vrednost.
+
+\textbf{Negacija} izjave $A$ je nova izjava, ``Ni res, da drži $A$.'' ($\neg A$), ki je pravilna, če je izjava $A$
+napačna in obratno. 
+
+\textbf{Konjunkcija} izjav $A$ in $B$ je nova izjava ``$A$ in $B$.'' ($A \land
+B$), ki je pravilna le, če sta izjavi $A$ in $B$ pravilni.
+
+\textbf{Disjunkcija} izjav $A$ in $B$ je nova izjava ``$A$ ali $B$.'' ($A \lor B$), 
+ki je pravilna, ko je pravilna vsaj ena izmed izjav $A$ in $B$.
+
+\textbf{Implikacija} izjav $A$ in $B$ je nova izjava ``Če $A$, potem sledi $B$.'' ($A
+\implies B$), ki je napačna samo v primeru, da je prva izjava pravilna, druga pa napačna.
+
+\textbf{Ekvivalenca} izjav $A$ in $B$ je nova izjava ``Če $A$, natanko takrat $B$.'' ($A 
+\iff B$), ki je pravilna, če imata izjavi enako vrednost.
+
+\section{Množice}
+\label{sec:mnozice}
+\textbf{Množica} je skupina elementov, ki jih druži neka skupna lastnost. 
+
+\textbf{Prazna množica} je množica brez elementa. ($\emptyset$)
+
+\textbf{Univerzalna množica} ($\mathcal{U}$) je množica, ki vsebuje vse elemente, ki jih preučujemo.
+
+Množica $A$ je \textbf{podmnožica} $B$ ($A \subset B$), če je vsak element množice $A$ tudi element
+množice $B$.
+
+Dve množici sta \textbf{enaki}, če imata iste elemente.
+
+\textbf{Unija} množic $A$ in $B$ ($A \cup B$) je nova množica, ki vsebuje elemente, ki so v množici $A$ ali v
+množici $B$. ($A \cup B = \left\{x:x \in A \lor x \in B \right\}$)
+
+\textbf{Presek} množic $A$ in $B$ ($A \cap B$) je nova množica, ki vsebuje elemente, ki so v množici $A$ in v
+množici $B$. ($A \cup B = \left\{x:x \in A \land x \in B \right\}$)
+
+\textbf{Razlika} množic $A$ in $B$ ($A - B$ ali $A \setminus B$) je nova množica, ki vsebuje vse elemente, ki so v drugi množici
+v prvi pa ne. ($A - B = \left\{x \in A; x \notin B \right\}$)
+
+\textbf{Komplement} množice $A$ ($A^c$) je nova množica, ki vsebuje vse elemente, ki niso
+v množici $A$. ($A^c = \mathcal{U} - A$)
+
+\textbf{Moč} množice je število njenih elementov. ($|A|$) 
+
+\textbf{Potenčna množica} množice $A$ je množica vseh podmnožic množice $A$.
+($|\mathcal{P}(A)| = 2^{|A|}$). 
+
+\textbf{Kartezični produkt} množic $A$ in $B$ ($A \times B$) je nova množica, ki vsebuje urejene pare, v katerih
+je prvi element iz množice $A$, drugi pa iz množice $B$. ($A \times B = \left\{ \left(a,
+b \right); a \in A \land b \in B \right\}, \; \left|A \times B \right| = \left|A\right|
+\krat \left|B\right|$).
+
+\section{Preslikave}
+\label{sec:preslikave}
+\textbf{Preslikava}, ki množico $A$ preslika v množico $B$ ($f\!\!: A \rightarrow B,
+f\!\!:a \mapsto b$), je predpis, ki vsakemu elementu iz
+množice $A$ priredi natanko določen element iz množice $B$. 
+
+Preslikava je \textbf{injektivna}, kadar se par različnih elementov iz množice $A$ preslika v par
+različnih elementov iz množice $B$. ($a_1 \neq a_2 \implies f(a_1) \neq f(a_2); a_1, a_2
+\in A$)
+
+Preslikava je \textbf{surjektivna}, kadar je vsak element množice $B$ slika vsaj enega elementa iz
+množice $A$. ($\forall b \in B, \exists a \in A\!: b = f(a)$)
+
+Preslikava je \textbf{bijektivna}, če je injektivna in surjektivna hkrati.
+
+Graf preslikave $f\!\!: A \rightarrow B$ je podmnožica kartezičnega produkta $A \times B$.
+
+\section{Relacije}
+\label{sec:relacije}
+\textbf{Relacija} je odnos med elementi neke množice.
+Relacija je podmnožica kartezičnega produkta.
+
+Relacija je \textbf{refleksivna}, za vsak element v množici velja, da je element v relaciji sam s
+seboj. ($\Rel \text{ refleksivna} \iff \forall a \in A\!: a \Rel a$)
+
+Relacija je \textbf{simetrična}, kadar za vsak par elementov velja, če je prvi v relaciji z drugim,
+je tudi drugi v relaciji s prvim. 
+($\Rel \text{ simetrična} \iff \forall a, b \in A\!: a \Rel b \implies b \Rel a$)
+
+Relacija je \textbf{tranzitivna}, če za vsako trojico elementov velja, če je prvi v relaciji z
+drugim in drugi v relaciji s tretjim, potem je tudi prvi v relaciji s tretjim.
+($\Rel \text{ tranzitivna} \iff \forall a, b, c \in A\!: (a \Rel b \land b \Rel c) \implies a \Rel c$)
+
+Relacija je \textbf{ekvivalenčna}, če je refleksivna, simetrična in tranzitivna hkrati.
+
+\section{Naravna števila}
+\label{sec:naravna}
+\[ \N = {1, 2, 3, 4, 5, 6, \ldots} \]
+\textbf{Operacija} dvema elementoma priredi nov element.
+
+\subsection{Zakoni}
+\label{sec:naravna:zakoni}
+Zakon o \textbf{komutativnosti} ali zakon o zamenjavi za množenje in seštevanje:
+\[ a + b =  b + a \]
+\[ a \krat b =  b \krat a \]
+
+Zakon o \textbf{asociativnosti} ali zakon o združevanju za množenje in seštevanje:
+\[ a + (b + c) = (a + b) + c \]
+\[ a \krat (b \krat c) = (a \krat b) \krat c \]
+
+Zakon o \textbf{distributivnosti} ali zakon o razčlenjevanju:
+\[ a \krat (b + c) = a \krat b + a \krat c \]
+
+
+\subsection{Številski sestavi}
+Vsako število v desetiškem sistemu z osnovo 10 lahko zapišemo v kateremkoli sistemu
+z osnovo $b$. \\
+Poljubno število $a_na_{n-1}\!\ldots a_4a_3a_2a_1a_0$ pomeni:
+\[ a_n \krat b^n + a_{n-1} \krat b^{n-1} + \cdots + a_2 \krat b^2 +a_1 \krat b + a_0 \]
+
+$b$ osnova, $b \in \N \land b \geq 2$ \\
+$a_i$ števka, $0 \leq a < b$
+
+Vsako naravno število $a$ lahko zapišemo na en sam način v številskem sestavu z osnovo $b$
+
+\subsection{Relacija deljivosti}
+Število $a$ deli število $b$ natanko takrat, ko je število $b$ večkratnik števila $a$.
+\[ a | b \iff b = k \krat a;\quad a, b, k \in \N \]
+
+\textbf{Lastnosti:}
+\begin{xlist}[Antisimetričnost]
+  \item[refleksivnost]       $a|a$
+  \item[antisimetričnost]  $a|b \land b|a \implies a = b$
+  \item[tranzitivnost]      $a|b \land b|c \implies a|c$
+  \item[neimenovana 1]      $a|b \land a|c \implies a|\left( b+c \right)$
+  \item[neimenovana 2]      $a|b \land a|\left( b+c \right) \implies a|c$
+\end{xlist}
+
+\textbf{Dokaz antisimetričnosti:}
+\begin{align}
+  a|b \iff b &= k_1 \krat a; \quad k_1 \in \N \\
+  b|a \iff a &= k_2 \krat b; \quad k_2 \in \N \label{eq:del:antis:akb} \\
+  a &= k_2 \krat b \comment{izhaja iz definicije} \label{eq:del:antis:akb2} \\
+  a &= k_2 \krat k_1 \krat a \comment{$b$ zamenjamo po definiciji, glej \eqref{eq:del:antis:akb}} \\
+  k_1 \krat k_2 &= 1 \\
+  k_1 &= 1, k_2 = 1 \label{eq:del:antis:kk} \comment{$k_1k_2$ je lahko 1 le, če velja ta
+  vrstica} \\
+  a &= b \comment{zazremo se v \eqref{eq:del:antis:akb2} in se spomnimo na \eqref{eq:del:antis:kk}}
+\end{align}
+
+\textbf{Dokaz tranzitivnosti:}
+\begin{align}
+  a|b \iff b &= k_1 \krat a; \quad k_1 \in \N \label{eq:del:tranz:bka} \\
+  b|c \iff c &= k_2 \krat b; \quad k_2 \in \N \label{eq:del:tranz:ckb} \\
+  c &= k_2 \krat b \\
+  c &= \underbrace{k_2 \krat k_1}_{k_3} \krat a \comment{$b$ zamenjamo po \eqref{eq:del:tranz:bka}} \\
+  c &= k_3 \krat a \implies a|c
+\end{align}
+
+\textbf{Dokaz neimenovane 1:}
+\begin{align}
+  a|b \iff b &= k_1 \krat a; \quad k_1 \in \N \label{eq:del:brez1:bka} \\
+  a|c \iff c &= k_2 \krat a; \quad k_2 \in \N \label{eq:del:brez1:cka} \\
+  b + c &= k_1 \krat a + k_2 \krat a \comment{zamenjamo po \eqref{eq:del:brez1:bka} in
+  \eqref{eq:del:brez1:cka}} \\
+  b + c &= (\underbrace{k_1 + k_2}_{k_3}) \krat a \\
+  b + c &= k_3 \krat a \implies a|(b+c)
+\end{align}
+
+\textbf{Dokaz neimenovane 2:}
+\begin{align}
+  a|b \iff b &= k_1 \krat a; \quad k_1 \in \N \label{eq:del:brez2:bka} \\
+  a|(b+c) \iff b+c &= k_2 \krat a; \quad k_2 \in \N \label{eq:del:brez2:bcka} \\
+  b + c &= k_2 \krat a \comment{po definiciji \eqref{eq:del:brez2:bcka}} \\
+  k_1 \krat a + c &= k_2 \krat a \comment{zamenjamo $b$ po \eqref{eq:del:brez2:bka}} \\
+  c &= k_2 \krat a - k_1 \krat a \\
+  c &= (\underbrace{k_2 - k_1}_{k_3}) \krat a \\
+  c &= k_3 \krat a \implies a|c
+\end{align}
+
+\subsubsection{Kriteriji deljivosti}
+\begin{align*}
+  2|a &\iff 2|a_0 \\
+  3|a &\iff 3|(a_0 + a_1 + \cdots + a_n) \\
+  4|a &\iff 4|(10a_1+a_0) \\
+  5|a &\iff 5|a_0 \\
+  6|a &\iff 2|a \land 3|a \\
+  8|a &\iff 8|(100a_2 + 10a_1+a_0) \\
+  9|a &\iff 9|(a_0 + a_1 + \cdots + a_n) 
+\end{align*}
+
+\textbf{Praštevila} so števila, ki imajo natanko dva delitelja. Praštevil je neskončno mnogo.
+Dokaz manjka. Števila, ki imajo več kot dva različna delitelja so \textbf{sestavljena} števila. 
+\begin{izrek}
+  \textnormal{\textbf{Osnovni izrek aritmetike:} Vsako število lahko zapišemo kot produkt
+  samih praštevil.}
+\end{izrek}
+
+\begin{izrek}
+  \textnormal{\textbf{Osnovni izrek o deljenju:} Za vsaki dve števili $a$ in $b$ obstajata
+  natanko določeni števili $k$ in $o$, tako da velja $a = k \krat b+ o; \quad 0 \leq o < b$.}
+\end{izrek}
+
+\textbf{Največji skupni delitelj} števil $a$ in $b$ je največje število, ki deli obe števili
+hkrati. (oznaka: $D(a,b)$) \\
+\textbf{Najmanjši skupni večkratnik} dveh števil $a$ in $b$ je največje število, ki je deljivo z obema
+številoma hkrati. (oznaka: $v(a,b)$) \\
+Med $D(a,b)$ in $v(a,b)$ velja zveza: 
+\[ D(a,b) \krat v(a,b) = a \krat b \edot \]
+Števili sta si \textbf{tuji}, ko je njun največji skupni delitelj enak 1. \\
+\textbf{Evklidov algoritem} je postopek s katerim dobimo $D(a,b)$. Zadnji od nič različen
+ostanek je $D(a,b)$.
+
+\section{Cela števila}
+\label{sec:cela}
+\[ \Z = \Z^- \cup \left\{ 0 \right\} \cup \Z^+ \]
+
+\subsection{Zakoni}
+\label{sec:cela:zakoni}
+Vsi zakoni kot za naravna (razdelek \ref{sec:naravna:zakoni}). Poleg teh velja še: \\
+Obstaja nevtralni element za seštevanje in je 0:
+\[ a + 0 = a \]
+Obstaja nevtralni element za množenje in je 1: 
+\[ 1 \krat a = a \]
+Vsota števila in nasprotnega števila je enaka 0 ali ``nasprotnost je vzajemna'': 
+\[ a + (-a) = 0 \]
+
+\subsection{Zakoni urejenosti}
+\label{sec:cela:zakoniurejenosti}
+Za vsako trojico števil $a$, $b$ in $c$ velja: \\
+$\forall a, b, c \in \Z \!:$ 
+\begin{enumerate*}
+  \item $a < b \lor a = b \lor a > b$
+  \item $a < b \land b < c \implies a < c$
+  \item $a < b \implies a + c < b + c$
+  \item $a < b \land c > 0 \implies ac < bc$
+  \item $a < b \land c < 0 \implies ac > bc$
+\end{enumerate*}
+
+\section{Racionalna števila}
+\label{sec:rac}
+\[ \Q = \left\{\frac{a}{b}; a,b \in \Z, b \neq 0 \right\} \]
+
+\subsection{Zakoni}
+Vsi zakoni kot za cela števila (razdelek \ref{sec:cela:zakoni}). Poleg teh še: \\
+Produkt števila in obratnega števila je enak 1 ali ``obratnost je vzajemna'': 
+\[ a \krat a^{-1} = 1 \]
+
+\textbf{Deljenje} je množenje z obratno vrednostjo. \\
+Razširjanje ulomkov: ulomek lahko v števcu in v imenovalcu pomnožimo z enakim številom, pa
+se vrednost ne spremeni:
+\[ \frac{a}{b} = \frac{a \krat k}{b \krat k} \]
+
+\textbf{Seštevanje} racionalnih števil: 
+\[ \frac{a}{b} \pm \frac{c}{d} = \frac{ad}{bd} \pm \frac{cb}{bd} = \frac{ad \pm bc}{bd} \]
+
+\textbf{Množenje} racionalnih števil:
+\[ \frac{a}{b} \krat \frac{c}{d} = \frac{a \krat c}{b \krat d} \]
+
+Vsak ulomek lahko zapišemo z \textbf{decimalnim številom}, ki je lahko končno ali periodično.
+Ulomki, ki jih lahko razširimo tako, da imajo v imenovalcu potenco z osnovo 10, se
+imenujejo \textbf{desetiški} ulomki. V razcepu imajo lahko le faktorja 5 in 2. Taki ulomki so končna 
+decimalna števila.
+
+\subsection{Urejenost racionalnih števil}
+Ulomke lahko predstavimo na številski premici. Množica racionalnih števil je povsod enako
+gosta. Med dvema racionalnima številoma je vedno še vsaj eno racionalno število.
+\[ a < \frac{a+b}{2} < b; a, b \in \Q \] 
+
+\section{Realna števila}
+To je množica vseh \textbf{decimalnih} števil. Med množico \R{} in množico točk na premici
+obstaja bijektivna preslikava.
+\begin{izrek}
+  \label{izrek:koren2nirac}
+  $\sqrt{2} \notin \Q$
+\end{izrek}
+
+\textbf{Dokaz izreka \ref{izrek:koren2nirac}:} 
+\begin{align*}
+  A &:= \sqrt{2} \notin \Q \\
+  \neg A &:= \sqrt{2} \in \Q  \comment{dokažimo trditev $\neg A$} \\
+  \sqrt{2} &=  \frac{p}{q} \comment{$\sqrt{2} \in \Q$, torej se ga lahko zapiše kot okrajšan ulomek} \\
+  2 &= \frac{p^2}{q^2} \\
+  2q^2 &= p^2 \comment{kvadrat $p$ je sodo, torej je tudi $p$ sodo; $p = 2m$} \\
+  2q^2 &= \left( 2m \right)^2 \\
+  q^2 &= 2m^2 \comment{kvadrat $q$ je sodo, torej je tudi $q$ sodo; $q = 2n$} \\
+  \left( 2n \right)^2 &=  2m^2 \\
+  2n^2 &= m^2 \\
+  &\vdots \comment{$p$ je sodo, $q$ je sodo, torej ulomek ni okrajšan, trditev je napačna} \\
+  \neg A = 0 &\Rightarrow A = 1 \comment{$\sqrt{2}$ torej ni element \Q} \\
+\end{align*}
+\[  \sqrt{2} \notin \Q \]
+
+\section{Absolutna vrednost}
+\begin{equation}
+  \label{eq:abs}
+  \left| x \right| = 
+  \begin{cases} 
+    \hfill  x; & \text{če $x \geq 0$,} \\
+    \hfill -x; & \text{če $x < 0$.}
+  \end{cases}
+\end{equation}
+
+\textbf{Lastnosti:}
+\begin{itemize*}
+  \item $|x| \geq 0$
+  \item $|x| = 0 \iff x = 0$
+  \item Grafično predstavlja oddaljenost števila od izhodišča na številski premici.
+  \item $|xy| = |x| \krat |y| \quad$ Absolutna vrednost produkta je enaka produktu
+    absolutnih vrednosti.
+  \item $|x+y| \leq |x| + |y| \quad$ Absolutna vrednost vsote je manjša ali enaka vsoti
+    absolutnih vrednosti. (\textbf{trikotniška neenakost})
+\end{itemize*}
+
+\section{Intervali}
+$\left[a,b \right] = \left\{x; a \leq x \leq b; \; x \in \R \right\}$ --- zaprt interval \\
+$\left(a,b \right) = \left\{x; a < x < b; \; x \in \R \right\}$ --- odprt interval \\
+$\left[a,b \right] = \left\{x; a \leq x < b; \; x \in \R \right\}$ --- polodprt interval \\
+$\left(a,b \right] = \left\{x; a < x \leq b; \; x \in \R \right\}$ --- polzaprt interval \\
+$(-\infty,\infty) = \R$
+
+\section{Izrazi}
+\begin{align}
+   n \in \N, \quad & a, b, c \in \R \\
+   \label{eq:izr:kvadrat:dvoclenika} (a \pm b)^2 &= a^2 \pm 2ab + b^2 \comment{kvadrat
+   dvočlenika} \\
+   \label{eq:izr:kub:dvoclenika} (a \pm b)^3 &= a^3 \pm 3a^2b + 3ab^2 \pm b^3 \comment{kub
+   dvočlenika} \\
+   \label{eq:izr:kvadrat:troclenika} (a \pm b \pm c)^2 &= a^2 + b^2 + c^2 \pm 2ab \pm 2ac \pm 2bc \\
+   \label{eq:izr:razlikakvadratov} a^2 - b^2 &= (a+b)(a-b) \comment{razlika kvadratov} \\
+   \label{eq:izr:vsotakubov} a^3 \pm b^3 &= (a \pm b)(a^2 \mp ab + b^2) \comment{razlika ali
+   vsota kubov} \\
+   \label{eq:izr:vietovo} (x\pm a)(x\pm b) &= x^2 + (a\pm b)x \pm ab \comment{Viètovo
+   previlo} \\
+   \label{eq:izr:ananminusbnan} a^n - b^n &= (a - b)(a^{n-1} + a^{n-2}b + \cdots
+   + ab^{n-2} + b^{n-1}) \\ 
+   \label{eq:izr:ananminusbnansum} a^n - b^n &= (a - b)\sum_{i=0}^{n-1} a^ib^{n-i-1} \\
+   \label{eq:izr:ananplubnan}  a^n + b^n &=  (a + b)(a^{n-1} - a^{n-2}b + \cdots
+   - ab^{n-2} + b^{n-1}) \\
+   \label{eq:izr:ananplusbnansum} a^n +b^n &= (a+b)\sum_{i=0}^{n-1} (-1)^ia^ib^{n-i-1}
+   \comment{na lihe $n$}
+\end{align}
+
+\section{Potence}
+\label{sec:pot}
+\subsection{Potence z naravnim eksponentom}
+\label{sec:pot:nar}
+So krajši zapis za množenje več enakih faktorjev.
+\begin{equation}
+    a^n = \underbrace{a \krat a \krat a \krat a \krat \cdots \krat a}_n
+    \label{eq:pot:defn}
+\end{equation}
+
+\subsubsection{Pravila za računanje}
+\label{sec:pot:nar:prav}
+Vsa pravila se dokaže tako, da se potenco zamenja po definiciji \eqref{eq:pot:defn} in
+pogleda število faktorjev.
+\begin{align}
+  a^m \krat a^n &= a^{m+n} \label{eq:pot:anankratanam} \\
+  (a^m)^n &= a^{m\krat n} \label{eq:pot:anannam} \\
+  (a\krat b)^n &= a^n \krat b^n \label{eq:pot:akratbnan}
+\end{align}
+
+\subsection{Potence s celim eksponentom}
+\label{sec:pot:cela}
+\begin{equation}
+  \label{eq:pot:defz}
+  a^k =
+  \begin{cases}
+    \hfill a^k; & \text{če $k > 0$ (po definiciji \eqref{eq:pot:defn})} \\
+    \hfill 1;   & \text{če $k = 0$} \\
+    \hfill \frac{1}{a^{-k}}; & \text{če $k < 0$}
+  \end{cases}
+  \qquad k \in \Z
+\end{equation}
+
+
+\subsubsection{Pravila za računanje}
+\label{sec:pot:cela:prav}
+Vsa pravila kot za naravna števila (razdelek \ref{sec:pot:nar:prav}), dokažejo se s pravili za naravna, ali pa so dokazi
+podobni tistim za naravna. Poleg teh veljajo še naslednja pravila:
+\begin{align}
+  \frac{a^n}{a^m} &= a^{n-m} \label{eq:pot:anandelanam} \\
+  \frac{a^n}{b^n} &= \left( \frac{a}{b} \right)^n
+\end{align}
+
+\subsection{Potence z racionalnim eksponentom}
+\label{sec:pot:rac}
+V tem razdelku se uporabljajo koreni in pravila za računanje z njimi. Koreni so opisani
+kasneje v razdelku \ref{sec:kor}, pravila pa v razdelku \ref{sec:kor:prav}.
+\begin{equation}
+  \label{eq:pot:defrac}
+  a^{\frac{m}{n}} = \sqrt[n]{a^m}; \quad a \in \R^+ \cup \left\{ 0 \right\}; \; m \in \Z;
+  \; n \in \Z - \left\{ 0 \right\}
+\end{equation}
+
+\subsubsection{Pravila za računanje}
+\label{sec:pot:rac:prav}
+\begin{align}
+  a^{\frac{m}{n}} \krat a^{\frac{q}{p}} &= a^{\frac{mp+qn}{np}} \label{eq:pot:rac:prav:prodpot} \\
+  \frac{a^{\frac{m}{n}}}{a^{\frac{q}{p}}} &= a^{\frac{mp-qn}{np}} \label{eq:pot:rac:prav:kvocpot} \\
+  \left( a^{\frac{m}{n}} \right)^{\frac{q}{p}} &= a^{\frac{mq}{np}} \label{eq:pot:rac:prav:potpot} \\
+  \left( a \krat b \right)^{\frac{m}{n}} &= a^{\frac{m}{n}} \krat b^{\frac{m}{n}}
+  \label{eq:pot:rac:prav:potprod} \\
+  \left( \frac{a}{b} \right)^{\frac{m}{n}} &= \frac{a^{\frac{m}{n}}}{b^{\frac{m}{n}}}
+  \label{eq:pot:rac:prav:potkvoc} \\
+\end{align}
+
+Dokaz pravila \ref{eq:pot:rac:prav:prodpot}:
+\[ a^{\frac{m}{n}} \krat a^{\frac{q}{p}} = \sqrt[n]{a^m} \krat \sqrt[p]{a^q} =
+\sqrt[np]{a^{mp+qn}} = a^{\frac{mp+qn}{np}} \comment{pravilo za računanje s
+koreni \eqref{eq:kor:prav:prodkor}} \]
+
+Dokaz pravila \ref{eq:pot:rac:prav:kvocpot}:
+\[ \frac{a^{\frac{m}{n}}}{a^{\frac{q}{p}}} = \frac{\sqrt[n]{a^m}}{\sqrt[p]{a^q}} =
+\sqrt[np]{a^{mp-qn}} = a^{\frac{mp-qn}{np}} \comment{pravilo za računaje s koreni
+\eqref{eq:kor:prav:kvockor}} \]
+
+Dokaz pravila \ref{eq:pot:rac:prav:potpot}:
+\[ \left( a^{\frac{m}{n}} \right)^{\frac{q}{p}} = \sqrt[p]{\left(\sqrt[n]{a^m} \right)^q}
+= \sqrt[np]{a^{mq}} = a^{\frac{mq}{np}} \comment{pravilo za računanje s koreni
+\eqref{eq:kor:prav:korkoranannaq}}\]
+
+Dokaz pravila \ref{eq:pot:rac:prav:potprod}:
+\[ \left( a \krat b \right)^{\frac{m}{n}} = \sqrt[n]{\left( a \krat b\right)^m} =
+\sqrt[n]{a^m \krat b^m} = \sqrt[n]{a^m} \krat \sqrt[n]{b^m} = a^{\frac{m}{n}} \krat
+b^{\frac{m}{n}} \comment{up. pravilo \eqref{eq:kor:prav:prodenakkor}} \]
+
+Dokaz pravila \ref{eq:pot:rac:prav:potkvoc}:
+\[ \left( \frac{a}{b} \right)^{\frac{m}{n}} = \sqrt[n]{\left( \frac{a}{b} \right)^m} =
+\sqrt[n]{\frac{a^m}{b^m}} = \frac{\sqrt[n]{a^m}}{\sqrt[n]{b^m}} =
+\frac{a^{\frac{m}{n}}}{b^{\frac{m}{n}}} \comment{uporabljeno pravilo \eqref{eq:kor:prav:ulenakkor}}
+\]
+\section{Koreni}
+\label{sec:kor}
+\begin{equation}
+  \label{eq:kor:def}
+  \sqrt[n]{a} = b \iff b^n = a; \quad a, b \in \R^+ \cup \{0\}, \; n \in \Z - \{0\}
+\end{equation}
+Če $a \in \R^-$: \\
+če $n$ lih: $\sqrt[n]{a} = -\sqrt[n]{|a|}$ \\
+če $n$ sod: ne obstaja v realnem.\\
+
+Dogovor:
+\begin{align*}
+  \sqrt[2]{a} &= \sqrt{a}
+\end{align*}
+
+Osnovne izpeljave:
+\begin{align}
+  \sqrt[1]{a} &= a \nonumber \\
+  \sqrt[n]{a^n} &= a \label{eq:kor:dog:nkorn} \\
+  \left(\sqrt[n]{a}\right)^n &= a \label{eq:kor:dog:nkornzakn}
+\end{align}
+
+\subsection{Pravila za računanje}
+\label{sec:kor:prav}
+\begin{align}
+  \sqrt[n]{a^m} &= \sqrt[p]{a^q} \iff mp = qn \label{eq:kor:prav:mpjeqn} \\
+  \sqrt[n]{a^m} &= \sqrt[nx]{a^{mx}} \label{eq:kor:prav:razsirjanje} \\ 
+  \sqrt[n]{a} \krat \sqrt[n]{b} &= \sqrt[n]{a \krat b} \label{eq:kor:prav:prodenakkor} \\
+  \frac{\sqrt[n]{a}}{\sqrt[n]{b}} &= \sqrt[n]{\frac{a}{b}} \label{eq:kor:prav:ulenakkor} \\
+  \sqrt[n]{a^m} \krat \sqrt[p]{a^q} &= \sqrt[np]{a^{mp+qn}} \label{eq:kor:prav:prodkor} \\
+  \frac{\sqrt[n]{a^m}}{\sqrt[p]{a^q}} &= \sqrt[np]{a^{mp-qn}} \label{eq:kor:prav:kvockor} \\
+  \sqrt[p]{\sqrt[n]{a}} &= \sqrt[np]{a} \label{eq:kor:prav:korkor} \\
+  \left( \sqrt[n]{a^m} \right)^q &= \sqrt[n]{a^{mq}}  \label{eq:kor:prav:koranannaq} \\
+  \sqrt[p]{\left( \sqrt[n]{a^m} \right)^q} &= \sqrt[np]{a^{mq}} \label{eq:kor:prav:korkoranannaq}
+\end{align}
+
+Pri dokazih se uporabljajo pravila za računanje s potencami s celim eksponentom (razdelek
+\ref{sec:pot:cela:prav}).\\[5pt]
+Dokaz pravila \ref{eq:kor:prav:mpjeqn}:
+\begin{align*}
+  \sqrt[n]{a^m} &= \sqrt[p]{a^q} \;/^{np} \\
+  \left(\sqrt[n]{a^m}\right)^{np} &= \left(\sqrt[p]{a^q} \right)^{np} \comment{upoštevamo
+  osnovno izpeljavo \eqref{eq:kor:dog:nkornzakn}} \\
+  \left( a^m \right)^p &= \left( a^q \right)^n \\
+  a^{mp} &= a^{qm} \\
+  mp &= qn
+\end{align*}
+
+Dokaz pravila \ref{eq:kor:prav:razsirjanje}:
+\begin{align*}
+  \sqrt[n]{a^m} &= \sqrt[nx]{a^mx} \\
+  mnx &= nmx \comment{glej pravilo \eqref{eq:kor:prav:mpjeqn}}
+\end{align*}
+
+Dokaz pravila \ref{eq:kor:prav:prodenakkor}:
+\begin{align*}
+  \sqrt[n]{a} \krat \sqrt[n]{b} &= x \\
+  \left( \sqrt[n]{a} \krat \sqrt[n]{b} \right)^n &= x^n \\
+  \left(\sqrt[n]{a}\right)^n \krat \left(\sqrt[n]{b} \right)^n &= x^n \\
+  a \krat b &= x^n \\
+  x &= \sqrt[n]{a\krat b} \comment{upoštevamo definicijo korena \eqref{eq:kor:def}}
+\end{align*}
+
+Dokaz pravila \ref{eq:kor:prav:ulenakkor}:
+\begin{align*}
+  \frac{\sqrt[n]{a}}{\sqrt[n]{b}} &= x \\
+  \left( \frac{\sqrt[n]{a}}{\sqrt[n]{b}} \right)^n &= x^n \\
+  \frac{\left( \sqrt[n]{a} \right)^n}{\left( \sqrt[n]{b} \right)^n} &= x^n \\
+  \frac{a}{b} &= x^n \\
+  x &= \sqrt[n]{\frac{a}{b}} \comment{upoštevamo definicijo korena \eqref{eq:kor:def}}
+\end{align*}
+
+Dokaz pravila \ref{eq:kor:prav:prodkor}:
+\begin{align*}
+  \sqrt[n]{a^m} \krat \sqrt[p]{a^q} &= x \;/^{np} \\
+  \left( a^m \right)^p \krat \left( a^q \right)^n &= x^{np} \\
+  a^{mp} \krat a^{qn} &= x^{np} \\
+  a^{mp + qn} &= x^{np} \\
+  x &= \sqrt[np]{a^{mp+qn}} \comment{upoštevamo definicijo korena \eqref{eq:kor:def}}
+\end{align*}
+
+Dokaz pravila \ref{eq:kor:prav:kvockor}:
+\begin{align*}
+  \frac{\sqrt[n]{a^m}}{\sqrt[p]{a^q}} &= x \; ^{np} \\
+  \frac{a^{mp}}{a^{qn}} &= x^{np} \\
+  a^{mp-qn} &= x^{np} \\
+  x &= \sqrt[np]{a^{mp-qn}} \comment{upoštevamo definicijo korena \eqref{eq:kor:def}}
+\end{align*}
+
+Dokaz pravila \ref{eq:kor:prav:korkor}:
+\begin{align*}
+   \sqrt[p]{\sqrt[n]{a}} &= x \\
+   \sqrt[n]{a} &= x^p \\
+   a &= \left( x^p \right)^n \\
+   a &= x^{np} \\
+   x &= \sqrt[np]{a} \comment{upoštevamo definicijo korena \eqref{eq:kor:def}}
+\end{align*}
+
+Dokaz pravila \ref{eq:kor:prav:koranannaq}:
+\begin{align*}
+  \left( \sqrt[n]{a^m} \right)^q &= x \\
+  \left( \sqrt[n]{a^m} \right)^{qn} &= x^n \comment{upoštevamo osnovno izpeljavo \eqref{eq:kor:dog:nkornzakn}} \\
+  \left( a^m \right)^q &= x^n \\
+  a^{mq} &= x^n \\
+  x &= \sqrt[n]{a^{mq}}
+\end{align*}
+
+Dokaz pravila \ref{eq:kor:prav:korkoranannaq}:
+\[  \sqrt[p]{\left( \sqrt[n]{a^m} \right)^q} = \sqrt[p]{\sqrt[n]{a^{mq}}} =
+\sqrt[np]{a^{mq}} \comment{upoštevamo pravili \eqref{eq:kor:prav:korkor} in
+\eqref{eq:kor:prav:koranannaq}.} \]
+
+\section{Logaritmi}
+\label{sec:log}
+\begin{equation}
+  \label{eq:log:def}
+  \log_a\! x = y \iff a^y = x 
+\end{equation}
+
+Osnovne izpeljave iz definicije:
+\begin{align}
+  \log_a\! a &= 1 \label{eq:log:logaaje1} \\
+  \log_a\! 1 &= 0 \label{eq:log:log1je0} \\
+  a^{\log_a\! x} &= x \label{eq:log:analogax} \\
+  \log_a\! a^y &= y \label{eq:log:logaanay}
+\end{align}
+
+Dogovora: \\
+\[ \log_{10}\!x = \log x \]
+\[ \log_{e}\!x = \ln x \] 
+
+\vspace{-24pt}
+
+\hspace{95pt}
+\footnote{Matematiki za logaritem z osnovo $e$ pogosto uporabljajo
+kar zapis $\log x$.}
+
+\subsection{Pravila za računanje}
+\label{sec:eq:log:prav}
+Logaritem potence je enak produktu med eksponentom in logaritmom osnove:
+\begin{equation}
+  \log_a\! x^n = n\log_a\! x \label{eq:log:prav:loganan}
+\end{equation}
+Logaritem produkta je enak vsoti logaritmov posameznih faktorjev:
+\begin{equation}
+  \log_a\! xy = log_a\!x+ \log_a\!y \label{eq:log:prav:logprod}
+\end{equation}
+Logaritem kvocienta je enak razliki med logaritmom števca in imenovalca:
+\begin{equation}
+  \log_a\!\frac{x}{y} = \log_a\!x-\log_a\!y \label{eq:log:prav:logkvoc}
+\end{equation}
+
+Dokaz pravila \ref{eq:log:prav:loganan} (upoštevamo osnovni izpeljavi \eqref{eq:log:analogax} in
+\eqref{eq:log:logaanay}):
+\[ \log_a\!x^n = \log_a\!\left( a^{\log_a\!x} \right)^n = \log_a\!\left( a^{n\log_a\!x}
+\right) = n \krat \log_a\!x  \]
+
+Dokaz pravila \ref{eq:log:prav:logprod} (upoštevamo osnovni izpeljavi \eqref{eq:log:analogax} in
+\eqref{eq:log:logaanay}):
+\[ \log_a\!xy = \log_a\!\left( a^{\log_a\!x} \krat a^{\log_a\!y} \right) = \log_a\!\left(
+a^{\log_a\!x+\log_a\!y} \right) = \log_a\!x + \log_a\!y \]
+
+Dokaz pravila \ref{eq:log:prav:logkvoc} (upoštevamo pravili \eqref{eq:log:prav:logprod}  in
+\eqref{eq:log:prav:loganan}):
+\[ \log_a\!\frac{x}{y} = \log_a\!xy^{-1} = \log_a\!x + \log_a\!y^{-1} = \log_a\!x -
+\log_a\!y \]
+
+Prehod na novo osnovo:
+\begin{align*}
+  \log_b\!a^y &= \log_b\!x \comment{po definiciji \eqref{eq:log:def} je $a^y$ enak $x$} \\
+  y \krat \log_b\!a &= \log_b\!x \comment{uporabimo pravilo \eqref{eq:log:prav:loganan}} \\
+  y &= \frac{\log_b\!x}{\log_b\!a} \\
+  \log_a\!x &= \frac{\log_b\!x}{\log_b\!a} \comment{po definiciji je $y$ enak $\log_a\!x$}
+\end{align*}
+Iz tega izpeljemo zvezo:
+\[ \log_a\!x = \frac{1}{\log_x\!a} \]
+
+\section{Koordinatni sistem}
+\label{sec:koor}
+\subsection{Pravokotni, v ravnini}
+\label{sec:koor:pravrav}
+Dve pravokotni osi. \\
+$x$ --- abscisna os \\
+$y$ --- ordinatna os
+\[ \mathcal{M} = \left\{ (x,y); \; x, y \in \R \right\} = \R \times \R = \R^2 \]
+
+Osi razdelita ravnino na štiri \textbf{kvadrante}: \\[3pt]
+\begin{tabular}{ll}
+  \Rom{1} kvadrant: & $x > 0 \land y > 0$ \\
+  \Rom{2} kvadrant: & $x < 0 \land y > 0$ \\
+  \Rom{3} kvadrant: & $x < 0 \land y < 0$ \\
+  \Rom{4} kvadrant: & $x > 0 \land y < 0$ \\
+\end{tabular}
+\\
+Pomembni \textbf{premici}:
+\begin{align*}
+  y &= x  \comment{simetrala lihih kvadrantov} \\
+  y &= -x \comment{simetrala sodih kvadrantov}
+\end{align*}
+
+Pas: $a < x < b$ 
+
+\textbf{Razdalja} med dvema točkama (dokaz: Pitagorov izrek):
+\begin{align*}
+  A(x_1, y_1) \\
+  B(x_2, y_2) \\
+  d(A,B) &= \sqrt{\left( x_2 - x_1 \right)^2 + \left( y_2 - y_1 \right)^2}
+\end{align*}
+
+\textbf{Središče} daljice:
+\[ S_{AB} = \left( \frac{x_a+x_b}{2}, \frac{y_a+y_b}{2} \right) \]
+
+\textbf{Težišče} in \textbf{ploščina} trikotnika\footnote{Za razrešitev
+determinante matrike glej enačbo \eqref{determinanta}. In ja, |\ \ | ne pomeni absolutne
+vrednosti.}:
+\[ T_{ABC} = \left( \frac{x_a+x_b+x_c}{3},\frac{y_a+y_b+y_c}{3} \right) \]
+\[ p\sigma = \frac{1}{2} \begin{vmatrix}
+    x_2 - x_1 & y_2 - y_1 \\
+    x_3 - x_1 & y_3 - y_1 
+\end{vmatrix} \comment{$\sigma$ je orientacija trikotnika.} \]
+\[ p\sigma = \frac{1}{2} \left[ (x_2-x_1)(y_3-y_1) + (y_2-y_1)(x_3-x_1) \right] \]
+\[ p\sigma = \frac{1}{2} \left[ x_1(y_2-y_3 + x_2(y_3-y_1) + x_3(y_1-y_2) \right] \]
+
+Determinanta:
+\begin{equation}
+  \begin{vmatrix}
+    a & b \\
+    c & d
+  \end{vmatrix} = a \krat d - b \krat c
+  \label{determinanta}
+\end{equation}
+
+\subsection{Pravokotni, v prostoru}
+\label{sec:koor:pravpro}
+Dve pravokotni osi. \\
+$x$ --- abscisna os \\
+$y$ --- ordinatna os \\
+$z$ --- aplikatna os
+\[ \mathcal{M} = \left\{ (x,y,z); \; x, y, z \in \R \right\} = \R \times \R \times \R = \R^3 \]
+
+Formule so enake kot v ravnini (razdelek \ref{sec:koor:pravrav}), le da vsebujejo še
+tretjo koordinato.
+
+\section{Polarni, v ravnini}
+\label{sec:koor:pol}
+Nekoč drugič.
+
+\section{Funkcije}
+\label{sec:fun}
+\[ f(x)\!: A \rightarrow B \]
+\textbf{Funkcija}, ki množico $A$ preslika v množico $B$ je predpis, ki vsakemu elementu iz množice
+$A$ priredi natanko določen element iz množice $B$.
+
+\[ f(x)\!: A \rightarrow B; \; A, B \subseteq \R \]
+Funkcija je \textbf{realna}, če podmnožico realnih števil preslika v podmnožico realnih števil.
+
+\textbf{Definicijsko območje} ($D_f$) funkcije $f$ je množica realnih števil, za katera lahko
+predpis izračunamo.
+
+\textbf{Zaloga vrednosti} ($Z_f$) funkcije $f$ je množica realnih števil, ki jih funkcija lahko
+zavzame.
+
+\textbf{Graf} ($G_f$) funkcije $f$ je množica urejenih parov $(x, y)$, pri katerih je $x$ element
+definicijskega območja, $y$ pa vrednost funkcije pri $x$.
+\[ G_f = \left\{ (x,y); \; x \in D_f, \; y = f(x) \right\} \]
+
+$a$ je \textbf{ničla} funkcije, če je vrednost funkcije pri $a$ enaka 0.
+\[ a \textnormal{ ničla } \iff f(a) = 0 \]
+
+\textbf{Začetna vrednost} funkcije je vrednost funkcije pri 0.
+\[ \textnormal{začetna vrednost} = f(0) \]
+
+Funkcija je \textbf{padajoča}, če pri vsakem večjem $x$ zavzame manjšo vrednost.
+\[ f(x) \textnormal{ padajoča } \iff \forall x_1, x_2 \in D_f: x_1 < x_2 \implies f(x_1) >
+f(x_2) \]
+
+Funkcija je \textbf{naraščajoča}, če pri vsakem večjem $x$ zavzame večjo vrednost.
+\[ f(x) \textnormal{ naraščajoča } \iff \forall x_1, x_2 \in D_f: x_1 < x_2 \implies f(x_1) <
+f(x_2) \]
+
+Funkcija je \textbf{navzgor omejena}, ko so vse funkcijske vrednosti manjše ali enake od nekega
+realnega števila $M$ (zgornja meja).
+\[ f(x) \textnormal{ navzgor omejena } \iff \exists M \in \R: f(x) \leq M; \forall x \in D_f \]
+
+
+Funkcija je \textbf{navzdol omejena}, ko so vse funkcijske vrednosti večje ali enake od nekega
+realnega števila $m$ (spodnja meja).
+\[ f(x) \textnormal{ navzdol omejena } \iff \exists m \in \R: f(x) \geq m; \forall x \in D_f \]
+
+Funkcija je \textbf{omejena}, če je omejena navzgor in navzdol.
+
+\textbf{Pol} je realno število, za katerega funkcija ni definirana. 
+
+\textbf{Asimptota} je črta, ki se ji graf približuje.
+
+Funkcija je na nekem območju \textbf{konveksna}, če za vsaki dve točki na grafu funkcije
+velja, da leži graf pod daljico, ki jo določata ti dve točki.
+
+Funkcija je na nekem območju \textbf{konkavna}, če za vsaki dve točki na grafu funkcije velja, da
+leži graf nad daljico, ki jo določata ti dve točki.
+
+Funkcija je \textbf{soda}, če za vsak $x$ iz definicijskega območja velja: $f(-x) = f(x)$.
+\[ f(x) \textnormal{ soda } \iff f(-x) = f(x); \; \forall x \in D_f \]
+
+Funkcija je \textbf{liha}, če za vsak $x$ iz definicijskega območja velja: $f(-x) = -f(x)$.
+\[ f(x) \textnormal{ liha } \iff f(-x) = -f(x); \; \forall x \in D_f \]
+
+Funkcija je na nekem območju \textbf{pozitivna}, če so vse funkcijske vrednosti na tem območju
+večje od 0.
+
+Funkcija je na nekem območju \textbf{negativna}, če so vse funkcijske vrednosti na tem območju
+manjše od 0.
+
+Funkcija je \textbf{periodična} natanko takrat, ko obstaja tak $\omega \in \R^+$, da za vsak $x$ iz
+definicijskega območja velja $f(x) = f(x+\omega)$.
+\[ f(x) \textnormal{ periodična } \iff \exists \omega \in \R^+: f(x) = f(x+\omega), \; \forall x \in
+D_f \comment{$\omega$ --- perioda} \]
+
+\textbf{Val} periodične funkcije je del funkcije na intervalu $[x, x+\omega], x \in D_f$.
+
+\subsection{Premik funkcije}
+\label{sec:fun:prem}
+Funkcijo $y = f(x)$ premaknemo za vektor $\vec{v} = (p,q)$ (glej sliko~\ref{fig:fun:prem}).
+\begin{align*}
+  x &= x'-p \\
+  y &= y'-q \\
+  y &= f(x) \\
+  y' - q &= f(x'-p) \\
+  y' &= f(x'-p) + q
+\end{align*}
+Parameter $p$ vpliva na \textbf{premik}
+po $x$ osi (levo -- desno), parameter $q$ pa na premik po $y$ osi (gor -- dol).
+
+\begin{figure}[ht]
+  \begin{center}
+      \begin{pspicture*}(-3.5,-3.5)(3.5,3.5)
+        \psaxes[labels=none]{->}(0,0)(-3.5,-3.5)(3.5,3.5)
+        \psplot[linecolor=black, linewidth=.5pt]{-3.5}{3.5}{x -1 mul 3 exp}
+        \psplot[linecolor=black, linewidth=.5pt]{-3.5}{3.5}{x 2 sub -1 mul 3 exp 1 add}
+        \psline[linecolor=black, linewidth=1pt]{->}(-1,1)(1,2)
+        \psline[linecolor=red, linestyle=dotted]{}(-1,1)(0,1)
+        \psline[linecolor=red, linestyle=dotted]{}(-1,1)(-1,0)
+        \psline[linecolor=red, linestyle=dotted]{}(1,2)(0,2)
+        \psline[linecolor=red, linestyle=dotted]{}(1,2)(1,0)
+        \uput[0](0,1){$y$}
+        \uput[180](0,2){$y'$}
+        \uput[-90](-1,0){$x$}
+        \uput[-90](1,0){$x'$}
+        \uput[180](-1,1){$T(x,y)$}
+        \uput[60](-1,1){$\vec{v}$}
+        \uput[45](1,2){$T'(x',y')$}
+      \end{pspicture*}
+  \end{center}
+  \beforecaptionskip
+  \caption{Premik funkcije.}
+  \label{fig:fun:prem}
+\end{figure}
+
+\subsection{Razteg funkcije}
+\label{sec:fun:razt}
+Funkcijo $y = f(x)$ raztegnemo s parametroma $a$ in $b$.
+\[ y = a \krat f\left( \frac{x}{b} \right) \]
+Parameter $a$ predstavlja razteg v smeri $y$ osi, če je negativen, se graf preslika čez
+$y$ os. Odvisnost funkcije od parametra $a$ je prikazana na sliki~\ref{fig:fun:a}. 
+
+Parameter $b$ predstavlja razteg v smeri $x$ osi, če je negativen, se graf
+preslika čez $x$ os. Odvisnost funkcije od parametra $b$ je prikazana na sliki~\ref{fig:fun:b}. 
+
+\begin{figure}[ht]
+  \begin{center}
+    \subfigure[Parameter $a$.]{
+      \label{fig:fun:a}
+      \begin{pspicture*}(-3.5,-3.5)(3.5,3.5)
+        \psaxes[labels=none]{->}(0,0)(-3.5,-3.5)(3.5,3.5)
+        \psplot[linecolor=black, linewidth=1pt]{-3.5}{3.5}{x 2 exp}
+        \psplot[linecolor=blue, linewidth=1pt]{-3.5}{3.5}{x 2 exp 4 mul}
+        \psplot[linecolor=red, linewidth=1pt]{-3.5}{3.5}{x 2 exp 0.3 mul}
+        \psplot[linecolor=green, linewidth=1pt]{-3.5}{3.5}{x 2 exp -1 mul}
+        \uput[0](1.8,3){1}
+        \uput[0](0.8,3){4}
+        \uput[0](2,1){0.3}
+        \uput[0](1.8,-3){-1}
+      \end{pspicture*}
+    }
+    \subfigure[Parameter $b$.]{
+      \label{fig:fun:b}
+      \begin{pspicture*}(-3.5,-3.5)(3.5,3.5)
+        \psaxes[labels=none]{->}(0,0)(-3.5,-3.5)(3.5,3.5)
+        \psplot[linecolor=black, linewidth=1pt]{-3.5}{3.5}{x 3 exp}
+        \psplot[linecolor=blue, linewidth=1pt]{-3.5}{3.5}{x 2.5 div 3 exp}
+        \psplot[linecolor=red, linewidth=1pt]{-3.5}{3.5}{x 0.3 div 3 exp}
+        \psplot[linecolor=green, linewidth=1pt]{-3.5}{3.5}{x -1 div 3 exp}
+        \uput[0](1.5,3){$1$}
+        \uput[0](0.4,3){$0.3$}
+        \uput[0](2.5,1){$2.5$}
+        \uput[0](-1.5,3){$-1$}
+      \end{pspicture*}
+    }
+  \end{center}
+  \beforecaptionskip
+  \caption{Odvisnost funkcije od parametrov $a$ in $b$.}
+  \label{fig:fun:ab}
+\end{figure}
+
+
+\subsection{Inverzna funkcija}
+\label{sec:fun:inv}
+\textbf{Inverzna funkcija} funkcije $f(x)$ je funkcija $f^{-1}(x)$, ki jo dobimo tako, da v prvotni
+funkciji zamenjamo vlogo odvisne in neodvisne spremenljivke, ter izrazimo novo neodvisno
+spremenljivko. \textbf{Grafično} dobimo graf $f^{-1}(x)$ tako, da graf prvotne funkcije preslikamo
+čez simetralo lihih kvadrantov. Inverzno funkcijo lahko dobimo samo na območjih, ko je
+prvotna funkcija \textbf{injektivna}.\footnote{Za definicijo injektivnosti glej razdelek
+\ref{sec:preslikave}.}
+
+\subsection{Linearna funkcija}
+\textbf{Linearna funkcija} je vsaka funkcija oblike $y = kx + n$.
+\label{sec:fun:lin}
+\begin{align*}
+  y = kx + n \comment{explicitna} \\
+  ax + by + c = 0 \comment{implicitna} \\
+  \frac{x}{m} + \frac{y}{n} = 1 \comment{odsekovna}
+\end{align*}
+
+$k$ --- smerni koeficient \\
+$n$ --- začetna vrednost, odsek na ordinatni osi \\
+$m$ --- odsek na abscisni osi
+
+\textbf{Snop} premic na sliki~\ref{fig:fun:lin:snop}, \textbf{šop} premic na sliki~\ref{fig:fun:lin:sop}.
+
+\begin{figure}[ht]
+  \begin{center}
+    \subfigure[Snop premic.]{
+      \label{fig:fun:lin:snop}
+      \begin{pspicture*}(-2.0,-2.0)(2.0,2.0)
+        \psaxes[labels=none]{->}(0,0)(-2.0,-2.0)(2.0,2.0)
+        \psplot[linecolor=black, linewidth=1pt]{-2.0}{2.0}{x}
+        \psplot[linecolor=black, linewidth=1pt]{-2.0}{2.0}{x 2 sub}
+        \psplot[linecolor=black, linewidth=1pt]{-2.0}{2.0}{x 0.5 add}
+        \psplot[linecolor=black, linewidth=1pt]{-2.0}{2.0}{x 1.5 add}
+      \end{pspicture*}
+    }
+    \subfigure[Šop premic.]{
+      \label{fig:fun:lin:sop}
+      \begin{pspicture*}(-2.0,-2.0)(2.0,2.0)
+        \psaxes[labels=none]{->}(0,0)(-2.0,-2.0)(2.0,2.0)
+        \psplot[linecolor=black, linewidth=1pt]{-2.0}{2.0}{x 0.5 add}
+        \psplot[linecolor=black, linewidth=1pt]{-2.5}{2.5}{x 0.5 add 0.5 mul}
+        \psplot[linecolor=black, linewidth=1pt]{-2.5}{2.5}{x 0.5 add -2 mul}
+        \psplot[linecolor=black, linewidth=1pt]{-2.5}{2.5}{x 0.5 add -0.5 mul}
+      \end{pspicture*}
+    }
+  \end{center}
+  \beforecaptionskip
+  \caption{Posebni medsebojni legi premic.}
+  \label{fig:fun:lin:snopsop}
+\end{figure}
+
+\subsection{Potenčna funkcija}
+\label{sec:fun:pot}
+\textbf{Potenčna funkcija} je vsaka funkcija oblike: $f(x) = x^n; \; n \in \Z  - \left\{ 0,1 \right\}$.
+Poznamo štiri glavne \textbf{grafe} potenčne funkcije, ki se delijo glede na eksponent:
+\begin{itemize*}
+  \item pozitiven sod eksponent (slika~\ref{fig:fun:pot:sodplus})
+  \item pozitiven lih eksponent (slika~\ref{fig:fun:pot:lihplus})
+  \item negativen sod eksponent (slika~\ref{fig:fun:pot:sodminus})
+  \item negativen lih eksponent (slika~\ref{fig:fun:pot:lihminus}).
+\end{itemize*}
+
+\begin{figure}[ht]
+  \begin{center}
+    \subfigure[Pozitiven sod eksponent]{
+      \label{fig:fun:pot:sodplus}
+      \begin{pspicture*}(-2.2,-2.2)(2.2,2.2)
+        \psaxes[labels=none]{->}(0,0)(-2.2,-2.2)(2.2,2.2)
+        \psplot[linecolor=black, linewidth=1pt]{-2.2}{2.2}{x 2 exp }
+      \end{pspicture*}
+    }
+    \subfigure[Pozitiven lih eksponent]{
+      \label{fig:fun:pot:lihplus}
+      \begin{pspicture*}(-2.2,-2.2)(2.2,2.2)
+        \psaxes[labels=none]{->}(0,0)(-2.2,-2.2)(2.2,2.2)
+        \psplot[linecolor=black, linewidth=1pt]{-2.2}{2.2}{x 3 exp }
+      \end{pspicture*}
+    } \\
+    \subfigure[Negativen sod eksponent]{
+      \label{fig:fun:pot:sodminus}
+      \begin{pspicture*}(-2.2,-2.2)(2.2,2.2)
+        \psaxes[labels=none]{->}(0,0)(-2.2,-2.2)(2.2,2.2)
+        \psplot[linecolor=black, linewidth=1pt]{-2.2}{2.2}{x -2 exp }
+      \end{pspicture*}
+    }
+    \subfigure[Negativen lih eksponent]{
+      \label{fig:fun:pot:lihminus}
+      \begin{pspicture*}(-2.2,-2.2)(2.2,2.2)
+        \psaxes[labels=none]{->}(0,0)(-2.2,-2.2)(2.2,2.2)
+        \psplot[linecolor=black, linewidth=1pt]{-2.2}{-0.001}{x -1 exp }
+        \psplot[linecolor=black, linewidth=1pt]{2.2}{0.001}{x -1 exp }
+      \end{pspicture*}
+    }
+  \end{center}
+  \beforecaptionskip
+  \caption{Grafi potenčne funkcije.}
+  \label{fig:fun:pot:grafi}
+\end{figure}
+
+\subsection{Korenska funkcija}
+\textbf{Korenska funkcija} je vsaka funkcija oblike $f(x) = \sqrt[n]{x}$. \\
+$n$ sod: $D_f = \R^+ \cup \left\{ 0 \right\}, \; Z_f = \R^+ \cup \left\{ 0 \right\}$ \\
+$n$ lih: $D_f = \R, \; Z_f = \R$ \\
+\textbf{Graf} korenske funkcije je na sliki~\ref{fig:fun:kor}.
+
+\begin{figure}[h!t]
+  \begin{center}
+    \begin{pspicture*}(-3.5,-3.5)(3.5,3.5)
+      \psaxes[labels=none]{->}(0,0)(-3.5,-3.5)(3.5,3.5)
+      \psplot[linecolor=black, linewidth=1pt]{0}{3.5}{x sqrt}
+      \psplot[linecolor=blue, linewidth=1pt, swapaxes=true]{-3.5}{3.5}{x 3 exp}
+      \uput[-10](2,2){$\sqrt{x}$}
+      \uput[30](-2,-1){$\sqrt[3]{x}$}
+    \end{pspicture*}
+  \end{center}
+  \beforecaptionskip
+  \caption{Graf korenske funkcije.}
+  \label{fig:fun:kor}
+\end{figure}
+
+\subsection{Kvadratna funkcija}
+\label{sec:fun:kvad}
+Kvadratna funkcija je vsaka funkcija oblike $f(x) = ax^2 + bx + c; \; a, b, c \in \R; \; a
+\neq 0$.
+
+\textbf{Splošna oblika} kvadratne funkcije:
+\begin{equation}
+  f(x) = ax^2 + bx + c
+  \label{eq:fun:kvad:splos}
+\end{equation}
+
+\textbf{Temenska oblika} kvadratne funkcije, teme $T(p,q)$:
+\begin{equation}
+  f(x) = a(x-p)^2 + q
+  \label{eq:fun:kvad:tem}
+\end{equation}
+
+\textbf{Oblika za ničle} (razcep tročlenika):
+\[ f(x) = a(x-x_1)(x-x_2) \]
+
+Prehod iz splošne v temensko obliko, formule za $p$ in $q$:
+\begin{align}
+  f(x) &= ax^2 + bx + c \nonumber \\
+  f(x) &= a(x^2 + \frac{b}{a}x) + c \nonumber \\
+  f(x) &= a\left( \left( x + \frac{b}{2a}\right)^2 - \left( \frac{b}{2a} \right)^2\right) + c \nonumber \\
+  f(x) &= a\left( x + \frac{b}{2a}\right)^2 - \frac{b^2}{4a} + c \nonumber \\
+  f(x) &= a\left( x + \frac{b}{2a}\right)^2 - \frac{b^2-4ac}{4a} \comment{primerjamo s
+  temesko obliko} \nonumber \\
+  p &= -\frac{b}{2a} \label{eq:fun:kvad:p} \\
+  q &= -\frac{b^2 - 4ac}{4a} = -\frac{D}{4a} \label{eq:fun:kvad:q} \\
+  D &= b^2 - 4ac \comment{diskriminanta} \label{eq:fun:kvad:D}
+\end{align}
+
+\textbf{Graf} kvadratne funkcije je premaknjena in raztegnjena parabola $f(x) = x^2$. Vsako
+kvadratno funkcijo v splošni obliki lahko zapišemo tudi v temenski obliki.
+
+\subsubsection{Ničle kvadratne funkcije}
+\label{sec:fun:kvad:nic}
+\textbf{Ničle} kvadratne funkcije se izračunajo po formuli:
+\begin{equation}
+  x_{1,2} = \frac{-b \pm \sqrt{D}}{2a} \comment{$D$ zamenjamo po  definiciji
+  \eqref{eq:fun:kvad:D}}
+  \label{eq:fun:kvad:nicleD}
+\end{equation}
+\begin{equation}
+  x_{1,2} = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+  \label{eq:fun:kvad:nicle}
+\end{equation}
+
+Kvadratne funkcija ima dve različni realni ničli če $D > 0$, eno dvojno realno ničlo, če
+$D = 0$ in nobene realne ničle, če je $D < 0$.
+\begin{align*}
+  D > 0 &\implies x_1 \neq x_2; \; x_1, x_2 \in \R \\
+  D = 0 &\implies x_1 = x_2; \; x_1, x_2 \in \R \\
+  D < 0 &\implies x_1 \neq x_2; \; x_1, x_2 \notin \R
+\end{align*}
+
+\textbf{Izpeljava} formule za ničle kvadratne funkcije:
+\begin{align*}
+  0 &= f(x) \\
+  0 &= a(x-p)^2 + q \comment{temenska oblika kvadratne funkcije \eqref{eq:fun:kvad:tem}} \\
+  a(x-p)^2 &= -q \\
+  (x-p)^2 &= -\frac{q}{a} \\
+  x-p &= \pm \sqrt{-\frac{q}{a}} \\
+  x &= p \pm \sqrt{-\frac{q}{a}} \comment{zamenjamo $p$ in $q$ po 
+  \eqref{eq:fun:kvad:p} in \eqref{eq:fun:kvad:q}} \\
+  x &= - \frac{b}{2a} \pm \sqrt{-\frac{-\frac{D}{4a}}{a}} \\
+  x &= - \frac{b}{2a} \pm \sqrt{\frac{D}{4a^2}} \\
+  x &= - \frac{b}{2a} \pm \frac{\sqrt{D}}{2a} \\
+  x_{1,2} &= \frac{-b \pm \sqrt{D}}{2a}
+\end{align*}
+
+\textbf{Abscisa temena} izražena z ničlami:
+\[ p = \frac{x_1+x_2}{2} \]
+
+\subsubsection{Vpliv diskriminante in parametra $a$ na parabolo}
+Prikazan je na sliki~\ref{fig:fun:kvad:aD}.
+\begin{figure}[ht]
+  \begin{center}
+    \subfigure[$a > 0$]{
+      \label{fig:fun:kvad:aplus}
+      \begin{pspicture*}(-7,-2)(5,2.8)
+        \qline(-7,.5)(7,.5)
+        \parabola(-7,3)(-5.5,0)
+        \parabola(-3,3)(-1.5,0.5)
+        \parabola(1,3)(2.5,1)
+        \uput[0](-6.2,2.5){$D > 0$}
+        \uput[0](-2.3,2.5){$D = 0$}
+        \uput[0](1.8,2.5){$D < 0$}
+      \end{pspicture*}
+    }
+    \subfigure[$a < 0$]{
+      \label{fig:fun:kvad:aminus}
+      \begin{pspicture*}(-7,-2)(5,2)
+        \qline(-7,.5)(7,.5)
+        \parabola(-7,-3)(-5.5,0)
+        \parabola(-3,-3)(-1.5,0.5)
+        \parabola(1,-3)(2.5,1)
+        \uput[0](-6.2,-1.5){$D < 0$}
+        \uput[0](-2.3,-1.5){$D = 0$}
+        \uput[0](1.8,-1.5){$D > 0$}
+      \end{pspicture*}
+    }
+  \end{center}
+  \beforecaptionskip
+  \caption{Vpliv diskriminante in parametra $a$ na parabolo}
+  \label{fig:fun:kvad:aD}
+\end{figure}
+
+\subsubsection{Lega premice in parabole}
+\label{sec:fun:kvad:legapinp}
+$ax^2 +bx + c = kx + n$
+\begin{itemize*}
+  \item $D > 0$ --- sekanta (slika~\ref{fig:fun:kvad:pp:sek})
+  \item $D = 0$ --- tangenta (slika~\ref{fig:fun:kvad:pp:tan})
+  \item $D < 0$ --- mimobežnica (slika~\ref{fig:fun:kvad:pp:mim})
+\end{itemize*}
+Možne lege so prikazane na sliki~\ref{fig:fun:kvad:legapinp}.
+
+\begin{figure}[ht]
+  \begin{center}
+    \subfigure[Sekanta.]{
+      \label{fig:fun:kvad:pp:sek}
+      \begin{pspicture*}(-2,-3)(2,3)
+        \parabola(-2,6)(0,.5)
+        \qline(-1.5,0)(2,2)
+      \end{pspicture*}
+    }
+    \subfigure[Tangenta.]{
+      \label{fig:fun:kvad:pp:tan}
+      \begin{pspicture*}(-2,-3)(2,3)
+        \parabola(-2,6)(0,.5)
+        \qline(-.8,0)(2,1.53)
+      \end{pspicture*}
+    }
+    \subfigure[Mimobežnica.]{
+      \label{fig:fun:kvad:pp:mim}
+      \begin{pspicture*}(-2,-3)(2,3)
+        \parabola(-2,6)(0,1)
+        \qline(-1,0)(2,1)
+      \end{pspicture*}
+    }
+  \end{center}
+  \beforecaptionskip
+  \caption{Možne lege premice in parabole}
+  \label{fig:fun:kvad:legapinp}
+\end{figure}
+
+\subsection{Eksponentna funkcija}
+\label{sec:fun:eks}
+\textbf{Eksponentna funkcija} je vsaka funkcija oblike $f(x) = a^x, \; a \in \R^+ - \left\{ 1
+\right\}$.
+
+\begin{tabular}{ll}
+  a > 1 & a < 1 \\
+  $D_f = \R, Z_f = \R^+$, & $D_f = \R, Z_f = \R^+$, \\
+  naraščajoča, konveksna, pozitivna, & padajoča, konveksna, pozitivna, \\
+  navzdol omejena & navzdol omejena \\
+  graf na sliki~\ref{fig:fun:eks:avec} & graf na sliki~\ref{fig:fun:eks:amanj}
+\end{tabular}
+
+\begin{figure}[ht]
+  \begin{center}
+    \psset{unit=.5cm}
+    \subfigure[a > 1]{
+      \label{fig:fun:eks:avec}
+      \begin{pspicture*}(-4.9,-4.9)(4.9,4.9)
+        \psaxes[labels=none]{->}(0,0)(-4.9,-4.9)(4.9,4.9)
+        \psplot[linecolor=red, linewidth=1pt]{-4.9}{4.9}{2.7182 x exp}
+        \psplot[linecolor=blue, linewidth=1pt]{-4.9}{4.9}{1.5 x exp}
+        \psplot[linecolor=green, linewidth=1pt]{-4.9}{4.9}{10 x exp}
+        \uput[180](0,4.5){$10^x$}
+        \uput[0](1.5,4.5){$e^x$}
+        \uput[0](2.5,2.8){$1,5^x$}
+      \end{pspicture*}
+    }
+    \subfigure[a < 1]{
+      \label{fig:fun:eks:amanj}
+      \begin{pspicture*}(-4.9,-4.9)(4.9,4.9)
+        \psaxes[labels=none]{->}(0,0)(-4.9,-4.9)(4.9,4.9)
+        \psplot[linecolor=red, linewidth=1pt]{-4.9}{4.9}{0.5 x exp}
+        \psplot[linecolor=blue, linewidth=1pt]{-4.9}{4.9}{0.66666667 x exp}
+        \psplot[linecolor=green, linewidth=1pt]{-4.9}{4.9}{0.1 x exp}
+        \uput[180](-0.5,4.5){$\frac{1}{10^x}$}
+        \uput[180](-2.2,4.5){$\frac{1}{2^x}$}
+        \uput[180](-2.5,2.6){$\left( \frac{2}{3} \right)^x$}
+      \end{pspicture*}
+    }
+    \psset{unit=1cm}
+  \end{center}
+  \beforecaptionskip
+  \caption{Graf eksponentne funkcije.}
+  \label{fig:fun:eks:graf}
+\end{figure}
+
+Vodoravna \textbf{asimptota} je $x$ os. Vse eksponentne funkcije gredo skozi točko $N(0,1)$, kar
+izhaja iz definicije~\eqref{eq:pot:defz}. Vse z osnovo iz enake skupine se razlikujejo le
+po \textbf{strmini} padanja in naraščanja. Lahko jih premikamo ali raztegujemo.
+\[ f(x) = b\krat a^{x-p} + q \]
+
+\subsection{Logaritemska funkcija}
+\textbf{Logaritemska funkcija} je vsaka funkcija oblike $y = \log_a\!x, \; a \in \R^+ - \left\{ 1
+\right\}$.
+Je \textbf{inverzna} funkcija eksponentni funkciji.
+
+\begin{tabular}{ll}
+  a > 1 & a < 1 \\
+  $D_f = \R^+, Z_f = \R$, & $D_f = \R^+, Z_f = \R$, \\
+  ničla $x = 1$, naraščajoča, konkavna, & ničla $x = 1$, padajoča, konveksna, \\
+  pozitivna $x > 1$, negativna $x < 1$, & pozitivna $x < 1$, negativna $x > 1$, \\
+  navzgor omejena & navzgor omejena \\
+  graf na sliki~\ref{fig:fun:log:avec} & graf na sliki~\ref{fig:fun:log:amanj}
+\end{tabular}
+
+\begin{figure}[ht]
+  \begin{center}
+    \psset{unit=.5cm}
+    \subfigure[a > 1]{
+      \label{fig:fun:log:avec}
+      \begin{pspicture*}(-4.9,-4.9)(4.9,4.9)
+        \psaxes[labels=none]{->}(0,0)(-4.9,-4.9)(4.9,4.9)
+        \psplot[swapaxes=true, linecolor=red, linewidth=1pt]{-4.9}{4.9}{2.7182 x exp}
+        \psplot[swapaxes=true, linecolor=blue, linewidth=1pt]{-4.9}{4.9}{1.5 x exp}
+        \psplot[swapaxes=true, linecolor=green, linewidth=1pt]{-4.9}{4.9}{10 x exp}
+        \uput[-90](3.7,0){$\log_{10}\!x$}
+        \uput[0](2.7,2){$\log_e\!x$}
+        \uput[0](1.5,3.8){$\log_{1,5}\!x$}
+      \end{pspicture*}
+    }
+    \subfigure[a < 1]{
+      \label{fig:fun:log:amanj}
+      \begin{pspicture*}(-4.9,-4.9)(4.9,4.9)
+        \psaxes[labels=none]{->}(0,0)(-4.9,-4.9)(4.9,4.9)
+        \psplot[swapaxes=true, linecolor=red, linewidth=1pt]{-4.9}{4.9}{0.4 x exp}
+        \psplot[swapaxes=true, linecolor=blue, linewidth=1pt]{-4.9}{4.9}{0.66666667 x exp}
+        \psplot[swapaxes=true, linecolor=green, linewidth=1pt]{-4.9}{4.9}{0.1 x exp}
+        \uput[90](3.5,0){$\log_{0,1}\!x$}
+        \uput[0](2.2,-2.2){$\log_{0,4}\!x$}
+        \uput[0](2,-4){$\log_{\frac{2}{3}}\!x$}
+      \end{pspicture*}
+    }
+    \psset{unit=1cm}
+  \end{center}
+  \beforecaptionskip
+  \caption{Graf logaritemske funkcije.}
+  \label{fig:fun:log:graf}
+\end{figure}
+
+Navpična \textbf{asimptota} je $y$ os. Vse logaritemske funkcije gredo skozi točko $N(1,0)$, kar
+izhaja iz izpeljave iz definicije~\eqref{eq:log:log1je0}. Vse funkcije z bazo iz enake 
+skupine se razlikujejo le
+po \textbf{strmini} padanja in naraščanja. Lahko jih premikamo ali raztegujemo.
+\[ f(x) = b\krat\log_a\!(x-p) + q \]
+
+\subsection{Krožne funkcije}
+\label{sec:fun:arc}
+\textbf{Krožne funkcije} ali \textbf{arcus funkcije} so \textbf{delni inverzi} kotnih funkcij.\footnote{Kotne funkcije
+so definirane kasneje, v razdelku \ref{sec:kot}.}
+
+\textbf{Arcus sinus} $x$ je tisti kot, pri katerem je sinus enak $x$.
+\[ y = \arcsin x \iff \sin y = x, \; D_f = [-1,1], Z_f = \left[ -\frac{\pi}{2},
+\frac{\pi}{2} \right] \]
+
+\textbf{Arcus kosinus} $x$ je tisti kot, pri katerem je kosinus enak $x$.
+\[ y = \arccos x \iff \cos y = x, \; D_f = [-1,1], Z_f = \left[0, \pi \right] \]
+
+\textbf{Arcus tangens} $x$ je tisti kot, pri katerem je tangens enak $x$.
+\[ y = \arctan x \iff \tan y = x, \; D_f = \R, Z_f = \left( -\frac{\pi}{2},
+\frac{\pi}{2} \right) \]
+
+\textbf{Arcus kotangens} $x$ je tisti kot, pri katerem je kotangens enak $x$.
+\[ y = GOOGLAJ KOMANDO x \iff \cot y = x, \; D_f = \R, Z_f = \left(0, \pi \right) \]
+
+Grafi arcus funkcij so prikazani na sliki~\ref{fig:fun:arc:grafi}.
+
+\begin{figure}[ht]
+  \begin{center}
+    \psset{unit=1.1cm}
+    \subfigure[Arcus sinus]{
+      \label{fig:fun:arc:sin}
+      \begin{pspicture*}(-2.5,-2.5)(2.5,2.5)
+        \psaxes[labels=none]{->}(0,0)(-2.5,-2.5)(2.5,2.5)
+        \psplot[linecolor=black, linewidth=1pt,swapaxes=true]{-1}{1}{x 90 mul sin}
+      \end{pspicture*}
+    }
+    \subfigure[Arcus kosinus]{
+      \label{fig:fun:arc:cos}
+      \begin{pspicture*}(-2.5,-2.5)(2.5,2.5)
+        \psaxes[labels=none]{->}(0,0)(-2.5,-2.5)(2.5,2.5)
+        \psplot[linecolor=black, linewidth=1pt,swapaxes=true]{0}{2}{x 90 mul cos}
+      \end{pspicture*}
+    } \\
+    \subfigure[Arcus tangens]{
+      \label{fig:fun:arc:tan}
+      \begin{pspicture*}(-2.5,-2.5)(2.5,2.5)
+        \psaxes[labels=none]{->}(0,0)(-2.5,-2.5)(2.5,2.5)
+        \psplot[linecolor=black, linewidth=1pt,swapaxes=true]{-0.9}{0.9}{x 90 mul sin x 90 mul cos div}
+      \end{pspicture*}
+    }
+    \subfigure[Arcus kotangens]{
+      \label{fig:fun:arc:cot}
+      \begin{pspicture*}(-2.5,-2.5)(2.5,2.5)
+        \psaxes[labels=none]{->}(0,0)(-2.5,-2.5)(2.5,2.5)
+        \psplot[linecolor=black, linewidth=1pt,swapaxes=true]{0.1}{1.9}{x 90 mul cos x 90 mul sin div}
+      \end{pspicture*}
+    }
+    \psset{unit=1cm}
+  \end{center}
+  \beforecaptionskip
+  \caption{Grafi arcus funkkcij.}
+  \label{fig:fun:arc:grafi}
+\end{figure}
+
+\subsection{Racionalne funkcije}
+\label{sec:fun:rac}
+\textbf{Racionalna funkcija} je vsaka funkcija oblike $f(x) = \frac{p(x)}{q(x)}$, pri čemer je ta
+ulomek okrajšan.
+
+\textbf{Ničle} racionalne funkcije so ničle polinoma $p(x)$, \textbf{poli} racionalne funkcije pa so ničle
+polinoma $q(x)$. \textbf{Stopnja} pola racionalne funkcije je enaka stopnji ničle
+imenovalca. Stopnja ničle racionalne funkcije je enaka stopnji ničle imenovalca.
+
+Pri polih in ničlah \textbf{lihe} stopnje se predznak racionalne funkcije spremeni, pri polih ali
+ničlah \textbf{sode} stopnje pa se ohrani. Bližje kot smo polu, večje so funkcijske
+vrednosti po absolutni vrednosti.
+
+Vsako racionalno funkcijo lahko zapišemo kot vsoto polinoma in nove racionalne funkcije,
+ki ima v števcu polinom nižje stopnje kot v imenovalcu.
+\begin{align*}
+    p(x) &= k(x) \krat q(x) + o(x) \; /:q(x)  \quad st(q(x)) > st(o(x)) \comment{osn. izr. o
+    del. pol.} \\
+    \frac{p(x)}{q(x)} &= k(x) + \frac{o(x)}{q(x)} 
+\end{align*}
+
+$k(x)$ je \textbf{asimptota} racionalne funkcije. Je krivulja, kateri se graf približuje pri zelo
+velikih in majhnih $x$-ih, ker je takrat ulomek $\frac{o(x)}{q(x)} \approx 0$, ker je $q(x)
+\gg o(x)$.
+
+\textbf{Presečišče z asimptoto} (kadar je funkcijska vrednost enaka $k(x)$)
+\begin{align*}
+    \frac{p(x)}{q(x)} &= k(x) + \frac{o(x)}{q(x)} \\
+    f(x) &= k(x) \iff \frac{o(x)}{q(x)} = 0 \iff o(x) = 0 \\
+\end{align*}
+
+\section{Enačbe}
+\label{sec:enac}
+\subsection{Racionalne enačbe}
+\label{sec:enac:rac}
+Racionalna enačba je vsaka enačba oblike $\frac{p(x)}{q(x)} = 0$ ali vsaka enačba, ki jo
+v to obliko lahko prevedemo. Pomembno je, da si pri reševanju take enačbe zapišemo pogoje
+za rešitve (ničle imenovalcev ne smejo biti rešitve).
+
+\section{Neenačbe}
+\label{sec:neenac}
+\subsection{Racionalne neenačbe}
+\label{sec:neenac:rac}
+Racionalna neenačba je vsaka neenačba oblike $\frac{p(x)}{q(x)} < 0$ ali
+$\frac{p(x)}{q(x)} > 0$ ali vsaka neenačba, ki jo v to obliko lahko prevedemo. Rešimo jo
+tako, da določimo ničle in pole, ter tako ugotovimo predznak funkcije na celotni realni
+osi in nato izberemo želeni interval kot rešitev neenačbe.
+
+\section{Kotne funkcije}
+\label{sec:kot}
+
+\section{Stožnice}
+\label{sec:kroz}
+\textbf{Stožnice} so dvorazsežne presečne krivulje, ki nastanejo, če presekamo enojni ali dvojni
+neskončni stožec z ravnino pod različnimi koti.
+
+Možni preseki:
+\begin{itemize*}
+  \item krožnica
+  \item elipsa
+  \item parabola
+  \item hiperbola
+  \item dve vzporednici
+  \item dve nevzporedni premici
+  \item ena premica
+  \item točka
+  \item prazna množica
+\end{itemize*}
+
+Splošna enačba stožnice:
+\begin{equation}
+  Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0; \quad A, B, C, D, E, F \in \R
+  \label{eq:stoz:def}
+\end{equation}
+
+\subsection{Krožnica}
+\label{sec:stoz:kroz}
+\textbf{Krožnica} je množica točk v ravnini, ki so enako oddaljene od izbrane točke $S$. $S$
+imenujemo \textbf{središče} krožnice. Razdaljo med točko krožnice in središčem imenujemo
+\textbf{polmer} in
+ga označimo z $r$.
+\[ \mathcal{K} = \left\{ T(x, y); \; d(T, S) = r \right\} \]
+
+Vstavi izpeljavo enačbe tukaj. Sliko tudi.
+
+Enačba krožnice v \textbf{središčni} legi:
+\[ x^2 + y^2 = r^2 \]
+
+\textbf{Eksplicitna} enačba krožnice:
+\begin{equation}
+    y = \pm \sqrt{r^2 - x^2}
+  \label{eq:kroz:eksp}
+\end{equation}
+
+Enačba krožnice v \textbf{premaknjeni} legi:
+\[ (x-p)^2 + (y-q)^2 = r^2 \]
+
+Potreben pogoj za krožnico. Do njega pridemo tako, da enačbo krožnice v premaknjeni legi
+razvijemo do konca in nato končno enačbo primerjamo s splošno enačbo stožnice.
+\[ A = C \land B = 0 \comment{konstante so iz splošne enačbe stožnice \eqref{eq:stoz:def}} \]
+
+Krožnici sta \textbf{koncentrični}, če imata skupno središče.
+
+\subsection{Elipsa}
+\label{sec:elips}
+\textbf{Elipsa} je množica točk v ravnini, ki imajo konstantno vsoto razdalj do dveh izbranih točk,
+ki ju imenujemo gorišči. $|G_1G_2| = 2e, r_1 + r_2 = 2a$
+
+Vstavi izpeljavo enačbe tukaj. Sliko tudi.
+
+Enačba elipse v \textbf{središčni} legi:
+\[ a^2b^2 = b^2x^2 + a^2y^2 \]
+
+\textbf{Odsekovna} enačba elipse v središčni legi:
+\[ \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1 \]
+$a$ je odsek na abscisni osi oziroma \textbf{velika polos}, $b$ pa odsek na ordinatni osi
+ali \textbf{mala polos}. Konstanta $e$ se imenuje \textbf{linearna ekscentričnost} in se izračuna kot:
+\[ e^2 = a^2 - b^2 \]
+Konstanta $\varepsilon$ se imenuje \textbf{numerična ekscentričnost}. Pri elipsi je vedno
+manjša od~1.
+\[ \varepsilon  = \frac{e}{a} \]
+$p$ se imenuje \textbf{polparameter} elipse in je vrednost elipse pri $e$.
+\[ p = \pm \frac{b^2}{a} \]
+
+\textbf{Eksplicitna} enačba elipse:
+\[ y = \pm \frac{b}{a} \sqrt{a^2 - x^2} \]
+Če to enačbo primerjamo z enačbo krožnice \eqref{eq:kroz:eksp}, ugotovimo, da je elipsa
+pravzaprav krožnica, raztegnjena za faktor $b/a$.
+
+\textbf{Gorišči}:
+\begin{align*}
+ &G_1(-e, 0) \\
+ &G_2(e, 0)
+\end{align*}
+
+\textbf{Temena} elipse:
+\begin{align*}
+  &A(a,0) \\
+  &B(-a, 0) \\
+  &C(0, b) \\
+  &D(0,-b)
+\end{align*}
+
+Elipsa je \textbf{simetrična} glede na obe koordinatni osi, njeno \textbf{definicijsko območje} pa je
+$D_f[-a, a]$, saj drugače $e$ ni definiran, $e^2 = a^2 - b^2 > 0$.
+
+Vse zgornje enačbe veljajo za ``ležeče'' elipse, pri katerih je $a > b$. Če pa imamo
+``pokončno'' elipso, moramo v vseh enačbah zamenjati $a$ in $b$, pa tudi gorišča so na
+ordinatni osi.
+
+Enačba elipse v \textbf{premaknjeni} legi:
+\[ \frac{(x-p)^2}{a^2} + \frac{(y-q)^2}{b^2} = 1 \]
+Središče elipse je v točki $S(p,q)$.
+
+\textbf{Potreben pogoj} za elipso (do njega pridemo podobno kot pri krožnici):
+\[ B = 0 \land A \krat C > 0 \comment{$A$ in $C$ sta enako predznačena} \]
+
+\subsection{Hiperbola}
+\label{sec:hiper}
+\textbf{Hiperbola} je množica točk ravnine, ki imajo konstantno absolutno vrednost razlike razdalj
+do dveh izbranih točk, ki ju imenujemo gorišči hiperbole.
+
+\[ |G_1G_2| = 2e \]
+\[ |r_1 - r_2| = 2a \]
+
+Vstavi izpeljavo enačbe tukaj. Sliko tudi.
+
+\textbf{Odsekovna} enačba hiperbole:
+\[ \frac{x^2}{a^2} - \frac{y^2}{b^2} = 1 \]
+
+$e$ se imenuje \textbf{linearna ekscentričnost} in se izračuna kot:
+\[ e^2 = a^2 + b^2 \]
+
+$\varepsilon$ se imenuje \textbf{numerična ekscentričnost} in je pri hiperboli vedno večji od 1.
+\[ \varepsilon = \frac{e}{a} \]
+
+\textbf{Eksplicitna} enačba hiperbole:
+\[ y = \pm \frac{b}{a} \sqrt{x^2 - a^2} \]
+
+\textbf{Definicijsko območje} hiperbole je $D_f = (-\infty, -a] \cup [a,\infty)$.
+Hiperbola je \textbf{simetrična} glede na obe koordinatni osi.
+
+\textbf{Gorišči} hiperbole:
+\begin{align*}
+ &G_1(-e, 0) \\
+ &G_2(e, 0)
+\end{align*}
+
+\textbf{Temeni} hiperbole:
+\begin{align*}
+  &A(-a, 0) \\
+  &B(a, 0)
+\end{align*}
+
+\textbf{Asimptoti} hiperbole sta premici
+\[ y = \pm \frac{b}{a}x \]
+\[ y = \pm \frac{b}{a} \sqrt{x^2 - a^2}  = \pm \frac{b}{a} x \sqrt{1 -
+\frac{a^2}{x^2}} \]
+Če gre $x$ proti $\infty$, gre vrednost ulomka $\frac{a^2}{x^2}$ proti 0 in vrednost korena v eksplicitni enačbi proti 1, iz česar
+ugotovimo asimptoti.
+
+$p$ je \textbf{polparameter} hiperbole in je vrednost parabole pri $e$.
+\[ p = \pm \frac{b^2}{a} \]
+
+\textbf{Potreben pogoj} za hiperbolo:
+\[ B = 0 \land A \krat C < 0 \comment{$A$ in $C$ različno predznačena} \]
+
+Enačba ``pokončne'' hiperbole:
+\[ \frac{x^2}{a^2} - \frac{y^2}{b^2} = -1 \]
+
+Enačba hiperbole v \textbf{premaknjeni} legi:
+\[ \frac{(x-p)^2}{a^2} - \frac{(y-q)^2}{b^2} = 1 \]
+Središče hiperbole je v točki $S(p,q)$.
+
+
+\subsection{Parabola}
+\label{sec:stoz:parab}
+\textbf{Parabola} je množica točk v ravnini, ki imajo enako razdaljo od izbrane premice
+\textbf{vodnice} $v$ in izbrane točke \textbf{gorišča} $G$.
+
+\[ \mathcal{P} = \left\{ T(x,y): d(T,v) = d(T,G) \right\} \]
+
+Vstavi skico tukaj. Izpeljavo enačbe tudi.
+
+\textbf{Temenska} enačba parabole:
+\[ y^2 = 2px \]
+
+\textbf{Eksplicitna} enačba parabole:
+\[ y = \pm \sqrt{2px} \]
+
+$p$ je \textbf{polparameter} parabole in je enak razdalji med vodnico in goriščem.
+Vrednost parabole pri $p/2$ je $p$.
+
+\textbf{Gorišče} parabole:
+\[ G\left(\frac{p}{2}, 0  \right) \]
+
+Enačba \textbf{vodnice}:
+\[ x = -\frac{p}{2} \]
+
+\textbf{Teme} parabole:
+\[ T(0, 0) \]
+
+Parabola je \textbf{simetrična}, njena os simetrije pa se imenuje os parabole. Definicijsko območje
+parabole $D_f = [0, \infty)$.
+
+Enačba \textbf{premaknjene} parabole:
+\[ (y-b)^2 = 2p(x-a) \]
+Teme je v točki $T(a, b)$.
+
+Enačba \textbf{zrcaljene}, \textbf{pokončne} in \textbf{pokončne zrcaljene} parabole v tem vrstnem redu:
+\begin{align*}
+  y^2 &= -2px \\
+  y &= \frac{1}{2p}x^2 \\
+  y &= -\frac{1}{2p}x^2
+\end{align*}
+
+\textbf{Potreben pogoj} za parabolo:
+\[ A = B = 0 \lor B = C = 0 \]
+
+\end{document}
+% vim: spell spelllang=sl
