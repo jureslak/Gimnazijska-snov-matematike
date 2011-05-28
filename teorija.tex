@@ -37,6 +37,8 @@ menucolor=black, runcolor=black, urlcolor=black%
 }
 }
 
+\usepackage{makeidx}
+\makeindex
 \usepackage{pst-plot}
 \usepackage{pst-math}
 \usepackage{auto-pst-pdf}
@@ -61,6 +63,11 @@ menucolor=black, runcolor=black, urlcolor=black%
 \makeatother
 
 \newcommand{\beforecaptionskip}{\vspace{-12pt}}
+\newcommand{\arccot}{\ensuremath{\operatorname{arccot}}} % arccot
+\newcommand{\asimptota}{\psline[linecolor=lightgrey, linestyle=dashed, linewidth=.5pt]}
+\newcommand{\oznaka}{\psline[linecolor=red, linestyle=dotted]}
+\newcommand{\ii}{\ensuremath{\imath}}
+\newcommand\kos\cos
 % your definitions here ... 
 
 % arrow resetings
@@ -1065,6 +1072,8 @@ Poznamo štiri glavne \textbf{grafe} potenčne funkcije, ki se delijo glede na e
       \begin{pspicture*}(-2.2,-2.2)(2.2,2.2)
         \psaxes[labels=none]{->}(0,0)(-2.2,-2.2)(2.2,2.2)
         \psplot[linecolor=black, linewidth=1pt]{-2.2}{2.2}{x -2 exp }
+        \asimptota(-3,.05)(3,.05)
+        \asimptota(.05,-3)(.05,3)
       \end{pspicture*}
     }
     \subfigure[Negativen lih eksponent]{
@@ -1073,6 +1082,8 @@ Poznamo štiri glavne \textbf{grafe} potenčne funkcije, ki se delijo glede na e
         \psaxes[labels=none]{->}(0,0)(-2.2,-2.2)(2.2,2.2)
         \psplot[linecolor=black, linewidth=1pt]{-2.2}{-0.001}{x -1 exp }
         \psplot[linecolor=black, linewidth=1pt]{2.2}{0.001}{x -1 exp }
+        \asimptota(-3,.05)(3,.05)
+        \asimptota(.05,-3)(.05,3)
       \end{pspicture*}
     }
   \end{center}
@@ -1095,6 +1106,10 @@ $n$ lih: $D_f = \R, \; Z_f = \R$ \\
       \psplot[linecolor=blue, linewidth=1pt, swapaxes=true]{-3.5}{3.5}{x 3 exp}
       \uput[-10](2,2){$\sqrt{x}$}
       \uput[30](-2,-1){$\sqrt[3]{x}$}
+      \oznaka(0,1)(1,1)
+      \oznaka(1,0)(1,1)
+      \uput[180](0,1){$1$}
+      \uput[-90](1,0){$1$}
     \end{pspicture*}
   \end{center}
   \beforecaptionskip
@@ -1373,7 +1388,7 @@ so definirane kasneje, v razdelku \ref{sec:kot}.}
 \frac{\pi}{2} \right) \]
 
 \textbf{Arcus kotangens} $x$ je tisti kot, pri katerem je kotangens enak $x$.
-\[ y = GOOGLAJ KOMANDO x \iff \cot y = x, \; D_f = \R, Z_f = \left(0, \pi \right) \]
+\[ y = \arccot x \iff \cot y = x, \; D_f = \R, Z_f = \left(0, \pi \right) \]
 
 Grafi arcus funkcij so prikazani na sliki~\ref{fig:fun:arc:grafi}.
 
@@ -1384,28 +1399,49 @@ Grafi arcus funkcij so prikazani na sliki~\ref{fig:fun:arc:grafi}.
       \label{fig:fun:arc:sin}
       \begin{pspicture*}(-2.5,-2.5)(2.5,2.5)
         \psaxes[labels=none]{->}(0,0)(-2.5,-2.5)(2.5,2.5)
-        \psplot[linecolor=black, linewidth=1pt,swapaxes=true]{-1}{1}{x 90 mul sin}
+        \psplot[linecolor=black, linewidth=1pt,swapaxes=true]{-1.5}{1.5}{x 60 mul sin}
+        \oznaka(0,1.5)(1,1.5)
+        \oznaka(0,-1.5)(-1,-1.5)
+        \oznaka(-1,0)(-1,-1.5)
+        \oznaka(1,0)(1,1.5)
+        \uput[180](0,1.5){$\frac{\pi}{2}$}
+        \uput[0](0,-1.5){$-\frac{\pi}{2}$}
+        \uput[-90](1,0){$1$}
+        \uput[90](-1,0){$-1$}
       \end{pspicture*}
     }
     \subfigure[Arcus kosinus]{
       \label{fig:fun:arc:cos}
       \begin{pspicture*}(-2.5,-2.5)(2.5,2.5)
-        \psaxes[labels=none]{->}(0,0)(-2.5,-2.5)(2.5,2.5)
-        \psplot[linecolor=black, linewidth=1pt,swapaxes=true]{0}{2}{x 90 mul cos}
+        \psaxes[labels=none]{->}(0,-1)(-2.5,-2.5)(2.5,2.5)
+        \psplot[linecolor=black, linewidth=1pt,swapaxes=true]{-1}{2}{x 1 add 60 mul cos}
+        \oznaka(-1,-1)(-1,2)
+        \oznaka(-1,2)(0,2)
+        \uput[0](0,2){$\pi$}
+        \uput[-90](1,-1){$1$}
+        \uput[-90](-1,-1){$-1$}
       \end{pspicture*}
     } \\
     \subfigure[Arcus tangens]{
       \label{fig:fun:arc:tan}
       \begin{pspicture*}(-2.5,-2.5)(2.5,2.5)
         \psaxes[labels=none]{->}(0,0)(-2.5,-2.5)(2.5,2.5)
-        \psplot[linecolor=black, linewidth=1pt,swapaxes=true]{-0.9}{0.9}{x 90 mul sin x 90 mul cos div}
+        \psplot[linecolor=black, linewidth=1pt,swapaxes=true]{-1.4}{1.4}{x 60 mul sin x 60 mul cos div}
+        \asimptota(-3,1.5)(3,1.5)
+        \asimptota(-3,-1.5)(3,-1.5)
+        \uput[180](0,1.5){$\frac{\pi}{2}$}
+        \uput[0](0,-1.5){$-\frac{\pi}{2}$}
       \end{pspicture*}
     }
     \subfigure[Arcus kotangens]{
       \label{fig:fun:arc:cot}
       \begin{pspicture*}(-2.5,-2.5)(2.5,2.5)
-        \psaxes[labels=none]{->}(0,0)(-2.5,-2.5)(2.5,2.5)
-        \psplot[linecolor=black, linewidth=1pt,swapaxes=true]{0.1}{1.9}{x 90 mul cos x 90 mul sin div}
+        \psaxes[labels=none]{->}(0,-1)(-2.5,-2.5)(2.5,2.5)
+        \psplot[linecolor=black, linewidth=1pt,swapaxes=true]{-0.9}{1.9}{x 1 add 60 mul cos
+        x 1 add  60 mul sin div}
+        \asimptota(-3,2)(3,2)
+        \asimptota(-3,-0.95)(3,-0.95)
+        \uput[45](0,2){$\pi$}
       \end{pspicture*}
     }
     \psset{unit=1cm}
@@ -1448,9 +1484,141 @@ velikih in majhnih $x$-ih, ker je takrat ulomek $\frac{o(x)}{q(x)} \approx 0$, k
 
 \section{Enačbe}
 \label{sec:enac}
+\textbf{Enačba}\index{Enačba} je zapis za enakost dveh izrazov. Izraza imenujemo \textbf{leva stran}
+enačbe in \textbf{desna stran}
+enačbe. Med njima stoji \textbf{enačaj}. Spremenljivke, ki nastopajo v enačbi, imenujemo
+\textbf{neznanke}.
+Vrednost neznanke, ki zadosti enakosti imenujemo \textbf{rešitev} ali \textbf{koren} enačbe.
+
+Enačbi, ki imata enaki množici rešitev sta enakovredni ali \textbf{ekvivalentni}.
+
+Enačba, ki nima rešitve se imenuje \textbf{nerešljiva enačba}. Primer:
+\[ x + 1 = x + 3 \]
+
+Če je enakost enačbe velja ne glede na vrednost neznanke, tako enačbo imenujemo identična
+enačba ali \textbf{identiteta}. Primer:
+\[2x^2 -(x + 1)^2 - 4 = x^2 - 2x - 5 \]
+
+\subsection{Reševanje enačb}
+\label{sec:enac:resev}
+Enačbi lahko na obeh straneh \textbf{prištejemo} ali \textbf{odštejemo} poljubno število ali izraz in se enakost ohrani.
+Iz tega izhaja tudi ``prenašanje'' člena preko enačaja (na obeh straneh odštejemo ali
+prištejemo ta člen).
+
+Enačbo lahko na obeh straneh \textbf{množimo} ali \textbf{delimo} s poljubnim številom ali izrazom, ki ni
+enak 0, in se enakost ohrani. 
+
+Vse druge operacije (npr. logaritmiranje, potenciranje, korenjenje) \textbf{ne
+privedejo} nujno do ekvivalentnih enačb!
+
+\subsection{Linearne enačbe}
+\label{sec:enac:lin}
+\textbf{Linearna enačba} je vsaka enačba oblike $kx + n = 0; k, n \in \R$ ali vsaka enačba, ki jo v to
+obliko lahko prevedemo.
+
+\textbf{Število rešitev} linearne enačbe:
+\begin{align*}
+  k \neq 0 &\implies \textnormal{1 rešitev} \\
+  k = 0 \land n = 0 &\implies \infty \textnormal{ rešitev, identiteta} \\
+  k = 0 \land n \neq 0 &\implies \textnormal{ni rešitve}
+\end{align*}
+
+\subsection{Razcepne enačbe}
+\label{sec:enac:razc}
+\[ A \krat B = 0 \implies A = 0 \lor B = 0 \]
+Primer uporabe:
+\begin{align*}
+  x^2 +5x + 6 &= 0 \\
+  (x+3)(x+2) &= 0 \\
+  1.\quad x + 3 &= 0 \implies x_1 = -3 \\
+  2.\quad x + 2 &= 0 \implies x_2 = -2
+\end{align*}
+
+\subsection{Kvadratne enačbe}
+\label{sec:enac:kvad}
+\textbf{Kvadratna enačba} je vsaka enačba oblike $ax^2 + bx + c = 0; a, b, c \in \R$ in $a \neq 0$
+ali vsaka enačba, ki jo v to obliko lahko prevedemo.
+
+Kvadratna enačba oblike $ax^2 + bx + c = 0$ sprašuje po \textbf{ničlah} funkcije $f(x) = ax^2 + bx
++ c$. Za rešitvi enačbe imamo formulo \eqref{eq:fun:kvad:nicle}.
+
+Kvadratne enačba ima:
+\begin{itemize*}
+  \item dve različni realni rešitvi, če $D > 0$
+  \item eno dvojno realno rešitev, če $D = 0$
+  \item dve kompleksni\footnote{Kompleksa števila so definirana kasneje, v razdelku
+    \ref{sec:kompl}.} rešitvi, ki sta par konjugiranih števil, če $D < 0$.
+\end{itemize*}
+
+\subsubsection{Vi\'{e}tovi formuli}
+\label{sec:enac:kvad:viet}
+Če je pri kvadratni enačbi $a$ enak 1:
+\begin{align*}
+  x&^2 + ux + v = 0 \\
+  u& = -(x_1 + x_2) \\
+  v& = x_1 \krat x_2
+\end{align*}
+
+\subsection{Kompleksne enačbe}
+\label{sec:enac:kompl}
+Kompleksno število je enako nič, če sta obe njegovi komponenti enaki nič.
+\[ A + B\ii = 0 \iff A = 0 \land B = 0 \]
+
+Dve kompleksni števili sta enaki, če sta njuni realni in imaginarni komponenti enaki.
+\[ A + B\ii = C + D\ii \iff A = C \land B = D \]
+
+\subsection{Eksponentne enačbe}
+\label{sec:enac:eks}
+\textbf{Eksponentna enačba} je vsaka enačba v kateri nastopa neznanka v eksponentu.
+
+Enostavne rešitve enačbe:
+\begin{align*}
+  a^x = a^y &\iff x = y \\
+  a^x = 1 &\iff x = 0 \\
+  a^x = b^x &\iff x = 0
+\end{align*}
+
+Poznamo štiri tipe enačb: \\
+Primer: $2^{2x+3} = 8$. Rešujemo s pravili zgoraj.\\
+Primer: $3^{x+1} - 3^{x-1} = 24$. Reševanje z izpostavljanjem.\\
+Primer: $2^x - 2^{2x-1} = 4$. Reševanje s substitucijo.\\
+Primer: $4^x = 10$. Reševanje z logaritmiranjem.
+
+\subsection{Logaritemske enačbe}
+\label{sec:enac:log}
+\textbf{Logaritemska enačba} je vsaka enačba v katerih nastopa neznanka v logaritmu.
+
+Najprej damo vse logaritme na eno osnovo, skrčimo, nato \textbf{antilogaritmiramo} ali razrešimo po
+definiciji in rešimo nastalo enačbo. Lahko se rešujejo tudi s \textbf{substitucijo}.
+
+\subsection{Trigonometrične enačbe}
+\label{sec:enac:trig}
+\textbf{Trigonometrična enačba} je vsaka enačba v kateri nastopa neznanka v \textbf{kotnih funkcijah}.
+
+Enostavne: $\sin x = a; \; a \in \R$. Običajno dve neskončni množici rešitev. Skica je
+priporočljiva.
+
+\index{Enačba!Homogena enačba}
+\textbf{Homogene:} $A\sin x + B\kos x = 0$ in podobne višjih stopenj. Lahko se deli s $\kos x$ ali
+$\sin x$, ker noben izmed njiju ni enak 0. Vsi členi morajo imeti enako število faktorjev
+s kotno funkcijo.
+
+Produkt dveh kotnih funkcij je enak 0: $\sin x \krat \tan x = 0$. Glej razcepne enačbe
+(razdelek \ref{sec:enac:razc}).
+
+Uporaba \textbf{faktorizacije}, \textbf{substitucije}, metoda \textbf{polovičnih kotov} (substitucija $x = 2\alpha$),
+\textbf{razčlenjevanje} (produkt dveh kotnih funkcij v enem členu)
+
+\subsection{Polinomske enačbe}
+\label{sec:enac:pol}
+\textbf{Polinomska\footnote{Polinomi so definirani kasneje, v razdelku \ref{sec:pol}}
+enačba} je vsaka enačba oblike $p(x) = 0$ ali vsaka enačba, ki jo v to obliko lahko prevedemo. 
+
+Rešitve enačbe so ničle polinoma $p(x)$.
+
 \subsection{Racionalne enačbe}
 \label{sec:enac:rac}
-Racionalna enačba je vsaka enačba oblike $\frac{p(x)}{q(x)} = 0$ ali vsaka enačba, ki jo
+\textbf{Racionalna enačba} je vsaka enačba oblike $\frac{p(x)}{q(x)} = 0$ ali vsaka enačba, ki jo
 v to obliko lahko prevedemo. Pomembno je, da si pri reševanju take enačbe zapišemo pogoje
 za rešitve (ničle imenovalcev ne smejo biti rešitve).
 
@@ -1460,11 +1628,18 @@ za rešitve (ničle imenovalcev ne smejo biti rešitve).
 \label{sec:neenac:rac}
 Racionalna neenačba je vsaka neenačba oblike $\frac{p(x)}{q(x)} < 0$ ali
 $\frac{p(x)}{q(x)} > 0$ ali vsaka neenačba, ki jo v to obliko lahko prevedemo. Rešimo jo
-tako, da določimo ničle in pole, ter tako ugotovimo predznak funkcije na celotni realni
+tako da vse člene prenesemo na eno stran, in določimo ničle in pole dobljene racionalne
+funkcije, ter tako ugotovimo njen predznak na celotni realni
 osi in nato izberemo želeni interval kot rešitev neenačbe.
 
 \section{Kotne funkcije}
 \label{sec:kot}
+
+\section{Kompleksna števila}
+\label{sec:kompl}
+
+\section{Polinomi}
+\label{sec:pol}
 
 \section{Stožnice}
 \label{sec:kroz}
@@ -1674,5 +1849,6 @@ Enačba \textbf{zrcaljene}, \textbf{pokončne} in \textbf{pokončne zrcaljene} p
 \textbf{Potreben pogoj} za parabolo:
 \[ A = B = 0 \lor B = C = 0 \]
 
+\printindex
 \end{document}
 % vim: spell spelllang=sl
