@@ -9,7 +9,7 @@
 \usepackage[reqno]{amsmath}
 \usepackage{amssymb}
 \usepackage{icomma}
-\usepackage[bookmarks, colorlinks=true, %
+\usepackage[bookmarks, colorlinks=true, unicode=true,%
 linkcolor=black, anchorcolor=black, citecolor=black, filecolor=black,%
 menucolor=black, runcolor=black, urlcolor=black%
 ]{hyperref}
@@ -39,11 +39,16 @@ menucolor=black, runcolor=black, urlcolor=black%
 
 \usepackage{makeidx}
 \makeindex
+\usepackage{auto-pst-pdf}
 \usepackage{pst-plot}
 \usepackage{pst-math}
-\usepackage{auto-pst-pdf}
+\usepackage{pst-eucl}
 \usepackage{subfigure}
 \usepackage{multido}
+\usepackage{gensymb}
+\usepackage{tabularx}
+\usepackage{pbox}
+\usepackage{units}
 
 \def\R{\ensuremath{\mathbb R}}
 \def\N{\ensuremath{\mathbb N}}
@@ -62,12 +67,25 @@ menucolor=black, runcolor=black, urlcolor=black%
 \newcommand{\Rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
 \makeatother
 
+\makeatletter
+\newcommand{\hyperanchor}[1]{\Hy@raisedlink{\hypertarget{#1}{}}}
+\makeatother
+
 \newcommand{\beforecaptionskip}{\vspace{-12pt}}
 \newcommand{\arccot}{\ensuremath{\operatorname{arccot}}} % arccot
+\newcommand{\tg}{\ensuremath{\operatorname{tg}}} % tg 
+\newcommand{\ctg}{\ensuremath{\operatorname{ctg}}} % ctg
 \newcommand{\asimptota}{\psline[linecolor=lightgrey, linestyle=dashed, linewidth=.5pt]}
 \newcommand{\oznaka}{\psline[linecolor=red, linestyle=dotted]}
 \newcommand{\ii}{\ensuremath{\imath}}
 \newcommand\kos\cos
+\def\deg{\degree}
+
+% multi line table cell with 0.5mm margin
+\newcommand{\mltc}[1]{\pbox{21cm}{\vspace{0.5mm} #1 \vspace{0.5mm}}}
+% new column type that expands and centers content
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
 % your definitions here ... 
 
 % arrow resetings
@@ -472,6 +490,37 @@ $\left(a,b \right] = \left\{x; a < x \leq b; \; x \in \R \right\}$ --- polzaprt 
 $(-\infty,\infty) = \R$
 
 \section{Izrazi}
+\textbf{Matematični izraz} je zapis sestavljen iz števil, spremenljivk, matematičnih funkcij in
+operacij ter iz oklepajev, ki določajo vrstni red računanja. Da je tak zapis res
+matematični izraz, mora biti tudi \textbf{smiseln:} Če namesto spremenljivk vstavimo konkretna
+števila, mora biti možno izračunati vrednost izraza (vsaj za nekatere vrednosti
+spremenljivk).
+Primer:
+\[ \frac{x + 1}{x} \]
+Vrednost tega izraza lahko izračunamo za katero koli vrednost
+spremenljivke x, razen za x = 0.
+
+Dva matematična izraza sta \textbf{enakovredna}, če imata pri istih izbirah spremenljivk vedno
+enako vrednost.
+Primer: Zgornji izraz je enakovreden izrazu 
+\[ 1 + \frac{1}{x} \]
+
+Izraz \textbf{poimenujemo} glede na glavno računsko operacijo, ki v njem nastopa -- to je računska
+operacija, ki jo izračunamo nazadnje.
+Primeri: \\
+$(x + 1)(x + 2)$ imenujemo produkt izrazov $(x + 1)$ in $(x + 2)$ \\
+$5a + 3b - 2c$ imenujemo vsota izrazov $5a$, $3b$ in $-2c$ \\
+$(2m + 3)^2$ imenujemo kvadrat izraza $(2m + 3)$
+
+Izraz, v katerem nastopajo samo osnovne štiri računske operacije (seštevanje, odštevanje,
+množenje in deljenje), imenujemo \textbf{aritmetični} izraz. Če v izrazu poleg tega nastopajo še
+algebrske funkcije kot npr. korenjenje, je to \textbf{algebrski} izraz.
+
+Pri preoblikovanju matematičnih izrazov pogosto uporabljamo naslednja dva postopka:
+\textbf{faktorizacija} (preoblikovanje v produkt faktorjev)
+\textbf{razčlenjevanje} (preoblikovanje v vsoto členov).
+
+Formule za preoblikovanje izrazov:
 \begin{align}
    n \in \N, \quad & a, b, c \in \R \\
    \label{eq:izr:kvadrat:dvoclenika} (a \pm b)^2 &= a^2 \pm 2ab + b^2 \comment{kvadrat
@@ -920,8 +969,8 @@ po $x$ osi (levo -- desno), parameter $q$ pa na premik po $y$ osi (gor -- dol).
   \begin{center}
       \begin{pspicture*}(-3.5,-3.5)(3.5,3.5)
         \psaxes[labels=none]{->}(0,0)(-3.5,-3.5)(3.5,3.5)
-        \psplot[linecolor=black, linewidth=.5pt]{-3.5}{3.5}{x -1 mul 3 exp}
-        \psplot[linecolor=black, linewidth=.5pt]{-3.5}{3.5}{x 2 sub -1 mul 3 exp 1 add}
+        \psplot[plotstyle=curve,linecolor=black, linewidth=.5pt]{-3.5}{3.5}{x -1 mul 3 exp}
+        \psplot[plotstyle=curve,linecolor=black, linewidth=.5pt]{-3.5}{3.5}{x 2 sub -1 mul 3 exp 1 add}
         \psline[linecolor=black, linewidth=1pt]{->}(-1,1)(1,2)
         \psline[linecolor=red, linestyle=dotted]{}(-1,1)(0,1)
         \psline[linecolor=red, linestyle=dotted]{}(-1,1)(-1,0)
@@ -957,10 +1006,10 @@ preslika čez $x$ os. Odvisnost funkcije od parametra $b$ je prikazana na sliki~
       \label{fig:fun:a}
       \begin{pspicture*}(-3.5,-3.5)(3.5,3.5)
         \psaxes[labels=none]{->}(0,0)(-3.5,-3.5)(3.5,3.5)
-        \psplot[linecolor=black, linewidth=1pt]{-3.5}{3.5}{x 2 exp}
-        \psplot[linecolor=blue, linewidth=1pt]{-3.5}{3.5}{x 2 exp 4 mul}
-        \psplot[linecolor=red, linewidth=1pt]{-3.5}{3.5}{x 2 exp 0.3 mul}
-        \psplot[linecolor=green, linewidth=1pt]{-3.5}{3.5}{x 2 exp -1 mul}
+        \psplot[plotstyle=curve,linecolor=black, linewidth=1pt]{-3.5}{3.5}{x 2 exp}
+        \psplot[plotstyle=curve,linecolor=blue, linewidth=1pt]{-3.5}{3.5}{x 2 exp 4 mul}
+        \psplot[plotstyle=curve,linecolor=red, linewidth=1pt]{-3.5}{3.5}{x 2 exp 0.3 mul}
+        \psplot[plotstyle=curve,linecolor=green, linewidth=1pt]{-3.5}{3.5}{x 2 exp -1 mul}
         \uput[0](1.8,3){1}
         \uput[0](0.8,3){4}
         \uput[0](2,1){0.3}
@@ -971,10 +1020,10 @@ preslika čez $x$ os. Odvisnost funkcije od parametra $b$ je prikazana na sliki~
       \label{fig:fun:b}
       \begin{pspicture*}(-3.5,-3.5)(3.5,3.5)
         \psaxes[labels=none]{->}(0,0)(-3.5,-3.5)(3.5,3.5)
-        \psplot[linecolor=black, linewidth=1pt]{-3.5}{3.5}{x 3 exp}
-        \psplot[linecolor=blue, linewidth=1pt]{-3.5}{3.5}{x 2.5 div 3 exp}
-        \psplot[linecolor=red, linewidth=1pt]{-3.5}{3.5}{x 0.3 div 3 exp}
-        \psplot[linecolor=green, linewidth=1pt]{-3.5}{3.5}{x -1 div 3 exp}
+        \psplot[plotstyle=curve,linecolor=black, linewidth=1pt]{-3.5}{3.5}{x 3 exp}
+        \psplot[plotstyle=curve,linecolor=blue, linewidth=1pt]{-3.5}{3.5}{x 2.5 div 3 exp}
+        \psplot[plotstyle=curve,linecolor=red, linewidth=1pt]{-3.5}{3.5}{x 0.3 div 3 exp}
+        \psplot[plotstyle=curve,linecolor=green, linewidth=1pt]{-3.5}{3.5}{x -1 div 3 exp}
         \uput[0](1.5,3){$1$}
         \uput[0](0.4,3){$0.3$}
         \uput[0](2.5,1){$2.5$}
@@ -1018,20 +1067,20 @@ $m$ --- odsek na abscisni osi
       \label{fig:fun:lin:snop}
       \begin{pspicture*}(-2.0,-2.0)(2.0,2.0)
         \psaxes[labels=none]{->}(0,0)(-2.0,-2.0)(2.0,2.0)
-        \psplot[linecolor=black, linewidth=1pt]{-2.0}{2.0}{x}
-        \psplot[linecolor=black, linewidth=1pt]{-2.0}{2.0}{x 2 sub}
-        \psplot[linecolor=black, linewidth=1pt]{-2.0}{2.0}{x 0.5 add}
-        \psplot[linecolor=black, linewidth=1pt]{-2.0}{2.0}{x 1.5 add}
+        \psplot[plotstyle=curve,linecolor=black, linewidth=1pt]{-2.0}{2.0}{x}
+        \psplot[plotstyle=curve,linecolor=black, linewidth=1pt]{-2.0}{2.0}{x 1.5 sub}
+        \psplot[plotstyle=curve,linecolor=black, linewidth=1pt]{-2.0}{2.0}{x 0.5 add}
+        \psplot[plotstyle=curve,linecolor=black, linewidth=1pt]{-2.0}{2.0}{x 1.5 add}
       \end{pspicture*}
     }
     \subfigure[Šop premic.]{
       \label{fig:fun:lin:sop}
       \begin{pspicture*}(-2.0,-2.0)(2.0,2.0)
         \psaxes[labels=none]{->}(0,0)(-2.0,-2.0)(2.0,2.0)
-        \psplot[linecolor=black, linewidth=1pt]{-2.0}{2.0}{x 0.5 add}
-        \psplot[linecolor=black, linewidth=1pt]{-2.5}{2.5}{x 0.5 add 0.5 mul}
-        \psplot[linecolor=black, linewidth=1pt]{-2.5}{2.5}{x 0.5 add -2 mul}
-        \psplot[linecolor=black, linewidth=1pt]{-2.5}{2.5}{x 0.5 add -0.5 mul}
+        \psplot[plotstyle=curve,linecolor=black, linewidth=1pt]{-2.0}{2.0}{x 0.5 add}
+        \psplot[plotstyle=curve,linecolor=black, linewidth=1pt]{-2.5}{2.5}{x 0.5 add 0.5 mul}
+        \psplot[plotstyle=curve,linecolor=black, linewidth=1pt]{-2.5}{2.5}{x 0.5 add -2 mul}
+        \psplot[plotstyle=curve,linecolor=black, linewidth=1pt]{-2.5}{2.5}{x 0.5 add -0.5 mul}
       \end{pspicture*}
     }
   \end{center}
@@ -1057,21 +1106,21 @@ Poznamo štiri glavne \textbf{grafe} potenčne funkcije, ki se delijo glede na e
       \label{fig:fun:pot:sodplus}
       \begin{pspicture*}(-2.2,-2.2)(2.2,2.2)
         \psaxes[labels=none]{->}(0,0)(-2.2,-2.2)(2.2,2.2)
-        \psplot[linecolor=black, linewidth=1pt]{-2.2}{2.2}{x 2 exp }
+        \psplot[plotstyle=curve,linecolor=black, linewidth=1pt]{-2.2}{2.2}{x 2 exp }
       \end{pspicture*}
     }
     \subfigure[Pozitiven lih eksponent]{
       \label{fig:fun:pot:lihplus}
       \begin{pspicture*}(-2.2,-2.2)(2.2,2.2)
         \psaxes[labels=none]{->}(0,0)(-2.2,-2.2)(2.2,2.2)
-        \psplot[linecolor=black, linewidth=1pt]{-2.2}{2.2}{x 3 exp }
+        \psplot[plotstyle=curve,linecolor=black, linewidth=1pt]{-2.2}{2.2}{x 3 exp }
       \end{pspicture*}
     } \\
     \subfigure[Negativen sod eksponent]{
       \label{fig:fun:pot:sodminus}
       \begin{pspicture*}(-2.2,-2.2)(2.2,2.2)
         \psaxes[labels=none]{->}(0,0)(-2.2,-2.2)(2.2,2.2)
-        \psplot[linecolor=black, linewidth=1pt]{-2.2}{2.2}{x -2 exp }
+        \psplot[plotstyle=curve,linecolor=black, linewidth=1pt]{-2.2}{2.2}{x -2 exp }
         \asimptota(-3,.05)(3,.05)
         \asimptota(.05,-3)(.05,3)
       \end{pspicture*}
@@ -1080,8 +1129,8 @@ Poznamo štiri glavne \textbf{grafe} potenčne funkcije, ki se delijo glede na e
       \label{fig:fun:pot:lihminus}
       \begin{pspicture*}(-2.2,-2.2)(2.2,2.2)
         \psaxes[labels=none]{->}(0,0)(-2.2,-2.2)(2.2,2.2)
-        \psplot[linecolor=black, linewidth=1pt]{-2.2}{-0.001}{x -1 exp }
-        \psplot[linecolor=black, linewidth=1pt]{2.2}{0.001}{x -1 exp }
+        \psplot[plotstyle=curve,linecolor=black, linewidth=1pt]{-2.2}{-0.001}{x -1 exp }
+        \psplot[plotstyle=curve,linecolor=black, linewidth=1pt]{2.2}{0.001}{x -1 exp }
         \asimptota(-3,.05)(3,.05)
         \asimptota(.05,-3)(.05,3)
       \end{pspicture*}
@@ -1102,8 +1151,8 @@ $n$ lih: $D_f = \R, \; Z_f = \R$ \\
   \begin{center}
     \begin{pspicture*}(-3.5,-3.5)(3.5,3.5)
       \psaxes[labels=none]{->}(0,0)(-3.5,-3.5)(3.5,3.5)
-      \psplot[linecolor=black, linewidth=1pt]{0}{3.5}{x sqrt}
-      \psplot[linecolor=blue, linewidth=1pt, swapaxes=true]{-3.5}{3.5}{x 3 exp}
+      \psplot[plotstyle=curve,linecolor=black, linewidth=1pt]{0}{3.5}{x sqrt}
+      \psplot[plotstyle=curve,linecolor=blue, linewidth=1pt, swapaxes=true]{-3.5}{3.5}{x 3 exp}
       \uput[-10](2,2){$\sqrt{x}$}
       \uput[30](-2,-1){$\sqrt[3]{x}$}
       \oznaka(0,1)(1,1)
@@ -1285,9 +1334,9 @@ Možne lege so prikazane na sliki~\ref{fig:fun:kvad:legapinp}.
       \label{fig:fun:eks:avec}
       \begin{pspicture*}(-4.9,-4.9)(4.9,4.9)
         \psaxes[labels=none]{->}(0,0)(-4.9,-4.9)(4.9,4.9)
-        \psplot[linecolor=red, linewidth=1pt]{-4.9}{4.9}{2.7182 x exp}
-        \psplot[linecolor=blue, linewidth=1pt]{-4.9}{4.9}{1.5 x exp}
-        \psplot[linecolor=green, linewidth=1pt]{-4.9}{4.9}{10 x exp}
+        \psplot[plotstyle=curve,linecolor=red, linewidth=1pt]{-4.9}{4.9}{2.7182 x exp}
+        \psplot[plotstyle=curve,linecolor=blue, linewidth=1pt]{-4.9}{4.9}{1.5 x exp}
+        \psplot[plotstyle=curve,linecolor=green, linewidth=1pt]{-4.9}{4.9}{10 x exp}
         \uput[180](0,4.5){$10^x$}
         \uput[0](1.5,4.5){$e^x$}
         \uput[0](2.5,2.8){$1,5^x$}
@@ -1297,9 +1346,9 @@ Možne lege so prikazane na sliki~\ref{fig:fun:kvad:legapinp}.
       \label{fig:fun:eks:amanj}
       \begin{pspicture*}(-4.9,-4.9)(4.9,4.9)
         \psaxes[labels=none]{->}(0,0)(-4.9,-4.9)(4.9,4.9)
-        \psplot[linecolor=red, linewidth=1pt]{-4.9}{4.9}{0.5 x exp}
-        \psplot[linecolor=blue, linewidth=1pt]{-4.9}{4.9}{0.66666667 x exp}
-        \psplot[linecolor=green, linewidth=1pt]{-4.9}{4.9}{0.1 x exp}
+        \psplot[plotstyle=curve,linecolor=red, linewidth=1pt]{-4.9}{4.9}{0.5 x exp}
+        \psplot[plotstyle=curve,linecolor=blue, linewidth=1pt]{-4.9}{4.9}{0.66666667 x exp}
+        \psplot[plotstyle=curve,linecolor=green, linewidth=1pt]{-4.9}{4.9}{0.1 x exp}
         \uput[180](-0.5,4.5){$\frac{1}{10^x}$}
         \uput[180](-2.2,4.5){$\frac{1}{2^x}$}
         \uput[180](-2.5,2.6){$\left( \frac{2}{3} \right)^x$}
@@ -1338,9 +1387,9 @@ Je \textbf{inverzna} funkcija eksponentni funkciji.
       \label{fig:fun:log:avec}
       \begin{pspicture*}(-4.9,-4.9)(4.9,4.9)
         \psaxes[labels=none]{->}(0,0)(-4.9,-4.9)(4.9,4.9)
-        \psplot[swapaxes=true, linecolor=red, linewidth=1pt]{-4.9}{4.9}{2.7182 x exp}
-        \psplot[swapaxes=true, linecolor=blue, linewidth=1pt]{-4.9}{4.9}{1.5 x exp}
-        \psplot[swapaxes=true, linecolor=green, linewidth=1pt]{-4.9}{4.9}{10 x exp}
+        \psplot[plotstyle=curve,swapaxes=true, linecolor=red, linewidth=1pt]{-4.9}{4.9}{2.7182 x exp}
+        \psplot[plotstyle=curve,swapaxes=true, linecolor=blue, linewidth=1pt]{-4.9}{4.9}{1.5 x exp}
+        \psplot[plotstyle=curve,swapaxes=true, linecolor=green, linewidth=1pt]{-4.9}{4.9}{10 x exp}
         \uput[-90](3.7,0){$\log_{10}\!x$}
         \uput[0](2.7,2){$\log_e\!x$}
         \uput[0](1.5,3.8){$\log_{1,5}\!x$}
@@ -1350,9 +1399,9 @@ Je \textbf{inverzna} funkcija eksponentni funkciji.
       \label{fig:fun:log:amanj}
       \begin{pspicture*}(-4.9,-4.9)(4.9,4.9)
         \psaxes[labels=none]{->}(0,0)(-4.9,-4.9)(4.9,4.9)
-        \psplot[swapaxes=true, linecolor=red, linewidth=1pt]{-4.9}{4.9}{0.4 x exp}
-        \psplot[swapaxes=true, linecolor=blue, linewidth=1pt]{-4.9}{4.9}{0.66666667 x exp}
-        \psplot[swapaxes=true, linecolor=green, linewidth=1pt]{-4.9}{4.9}{0.1 x exp}
+        \psplot[plotstyle=curve,swapaxes=true, linecolor=red, linewidth=1pt]{-4.9}{4.9}{0.4 x exp}
+        \psplot[plotstyle=curve,swapaxes=true, linecolor=blue, linewidth=1pt]{-4.9}{4.9}{0.66666667 x exp}
+        \psplot[plotstyle=curve,swapaxes=true, linecolor=green, linewidth=1pt]{-4.9}{4.9}{0.1 x exp}
         \uput[90](3.5,0){$\log_{0,1}\!x$}
         \uput[0](2.2,-2.2){$\log_{0,4}\!x$}
         \uput[0](2,-4){$\log_{\frac{2}{3}}\!x$}
@@ -1399,7 +1448,7 @@ Grafi arcus funkcij so prikazani na sliki~\ref{fig:fun:arc:grafi}.
       \label{fig:fun:arc:sin}
       \begin{pspicture*}(-2.5,-2.5)(2.5,2.5)
         \psaxes[labels=none]{->}(0,0)(-2.5,-2.5)(2.5,2.5)
-        \psplot[linecolor=black, linewidth=1pt,swapaxes=true]{-1.5}{1.5}{x 60 mul sin}
+        \psplot[plotstyle=curve,linecolor=black, linewidth=1pt,swapaxes=true]{-1.5}{1.5}{x 60 mul sin}
         \oznaka(0,1.5)(1,1.5)
         \oznaka(0,-1.5)(-1,-1.5)
         \oznaka(-1,0)(-1,-1.5)
@@ -1414,7 +1463,7 @@ Grafi arcus funkcij so prikazani na sliki~\ref{fig:fun:arc:grafi}.
       \label{fig:fun:arc:cos}
       \begin{pspicture*}(-2.5,-2.5)(2.5,2.5)
         \psaxes[labels=none]{->}(0,-1)(-2.5,-2.5)(2.5,2.5)
-        \psplot[linecolor=black, linewidth=1pt,swapaxes=true]{-1}{2}{x 1 add 60 mul cos}
+        \psplot[plotstyle=curve,linecolor=black, linewidth=1pt,swapaxes=true]{-1}{2}{x 1 add 60 mul cos}
         \oznaka(-1,-1)(-1,2)
         \oznaka(-1,2)(0,2)
         \uput[0](0,2){$\pi$}
@@ -1426,7 +1475,7 @@ Grafi arcus funkcij so prikazani na sliki~\ref{fig:fun:arc:grafi}.
       \label{fig:fun:arc:tan}
       \begin{pspicture*}(-2.5,-2.5)(2.5,2.5)
         \psaxes[labels=none]{->}(0,0)(-2.5,-2.5)(2.5,2.5)
-        \psplot[linecolor=black, linewidth=1pt,swapaxes=true]{-1.4}{1.4}{x 60 mul sin x 60 mul cos div}
+        \psplot[plotstyle=curve,linecolor=black, linewidth=1pt,swapaxes=true]{-1.4}{1.4}{x 60 mul sin x 60 mul cos div}
         \asimptota(-3,1.5)(3,1.5)
         \asimptota(-3,-1.5)(3,-1.5)
         \uput[180](0,1.5){$\frac{\pi}{2}$}
@@ -1437,7 +1486,7 @@ Grafi arcus funkcij so prikazani na sliki~\ref{fig:fun:arc:grafi}.
       \label{fig:fun:arc:cot}
       \begin{pspicture*}(-2.5,-2.5)(2.5,2.5)
         \psaxes[labels=none]{->}(0,-1)(-2.5,-2.5)(2.5,2.5)
-        \psplot[linecolor=black, linewidth=1pt,swapaxes=true]{-0.9}{1.9}{x 1 add 60 mul cos
+        \psplot[plotstyle=curve,linecolor=black, linewidth=1pt,swapaxes=true]{-0.9}{1.9}{x 1 add 60 mul cos
         x 1 add  60 mul sin div}
         \asimptota(-3,2)(3,2)
         \asimptota(-3,-0.95)(3,-0.95)
@@ -1501,15 +1550,26 @@ enačba ali \textbf{identiteta}. Primer:
 
 \subsection{Reševanje enačb}
 \label{sec:enac:resev}
-Enačbi lahko na obeh straneh \textbf{prištejemo} ali \textbf{odštejemo} poljubno število ali izraz in se enakost ohrani.
-Iz tega izhaja tudi ``prenašanje'' člena preko enačaja (na obeh straneh odštejemo ali
+Enačbo lahko preoblikujemo v drugo ekvivalentno enačbo z naslednjimi postopki:
+\begin{itemize*}
+  \item Levo ali desno stran enačbe lahko preoblikujemo s pravili za preoblikovanje
+    izrazov.
+  \item Enačbi lahko na obeh straneh \textbf{prištejemo} ali \textbf{odštejemo} poljubno število
+ali izraz. Iz tega izhaja tudi ``prenašanje'' člena preko enačaja (na obeh straneh odštejemo ali
 prištejemo ta člen).
 
-Enačbo lahko na obeh straneh \textbf{množimo} ali \textbf{delimo} s poljubnim številom ali izrazom, ki ni
-enak 0, in se enakost ohrani. 
+  \item Enačbo lahko na obeh straneh \textbf{množimo} ali \textbf{delimo} s poljubnim številom ali izrazom, ki ni
+enak 0. 
 
-Vse druge operacije (npr. logaritmiranje, potenciranje, korenjenje) \textbf{ne
-privedejo} nujno do ekvivalentnih enačb!
+  \item Na levi in na desni strani lahko \textbf{izvedemo} isto matematično \textbf{funkcijo}, ki mora biti
+\textbf{bijektivna}.\footnote{Za definicijo bijektivne preslikave glej
+razdelek~\ref{sec:preslikave}.}
+\end{itemize*}
+
+Pozor: Če levo in desno stran pomnožimo ali delimo z matematičnim izrazom, ki bi lahko bil
+enak 0 (za določeno vrednost spremenljivke), dobljena enačba ni nujno enakovredna prvotni.
+Če na levi in desni strani izvedemo funkcijo, ki ni bijektivna (npr. kvadriranje),
+dobljena enačba ni nujno enakovredna prvotni.
 
 \subsection{Linearne enačbe}
 \label{sec:enac:lin}
@@ -1561,6 +1621,9 @@ Kvadratne enačba ima:
 
 \subsection{Kompleksne enačbe}
 \label{sec:enac:kompl}
+\textbf{Kompleksna enačba} je vsaka enačba oblike $z = w; z, w \in \C$ ali vsaka neenačba, ki jo v
+to obliko lahko prevedemo.
+
 Kompleksno število je enako nič, če sta obe njegovi komponenti enaki nič.
 \[ A + B\ii = 0 \iff A = 0 \land B = 0 \]
 
@@ -1569,7 +1632,7 @@ Dve kompleksni števili sta enaki, če sta njuni realni in imaginarni komponenti
 
 \subsection{Eksponentne enačbe}
 \label{sec:enac:eks}
-\textbf{Eksponentna enačba} je vsaka enačba v kateri nastopa neznanka v eksponentu.
+\textbf{Eksponentna enačba} je vsaka enačba v kateri neznanka nastopa v eksponentu.
 
 Enostavne rešitve enačbe:
 \begin{align*}
@@ -1619,21 +1682,199 @@ Rešitve enačbe so ničle polinoma $p(x)$.
 \subsection{Racionalne enačbe}
 \label{sec:enac:rac}
 \textbf{Racionalna enačba} je vsaka enačba oblike $\frac{p(x)}{q(x)} = 0$ ali vsaka enačba, ki jo
-v to obliko lahko prevedemo. Pomembno je, da si pri reševanju take enačbe zapišemo pogoje
+v to obliko lahko prevedemo. $p(x)$ in $q(x)$ sta polinoma.
+Pomembno je, da si pri reševanju take enačbe zapišemo pogoje
 za rešitve (ničle imenovalcev ne smejo biti rešitve).
 
 \section{Neenačbe}
 \label{sec:neenac}
+\textbf{Neenačba} je simbolični zapis sestavljen iz dveh matematičnih
+izrazov, med katerima stoji \textbf{neenačaj}. \hyperanchor{point:neenacaj}
+Neenačaj je lahko katerikoli od znakov za relacijo
+urejenosti ($<$, $\leq$, $>$, $\geq$, včasih tudi $\neq$). Izraza, ki nastopata v neenačbi,
+imenujemo \textbf{leva stran} in \textbf{desna stran} neenačbe.
+Spremenljivke, ki nastopajo v neenačbi, imenujemo \textbf{neznanke}.
+\textbf{Rešitev} neenačbe je vrednost neznanke, ki zadosti neenakosti. 
+Množico rešitev, ki je pogosto neskončna, ponavadi zapišemo z intervalom.
+Primer:
+\[ x + 1 \leq 2 \implies x \in (-\infty, 1] \]
+
+Neenačbi sta enakovredni ali \textbf{ekvivalentni}, če imata enako množico rešitev.
+Primer:
+\[ 3x + 1 < x + 7 \textnormal{ in } 2x < 6 \]
+
+Neenačbe se v nalogah dostikrat povezuje z definicijskim območjem funkcij. Primer:\\
+Poišči definicijsko območje funkcije $f(x) = \log(x^3 + 2x - 4)$ je enako kot: reši
+neenačbo $x^3 + 2x - 4 >0$.
+
+\subsection{Reševanje neenačb}
+\label{sec:neenac:resev}
+Neenačbo lahko preoblikujemo v drugo ekvivalentno neenačbo z naslednjimi postopki:
+\begin{itemize*}
+  \item Levo ali desno stran neenačbe lahko preoblikujemo s pravili za preoblikovanje
+    izrazov.
+  \item Neenačbi lahko na desni in na levi strani \textbf{prištejemo} ali \textbf{odštejemo} isto število ali izraz.
+Prav tako lahko tudi ``prenesemo'' člene preko neenačaja, tako da jim spremenimo predznak.
+
+  \item Neenačbo lahko na desni in na levi strani \textbf{množimo} ali \textbf{delimo} z istim \textit{pozitivnim} številom
+ali izrazom.
+
+  \item Če neenačbo na desni in na levi strani \textbf{množimo} ali \textbf{delimo} z istim \textit{negativnim} številom
+ali izrazom, se neenačaj obrne.
+
+  \item Na levi in desni strani lahko \textbf{izvedemo} isto matematično \textbf{funkcijo}, ki pa mora biti povsod 
+\textit{strogo rastoča}.
+
+  \item Če na levi in desni strani \textbf{izvedemo} isto matematično \textbf{funkcijo}, ki je povsod \textit{strogo
+padajoča}, se neenačaj obrne
+\end{itemize*}
+
+Rešitev \textbf{sistema} neenačb je presek rešitev posameznih neenačb.
+
+\subsection{Linearne neenačbe}
+\label{sec:neenac:lin}
+\textbf{Linearna neenačba} je vsaka neenačba oblike $kx + n$
+\hyperlink{point:neenacaj}{\texttt{neenačaj}} $0; k, n \in \R$ ali vsaka
+neenačba, ki jo v to obliko lahko prevedemo.
+
+\subsection{Kvadratne neenačbe}
+\label{sec:neenac:kvad}
+\textbf{Kvadratna neenačba} je vsaka neenačba oblike $ax^2 + bx + c$
+\hyperlink{point:neenacaj}{\texttt{neenačaj}} $0$
+ali vsaka neenačba, ki jo v to obliko lahko prevedemo.
+
+Rešitve poiščemo tako, da izračunamo ničle funkcije $f(x)
+= ax^2 + bx + c$ in ugotovimo predznak kvadratne funkcije na celotni realni osi ter nato 
+izberemo želene intervale, ki ustrezajo pogojem. Skica je priporočljiva.
+
+\subsection{Polinomske neenačbe}
+\label{sec:neenac:pol}
+Polinomska neenačba je vsaka neenačba oblike $p(x)$
+\hyperlink{point:neenacaj}{\texttt{neenačaj}} $0$ ali vsaka
+neenačba, ki jo v to obliko lahko prevedemo.
+
+Rešitve poiščemo tako, da izračunamo ničle polinoma $p(x)$
+in ugotovimo predznak funkcije na celotni realni osi ter nato 
+izberemo želene intervale, ki ustrezajo pogojem. Skica je priporočljiva.
+
 \subsection{Racionalne neenačbe}
 \label{sec:neenac:rac}
-Racionalna neenačba je vsaka neenačba oblike $\frac{p(x)}{q(x)} < 0$ ali
-$\frac{p(x)}{q(x)} > 0$ ali vsaka neenačba, ki jo v to obliko lahko prevedemo. Rešimo jo
+Racionalna neenačba je vsaka neenačba oblike $\frac{p(x)}{q(x)}$
+\hyperlink{point:neenacaj}{\texttt{neenačaj}} $0$ ali
+vsaka neenačba, ki jo v to obliko lahko prevedemo. Rešimo jo
 tako da vse člene prenesemo na eno stran, in določimo ničle in pole dobljene racionalne
 funkcije, ter tako ugotovimo njen predznak na celotni realni
-osi in nato izberemo želeni interval kot rešitev neenačbe.
+osi in nato izberemo želeni interval kot rešitev neenačbe. Skica je priporočljiva.
+
+\section{Geometrija}
+\label{sec:geom}
+Listi!\\
+Naslednje dokaze je treba znat:
+\begin{itemize*}
+  \item vsota notranjih kotov v trikotniku: $\alpha + \beta + \gamma = 180\deg$, grafično
+  \item vsota zunanjih kotov v trikotniku: $\alpha' + \beta' + \gamma' = 360\deg$, grafično in računsko
+  \item zveza med zunanjimi in notranjimi koti: $\alpha' = \beta + \gamma$, grafično in računsko
+  \item središčni in obodni kot, grafično
+  \item Talesov izrek: kot ki ima vrh na krožnici, kraka pa potekata skozi krajišči
+    polmera, meri 90\deg.
+\end{itemize*}
+
+\section{Podobnost}
+\label{sec:podob}
+Enakoležne stranice so tiste, ki ležijo nasproti istim kotom.
+
+\subsection{Talesovi izreki}
+Če sta si trikotnika podobna, je razmerje dveh enakoležnih stranic enako razmerju drugih
+dveh enakoležnih stranic.
+\begin{equation}
+  \frac{a_1}{a} = \frac{b_1}{b} = \frac{c_1}{c} = k 
+  \label{eq:podob:tal1}
+\end{equation}
+
+Če sta si trikotnika podobna, je razmerje stranic prvega trikotnika enako razmerju
+enakoležnih stranic drugega trikotnika.
+\begin{equation}
+  a : b : c = a_1 : b_1 : c_1
+  \label{eq:podob:tal2}
+\end{equation}
+
+Če se trikotnika ujemata v kotu in razmerju stranic, ki kot oklepata, sta si podobna.
+
+Razmerje obsegov, višin in ploščin:
+\[ \frac{o_1}{o} = k  \\
+ \frac{v_1}{v} = k  \\
+ \frac{p_1}{p} = k^2 \]
+
+\subsection{Izreki v pravokotnem trikotniku}
+Višinski izrek:
+\begin{equation}
+  v_c^2 = a_1 \krat b_1
+  \label{eq:podob:trik:vis}
+\end{equation}
+
+Evklidov izrek:
+\begin{equation}
+  a^2 = a_1 \krat c \\
+  b^2 = b_1 \krat c
+  \label{eq:podob:trik:evk}
+\end{equation}
+
+Pitagorov izrek:
+\begin{equation}
+  c^2 = a^2 + b^2
+  \label{eq:podob:trik:pit}
+\end{equation}
+
+Dokaz:
+\begin{align*}
+  c^2 &= a^2 + b^2 \\
+  c^2 &= a_1 \krat c + b_1 \krat c \\
+  c^2 &= c \krat (a_1 + b_1) \\
+  c^2 &= c \krat c \\
+\end{align*}
+
+%\begin{figure}[ht]
+%  \begin{center}
+%    \begin{pspicture*}(-4.9,-4.9)(4.9,4.9)
+%      \pstTriangle(-3,0){A}(1.5,2.6){C}(3,0){B}
+%      \pstRightAngle{A}{C}{B}
+%      \pstProjection{A}{B}{C}[T]
+%      \pstLineAB{C}{T}[$v_c$]
+%    \end{pspicture*}
+%  \end{center}
+%  \beforecaptionskip
+%  \caption{Višinski in Evklidov izrek v trikotniku.}
+%  \label{fig:podob:trik:izr}
+%\end{figure}
+
 
 \section{Kotne funkcije}
 \label{sec:kot}
+
+\subsection{V pravokotnem trikotniku}
+\label{sec:kot:prav}
+\textbf{Sinus kota} je enak razmerju med kotu nasprotno kateto in hipotenuzo.
+\[ \sin\alpha = \frac{a}{c} \]
+\textbf{Kosinus kota} je enak razmerju med kotu priležno kateto in hipotenuzo.
+\[ \cos\alpha = \frac{a}{c} \]
+\textbf{Tangens kota} je enak razmerju med kotu nasprotno in kotu priležno kateto.
+\[ \tan\alpha = \tg\alpha = \frac{a}{c} \]
+\textbf{Kotangens kota} je enak razmerju med kotu priležno in kotu nasprotno kateto.
+\[ \cot\alpha = \ctg\alpha = \frac{a}{c} \]
+
+\begin{table}
+  \centering
+  \caption{Vrednosti kotnih funkcij za določene kote.}
+  \label{tab:kot:prav:vred}
+  \begin{tabularx}{\textwidth}{C!{\vrule width 2pt}C|C|C|C}
+     $\alpha$ & $\sin\alpha$ & $\kos\alpha$ & $\tan\alpha$ & $\cot\alpha$ \\ \noalign{\hrule height 2pt}
+     $0\deg$  &     $0$      &      $1$     &     $0$      &   nedef.     \\ \hline
+     $30\deg$ & $\frac{1}{2}$ & $\frac{\sqrt{3}}{2}$ & $\frac{\sqrt{3}}{3}$ & $\sqrt{3}$ \\ \hline
+     $45\deg$ & $\frac{\sqrt{2}}{2}$ & $\frac{\sqrt{2}}{2}$ & $1$ & $1$ \\ \hline
+     $60\deg$ & $\frac{\sqrt{3}}{2}$ & $\frac{1}{2}$ & $\sqrt{3}$ & $\frac{\sqrt{3}}{3}$ \\ \hline
+     $90\deg$ &     $1$      & $\frac{\sqrt{3}}{2}$ & nedef. & $0$ \\
+  \end{tabularx}
+\end{table}
 
 \section{Kompleksna števila}
 \label{sec:kompl}
@@ -1769,7 +2010,7 @@ $\varepsilon$ se imenuje \textbf{numerična ekscentričnost} in je pri hiperboli
 \textbf{Eksplicitna} enačba hiperbole:
 \[ y = \pm \frac{b}{a} \sqrt{x^2 - a^2} \]
 
-\textbf{Definicijsko območje} hiperbole je $D_f = (-\infty, -a] \cup [a,\infty)$.
+\textbf{Definicijsko območje} hiperbole je $D_f = (-\infty, -a] \cup [a, \infty)$.
 Hiperbola je \textbf{simetrična} glede na obe koordinatni osi.
 
 \textbf{Gorišči} hiperbole:
