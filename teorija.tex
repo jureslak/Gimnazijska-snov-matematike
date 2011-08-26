@@ -49,6 +49,7 @@ menucolor=black, runcolor=black, urlcolor=black%
 \usepackage{tabularx}
 \usepackage{pbox}
 \usepackage{units}
+\usepackage{mathtools}
 
 \def\R{\ensuremath{\mathbb R}}
 \def\N{\ensuremath{\mathbb N}}
@@ -972,10 +973,10 @@ po $x$ osi (levo -- desno), parameter $q$ pa na premik po $y$ osi (gor -- dol).
         \psplot[plotstyle=curve,linecolor=black, linewidth=.5pt]{-3.5}{3.5}{x -1 mul 3 exp}
         \psplot[plotstyle=curve,linecolor=black, linewidth=.5pt]{-3.5}{3.5}{x 2 sub -1 mul 3 exp 1 add}
         \psline[linecolor=black, linewidth=1pt]{->}(-1,1)(1,2)
-        \psline[linecolor=red, linestyle=dotted]{}(-1,1)(0,1)
-        \psline[linecolor=red, linestyle=dotted]{}(-1,1)(-1,0)
-        \psline[linecolor=red, linestyle=dotted]{}(1,2)(0,2)
-        \psline[linecolor=red, linestyle=dotted]{}(1,2)(1,0)
+        \oznaka(-1,1)(0,1)
+        \oznaka(-1,1)(-1,0)
+        \oznaka(1,2)(0,2)
+        \oznaka(1,2)(1,0)
         \uput[0](0,1){$y$}
         \uput[180](0,2){$y'$}
         \uput[-90](-1,0){$x$}
@@ -1862,19 +1863,297 @@ Dokaz:
 \textbf{Kotangens kota} je enak razmerju med kotu priležno in kotu nasprotno kateto.
 \[ \cot\alpha = \ctg\alpha = \frac{a}{c} \]
 
-\begin{table}
+\begin{table}[h]
   \centering
   \caption{Vrednosti kotnih funkcij za določene kote.}
   \label{tab:kot:prav:vred}
-  \begin{tabularx}{\textwidth}{C!{\vrule width 2pt}C|C|C|C}
-     $\alpha$ & $\sin\alpha$ & $\kos\alpha$ & $\tan\alpha$ & $\cot\alpha$ \\ \noalign{\hrule height 2pt}
+  \begin{tabularx}{\textwidth}{C!{\vrule width 1.5pt}C|C|C|C}
+     $\alpha$ & $\sin\alpha$ & $\kos\alpha$ & $\tan\alpha$ & $\cot\alpha$ \\ \noalign{\hrule height 1.5pt}
      $0\deg$  &     $0$      &      $1$     &     $0$      &   nedef.     \\ \hline
-     $30\deg$ & $\frac{1}{2}$ & $\frac{\sqrt{3}}{2}$ & $\frac{\sqrt{3}}{3}$ & $\sqrt{3}$ \\ \hline
-     $45\deg$ & $\frac{\sqrt{2}}{2}$ & $\frac{\sqrt{2}}{2}$ & $1$ & $1$ \\ \hline
-     $60\deg$ & $\frac{\sqrt{3}}{2}$ & $\frac{1}{2}$ & $\sqrt{3}$ & $\frac{\sqrt{3}}{3}$ \\ \hline
-     $90\deg$ &     $1$      & $\frac{\sqrt{3}}{2}$ & nedef. & $0$ \\
+     $30\deg$ & \mltc{$\frac{1}{2}$} & \mltc{$\frac{\sqrt{3}}{2}$} & \mltc{$\frac{\sqrt{3}}{3}$} & $\sqrt{3}$ \\ \hline
+     $45\deg$ & \mltc{$\frac{\sqrt{2}}{2}$} & \mltc{$\frac{\sqrt{2}}{2}$} & $1$ & $1$ \\ \hline
+     $60\deg$ & \mltc{$\frac{\sqrt{3}}{2}$} & \mltc{$\frac{1}{2}$} & $\sqrt{3}$ & \mltc{$\frac{\sqrt{3}}{3}$} \\ \hline
+     $90\deg$ &     $1$      & \mltc{$\frac{\sqrt{3}}{2}$} & nedef. & $0$ \\
   \end{tabularx}
 \end{table}
+
+\subsection{Kot}
+\label{sec:kot:kot}
+Definicijo kota za delo s kotnimi funkcijami raz\v{s}irimo tako, da kotu dolo\v{c}imo
+\textbf{smer} (slika~\ref{fig:kot:kot:plus} in~\ref{fig:kot:kot:minus}), tako da določimo prvi in drugi krak (kot tako vedno merimo od prvega do drugega
+kraka po krajši poti) in da dopuščamo \textbf{poljubno velike} kote
+(slika~\ref{fig:kot:kot:vel}).
+
+\begin{figure}[ht]
+  \begin{center}
+    \subfigure[Pozitiven kot.]{
+      \label{fig:kot:kot:plus}
+      \begin{pspicture*}(0,-1)(3.5,1)
+        \psline(0,0)(3,1)
+        \psline(0,0)(3,-1)
+        \pscurve{<-}(1.5,.5)(1.6,0)(1.5,-.5)
+        \uput[d](3,1){2}
+        \uput[u](3,-1){1}
+        \uput[r](1.6,0){$+$}
+        \uput{.7}[r](0,0){$\varphi$}
+      \end{pspicture*}
+    }
+    \subfigure[Negativen kot.]{
+      \label{fig:kot:kot:minus}
+      \begin{pspicture*}(0,-1)(3.5,1)
+        \psline(0,0)(3,1)
+        \psline(0,0)(3,-1)
+        \pscurve{->}(1.5,.5)(1.6,0)(1.5,-.5)
+        \uput[d](3,1){1}
+        \uput[u](3,-1){2}
+        \uput[r](1.6,0){$-$}
+        \uput{.7}[r](0,0){$\varphi$}
+      \end{pspicture*}
+    }
+    \subfigure[Poljubno velik kot.]{
+      \label{fig:kot:kot:vel}
+      \begin{pspicture*}(-3.5,-3.5)(3.5,3.5)
+        \psline(0,0)(3,1)
+        \psline(0,0)(3,-1)
+        \pscurve{->}(.60,-.2)(0,-.7)(-.8,0)(0,.9)(1.1,0)(0,-1.2)(-1.3,0)(0,1.4)(1.48,.5)
+        \uput[l](0,0){$\varphi$}
+      \end{pspicture*}
+    }
+  \end{center}
+  \beforecaptionskip
+  \caption{Razširjena definicija kota}
+  \label{fig:kot:kot}
+\end{figure}
+
+Kot tudi merimo v različnih enotah. \textbf{Radian} je enota, ki predstavlja dolžino krožnega loka
+z radijem 1 nad določenim kotom. Pretvorba določenih vrednosti iz stopinj v radiane je
+prikazana v tabeli~\ref{tab:kot:kot:degrad}.
+
+\begin{table}[h]
+  \centering
+  \caption{Tabela pretvorb med radiani in stopinjami za določene kote.}
+  \vspace{5pt}
+  \label{tab:kot:kot:degrad}
+  \begin{tabular}{c|c|c|c|c|c|c|c|c|c|c}
+    stopinje & $ 0\deg $ & $ 30\deg $ & $ 45\deg $ & $ 60\deg $ & $ 90\deg $ & $ 120\deg $ & $ 135\deg $ & $ 150\deg $ & $ 180\deg $ & $ 360\deg $ \\ \hline
+    radiani & \mltc{$ 0     $} & \mltc{$ \frac{\pi}{6}$} & \mltc{$ \frac{\pi}{4}$} &
+    \mltc{$ \frac{\pi}{3}$} & \mltc{$ \frac{\pi}{2}$} & \mltc{$ \frac{2\pi}{2}$} &
+    \mltc{$ \frac{3\pi}{4}$} & \mltc{$ \frac{5\pi}{6}$} & \mltc{$ \pi$} & \mltc{$ 2\pi$} \\
+  \end{tabular}
+\end{table}
+
+\subsection{Sinus in kosinus}
+\label{sec:kot:sincos}
+
+\begin{figure}[ht]
+  \begin{center}
+      \psset{unit=2cm}
+      \begin{pspicture*}(-1.15,-1.15)(1.15,1.15)
+        \psaxes[labels=none]{->}(0,0)(-1.15,-1.15)(1.15,1.15)
+        \pscircle(0,0){1}
+        \psline[linewidth=1.5pt]{->}(0,0)(0.6,0.8)
+        \psline[linewidth=1.5pt]{->}(0,0)(1,0)
+        \uput[dl](0,0){$0$}
+        \uput[dl](0,1){$1$}
+        \uput[dr](1,0){$1$}
+        \uput[d](.5,0){$\vec{a}$}
+        \uput[120](.3,.5){$\vec{b}$}
+        \uput[ur](.2,0){$\alpha$}
+        \uput[60](.6,.8){$T\left(x,y\right)$}
+      \end{pspicture*}
+      \psset{unit=1cm}
+  \end{center}
+  \beforecaptionskip
+  \caption{Kot med enotskima vektorjema, uporabljen pri definiciji sinusa in kosinusa.}
+  \label{fig:kot:sincosdef}
+\end{figure}
+Ob formulah glej sliko~\ref{fig:kot:sincosdef}.
+\[ \vec{a} = \left(1,0\right) \]
+\[ \vec{b} = \left(x,y\right) \]
+\[ \vec{a} \krat \vec{b} = ab\kos\alpha\;\footnotemark
+  \comment{$\vec{a}$ in $\vec{b}$ sta enotska vektorja} \]
+\begin{equation}
+  \kos\alpha = \frac{\vec{a}\krat\vec{b}}{a\krat b} = \vec{a}\krat\vec{b} = \left( 1,0 \right)\krat\left( x,y \right) = 1x + 0y = x
+  \label{eq:kot:cosdef}
+\end{equation}
+
+\[ \left|\vec{a} \times \vec{b}\right| = \left|\left( 
+\begin{vmatrix} a_2 & a_3 \\ b_2 & b_3 \end{vmatrix},
+\begin{vmatrix} a_3 & a_1 \\ b_3 & b_1 \end{vmatrix},
+\begin{vmatrix} a_1 & a_2 \\ b_1 & b_2 \end{vmatrix}
+\right)\right| =  \left| \left( 0,0, \begin{vmatrix} a_1 & a_2 \\ b_1 & b_2
+\end{vmatrix} \right) \right| = \begin{vmatrix} a_1 & a_2 \\ b_1 & b_2 \end{vmatrix} =
+ab\sin\alpha \] 
+
+\begin{equation}
+  \sin\alpha = \frac{\begin{vmatrix} a_1 & a_2 \\ b_1 & b_2 \end{vmatrix}}{a\krat b} =
+  \begin{vmatrix} a_1 & a_2 \\ b_1 & b_2 \end{vmatrix} =
+  \begin{vmatrix} 1 & 0 \\ x & y \end{vmatrix} = 1y - 0x = y
+  \label{eq:kot:sindef}
+\end{equation}
+
+\footnotetext{Za formule, ki se tičejo vektorjev glej
+razdelek~\ref{sec:vec}. Za skalarni produkt glej razdelek~\ref{sec:vec:skal}, za vektorski
+produkt pa~\ref{sec:vec:vec}.}
+
+\textbf{Sinus} kota, ki ima en krak na pozitivni strani x osi in vrh v izhodišču je
+\textbf{abscisa} točke v kateri drugi krat seka enotsko krožnico.
+
+\textbf{Kosinus} kota, ki ima en krak na pozitivni strani x osi in vrh v izhodišču je
+\textbf{ordinata} točke v kateri drugi krat seka enotsko krožnico.
+
+Grafična predstavitev sinusa in kosinusa je prikazana na sliki~\ref{fig:kot:daljice}.
+
+\textbf{Lastnosti:}
+\begin{enumerate*}
+  \item $D_{sin} = D_{cos} = \R$
+  \item $Z_{sin} = Z_{cos} = [-1,1]$
+  \item Obe sta omejeni $m = -1$, $M = 1$
+  \item Sinus je \textbf{liha} funkcija: $\sin(-x) = -\sin(x)$
+  \item Kosinus je \textbf{soda} funkcija: $\kos(-x) = \kos(x)$
+\end{enumerate*}
+
+\begin{figure}[ht]
+  \begin{center}
+      \psset{unit=3cm}
+      \begin{pspicture*}(-1.15,-1.15)(1.4,1.15)
+        \psaxes[labels=none]{->}(0,0)(-1.15,-1.15)(1.15,1.15)
+        \pscircle(0,0){1}
+        \psline(0,0)(1.4,1.05) % kot = 36.87
+        \psline(0,0.6)(0.8,0.6) % y = sin(kot)
+        \psline[linewidth=1.5pt,linecolor=red](0,0)(0,0.6) % y = sin(kot)
+        \psline(0.8,0)(0.8,0.6) % x = cos(kot)
+        \psline[linewidth=1.5pt,linecolor=blue](0,0)(0.8,0) % x = cos(kot)
+        \psline(-1.15,1)(1.4,1)
+        \psline[linewidth=1.5pt,linecolor=green](1,0)(1,0.75) % y = tan(kot)
+        \psline(1,-1.15)(1,1.15)
+        \psline[linewidth=1.5pt,linecolor=orange](0,1)(1.33333333333333,1) % x = cot(kot)
+        \uput[dl](0,0){$0$}
+        \uput[ul](0,1){$1$}
+        \uput[dr](1,0){$1$}
+        \uput[18](.2,.07){$\varphi$}
+        \uput[l](0,.3){$\sin\varphi$}
+        \uput[d](.5,0){$\kos\varphi$}
+        \uput[u](.5,1){$\cot\varphi$}
+        \uput[r](1,.5){$\tan\varphi$}
+      \end{pspicture*}
+      \psset{unit=1cm}
+  \end{center}
+  \beforecaptionskip
+  \caption{Grafični prikaz vrednosti kotnih funkcij.}
+  \label{fig:kot:daljice}
+\end{figure}
+
+\subsection{Tangens in kotangens}
+\label{sec:kot:tancot}
+\textbf{Tangens} kota je enak razmerju med sinusom in kosinusom kota.
+\begin{equation}
+  \tan\alpha = \frac{\sin\alpha}{\kos\alpha} 
+  \label{eq:kot:tandef}
+\end{equation}
+
+\textbf{Kotangens} kota je enak razmerju med kosinusom in sinusom kota.
+\begin{equation}
+  \cot\alpha = \frac{\kos\alpha}{\sin\alpha}
+  \label{eq:kot:cotdef}
+\end{equation}
+
+
+\textbf{Tangens} kota je \textbf{ordinata} točke v katerem drugi krak kota ali njegova nosilka seka tangento
+na enotsko krožnico v točki $(0,1)$.
+
+\textbf{Kotangens} kota je \textbf{abscisa} točke v katerem drugi krak kota ali njegova nosilka seka
+tangento na enotsko krožnico v točki $(1,0)$.
+
+Grafična predstavitev tangensa in kotangensa je prikazana na sliki~\ref{fig:kot:daljice}.
+
+\textbf{Lastnosti:}
+\begin{enumerate*}
+  \item $D_tan = \R - \left\{ \frac{\pi}{2} + k\pi; \; k \in \Z \right\}$
+  \item $D_cot = \R - \left\{ k\pi; \; k \in \Z \right\}$
+  \item $Z_tan = Z_cot = \R$
+  \item Tangens in kotangens \textbf{sta} lihi funkciji. \[ \tan(-x) = -\tan(x) \;\;
+    \cot(-x) = -\cot(x) \]
+  \item Obe funkciji sta \textbf{periodični} s periodo $\omega = \pi$.
+\end{enumerate*}
+
+\subsubsection{Osnovne zveze med kotnimi funkcijami}
+\label{sec:kot:zvez}
+\begin{align*}
+  \sin^2\alpha + \kos^2\alpha &= 1 \label{eq:kot:zvez:sincos} \comment{Grafičen dokaz na
+  sliki~\ref{fig:kot:daljice}.}\\
+  \tan\alpha \krat \cot\alpha &= 1 \\%\label{eq:kot:zvez:tancot} \\
+  1 + \tan^2\alpha &= \frac{1}{\kos^2\alpha}\\% \label{eq:kot:zvez:tancos} \\
+  1 + \cot^2\alpha &= \frac{1}{\sin^2\alpha} \\%\label{eq:kot:zvez:cotsin}
+\end{align*}
+Ostale zveze se dokaže tako, da se tangens ali kotangens zamenja po
+definiciji~\eqref{eq:kot:tandef} ali~\eqref{eq:kot:cotdef} in nato poenostavi enačbo.
+
+\subsection{Adicijski izreki}
+
+\begin{figure}[ht]
+  \begin{center}
+      \psset{unit=2cm}
+      \begin{pspicture*}(-1.15,-1.15)(1.15,1.15)
+        \psaxes[labels=none]{->}(0,0)(-1.15,-1.15)(1.15,1.15)
+        \pscircle(0,0){1}
+        \psline[linewidth=1.5pt]{->}(0,0)(.6,.8)
+        \psline[linewidth=1.5pt]{->}(0,0)(.8,-.6)
+        \uput[dl](0,0){$0$}
+        \uput[dl](0,1){$1$}
+        \uput[dr](1,0){$1$}
+        \uput[d](.35,-.3){$\vec{a}$}
+        \uput[120](.3,.5){$\vec{b}$}
+        \uput[ur](.2,0){$\beta$}
+        \uput[dr](.2,-.015){$\alpha$}
+      \end{pspicture*}
+      \psset{unit=1cm}
+  \end{center}
+  \beforecaptionskip
+  \caption{Adicijski izreki.}
+  \label{fig:kot:adic}
+\end{figure}
+
+Ob formulah glej sliko~\ref{fig:kot:adic}. Izpeljane so iz definiciji kotnih funkcij
+sinus~\eqref{eq:kot:sindef}, kosinus~\eqref{eq:kot:cosdef}, tangens~\eqref{eq:kot:tandef} in
+kotangens~\eqref{eq:kot:cotdef}.
+\[\kos(\alpha+\beta) = \vec{a}\krat\vec{b} = (\kos\alpha, -\sin\alpha)\krat(\kos\beta,
+\sin\beta) = \kos\alpha\kos\beta - \sin\alpha\sin\beta \]
+\[\sin(\alpha+\beta) = \begin{vmatrix} a_1 & a_2 \\ b_1 & b_2 \end{vmatrix} = 
+  \begin{vmatrix*}[r] \kos\alpha & -\sin\alpha \\ \kos\beta & \sin\beta \end{vmatrix*} =
+  \sin\alpha\kos\beta - \sin\beta\kos\alpha \]
+
+\begin{align*} \tan(\alpha+\beta) &= \frac{\sin(\alpha+\beta)}{\kos\alpha+\beta} =
+\frac{\sin\alpha\kos\beta+\sin\beta\kos\alpha :(\kos\alpha\kos\beta)}{\kos\alpha\kos\beta
+- \sin\alpha\sin\beta :(\kos\alpha\kos\beta)} =\\&=
+\frac{\frac{\sin\alpha\kos\beta}{\kos\alpha\kos\beta}+\frac{\sin\beta\kos\alpha}{\kos\alpha\kos\beta}}
+{\frac{\kos\alpha\kos\beta}{\kos\alpha\kos\beta}+\frac{\sin\alpha\sin\beta}{\kos\alpha\kos\beta}}
+= \frac{\tan\alpha+\tan\beta}{1-\tan\alpha\tan\beta} \end{align*}
+
+\begin{align*} \cot(\alpha+\beta) &= \frac{\kos(\alpha+\beta)}{\sin\alpha+\beta} =
+\frac{\kos\alpha\kos\beta-\sin\alpha\sin\beta :(\sin\alpha\sin\beta)}{\sin\alpha\kos\beta
++ \sin\beta\kos\alpha :(\sin\alpha\sin\beta)} =\\&=
+\frac{\frac{\kos\alpha\kos\beta}{\sin\alpha\sin\beta}+\frac{\sin\alpha\sin\beta}{\sin\alpha\sin\beta}}
+{\frac{\sin\alpha\kos\beta}{\sin\alpha\sin\beta}+\frac{\sin\beta\kos\alpha}{\sin\alpha\sin\beta}}
+= \frac{\cot\alpha\cot\beta-1}{\cot\alpha+\cot\beta} \end{align*}
+
+\boldmath
+\begin{align}
+  \kos(\alpha\pm\beta) &= \kos\alpha\kos\beta \mp \sin\alpha\sin\beta \label{eq:kot:adic:cos} \\
+  \sin(\alpha\pm\beta) &= \sin\alpha\kos\beta \pm \sin\beta\kos\alpha \label{eq:kot:adic:sin} \\
+  \tan(\alpha\pm\beta) &= \frac{\tan\alpha \mp \tan\beta}{1 \pm \tan\alpha\tan\beta} \label{eq:kot:adic:tan} \\
+  \cot(\alpha\pm\beta) &= \frac{\cot\alpha\cot\beta \mp 1}{\cot\alpha \mp \cot\beta} \label{eq:kot:adic:cot}
+\end{align}
+\unboldmath
+
+\section{Vektorji}
+\label{sec:vec}
+
+\subsection{Skalarni produkt}
+\label{sec:vec:skal}
+
+\subsection{Vektorski produkt}
+\label{sec:vec:vec}
 
 \section{Kompleksna števila}
 \label{sec:kompl}
