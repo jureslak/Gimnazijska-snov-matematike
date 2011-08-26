@@ -1056,7 +1056,7 @@ prvotna funkcija \textbf{injektivna}.\footnote{Za definicijo injektivnosti glej 
   \frac{x}{m} + \frac{y}{n} = 1 \comment{odsekovna}
 \end{align*}
 
-$k$ --- smerni koeficient \\
+$k$ --- smerni koeficient (vzporedne  premice imajo enak smerni koeficient) \\
 $n$ --- začetna vrednost, odsek na ordinatni osi \\
 $m$ --- odsek na abscisni osi
 
@@ -1771,20 +1771,22 @@ osi in nato izberemo želeni interval kot rešitev neenačbe. Skica je priporoč
 \label{sec:geom}
 Listi!\\
 Naslednje dokaze je treba znat:
-\begin{itemize*}
+\begin{enumerate*}
   \item vsota notranjih kotov v trikotniku: $\alpha + \beta + \gamma = 180\deg$, grafično
   \item vsota zunanjih kotov v trikotniku: $\alpha' + \beta' + \gamma' = 360\deg$, grafično in računsko
-  \item zveza med zunanjimi in notranjimi koti: $\alpha' = \beta + \gamma$, grafično in računsko
+  \item zveza med zunanjimi in notranjimi koti: $\alpha' = \beta + \gamma$, grafično in
+    računsko \label{enum:geom:notrzun}
   \item središčni in obodni kot, grafično
   \item Talesov izrek: kot ki ima vrh na krožnici, kraka pa potekata skozi krajišči
     polmera, meri 90\deg.
-\end{itemize*}
+\end{enumerate*}
 
 \section{Podobnost}
 \label{sec:podob}
 Enakoležne stranice so tiste, ki ležijo nasproti istim kotom.
 
 \subsection{Talesovi izreki}
+\label{sec:podob:tales}
 Če sta si trikotnika podobna, je razmerje dveh enakoležnih stranic enako razmerju drugih
 dveh enakoležnih stranic.
 \begin{equation}
@@ -1807,6 +1809,8 @@ Razmerje obsegov, višin in ploščin:
  \frac{p_1}{p} = k^2 \]
 
 \subsection{Izreki v pravokotnem trikotniku}
+\label{sec:podob:prav}
+
 Višinski izrek:
 \begin{equation}
   v_c^2 = a_1 \krat b_1
@@ -1967,7 +1971,7 @@ prikazana v tabeli~\ref{tab:kot:kot:degrad}.
   \caption{Kot med enotskima vektorjema, uporabljen pri definiciji sinusa in kosinusa.}
   \label{fig:kot:sincosdef}
 \end{figure}
-Ob formulah glej sliko~\ref{fig:kot:sincosdef}.
+Ob izpeljavi glej sliko~\ref{fig:kot:sincosdef}.
 \[ \vec{a} = \left(1,0\right) \]
 \[ \vec{b} = \left(x,y\right) \]
 \[ \vec{a} \krat \vec{b} = ab\kos\alpha\;\footnotemark
@@ -2115,7 +2119,7 @@ definiciji~\eqref{eq:kot:tandef} ali~\eqref{eq:kot:cotdef} in nato poenostavi en
   \label{fig:kot:adic}
 \end{figure}
 
-Ob formulah glej sliko~\ref{fig:kot:adic}. Izpeljane so iz definiciji kotnih funkcij
+Ob izpeljavi glej sliko~\ref{fig:kot:adic}. Izpeljane so iz definiciji kotnih funkcij
 sinus~\eqref{eq:kot:sindef}, kosinus~\eqref{eq:kot:cosdef}, tangens~\eqref{eq:kot:tandef} in
 kotangens~\eqref{eq:kot:cotdef}.
 \[\kos(\alpha+\beta) = \vec{a}\krat\vec{b} = (\kos\alpha, -\sin\alpha)\krat(\kos\beta,
@@ -2223,11 +2227,237 @@ Za definicijo periodične funkcije glej razdelek~\ref{sec:fun}.
 
 \subsection{Faktorizacija}
 \label{sec:kot:fakt}
-% TODO
+\begin{align*}
+  x=\alpha+\beta,& \;\; y=\alpha-\beta \\
+  \alpha = \frac{x+y}{2},& \;\; \beta=\frac{x-y}{2}
+\end{align*}
+\begin{align}
+  \sin{x}+\sin{y} & = \sin(\alpha+\beta) + \sin(\alpha-\beta) = \label{eq:kot:fakt:1} \\
+  &=\sin\alpha\kos\beta+\sin\beta\kos\alpha+\sin\alpha\kos\beta-\sin\beta\kos\alpha = \nonumber \\
+  &=2\sin\alpha\kos\beta = \label{eq:kot:fakt:2} \\ &= 2\sin\frac{x+y}{2}\kos\frac{x-y}{2} \nonumber
+\end{align}
 
-\subsection{Antiaktorizacija}
+Ostale formule se izpeljejo podobno.
+\begin{align*}
+  \sin{x} + \sin{y} &= 2\sin\frac{x+y}{2}\cos\frac{x-y}{2} \\
+  \sin{x} - \sin{y} &= 2\cos\frac{x+y}{2}\sin\frac{x-y}{2} \\
+  \cos{x} + \cos{y} &= 2\cos\frac{x+y}{2}\cos\frac{x-y}{2} \\
+  \cos{x} - \cos{y} &=-2\sin\frac{x+y}{2}\sin\frac{x-y}{2}
+\end{align*}
+
+\subsection{Antifaktorizacija}
 \label{sec:kot:antif}
-% TODO
+Pogledamo enačbi~\eqref{eq:kot:fakt:1} in~\eqref{eq:kot:fakt:2} pri faktorizaciji
+(razdelek~\ref{sec:kot:fakt}) in zapišemo naslednjo enakost:
+\[ \sin(\alpha+\beta) + \sin(\alpha-\beta) = 2\sin\alpha\kos\beta \]
+in izpeljemo
+\[ \sin\alpha\kos\beta = \frac{1}{2}\left[ \sin(\alpha+\beta) + \sin(\alpha-\beta) \right]
+\edot \]
+
+Podobno naredimo tudi za ostale formule.
+\begin{align*}
+  \sin\alpha\cos\beta &= \frac{1}{2}\left[ \sin(\alpha+\beta)+\sin(\alpha-\beta) \right] \\
+  \cos\alpha\sin\beta &= \frac{1}{2}\left[ \sin(\alpha+\beta)-\sin(\alpha-\beta) \right] \\
+  \cos\alpha\cos\beta &= \frac{1}{2}\left[ \cos(\alpha+\beta)+\cos(\alpha-\beta) \right] \\
+  \sin\alpha\sin\beta &= -\frac{1}{2}\left[ \cos(\alpha+\beta)-\cos(\alpha-\beta)  \right] \\
+\end{align*}
+
+
+\subsection{Grafi trigonometričnih funkcij}
+\label{sec:kot:graf}
+Splošna oblika:
+\[ f(x) = A\sin\omega(x-p)+q \; \footnotemark \]
+\footnotetext{Seveda je lahko namesto funkcije $\sin$ vstavljena tudi katera koli druga
+trigonometrična funkcija.}
+
+$A$ --- amplituda \\
+$\omega$ --- krožna frekvenca (koliko valov je na intervalu dolžine $2\pi$) \\
+$\vec{v} = (p,q)$ --- vektor premika \\
+Grafi vseh funkcij so prikazni na sliki~\ref{fig:kot:graf}.
+
+V naslednjih definicijah velja: $k \in \Z$.
+
+\parbox[t]{0.5\textwidth}{
+\textbf{Sinus:} \\[6pt]
+\begin{tabular}[h!]{ll}
+  ničle:    & $x = k\pi$ \\
+  minimumi: & $x = \frac{\pi}{2} + 2k\pi$ \\
+  maksimumi:& $x = -\frac{\pi}{2} + 2k\pi$ \\  
+  graf:     & slika~\ref{fig:kot:graf:sin}
+\end{tabular} \\[12pt]
+\textbf{Kosinus:}\\[6pt]
+\begin{tabular}[h!]{ll}
+  ničle:    & $x = \frac{\pi}{2} + k\pi$ \\
+  minimumi: & $x = \pi + 2k\pi$ \\
+  maksimumi:& $x = 2k\pi$ \\ 
+  graf:     & slika~\ref{fig:kot:graf:cos}
+\end{tabular} \\[12pt]
+}
+\parbox[t]{0.5\textwidth}{
+\textbf{Tangens:} \\[6pt]
+\begin{tabular}[h!]{ll}
+  ničle: & $x = k\pi$ \\
+  poli:  & $x = \frac{\pi}{2} + k\pi$ \\
+  graf:     & slika~\ref{fig:kot:graf:tan}
+\end{tabular} \\[24pt]
+\textbf{Kotangens:} \\[6pt]
+\begin{tabular}[h!]{ll}
+  ničle:  & $x = \frac{\pi}{2} + k\pi$ \\
+  poli: & $x = k\pi$ \\
+  graf:     & slika~\ref{fig:kot:graf:cot}
+\end{tabular} \\[12pt]
+}
+
+\begin{figure}[ht]
+  \begin{center}
+    \subfigure[Graf funkcije $\sin(x)$]{
+      \label{fig:kot:graf:sin}
+      \begin{pspicture*}(-3.5,-3.5)(3.5,3.5)
+        \psaxes[labels=none]{->}(0,0)(-3.5,-3.5)(3.5,3.5)
+        \psplot{-3.5}{3.5}{x 90 mul sin}
+        \uput[ul](0,0){0}
+        \uput[d](2,-.1){$\pi$}
+        \uput[-120](-2,-.1){$-\pi$}
+        \uput[u](-1,.1){$-\frac{\pi}{2}$}
+        \uput[d](1,-.1){$\frac{\pi}{2}$}
+        \uput[-105](-3,-.1){$-\frac{3\pi}{2}$}
+        \uput[u](3,.1){$\frac{3\pi}{2}$}
+        \uput[ul](0,1){1}
+        \uput[r](0,-1){$-1$}
+        \oznaka(0,-1)(-1,-1)
+        \oznaka(0,1)(1,1)
+        \oznaka(1,0)(1,1)
+        \oznaka(-1,0)(-1,-1)
+        \oznaka(-3,0)(-3,1)
+        \oznaka(3,0)(3,-1)
+        \oznaka(0,1)(-3,1)
+      \end{pspicture*}
+    }
+    \subfigure[Graf funkcije $\cos(x)$]{
+      \label{fig:kot:graf:cos}
+      \begin{pspicture*}(-3.5,-3.5)(3.5,3.5)
+        \psaxes[labels=none]{->}(0,0)(-3.5,-3.5)(3.5,3.5)
+        \psplot{-3.5}{3.5}{x 90 mul cos}
+        \uput[dl](0,0){0}
+        \uput[u](2,.05){$\pi$}
+        \uput[u](-2,.05){$-\pi$}
+        \uput[-80](-1,-.1){$-\frac{\pi}{2}$}
+        \uput[d](1,-.1){$\frac{\pi}{2}$}
+        \uput[-115](-3,-.1){$-\frac{3\pi}{2}$}
+        \uput[-75](3,-.1){$\frac{3\pi}{2}$}
+        \uput[ul](0,1){1}
+        \uput[ur](0,-1){$-1$}
+        \oznaka(0,-1)(-2,-1)
+        \oznaka(0,-1)(2,-1)
+        \oznaka(2,0)(2,-1)
+        \oznaka(-2,0)(-2,-1)
+      \end{pspicture*}
+    }
+    \subfigure[Graf funkcije $\tan(x)$]{
+      \label{fig:kot:graf:tan}
+      \begin{pspicture*}(-3.5,-3.5)(3.5,3.5)
+        \psaxes[labels=none]{->}(0,0)(-3.5,-3.5)(3.5,3.5)
+        \psplot{-3.5}{-3.05}{x 90 mul tan}
+        \psplot{-2.95}{-1.05}{x 90 mul tan}
+        \psplot{-0.95}{0.95}{x 90 mul tan}
+        \psplot{1.05}{2.95}{x 90 mul tan}
+        \psplot{3.05}{3.5}{x 90 mul tan}
+        \asimptota(-3,-3.5)(-3,3.5)
+        \asimptota(-1,-3.5)(-1,3.5)
+        \asimptota(1,-3.5)(1,3.5)
+        \asimptota(3,-3.5)(3,3.5)
+        \uput[ul](0,0){0}
+        \uput[d](2,-.1){$\pi$}
+        \uput[-75](-2,-.1){$-\pi$}
+        \uput[-75](-1,-.1){$-\frac{\pi}{2}$}
+        \uput[-125](1,-.1){$\frac{\pi}{2}$}
+        \uput[-125](3,-.1){$\frac{3\pi}{2}$}
+        \uput[-75](-3,-.1){$-\frac{3\pi}{2}$}
+        \uput[u](-.7,0){$-\frac{\pi}{4}$}
+        \uput[d](.5,-.08){$\frac{\pi}{4}$}
+        \uput[l](0,1){1}
+        \uput[r](0,-1){$-1$}
+        \oznaka(0,1)(.5,1)
+        \oznaka(.5,0)(.5,1)
+        \oznaka(0,-1)(-.5,-1)
+        \oznaka(-.5,0)(-.5,-1)
+      \end{pspicture*}
+    }
+    \subfigure[Graf funkcije $\cot(x)$]{
+      \label{fig:kot:graf:cot}
+      \begin{pspicture*}(-3.5,-3.5)(3.5,3.5)
+        \psaxes[labels=none]{->}(0,0)(-3.5,-3.5)(3.5,3.5)
+        \psplot{-3.5}{-2.05}{1 x 90 mul tan div}
+        \psplot{-1.95}{-.05}{1 x 90 mul tan div}
+        \psplot{.05}{1.95}{1 x 90 mul tan div}
+        \psplot{2.05}{3.5}{1 x 90 mul tan div}
+        \psplot{-3.5}{-2.05}{1 x 90 mul tan div}
+        \asimptota(-2,-3.5)(-2,3.5)
+        \asimptota(.03,-3.5)(.03,3.5)
+        \asimptota(2,-3.5)(2,3.5)
+        \uput[ul](0,0){0}
+        \uput[-125](2,-.1){$\pi$}
+        \uput[-75](-2,-.1){$-\pi$}
+        \uput[-115](-1,-.1){$-\frac{\pi}{2}$}
+        \uput[-95](1,-.1){$\frac{\pi}{2}$}
+        \uput[-115](3,-.1){$\frac{3\pi}{2}$}
+        \uput[-110](-3,-.1){$-\frac{3\pi}{2}$}
+        \uput[u](-.7,0){$-\frac{\pi}{4}$}
+        \uput[d](.5,-.1){$\frac{\pi}{4}$}
+        \uput[l](0,1){1}
+        \uput[r](0,-1){$-1$}
+        \oznaka(0,1)(.5,1)
+        \oznaka(.5,0)(.5,1)
+        \oznaka(0,-1)(-.5,-1)
+        \oznaka(-.5,0)(-.5,-1)
+      \end{pspicture*}
+    }
+  \end{center}
+  \beforecaptionskip
+  \caption{Grafi trigonometričnih funkcij}
+  \label{fig:kot:graf}
+\end{figure}
+\subsection{Kot med premicama}
+\label{sec:kot:prem}
+
+\textbf{Naklonski kot} premice je pozitiven kot med abscisno osjo in premico.
+Če je premica vzporedna abscisni osi je kot enak 0.
+\[ k = \frac{y_2-y_1}{x_2-x_1} = \tan\varphi; \; 0\deg \le \varphi < 180\deg \comment{Za
+$k$ glej razdelek~\ref{sec:fun:lin}} \]
+
+\begin{figure}[ht]
+  \begin{center}
+      \begin{pspicture*}(-1.5,-1.5)(3.5,3.5)
+        \psaxes[labels=none]{->}(0,0)(-1.5,-1.5)(3.5,3.5)
+        \psplot{-1.5}{3.5}{-3 x mul 9 add}
+        \psplot{-1.5}{3.5}{x 0.666666 sub}
+        \uput[30](1,0){$\alpha_1$}
+        \uput[ur](3,0){$\alpha_2$}
+        \uput[ur](2,1){$\varphi$}
+      \end{pspicture*}
+  \end{center}
+  \beforecaptionskip
+  \caption{Kot med premicama.}
+  \label{fig:kot:prem}
+\end{figure}
+
+Ob izpeljavi glej sliko~\ref{fig:kot:prem}.
+\begin{align}
+  k_1 &= \tan\alpha_1 \label{eq:kot:prem:1} \\
+  k_2 &= \tan\alpha_2 \label{eq:kot:prem:2}
+\end{align}
+
+Po izrekih za kote v trikotniku (razdelek~\ref{sec:geom},
+\ref{enum:geom:notrzun}~element seznama) velja:
+\begin{align*}
+  & \alpha_1 + \varphi = \alpha_2 \\
+  & \varphi = \alpha_2 - \alpha_1 \\
+  & \tan\alpha = \tan(\alpha_2 - \alpha_1) \\
+  & \tan\varphi = \frac{\tan\alpha_2 - \tan\alpha_1}{1+\tan\alpha_1\tan\alpha_2} 
+  \comment{Po adicijskem izreku za tangens~\eqref{eq:kot:adic:tan}.} \\
+  & \tan\varphi = \left| \frac{k_2-k_1}{1+k_1k_2} \right| \comment{Po
+  izpeljavah~\eqref{eq:kot:prem:1} in~\eqref{eq:kot:prem:2}}
+\end{align*}
 
 \section{Vektorji}
 \label{sec:vec}
