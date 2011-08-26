@@ -2077,19 +2077,20 @@ Grafična predstavitev tangensa in kotangensa je prikazana na sliki~\ref{fig:kot
   \item Obe funkciji sta \textbf{periodični} s periodo $\omega = \pi$.
 \end{enumerate*}
 
-\subsubsection{Osnovne zveze med kotnimi funkcijami}
+\subsection{Osnovne zveze med kotnimi funkcijami}
 \label{sec:kot:zvez}
-\begin{align*}
+\begin{align}
   \sin^2\alpha + \kos^2\alpha &= 1 \label{eq:kot:zvez:sincos} \comment{Grafičen dokaz na
-  sliki~\ref{fig:kot:daljice}.}\\
-  \tan\alpha \krat \cot\alpha &= 1 \\%\label{eq:kot:zvez:tancot} \\
-  1 + \tan^2\alpha &= \frac{1}{\kos^2\alpha}\\% \label{eq:kot:zvez:tancos} \\
-  1 + \cot^2\alpha &= \frac{1}{\sin^2\alpha} \\%\label{eq:kot:zvez:cotsin}
-\end{align*}
+  sliki~\ref{fig:kot:daljice}.} \\
+  \tan\alpha \krat \cot\alpha &= 1 \nonumber \\ %\label{eq:kot:zvez:tancot} \\
+  1 + \tan^2\alpha &= \frac{1}{\kos^2\alpha} \nonumber \\ %\label{eq:kot:zvez:costan} \\
+  1 + \cot^2\alpha &= \frac{1}{\sin^2\alpha} \nonumber \\ %\label{eq:kot:zvez:sincot} \\
+\end{align}
 Ostale zveze se dokaže tako, da se tangens ali kotangens zamenja po
 definiciji~\eqref{eq:kot:tandef} ali~\eqref{eq:kot:cotdef} in nato poenostavi enačbo.
 
 \subsection{Adicijski izreki}
+\label{sec:kot:adic}
 
 \begin{figure}[ht]
   \begin{center}
@@ -2145,6 +2146,88 @@ kotangens~\eqref{eq:kot:cotdef}.
   \cot(\alpha\pm\beta) &= \frac{\cot\alpha\cot\beta \mp 1}{\cot\alpha \mp \cot\beta} \label{eq:kot:adic:cot}
 \end{align}
 \unboldmath
+
+\subsection{Dvojni koti}
+Formule se izpelje iz adicijskih izrekov definiranih v razdelku~\ref{sec:kot:adic}.
+\begin{align}
+  \sin2x &= 2\sin{x}\kos{x} \label{eq:kot:dblsin} \\
+  \kos2x &= \kos^2x - \sin^2x \label{eq:kot:dblcos} \\
+  \tan2x &= \frac{2\tan{x}}{1-\tan^2x} \nonumber \\
+  \cot2x &= \frac{\cot^2x-1}{2\cot{x}} \nonumber
+\end{align}
+
+\subsection{Polovični koti}
+\label{sec:kot:polov}
+
+\begin{align}
+  \sin\alpha &= 2\sin\frac{\alpha}{2}\kos\frac{\alpha}{2} 
+  \comment{Po formuli \eqref{eq:kot:dblsin}.} \label{eq:kot:pol:1} \\
+  \kos\alpha &= \kos^2\frac{\alpha}{2} - \sin^2\frac{\alpha}{2}
+  \comment{Po formuli \eqref{eq:kot:dblcos}.} \label{eq:kot:pol:2} \\
+  1 &= \kos^2\frac{\alpha}{2} + \sin^2\frac{\alpha}{2} 
+  \comment{Po osnovni zvezi \eqref{eq:kot:zvez:sincos}.} \label{eq:kot:pol:3}
+\end{align}
+
+Odštejemo enačbi \eqref{eq:kot:pol:3} in \eqref{eq:kot:pol:2} med seboj.
+\begin{align*}
+  1 - \kos\alpha &= 2\sin^2\frac{\alpha}{2} \\
+  \sin\frac{\alpha}{2} &= \pm\sqrt{\frac{1-\kos\alpha}{2}}
+\end{align*}
+
+Seštejemo enačbi \eqref{eq:kot:pol:3} in \eqref{eq:kot:pol:1} med seboj.
+\begin{align*}
+  1 + \kos\alpha &= 2\kos^2\frac{\alpha}{2} \\
+  \kos\frac{\alpha}{2} &= \pm\sqrt{\frac{1+\kos\alpha}{2}}
+\end{align*}
+
+\begin{align*}
+  \tan\frac{\alpha}{2} &= \pm\sqrt{\frac{1-\kos\alpha}{1+\kos\alpha}} =
+  \frac{\sin\alpha}{1+\kos\alpha} = \frac{1-\kos\alpha}{\sin\alpha} \\
+  \cot\frac{\alpha}{2} &= \pm\sqrt{\frac{1+\kos\alpha}{1-\kos\alpha}} =
+  \frac{\sin\alpha}{1-\kos\alpha} = \frac{1+\kos\alpha}{\sin\alpha} \\
+\end{align*}
+
+\parbox[t]{0.5\textwidth}{\subsection{Komplementarni koti}
+\label{sec:kot:kompl}
+Po adicijskih izrekih velja:
+\begin{align*}
+  \sin\left(\frac{\pi}{2} - \theta\right) &= \kos\theta \\
+  \kos\left(\frac{\pi}{2} - \theta\right) &= \sin\theta \\
+  \tan\left(\frac{\pi}{2} - \theta\right) &= \cot\theta \\
+  \cot\left(\frac{\pi}{2} - \theta\right) &= \tan\theta \\
+\end{align*}}
+\parbox[t]{0.5\textwidth}{
+\subsection{Suplementarni koti}
+\label{sec:kot:supl}
+Po adicijskih izrekih velja:
+\begin{align*}
+  \sin\left(\pi - \theta\right) &= \sin\theta \\
+  \kos\left(\pi - \theta\right) &= -\kos\theta \\
+  \tan\left(\pi - \theta\right) &= -\tan\theta \\
+  \cot\left(\pi - \theta\right) &= -\cot\theta \\
+\end{align*}}
+
+\subsection{Periode}
+\label{sec:kot:periode}
+Za definicijo periodične funkcije glej razdelek~\ref{sec:fun}.
+\begin{align*}
+  &\sin(\theta+2k\pi) = \sin\theta; \; k \in \Z \\
+  &\kos(\theta+2k\pi) = \cos\theta; \; k \in \Z \\
+  &\tan(\theta+k\pi) = \tan\theta; \; k \in \Z \\
+  &\cot(\theta+k\pi) = \cot\theta; \; k \in \Z
+\end{align*}
+\begin{align*}
+  &\sin(\theta+k\pi) = (-1)^k\sin\theta; \; k \in \Z \\
+  &\kos(\theta+k\pi) = (-1)^k\cos\theta; \; k \in \Z \\
+\end{align*}
+
+\subsection{Faktorizacija}
+\label{sec:kot:fakt}
+% TODO
+
+\subsection{Antiaktorizacija}
+\label{sec:kot:antif}
+% TODO
 
 \section{Vektorji}
 \label{sec:vec}
