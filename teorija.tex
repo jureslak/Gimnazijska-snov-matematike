@@ -76,11 +76,14 @@ menucolor=black, runcolor=black, urlcolor=black%
 \newcommand{\arccot}{\ensuremath{\operatorname{arccot}}} % arccot
 \newcommand{\tg}{\ensuremath{\operatorname{tg}}} % tg 
 \newcommand{\ctg}{\ensuremath{\operatorname{ctg}}} % ctg
+\newcommand{\pr}{\ensuremath{\operatorname{pr}}} % pravokotna projekcija
+
 \newcommand{\asimptota}{\psline[linecolor=lightgrey, linestyle=dashed, linewidth=.5pt]}
 \newcommand{\oznaka}{\psline[linecolor=red, linestyle=dotted]}
 \newcommand{\ii}{\ensuremath{\imath}}
-\newcommand\kos\cos
+\def\kos{\cos}
 \def\deg{\degree}
+\def\Vec{\overrightarrow}
 
 % multi line table cell with 0.5mm margin
 \newcommand{\mltc}[1]{\pbox{21cm}{\vspace{0.5mm} #1 \vspace{0.5mm}}}
@@ -2433,7 +2436,7 @@ $k$ glej razdelek~\ref{sec:fun:lin}} \]
         \psplot{-1.5}{3.5}{x 0.666666 sub}
         \uput[30](1,0){$\alpha_1$}
         \uput[ur](3,0){$\alpha_2$}
-        \uput[ur](2,1){$\varphi$}
+        \uput[38](2,1){$\varphi$}
       \end{pspicture*}
   \end{center}
   \beforecaptionskip
@@ -2456,17 +2459,198 @@ Po izrekih za kote v trikotniku (razdelek~\ref{sec:geom},
   & \tan\varphi = \frac{\tan\alpha_2 - \tan\alpha_1}{1+\tan\alpha_1\tan\alpha_2} 
   \comment{Po adicijskem izreku za tangens~\eqref{eq:kot:adic:tan}.} \\
   & \tan\varphi = \left| \frac{k_2-k_1}{1+k_1k_2} \right| \comment{Po
-  izpeljavah~\eqref{eq:kot:prem:1} in~\eqref{eq:kot:prem:2}}
+  izpeljavah~\eqref{eq:kot:prem:1} in~\eqref{eq:kot:prem:2}.}
 \end{align*}
 
 \section{Vektorji}
 \label{sec:vec}
+Vektor je \textbf{usmerjena daljica}. Vektor je \textbf{urejen par točk} v prostoru.
+Vektor \textbf{nič}, $\vec{0}$, je vektor $\Vec{AA}$, ki je točka. 
+\textbf{Enotski} vektor je vektor z dolžino 1.
+
+Dva vektorja sta \textbf{enaka}, če sta enako dolga, imata enako smer in sta vzporedna.
+Enakost vektorjev je \textbf{ekvivalenčna} relacija. Za definicijo ekvivalenčne relacije glej
+razdelek~\ref{sec:relacije}.
+
+V ravnini je toliko različnih vektorjev kot točk.
+
+\subsection{Seštevanje vektorjev}
+\label{sec:vec:sest}
+Dva vektorja \textbf{seštejemo} tako, da začetno točno 2. vektorja postavimo v začetno točko 1. vektorja. Vsota je vektor, ki
+se začne v začetni točki 1. vektorja in konča v končni točki 2. vektorja. Seštevanje
+vektorjev je prikazano na sliki~\ref{fig:vec:sest}.
+\textbf{Paralelogramsko} pravilo je prikazano na sliki~\ref{fig:vec:sest:par},
+\textbf{trikotniško} pa na
+sliki~\ref{fig:vec:sest:trik}.
+
+\begin{figure}[ht]
+   \begin{center}
+     \subfigure[Paralelogramsko pravilo.]{
+       \label{fig:vec:sest:par}
+       \begin{pspicture*}(-3,-2.3)(3,2)
+         \psline{->}(-3,-2)(-1,0)
+         \psline{->}(-3,-2)(1,-2)
+         \psline[linestyle=dotted]{->}(-1,0)(3,0)
+         \psline[linestyle=dotted]{->}(1,-2)(3,0)
+         \psline{->}(-3,-2)(3,0)
+         \uput[ur](-2.5,-1){$\vec{a}$}
+         \uput[u](0,-2){$\vec{b}$}
+         \uput[u](-.2,-1){$\vec{a}+\vec{b}$}
+       \end{pspicture*}
+     }
+     \subfigure[Trikotniško pravilo.]{
+       \label{fig:vec:sest:trik}
+       \begin{pspicture*}(-3,-2.3)(3,2)
+         \psline{->}(-3,-2)(1,-2)
+         \psline{->}(1,-2)(3,0)
+         \psline{->}(-3,-2)(3,0)
+         \uput[ur](1.3,-1.3){$\vec{a}$}
+         \uput[u](0,-2){$\vec{b}$}
+         \uput[u](-.2,-1){$\vec{a}+\vec{b}$}
+       \end{pspicture*}
+     }
+  \end{center}
+  \beforecaptionskip
+  \caption{Seštevanje vektorjev.}
+  \label{fig:vec:sest}
+\end{figure}
+
+\textbf{Lastnosti:}\\[6pt]
+\begin{tabular}[h!]{ll}
+  \textbf{komutativnost}:       & $\vec{a} + \vec{b} = \vec{b} + \vec{a}$ Grafični dokaz:
+  slika~\ref{fig:vec:sest:zak:kom}. \\
+  \textbf{asociativnost}:       & $\vec{a} + \left( \vec{b} + \vec{c}  \right) = \left( \vec{a} +
+  \vec{b} \right) + \vec{c} = \vec{a} + \vec{b} + \vec{c}$ Grafični dokaz:
+  slika~\ref{fig:vec:sest:zak:asoc}. \\
+  \textbf{enota} za seštevanje: & $\vec{a} + \vec{0} = \vec{a}$ \\
+  \textbf{nasprotni element}:   & $\vec{a} + \left( -\vec{a} \right) = \vec{0}$
+\end{tabular}
+
+\begin{figure}[ht]
+   \begin{center}
+     \subfigure[Komutativnost seštevanja vektorjev.]{
+       \label{fig:vec:sest:zak:kom}
+       \begin{pspicture*}(-3,-2.3)(3,2)
+         \psline{->}(-3,-2)(-1,0)
+         \psline{->}(-3,-2)(1,-2)
+         \psline{->}(-1,0)(3,0)
+         \psline{->}(1,-2)(3,0)
+         \psline{->}(-3,-2)(3,0)
+         \uput[ur](-2.5,-1){$\vec{a}$}
+         \uput[ur](1.3,-1.3){$\vec{a}$}
+         \uput[u](0,-2){$\vec{b}$}
+         \uput[u](.5,0){$\vec{b}$}
+         \uput[u](-.2,-1){$\vec{a}+\vec{b}$}
+       \end{pspicture*}
+     }
+     \subfigure[Asociativnost seštevanja vektorjev.]{
+       \label{fig:vec:sest:zak:asoc}
+       \begin{pspicture*}(-3,-2.3)(3,2)
+         \psline{->}(-3,-2)(1,-2) % a
+         \psline{->}(1,-2)(3,0) % b
+         \psline{->}(-3,-2)(3,0) % a+b
+         \psline{->}(3,0)(2,2)  % c
+         \psline{->}(1,-2)(2,2) % b+c
+         \psline{->}(-3,-2)(2,2) % a+b+c
+         \uput[ur](2,-1.6){$\vec{b}$}
+         \uput[u](0,-2){$\vec{a}$}
+         \uput[ur](2.6,.9){$\vec{c}$}
+         \uput[u](-.2,-1){$\vec{a}+\vec{b}$}
+         \uput[u](1.45,0){$\vec{b}+\vec{c}$}
+         \uput[l](-.2,.4){$\vec{a}+\vec{b}+\vec{c}$}
+       \end{pspicture*}
+     }
+  \end{center}
+  \beforecaptionskip
+  \caption{Grafični dokaz komutativnosti in asociativnosti seštevanja vektorjev.}
+  \label{fig:vec:sest:zak}
+\end{figure}
+
+\textbf{Odštevanje} je prištevanje nasprotnega elementa.
+
+\subsection{Produkt vektorja s skalarjem}
+\label{sec:vec:vecskal}
+\textbf{Produkt} vektorja $\vec{a}$ s \textbf{skalarjem} $x$ je nov vektor, katerega dolžina je enaka
+produktu dolžine vektorja $\vec{a}$ in absolutne vrednosti skalarja $x$. Za vektor velja,
+da je vzporeden vektorju $\vec{a}$. Če je $x$ pozitiven ima isto smer kot $\vec{a}$, če je
+$x$ negativen ima nasprotno, če je $x$ 0 pa je rezultat vektor $\vec{0}$.
+\[ \left| x\vec{a} \right| = \left| x \right| \krat \left| \vec{a} \right|, \; x \in \R \] 
+
+\textbf{Lastnosti:}\\[6pt]
+\begin{tabular}[h!]{ll}
+  asociativnost v skalarnem faktorju:    & $x(y\vec{a}) = (xy)\vec{a}$ \\
+  distributivnost v skalarnem faktorju:  & $x\vec{a} + y\vec{a} = (x+y)\vec{a}$ \\
+  distributivnost v vektorskem faktorju: & $x(\vec{a} + \vec{b}) = x\vec{a} + x\vec{b}$
+\end{tabular}
+
+\subsection{Linearna kombinacija vektorjev}
+\label{sec:vec:linkomb}
+Linearna kombinacija vektorjev $\vec{a}$ in $\vec{b}$ je nov vektor $x\vec{a} + y\vec{b};
+\; x,y \in \R$.
+\textbf{Linearna kombinacija} vektorjev $\vec{a_1},\vec{a_2},\ldots,\vec{a_n}$ je nov vektor
+$x_1\vec{a_1} + x_2\vec{a_2} + \cdots x_n\vec{a_n}; \; x_1,x_2,\ldots,x_n \in \R$.
+
+Dva vektorja $\vec{a}$ in $\vec{b}$ sta \textbf{neodvisna} kadar je njuna linearna kombinacija
+enaka 0 samo če sta $x$ in $y$ 0.
+\[ \vec{a},  \vec{b} \text{ neodvisna } \sim: x\vec{a} + y\vec{b} = 0 \iff x = y = 0 \]
+
+Dva vektorja sta \textbf{odvisna}, če je njuna linearna kombinacija enaka nič in je vsaj eden od
+skalarjev različen od nič.
+\[ \vec{a},  \vec{b} \text{ odvisna } \sim: x\vec{a} + y\vec{b} = 0 \iff x \neq 0 \lor y \neq 0 \]
+
+\textbf{Baza} je množica neodvisnih vektorjev v prostoru. Število vektorjev v bazi je enako
+dimenziji prostora.
+
+Če imamo v ravnini 2 nekolinearna vektorja lahko vsak drug vektor ravnine napišemo kot
+linearno kombinacijo danih nekolinearnih vektorjev.
+Če imamo v prostoru bazo $\vec{a},\vec{b},\vec{c}$ potem lahko vsak vektor zapišemo na en
+sam način kot linearno kombinacijo baznih vektorjev.
 
 \subsection{Skalarni produkt}
 \label{sec:vec:skal}
+\textbf{Kot} $\varphi$ med dvema vektorjema, ki se začneta v isti točki, je manjši od obeh kotov,
+ki ju vektorja določata.
+
+\textbf{Skalarni produkt} dveh vektorjev je enak produktu dolžin obeh vektorjev s
+kosinusom vmesnega kota.
+\begin{equation}
+  \vec{a} \krat \vec{b} = a \krat b \krat \kos\varphi \label{eq:vec:skal:def}
+\end{equation}
+
+
+\textbf{Lastnosti:}
+\begin{align}
+  &\vec{a} \krat \vec{b} = \vec{b} \krat \vec{a} \comment{Komutativnost.}  \label{eq:vec:skal:kom} \\
+  &\hspace{-20pt} \text{Skalarni produkt pravokotnih vektorjev je enak 0:} \nonumber \\
+  &\vec{a} \perp \vec{b} \implies \vec{a}\vec{b} = 0 \label{eq:vec:skal:prav} \\
+  &\hspace{-20pt} \text{Skalarni produkt vektorja samega s seboj je enak kvadratu njegove dolžine:} \nonumber \\
+  &\vec{a}\vec{a} = a^2  \label{eq:vec:skal:aajea2} \\
+  &x(\vec{a}\vec{b} = (x\vec{a})\vec{b} = \vec{a}(x\vec{b}) \comment{Homogenost.}
+  \label{eq:vec:skal:hom} \\
+  &\vec{a}\vec{b} =  a \krat \pr_{\vec{a}}\vec{b} \label{eq:vec:skal:proj}
+  &\vec{a}\left( \vec{b} + \vec{c} \right) =  \vec{a}\vec{b} + \vec{a} + \vec{b}
+  \comment{Distributivnost.} \label{eq:vec:skal:dist} \\
+\end{align}
+
+Dokaz lastnosti~\ref{eq:vec:skal:kom}:
+\begin{align*}
+  & \vec{a}\vec{b} = ab\kos\varphi = ba\kos\varphi = \vec{b}\vec{a} \comment{Množenje je
+  komutativno.}
+\end{align*}
+
+% TODO ostali dokazi
 
 \subsection{Vektorski produkt}
 \label{sec:vec:vec}
+
+
+
+
+
+
+
+
+
 
 \section{Kompleksna števila}
 \label{sec:kompl}
