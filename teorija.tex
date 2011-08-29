@@ -2490,8 +2490,8 @@ sliki~\ref{fig:vec:sest:trik}.
        \begin{pspicture*}(-3,-2.3)(3,2)
          \psline{->}(-3,-2)(-1,0)
          \psline{->}(-3,-2)(1,-2)
-         \psline[linestyle=dotted]{->}(-1,0)(3,0)
-         \psline[linestyle=dotted]{->}(1,-2)(3,0)
+         \psline[linestyle=dotted](-1,0)(3,0)
+         \psline[linestyle=dotted](1,-2)(3,0)
          \psline{->}(-3,-2)(3,0)
          \uput[ur](-2.5,-1){$\vec{a}$}
          \uput[u](0,-2){$\vec{b}$}
@@ -2603,8 +2603,81 @@ dimenziji prostora.
 
 Če imamo v ravnini 2 nekolinearna vektorja lahko vsak drug vektor ravnine napišemo kot
 linearno kombinacijo danih nekolinearnih vektorjev.
-Če imamo v prostoru bazo $\vec{a},\vec{b},\vec{c}$ potem lahko vsak vektor zapišemo na en
+Če imamo v prostoru bazo $\vec{a}$, $\vec{b}$, $\vec{c}$ potem lahko vsak vektor zapišemo na en
 sam način kot linearno kombinacijo baznih vektorjev.
+
+\subsection{Pravokotna projekcija}
+\label{sec:vec:proj}
+Imejmo vektorja $\vec{a} = \Vec{OA}$ in $\vec{b} = \Vec{ZK}$. Naj bo točka $Z'$ pravokotna 
+projekcija začetka vektorja $ZK$ na nosilko vektorja $\Vec{OA}$, točka $K'$ pa projekcija konca.
+Potem je pravokotna projekcija vektorja $\vec{b}$ na vektor $\vec{a}$ enaka
+\textbf{razdalji} med
+točkama $Z'$ in $K'$. Če ima vektor $\Vec{OA}$ enako smer kot vektor $\Vec{Z'K'}$, potem
+je razdalja \textbf{pozitivno} predznačena, če ne je \textbf{negativno} predznačena.
+
+\[ \pr_{\vec{a}}\vec{b} = 
+\begin{cases}
+  \hfill \left| Z'K' \right|; & \Vec{Z'K'} \;\uparrow\uparrow\; \Vec{OA} \\
+  \hfill -\left| Z'K' \right|; & \Vec{Z'K'} \;\uparrow\downarrow\; \Vec{OA} 
+\end{cases} \]
+
+\[ \pr_{\vec{a}}\vec{b} = b\krat\kos\varphi \]
+Pravokotna projekcija vektorja $\vec{b}$ na vektor $\vec{a}$ je prikazana na
+sliki~\ref{fig:vec:proj}.
+
+\begin{figure}[ht]
+   \begin{center}
+     \subfigure[$\pr_{\vec{a}}\vec{b} > 0$]{
+       \label{fig:vec:proj:plus}
+       \begin{pspicture*}(0,0)(5,4)
+         \psline[linewidth=.5pt](0,1)(5,1)
+         \psline[linewidth=1.5pt]{->}(.5,1)(4.5,1)
+         \psline[linewidth=2pt,linecolor=red](1,1)(4,1)
+         \psline[linewidth=1.5pt]{->}(1,2)(4,3)
+         \psline[linestyle=dotted](1,1)(1,2)
+         \psline[linestyle=dotted](4,1)(4,3)
+         \uput[d](.5,1){$O$}
+         \uput[d](1,1){$Z'$}
+         \uput[d](2.5,1){$\vec{a}$}
+         \uput[u](2.5,1){$\pr_{\vec{a}}\vec{b}$}
+         \uput[d](4,1){$K'$}
+         \uput[d](4.5,1){$A$}
+         \uput[u](1,2){$Z$}
+         \uput[u](4,3){$K$}
+         \uput[u](2.5,2.5){$\vec{b}$}
+       \end{pspicture*}
+     }
+     \subfigure[$\pr_{\vec{a}}\vec{b} < 0$]{
+       \label{fig:vec:proj:minus}
+       \begin{pspicture*}(0,0)(5,4)
+         \psline[linewidth=.5pt](0,1)(5,1)
+         \psline[linewidth=1.5pt]{->}(.5,1)(4.5,1)
+         \psline[linewidth=2pt,linecolor=red](1,1)(4,1)
+         \psline[linewidth=1.5pt]{<-}(1,2)(4,3)
+         \psline[linestyle=dotted](1,1)(1,2)
+         \psline[linestyle=dotted](4,1)(4,3)
+         \uput[d](.5,1){$O$}
+         \uput[d](1,1){$K'$}
+         \uput[d](2.5,1){$\vec{a}$}
+         \uput[u](2.5,1){$\pr_{\vec{a}}\vec{b}$}
+         \uput[d](4,1){$Z'$}
+         \uput[d](4.5,1){$A$}
+         \uput[u](1,2){$K$}
+         \uput[u](4,3){$Z$}
+         \uput[u](2.5,2.5){$\vec{b}$}
+       \end{pspicture*}
+     }
+  \end{center}
+  \beforecaptionskip
+  \caption{Pravokotna projekcija vektorja $\vec{b}$ na vektor $\vec{a}$.}
+  \label{fig:vec:proj}
+\end{figure}
+
+\textbf{Lastnosti:}
+\begin{align*}
+  &\pr_{\vec{a}}(x\vec{b}) = x\krat\pr_{\vec{a}}\vec{b} \\
+  &\pr_{\vec{a}}(\vec{b} + \vec{c}) = \pr_{\vec{a}}\vec{b} + \pr_{\vec{a}}\vec{c}
+\end{align*}
 
 \subsection{Skalarni produkt}
 \label{sec:vec:skal}
@@ -2627,9 +2700,9 @@ kosinusom vmesnega kota.
   &\vec{a}\vec{a} = a^2  \label{eq:vec:skal:aajea2} \\
   &x(\vec{a}\vec{b} = (x\vec{a})\vec{b} = \vec{a}(x\vec{b}) \comment{Homogenost.}
   \label{eq:vec:skal:hom} \\
-  &\vec{a}\vec{b} =  a \krat \pr_{\vec{a}}\vec{b} \label{eq:vec:skal:proj}
+  &\vec{a}\vec{b} =  a \krat \pr_{\vec{a}}\vec{b} \label{eq:vec:skal:proj} \\
   &\vec{a}\left( \vec{b} + \vec{c} \right) =  \vec{a}\vec{b} + \vec{a} + \vec{b}
-  \comment{Distributivnost.} \label{eq:vec:skal:dist} \\
+  \comment{Distributivnost.} \label{eq:vec:skal:dist}
 \end{align}
 
 Dokaz lastnosti~\ref{eq:vec:skal:kom}:
@@ -2638,7 +2711,111 @@ Dokaz lastnosti~\ref{eq:vec:skal:kom}:
   komutativno.}
 \end{align*}
 
-% TODO ostali dokazi
+Dokaz lastnosti~\ref{eq:vec:skal:prav}:
+\begin{align*}
+  &\vec{a}\vec{b} = ab\kos90\deg = ab\krat0 = 0
+\end{align*}
+
+Dokaz lastnosti~\ref{eq:vec:skal:aajea2}:
+\begin{align*}
+  &\vec{a}\vec{a} = a\krat a \krat\kos0\deg = a^2 \\
+  &a = \sqrt{\vec{a}\vec{a}} \comment{Formula za dolžino vektorja.}
+\end{align*}
+
+Dokaz lastnosti~\ref{eq:vec:skal:hom}:
+\begin{align*}
+  x(\vec{a}\vec{b}) &=  x(ab\kos\varphi) = xab\kos\varphi \\
+  (x\vec{a})\vec{b} &= (xa)b\kos\varphi = xab\kos\varphi \\
+  \vec{a}(x\vec{b}) &= a(xb)\kos\varphi = xab\kos\varphi \comment{Množenje je
+  asociativno.}
+\end{align*}
+
+Dokaz lastnosti~\ref{eq:vec:skal:proj}:
+\begin{align*}
+  &\pr_{\vec{a}}\vec{b} = b\krat\kos\varphi \\
+  &\vec{a}\vec{b} = a\krat b\krat\kos\varphi = a \krat\pr_{\vec{a}}\vec{b}
+\end{align*}
+
+Dokaz lastnosti~\ref{eq:vec:skal:dist}:
+\begin{align*}
+  &\vec{a}(\vec{b} + \vec{c}) = a\krat\pr_{\vec{a}}(\vec{b}+\vec{c}) =
+  a\krat(\pr_{\vec{a}}\vec{b} + \pr_{\vec{a}}\vec{c}) = 
+  a\krat\pr_{\vec{a}}\vec{b} + a\krat\pr_{\vec{a}}\vec{c} = \vec{a}\vec{b} +
+  \vec{a}\vec{c}
+\end{align*}
+
+Iz formule za skalarni produkt izpeljemo tudi formulo za računanje \textbf{kota} med vektorjema:
+\[ \kos\varphi = \frac{\vec{a}\vec{b}}{ab} \implies \varphi = \arccos\left( 
+\frac{\vec{a}\vec{b}}{ab} \right) \]
+
+\subsection{Krajevni vektorji}
+\label{sec:vec:kraj}
+\textbf{Ortonormirana baza} so vektorji $\vec{i}$, $\vec{j}$, $\vec{k}$,
+ki so med sabo paroma pravokotni, ležijo na koordinatnih oseh in so dolgi 1 enoto.
+\textbf{Krajevni vektor} do točke $A$ je vektor, ki se začne v izhodišču koordinatnega sistema in se
+konča v točki $A$. (oznaka: $\Vec{r_A}$)
+
+Vsak krajevni vektor lahko zapišemo kot linearno kombinacijo baznih vektorjev, ki jo
+predstavimo z urejeno trojico, ki jo imenujemo \textbf{komponente} vektorjev. 
+Komponente vektorjev so enake koordinatam točke do katere vektor kaže.
+\[ \Vec{r_A} = a_1\vec{i} + a_2\vec{j} + a_3\vec{k} = (a_1,a_2,a_3) \]
+
+\subsubsection{Seštevanje krajevnih vektorjev}
+\label{sec:vec:kraj:sest}
+Vektorje v komponentah seštevamo tako, da seštevamo istoležne komponente.
+\boldmath
+\begin{align*}
+  (a_1,a_2,a_3) + (b_1,b_2,b_3) &=  (a_1+b_1,\;a_2+b_2,\;a_3+b_3)
+\end{align*}
+\unboldmath
+\begin{align*}
+  (a_1,a_2,a_3) + (b_1,b_2,b_3) &=  a_1\vec{i} + a_2\vec{j} + a_3\vec{k} + b_1\vec{i} +
+  b_2\vec{j} + b_3\vec{k}=\\ &= 
+  \vec{i}(a_1 + b_1) + \vec{j}(a_2+b_2) + \vec{k}(a_3+b_3) =\\&=  (a_1+b_1,a_2+b_2,a_3+b_3)
+\end{align*}
+
+\subsubsection{Množenje krajevnega vektorja s skalarjem}
+\label{sec:vec:kraj:vecskal}
+Vektor v komponentah množimo s skalarjem tako da množimo vsako komponento posebej.
+\boldmath
+\begin{align*}
+  x(a_1,a_2,a_3) &= (xa_1,\,xa_2,\,xa_3)
+\end{align*}
+\unboldmath
+\begin{align*}
+  x(a_1,a_2,a_3) &= x(a_1\vec{i} + a_2\vec{j} + a_3\vec{k}) = 
+  xa_1\vec{i} + xa_2\vec{j} + xa_3\vec{k} =  (xa_1,\,xa_2,\,xa_3)
+\end{align*}
+
+\subsubsection{Vektor med dvema točkama}
+\label{sec:vec:kraj:vecAB}
+Vektor med dvema točkama je enak razliki istoležnih komponent drugega in prvega vektorja.
+\boldmath
+\begin{align*}
+  \Vec{AB} &= (b_1-a_1,\;b_2-a_2,\;b_3-a_3)
+\end{align*}
+\unboldmath
+\begin{align*}
+  \Vec{AB} &= -\vec{a} + \vec{b} = -(a_1,a_2,a_3) + (b_1,b_2,b_3) = \\ 
+  &=  (-a_1,-a_2,-a_3) + (b_1,b_2,b_3) = (b_1-a_1,\;b_2-a_2,\;b_3-a_3)
+\end{align*}
+
+\subsubsection{Skalarni produkt krajevnih vektorjev}
+\boldmath
+\begin{align*}
+  \vec{a}\vec{b} &=  a_1b_1+a_2b_2+a_3b_3
+\end{align*}
+\unboldmath
+\begin{align*}
+  \vec{a}\vec{b} &=  (a_1,a_2,a_3)\krat(b_1,b_2,b_3) = (a_1\vec{i} + a_2\vec{j} +
+  a_3\vec{k}) \krat (b_1\vec{i},b_2\vec{j},b_3\vec{k}) = \\
+  &= a_1\vec{i}\krat b_1\vec{i} + a_1\vec{i}\krat b_2\vec{j} + a_1\vec{i}\krat b_3\vec{k}
+  + a_2\vec{j}\krat b_1\vec{i} + a_2\vec{j}\krat b_2\vec{j} + a_2\vec{j}\krat b_3\vec{k} +
+  a_3\vec{k}\krat b_1\vec{i} + a_3\vec{k}\krat b_2\vec{j} + a_3\vec{k}\krat b_3\vec{k} = \\
+  &= %TODO
+\end{align*}
+
+\label{sec:vec:kraj:skal}
 
 \subsection{Vektorski produkt}
 \label{sec:vec:vec}
