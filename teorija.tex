@@ -37,25 +37,28 @@ menucolor=black, runcolor=black, urlcolor=black%
 }
 }
 
-\usepackage{makeidx}
+\usepackage{makeidx} % stvarno kazalo
 \makeindex
-\usepackage{auto-pst-pdf}
-\usepackage{pst-plot}
-\usepackage{pst-math}
-\usepackage{pst-eucl}
-\usepackage{subfigure}
-\usepackage{multido}
-\usepackage{gensymb}
-\usepackage{tabularx}
-\usepackage{pbox}
-\usepackage{units}
-\usepackage{mathtools}
+
+\usepackage{auto-pst-pdf} % slike
+\usepackage{pst-plot} %slike
+\usepackage{pst-math} %slike 
+\usepackage{pst-eucl} %slike 
+\usepackage{subfigure} % podlsike
+%\usepackage{multido} % while
+\usepackage{gensymb} % stopinje
+\usepackage{tabularx} % stretching table
+\usepackage{pbox} % multi line table cell
+\usepackage{units} % da lahko napišeš 12kg lepo v math modu
+\usepackage{mathtools} % matrike z alignment specification
+\usepackage{footmisc} % da lahko ponavlam footnote
 
 \def\R{\ensuremath{\mathbb R}}
 \def\N{\ensuremath{\mathbb N}}
 \def\Z{\ensuremath{\mathbb Z}}
 \def\C{\ensuremath{\mathbb C}}
 \def\Q{\ensuremath{\mathbb Q}}
+\def\I{\ensuremath{\mathcal I}}
 \mathchardef\mhyphen="2D
 
 \newcommand{\edot}{\;\;\;.}
@@ -72,6 +75,7 @@ menucolor=black, runcolor=black, urlcolor=black%
 \newcommand{\hyperanchor}[1]{\Hy@raisedlink{\hypertarget{#1}{}}}
 \makeatother
 
+% operators
 \newcommand{\beforecaptionskip}{\vspace{-12pt}}
 \newcommand{\arccot}{\ensuremath{\operatorname{arccot}}} % arccot
 \newcommand{\tg}{\ensuremath{\operatorname{tg}}} % tg 
@@ -84,6 +88,7 @@ menucolor=black, runcolor=black, urlcolor=black%
 \def\kos{\cos}
 \def\deg{\degree}
 \def\Vec{\overrightarrow}
+\def\konj{\overline} % conjugate
 
 % multi line table cell with 0.5mm margin
 \newcommand{\mltc}[1]{\pbox{21cm}{\vspace{0.5mm} #1 \vspace{0.5mm}}}
@@ -1610,7 +1615,7 @@ Kvadratne enačba ima:
   \item dve različni realni rešitvi, če $D > 0$
   \item eno dvojno realno rešitev, če $D = 0$
   \item dve kompleksni\footnote{Kompleksa števila so definirana kasneje, v razdelku
-    \ref{sec:kompl}.} rešitvi, ki sta par konjugiranih števil, če $D < 0$.
+    \ref{sec:kompl}.\label{fn:komplnotyet}} rešitvi, ki sta par konjugiranih števil, če $D < 0$.
 \end{itemize*}
 
 \subsubsection{Vi\'{e}tovi formuli}
@@ -1624,7 +1629,7 @@ Kvadratne enačba ima:
 
 \subsection{Kompleksne enačbe}
 \label{sec:enac:kompl}
-\textbf{Kompleksna enačba} je vsaka enačba oblike $z = w; z, w \in \C$ ali vsaka neenačba, ki jo v
+\textbf{Kompleksna\footref{fn:komplnotyet} enačba} je vsaka enačba oblike $z = w; z, w \in \C$ ali vsaka neenačba, ki jo v
 to obliko lahko prevedemo.
 
 Kompleksno število je enako nič, če sta obe njegovi komponenti enaki nič.
@@ -2789,15 +2794,37 @@ Vektor v komponentah množimo s skalarjem tako da množimo vsako komponento pose
 \subsubsection{Vektor med dvema točkama}
 \label{sec:vec:kraj:vecAB}
 Vektor med dvema točkama je enak razliki istoležnih komponent drugega in prvega vektorja.
+Ob izpeljavi glej sliko~\ref{fig:vec:kraj:AB}.
 \boldmath
 \begin{align*}
   \Vec{AB} &= (b_1-a_1,\;b_2-a_2,\;b_3-a_3)
 \end{align*}
 \unboldmath
 \begin{align*}
-  \Vec{AB} &= -\vec{a} + \vec{b} = -(a_1,a_2,a_3) + (b_1,b_2,b_3) = \\ 
+  \Vec{AB} &= -\Vec{r_A} + \Vec{r_B} = -(a_1,a_2,a_3) + (b_1,b_2,b_3) = \\ 
   &=  (-a_1,-a_2,-a_3) + (b_1,b_2,b_3) = (b_1-a_1,\;b_2-a_2,\;b_3-a_3)
 \end{align*}
+
+\begin{figure}[ht]
+  \begin{center}
+    \begin{pspicture*}(-1,-1)(4.5,2.5)
+      \psdots[*](0,0)
+      \psdots[*](1.8,.5)
+      \psdots[*](.5,1.8)
+      \uput[dl](0,0){$0$}
+      \uput[ul](.5,1.8){$A$}
+      \uput[dr](1.8,.5){$B$}
+      \psline[linewidth=1.5pt]{<->}(1.8,.5)(0,0)(.5,1.8)
+      \psline[linewidth=1.5pt,linecolor=red]{<-}(1.8,.5)(.5,1.8)
+      \uput[r](1.1, 1.3){$\Vec{AB} = \Vec{r_B} - \Vec{r_A}$}
+      \uput[d](1.1,.3){$\Vec{r_B}$}
+      \uput[l](.3,1.1){$\Vec{r_A}$}
+    \end{pspicture*}
+  \end{center}
+  \beforecaptionskip
+  \caption{Vektor med dvema točkama}
+  \label{fig:vec:kraj:AB}
+\end{figure}
 
 \subsubsection{Skalarni produkt krajevnih vektorjev}
 \label{sec:vec:kraj:skal}
@@ -2841,6 +2868,172 @@ konca krajša pot od vektorja $\vec{a}$ do vektorja $\vec{b}$ \textbf{pozitivna}
 
 \section{Kompleksna števila}
 \label{sec:kompl}
+Vpeljemo število $\ii$, ki ga imenujemo \textbf{imaginarna enota}.
+\[\ii^2 = -1 \implies \ii = \sqrt{-1} \]
+\[ \C = \left\{z; \; z=x+y\ii; \; x,y \in \R, \; \ii = \sqrt{-1} \right\} \]
+
+Kompleksno število se lahko predstavi tudi z urejenim parom $(x,y)$ ali s krajevnim
+vektorjem $(x,y)$.
+
+Kompleksna števila imajo podmnožico \textbf{realnih} in \textbf{imaginarnih} števil.
+\[ \R = \left\{ z; \; z = x+y\ii; \; x \in \R, \, y = 0 \right\} \]
+\[ \I = \left\{ z; \; z = x+y\ii; \; x = 0, \, y \in \R \right\} \]
+
+$\Re z$ --- realna komponenta števila $z$, tudi $x$\\
+$\Im z$ --- imaginarna komponenta števila $z$, tudi $y$
+
+Kompleksna števila lahko narišemo v \textbf{kompleksni ravnini}, ki ima \textbf{realno} in
+\textbf{imaginarno} os, kot urejene pare $(x,y)$. Primer je prikazan na sliki~\ref{fig:kompl:stev}.
+
+\begin{figure}[ht]
+  \begin{center}
+      \begin{pspicture*}(-3.5,-3.5)(3.5,3.5)
+        \psaxes[labels=none]{->}(0,0)(-2.5,-2.5)(2.8,2.5)
+        \uput[l](0,2.3){$\Im$}
+        \uput[u](2.5,0){$\Re$}
+        \uput[dl](0,0){$0$}
+        \uput[l](0,1){$\ii$}
+        \uput[d](1,0){$1$}
+        \psdots[*](2,1)
+        \uput[u](2,1){$2+\ii$}
+        \psdots[*](-1.8,-1.5)
+        \uput[u](-1.8,-1.5){$-1.8-1,5\ii$}
+        \oznaka(0,1)(2,1)(2,0)
+        \oznaka(0,-1.5)(-1.8,-1.5)(-1.8,0)
+      \end{pspicture*}
+  \end{center}
+  \beforecaptionskip
+  \caption{Grafični prikaz kompleksnega števila.}
+  \label{fig:kompl:stev}
+\end{figure}
+
+\subsection{Seštevanje kompleksnih števil}
+\label{sec:kompl:sest}
+Kompleksna števila \textbf{seštevamo} tako, da seštejemo realni komponenti obeh števil in
+imaginarni komponenti obeh števil.
+\begin{align*}
+  & z = a + b\ii  \\
+  & w = c + d\ii \\
+  & z + w = (a+b\ii) + (c+d\ii) = (a+c) + (b\ii + d\ii) = (a+c) + (b+d)\ii \\
+  & z - w = z + (-w) = (a + b\ii) + (c+d\ii) = (a-c) + (b-d)\ii
+\end{align*}
+Rezultat seštevanja ali odštevanja dveh kompleksnih števil je vedno kompleksno število.
+
+\subsection{Množenje kompleksnih števil}
+\label{sec:kompl:mnoz}
+\begin{align*}
+  z &= a + b\ii  \\
+  w &= c + d\ii \\
+  z \krat w &=  (a+b\ii)(c+d\ii) = ac + ad\ii + b\ii c + b\ii d\ii = \\ 
+  &= ac + (ad + bc)\ii + bd\ii^2 = (ac-bd) + (ad+bc)\ii
+\end{align*}
+Rezultat množenja kompleksnih števil je vedno kompleksno število.
+
+\begin{align*}
+  &\ii^{4n} = (i^4)^n \krat \ii^0 = 1 \krat 1 = 1 \\
+  &\ii^{4n+1} = (i^4)^n \krat \ii^1 = 1 \krat \ii = \ii \\
+  &\ii^{4n+2} = (i^4)^n \krat \ii^2 = 1 \krat -1 = -1 \\
+  &\ii^{4n+3} = (i^4)^n \krat \ii^3 = 1 \krat -\ii = -\ii \\
+\end{align*}
+
+\subsection{Konjugirano kompleksno število}
+\[ z = x+y\ii \]
+\[ \konj{z} = x-y\ii \]
+
+\textbf{Lastnosti:}
+\begin{itemize*}
+  \item konjugirano kompleksno število in prvotno število imata sliki zrcalni glede na
+    realno os (slika~\ref{fig:kompl:konj})
+  \item konjugirano število konjugiranega števila $z$ je enako številu \[ z$:
+    $\konj{\konj{z}} = z \]
+  \item produkt števila in njegove konjugirane vrednosti je enak vsoti kvadratov realne in
+    imaginarne komponente: \begin{equation} z\krat \konj{z} = (x+y\ii)(x-y\ii) = x^2+y^2 \label{eq:kompl:zzkonj} \end{equation}
+  \item konjugirana vrednost vsote je enaka vsoti konjugiranih vrednosti: \[ \konj{z+w} =
+    \konj{z} + \konj{w}\]
+  \item konjugirana vrednost produkta je enaka produktu konjugiranih vrednosti:
+    \[ \konj{z\krat w} = \konj{z} \krat \konj{w} \]
+\end{itemize*}
+
+\begin{figure}[ht]
+  \begin{center}
+      \begin{pspicture*}(-3.5,-3.5)(3.5,3.5)
+        \psaxes[labels=none]{->}(0,0)(-2.5,-2.5)(2.8,2.5)
+        \uput[l](0,2.3){$\Im$}
+        \uput[u](2.5,0){$\Re$}
+        \uput[dl](0,0){$0$}
+        \uput[l](0,1){$\ii$}
+        \uput[d](1,0){$1$}
+        \psdots[*](2,1)
+        \psdots[*](2,-1)
+        \psdots[*](-2,-1)
+        \psdots[*](-2,1)
+        \uput[u](2,1.8){$z=2+\ii$}
+        \uput[u](2,1){$z$}
+        \uput[u](-2,1){$-z$}
+        \uput[u](2,-1){$\konj{z}$}
+        \uput[u](-2,-1){$-\konj{z}$}
+        \oznaka(2,1)(2,-1)(-2,-1)(-2,1)(2,1)
+      \end{pspicture*}
+  \end{center}
+  \beforecaptionskip
+  \caption{Grafični prikaz konjugiranega kompleksnega števila.}
+  \label{fig:kompl:konj}
+\end{figure}
+
+\subsection{Absolutna vrednost kompleksnega števila}
+\label{sec:kompl:abs}
+\[ \left| z \right| = +\sqrt{z\krat\konj{z}} = +\sqrt{x^2 + y^2} \]
+
+\textbf{Lastnosti:}
+\begin{itemize*}
+  \item grafično predstavlja oddaljenost števila od izhodišča kompleksne ravnine
+    (slika~\ref{fig:kompl:abs})
+  \item $\left| z \right| \ge 0; \;\; \left| z \right| = 0 \iff z = 0 + 0\ii$
+  \item produkt absolutnih vrednosti je enak absolutni vrednosti produkta: \[ \left| y
+    \right| \krat \left| w \right| = \left| z \krat w \right| \]
+  \item vsota absolutnih vrednosti je večja ali enaka absolutni vrednosti vsote
+    (trikotniška neenakost): $\left| z \right| + \left| w \right| \ge \left| z+w
+    \right|$
+\end{itemize*}
+
+\begin{figure}[ht]
+  \begin{center}
+      \begin{pspicture*}(-1.5,-1.5)(3.5,3.5)
+        \psaxes[labels=none]{->}(0,0)(-1.5,-1.5)(3.5,3.5)
+        \uput[l](0,3.3){$\Im$}
+        \uput[u](3.3,0){$\Re$}
+        \uput[dl](0,0){$0$}
+        \uput[l](0,1){$\ii$}
+        \uput[d](1,0){$1$}
+        \psdots[*](3,2)
+        \uput[u](2.6,2.8){$z=3+2\ii$}
+        \uput[u](3,2){$z$}
+        \oznaka(0,2)(3,2)(3,0)
+        \psline[linecolor=blue](0,0)(3,2)
+        \uput[u]{33}(.9,.45){$\left| z \right| = \sqrt{13}$}
+      \end{pspicture*}
+  \end{center}
+  \beforecaptionskip
+  \caption{Grafični prikaz absolutne vrednosti kompleksnega števila.}
+  \label{fig:kompl:abs}
+\end{figure}
+
+\subsection{Deljenje kompleksnih števil}
+\[ z^{-1} = \frac{1}{z} = \frac{\konj{z}}{z\konj{z}}; \; z \neq 0 \comment{Pod ulomkom je
+vedno realno število zaradi~\eqref{eq:kompl:zzkonj}.} \]
+\[ w:z = w \krat z^{-1} = \frac{w}{z} = \frac{w\konj{z}}{z\konj{z}}; \; z \neq 0 \]
+Rezultat deljenja dveh kompleksnih števil je vedno kompleksno število.
+
+\section{Liki}
+\label{sec:liki}
+
+\setlength{\unitlength}{.5cm}
+\[ p(
+%TODO picture here
+  ) = 1 \]
+
+\section{Telesa}
+\label{sec:tel}
 
 \section{Polinomi}
 \label{sec:pol}
