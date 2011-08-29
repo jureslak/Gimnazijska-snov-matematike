@@ -849,7 +849,7 @@ Pas: $a < x < b$
 \[ S_{AB} = \left( \frac{x_a+x_b}{2}, \frac{y_a+y_b}{2} \right) \]
 
 \textbf{Težišče} in \textbf{ploščina} trikotnika\footnote{Za razrešitev
-determinante matrike glej enačbo \eqref{determinanta}. In ja, |\ \ | ne pomeni absolutne
+determinante matrike glej enačbo \eqref{eq:koor:determinanta}. In ja, |\ \ | ne pomeni absolutne
 vrednosti.}:
 \[ T_{ABC} = \left( \frac{x_a+x_b+x_c}{3},\frac{y_a+y_b+y_c}{3} \right) \]
 \[ p\sigma = \frac{1}{2} \begin{vmatrix}
@@ -865,7 +865,7 @@ Determinanta:
     a & b \\
     c & d
   \end{vmatrix} = a \krat d - b \krat c
-  \label{determinanta}
+  \label{eq:koor:determinanta}
 \end{equation}
 
 \subsection{Pravokotni, v prostoru}
@@ -1017,7 +1017,7 @@ preslika čez $x$ os. Odvisnost funkcije od parametra $b$ je prikazana na sliki~
         \uput[0](1.8,3){1}
         \uput[0](0.8,3){4}
         \uput[0](2,1){0.3}
-        \uput[0](1.8,-3){-1}
+        \uput[0](1.8,-3){$-1$}
       \end{pspicture*}
     }
     \subfigure[Parameter $b$.]{
@@ -1039,7 +1039,6 @@ preslika čez $x$ os. Odvisnost funkcije od parametra $b$ je prikazana na sliki~
   \caption{Odvisnost funkcije od parametrov $a$ in $b$.}
   \label{fig:fun:ab}
 \end{figure}
-
 
 \subsection{Inverzna funkcija}
 \label{sec:fun:inv}
@@ -2801,6 +2800,8 @@ Vektor med dvema točkama je enak razliki istoležnih komponent drugega in prveg
 \end{align*}
 
 \subsubsection{Skalarni produkt krajevnih vektorjev}
+\label{sec:vec:kraj:skal}
+Skalarni produkt vektorjev v komponentah je enak vsoti produktov istoležnih komponent.
 \boldmath
 \begin{align*}
   \vec{a}\vec{b} &=  a_1b_1+a_2b_2+a_3b_3
@@ -2811,23 +2812,32 @@ Vektor med dvema točkama je enak razliki istoležnih komponent drugega in prveg
   a_3\vec{k}) \krat (b_1\vec{i},b_2\vec{j},b_3\vec{k}) = \\
   &= a_1\vec{i}\krat b_1\vec{i} + a_1\vec{i}\krat b_2\vec{j} + a_1\vec{i}\krat b_3\vec{k}
   + a_2\vec{j}\krat b_1\vec{i} + a_2\vec{j}\krat b_2\vec{j} + a_2\vec{j}\krat b_3\vec{k} +
-  a_3\vec{k}\krat b_1\vec{i} + a_3\vec{k}\krat b_2\vec{j} + a_3\vec{k}\krat b_3\vec{k} = \\
-  &= %TODO
+  \\ & \qquad \qquad \qquad \qquad \qquad \qquad \qquad + a_3\vec{k}\krat b_1\vec{i} + a_3\vec{k}\krat b_2\vec{j} + a_3\vec{k}\krat b_3\vec{k} = \\
+  &= a_1\vec{i}\krat b_1\vec{i} + a_2\vec{j}\krat b_2\vec{j} + a_3\vec{k}\krat b_3\vec{k}
+  \comment{$\vec{i}\vec{j} = \vec{i}\vec{k} = \vec{j}\vec{k} = 0$ po
+  \eqref{eq:vec:skal:prav}.} \\
+  &= a_1b_1\krat\vec{i}\vec{i} + a_2b_2\krat\vec{j}\vec{j} + a_3b_3\krat\vec{k}\vec{k}
+  \comment{$\vec{i}\vec{i} = \vec{j}\vec{j} = \vec{k}\vec{k} = 1$ po
+  \eqref{eq:vec:skal:aajea2}.} \\
+  &= a_1b_1 + a_2b_2 + a_3b_3
 \end{align*}
 
-\label{sec:vec:kraj:skal}
+\subsubsection{Enotski vektor v smeri danega vektorja}
+\label{sec:vec:kraj:enot}
+\[ \Vec{e_{\vec{a}}} = \frac{\vec{a}}{\left| \vec{a} \right|} \]
 
 \subsection{Vektorski produkt}
 \label{sec:vec:vec}
-
-
-
-
-
-
-
-
-
+\textbf{Vektorski produkt} vektorjev $\vec{a}$ in $\vec{b}$ je nov \textbf{vektor} $\vec{a} \times \vec{b}$,
+ki je  \textbf{pravokoten} na oba vektorja, njegova dolžina je enaka \textbf{ploščini paralelograma}, ki ga
+določata vektorja $\vec{a}$ in $\vec{b}$, usmerjen pa je tako, da je gledano z njegovega
+konca krajša pot od vektorja $\vec{a}$ do vektorja $\vec{b}$ \textbf{pozitivna}.
+\[ \vec{a}\times\vec{b} = \left(
+\begin{vmatrix} a_2 & a_3 \\ b_2 & b_3 \end{vmatrix},
+\begin{vmatrix} a_3 & a_1 \\ b_3 & b_1 \end{vmatrix},
+\begin{vmatrix} a_1 & a_2 \\ b_1 & b_2 \end{vmatrix},
+\right) \comment{Za razrešitev determinante matrike glej~\eqref{eq:koor:determinanta}.} \]
+\[ \left| \vec{a}\times\vec{b} \right| = |\vec{a}| \krat |\vec{b}| \krat\sin\varphi \]
 
 \section{Kompleksna števila}
 \label{sec:kompl}
