@@ -1847,7 +1847,57 @@ Pitagorov izrek:
   \label{eq:podob:trik:pit}
 \end{equation}
 
-Dokaz:
+\begin{figure}[ht]
+  \begin{center}
+    \begin{pspicture*}(-4.9,-4.9)(4.9,4.9)
+      \pstTriangle(-3,0){A}(1.5,2.6){C}(3,0){B}
+      \pstRightAngle{A}{C}{B}
+      \pstProjection{A}{B}{C}[T]
+      \pstLineAB{C}{T}
+      \pstRightAngle{A}{T}{C}
+      \psset{MarkAngleRadius=.8,LabelSep=1.1}
+      \pstMarkAngle[linecolor=red,linewidth=2pt]{A}{C}{T}{$\beta$}
+      \pstMarkAngle[linecolor=red,linewidth=2pt]{C}{B}{A}{$\beta$}
+      \pstMarkAngle[linecolor=blue,linewidth=2pt]{T}{C}{B}{$\alpha$}
+      \pstMarkAngle[linecolor=blue,linewidth=2pt]{B}{A}{C}{$\alpha$}
+      \uput[d](-.75,0){$b_1$}
+      \uput[d](2.25,0){$a_1$}
+      \uput[d](0,-.2){$c$}
+      \uput[ul](-.7,1.3){$b$}
+      \uput[r](2.25,1.3){$a$}
+      \uput[l](1.55,.8){$v$}
+    \end{pspicture*}
+  \end{center}
+  \beforecaptionskip
+  \caption{Višinski in Evklidov izrek v trikotniku.}
+  \label{fig:podob:trik:izr}
+\end{figure}
+
+Ob prvih dveh dokazih glej tudi sliko~\ref{fig:podob:trik:izr}.\\
+Dokaz izreka~\eqref{eq:podob:trik:vis}.
+\begin{align*}
+  &\triangle ABC \sim \triangle CTB \\
+  & v : b_1 = a_1 : v \\
+  & v^2 = a_1\krat b_1
+\end{align*}
+
+Dokaz izreka~\eqref{eq:podob:trik:evk}.\\[-16pt]
+\parbox[t]{0.5\textwidth}{
+\begin{align*}
+  &\triangle ABC \sim \triangle ACT \\
+  & b : b_1 = c : b \\
+  & b^2 = b_1\krat c
+\end{align*}
+}
+\parbox[t]{0.5\textwidth}{
+\begin{align*}
+  &\triangle ABC \sim \triangle CBT \\
+  & a : a_1 = c : a \\
+  & a^2 = a_1\krat c
+\end{align*}
+}
+
+Dokaz izreka~\eqref{eq:podob:trik:pit}:
 \begin{align*}
   c^2 &= a^2 + b^2 \\
   c^2 &= a_1 \krat c + b_1 \krat c \\
@@ -1855,19 +1905,6 @@ Dokaz:
   c^2 &= c \krat c \\
 \end{align*}
 
-%\begin{figure}[ht]
-%  \begin{center}
-%    \begin{pspicture*}(-4.9,-4.9)(4.9,4.9)
-%      \pstTriangle(-3,0){A}(1.5,2.6){C}(3,0){B}
-%      \pstRightAngle{A}{C}{B}
-%      \pstProjection{A}{B}{C}[T]
-%      \pstLineAB{C}{T}[$v_c$]
-%    \end{pspicture*}
-%  \end{center}
-%  \beforecaptionskip
-%  \caption{Višinski in Evklidov izrek v trikotniku.}
-%  \label{fig:podob:trik:izr}
-%\end{figure}
 
 
 \section{Kotne funkcije}
@@ -3272,6 +3309,36 @@ Glej sliki~\ref{fig:liki:trik1} in~\ref{fig:liki:trik2}.
   \caption{Deltoid in trikotnik.}
   \label{fig:liki:dt}
 \end{figure}
+
+\subsection{Sinusni izrek}
+\label{fig:liki:sin}
+
+
+\subsection{Kosinusni izrek}
+\label{fig:liki:cos}
+
+\subsection{Polmer včrtanega kroga}
+\label{fig:liki:malir}
+
+\subsection{Heronov obrazec}
+\label{fig:liki:heron}
+
+\subsection{Krog}
+\label{fig:liki:krog}
+\textbf{Krog} je množica točk v ravnini, ki so $r$ ali \textbf{manj} oddaljene od neke točke $S$ v isti
+ravnini $\Pi$. Točki $S$ pravimo \textbf{središče}.
+\[ \mathcal{K} = \left\{ T; \; T,S \in \Pi \land d(T,S) \le r \right\} \]
+
+Razmerje med obsegom in premerom kroga je \textbf{konstantno}. Konstanto označimo s~$\boldsymbol\pi$.
+
+\begin{align*}
+  o &= 2\pi r \\
+  l &= \frac{\pi r\alpha}{180\deg} = r\alpha \\
+  p &= \pi r^2 \\
+  p_{iz} &= \frac{\pi r^2\alpha}{360\deg} = \frac{r^2\alpha}{2} = \frac{l\krat
+  r}{2} \\
+  p_{od} &= p_{iz} - p_{\triangle}
+\end{align*}
 
 \section{Telesa}
 \label{sec:tel}
