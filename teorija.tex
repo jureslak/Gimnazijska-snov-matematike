@@ -101,6 +101,16 @@ menucolor=black, runcolor=black, urlcolor=black%
 \renewcommand\implies\Rightarrow
 \renewcommand\iff\Leftrightarrow
 
+% colour settings
+\newrgbcolor{lightgreen1}{0.3164 0.9531 0.3125}
+\newrgbcolor{skyblue}{0.3125 0.5898 0.9531}
+\newrgbcolor{orange}{0.9531 0.5625 0.3125}
+\newrgbcolor{violet}{0.6172 0.3125 0.9531}
+\newrgbcolor{pink}{0.9258 0.3125 0.9531}
+\newrgbcolor{lightred}{0.9531 0.3125 0.3867}
+\newrgbcolor{lighorange}{0.9531 0.7031 0.3125}
+\newrgbcolor{lightgreen2}{0.5547 0.9141 0.2734}
+
 %counter settings
 \numberwithin{equation}{section}
 
@@ -3026,11 +3036,209 @@ Rezultat deljenja dveh kompleksnih števil je vedno kompleksno število.
 
 \section{Liki}
 \label{sec:liki}
+\textbf{Geometrijski lik} je strnjena ravninska množica točk, ki je
+omejena s sklenjeno krivuljo ali lomljeno črto.
 
-\setlength{\unitlength}{.5cm}
-\[ p(
-%TODO picture here
-  ) = 1 \]
+\subsection{Ploščina}
+\label{sec:plosc}
+Ploščina je funkcija, ki liku priredi določeno število, ki nam pove, koliko enotskih
+kvadratkov popolnoma prekrije dani lik.
+
+\textbf{Lastnosti:} 
+\begin{itemize*}
+  \item $p(L) \ge 0$
+  \item 
+    \setlength{\unitlength}{.5cm}
+    $ p\left( 
+    \begin{picture}(1,1.2)
+      \put(0,0){\line(0,1){1}}
+      \put(0,0){\line(1,0){1}}
+      \put(0,1){\line(1,0){1}}
+      \put(1,0){\line(0,1){1}}
+      \put(.1,-.35){ {\tiny 1}}
+      \put(-.55,.3){ {\tiny 1}}
+    \end{picture}
+      \right) = 1$
+  \item $p(L) = p(L_1) + p(L_2) \iff L = L_1 + L_2 \land L_1 \cap L_2 = \emptyset$ Glej
+    sliko~\ref{fig:liki:plosc}.
+  \item $L_1 \cong L_2 \iff p(L_1) = p(L_2)$
+\end{itemize*}
+
+\begin{figure}[ht]
+  \begin{center}
+      \begin{pspicture*}(-1,-1)(2,2)
+        \psline(-1,0)(1,2)(2,.5)(1.5,-1)(-1,0)
+        \psline(-1,0)(2,.5)
+        \uput[u](-.3,1){$L$}
+        \uput[u](.7,.5){$L_1$}
+        \uput[u](1.1,-.6){$L_2$}
+      \end{pspicture*}
+  \end{center}
+  \beforecaptionskip
+  \caption{Ploščina lika, sestavljenega iz več likov.}
+  \label{fig:liki:plosc}
+\end{figure}
+
+\parbox[t]{0.5\textwidth}{
+\subsection{Kvadrat}
+Glej sliko~\ref{fig:liki:kvad}.
+\label{sec:liki:kvad}
+\begin{align*}
+  p &=  a^2 = \frac{d^2}{2} \\
+  o &=  4\krat a
+\end{align*}
+
+\subsection{Pravokotnik}
+Glej sliko~\ref{fig:liki:prav}.
+\label{sec:liki:prav}
+\begin{align*}
+  p &=  a \krat b \\
+  o &=  2(a+b)
+\end{align*}
+
+\subsection{Paralelogram}
+Glej sliko~\ref{fig:liki:paral}.
+\label{sec:liki:paral}
+\begin{align*}
+  p &=  a\krat v_a = b\krat v_b \\
+  p &= a\krat b\krat\sin\alpha = a\krat b\krat\sin\beta \\
+  o &=  2(a+b) \\
+  v_a &=  b\krat\sin\alpha \\
+  v_b &=  a\krat\sin\beta
+\end{align*}
+}
+\parbox[t]{0.5\textwidth}{
+\subsection{Trapez}
+\label{sec:liki:trap}
+Glej sliki~\ref{fig:liki:trap1} in~\ref{fig:liki:trap2}.
+\begin{align*}
+  p &=  \frac{(a+c)\krat v}{2} = \frac{a+c}{2} \krat v = s + v \\ 
+  o &=  a + b + c + d 
+\end{align*}
+\begin{align*}
+  s &=  a - x - y \\
+  s &=  a + x + y \\
+   2s &=  a+c \comment{Seštejemo zgornji enačbi.}\\
+  s &= \frac{a+c}{2}
+\end{align*}
+
+\subsection{Deltoid}
+\label{sec:liki:delt}
+Glej sliko~\ref{fig:liki:delt}.
+\begin{align*}
+  p = \frac{e\krat f}{2}
+  o = 2(a+b)
+\end{align*}
+
+\subsection{Romb}
+\label{sec:liki:romb}
+\begin{align*}
+  p &=  a\krat v_a = \frac{e\krat f}{2} = a^2\krat\sin\alpha = a^2\krat\sin\beta \\
+  o &=  4\krat a 
+\end{align*}
+}
+\begin{figure}[ht]
+  \begin{center}
+    \subfigure[Kvadrat.]{
+      \label{fig:liki:kvad}
+      \begin{pspicture*}(-1,-1)(2,2)
+        \pspolygon(0,0)(0,2)(2,2)(2,0)
+        \uput[l](0,1){$a$}
+        \uput[d](1,0){$a$}
+      \end{pspicture*}
+    }
+    \subfigure[Pravokotnik.]{
+      \label{fig:liki:prav}
+      \begin{pspicture*}(-1,-1)(4,2)
+        \pspolygon(0,0)(0,1.5)(2.5,1.5)(2.5,0)
+        \uput[l](0,.75){$b$}
+        \uput[d](1.25,0){$a$}
+      \end{pspicture*}
+    }
+    \subfigure[Paralelogram.]{
+      \label{fig:liki:paral}
+      \begin{pspicture*}(-1,-1)(5,2.5)
+        \pspolygon*[linecolor=skyblue](0,0)(1,2)(1,0)
+        \pspolygon*[linecolor=skyblue](3.5,0)(4.5,0)(4.5,2)
+        \pspolygon(0,0)(1,2)(4.5,2)(3.5,0)
+        \uput[d](1.75,0){$a$}
+        \uput[u](2.75,2){$a$}
+        \uput[l](.5,1){$b$}
+        \uput[r](1,1){$v_a$}
+      \end{pspicture*}
+    }
+    \subfigure[Deltoid.]{
+      \label{fig:liki:delt}
+      \begin{pspicture*}(-2,-2)(2,2)
+        \pspolygon*[linecolor=pink](-1,0)(0,1)(0,0)
+        \pspolygon*[linecolor=lightred](-1,0)(0,-2)(0,0)
+        \pspolygon*[linecolor=pink](0,1)(1,1)(1,0)
+        \pspolygon*[linecolor=lightred](1,0)(1,-2)(0,-2)
+        \pspolygon(-1,0)(0,1)(1,0)(0,-2)
+        \psline(-1,0)(1,0)
+        \psline(0,1)(0,-2)
+        \uput[u](0.5,1){$\frac{e}{2}$}
+        \uput[r](1,-.5){$f$}
+      \end{pspicture*}
+    }
+    \subfigure[Trapez -- izpeljava srednice.]{
+      \label{fig:liki:trap1}
+      \begin{pspicture*}(-1,-1)(5,2.5)
+        \psline[linestyle=dashed, linewidth=.5pt](-.5,1)(5,1)
+        \pspolygon*[linecolor=orange](0,0)(.5,0)(.5,1)
+        \pspolygon*[linecolor=orange](.5,1)(.5,2)(1,2)
+        \pspolygon*[linecolor=lightgreen2](5,0)(4.25,0)(4.25,1)
+        \pspolygon*[linecolor=lightgreen2](4.25,1)(4.25,2)(3.5,2)
+        \pspolygon(0,0)(1,2)(3.5,2)(5,0)
+        \uput[u](2.5,1){$s$}
+        \uput[d](2.5,0){$a$}
+        \uput[u](2.5,2){$c$}
+        \uput[d](.25,0){$x$}
+        \uput[u](.75,2){$x$}
+        \uput[d](4.65,0){$y$}
+        \uput[u](3.9,2){$y$}
+        \psline(3.5,0)(3.5,2)
+        \uput[l](3.5,.7){$v$}
+      \end{pspicture*}
+    }
+    \subfigure[Trapez -- izpeljava ploščine.]{
+      \label{fig:liki:trap2}
+      \begin{pspicture*}(-1,-1)(7,2.5)
+        \pspolygon(0,0)(1,2)(2.5,2)(4,0)
+        \pspolygon[linestyle=dashed](4,0)(2.5,2)(6.5,2)(5.5,0)
+        \uput[d](1.75,0){$a$}
+        \uput[d](4.75,0){$c$}
+        \uput[u](1.75,2){$c$}
+        \uput[u](4.75,2){$a$}
+        \uput[l](.5,1){$d$}
+        \uput[r](6,1){$d$}
+        \psline(1,0)(1,2)
+        \uput[r](1,1){$v$}
+      \end{pspicture*}
+    }
+  \end{center}
+  \beforecaptionskip
+  \caption{Kvadrat, pravokotnik, paralelogram, deltoid in trapez.}
+  \label{fig:liki:kpptd}
+\end{figure}
+
+\subsection{Trikotnik}
+\label{sec:liki:trik}
+%Glej sliko~\ref{fig:liki:trik}
+\begin{align*}
+  p &= \frac{a \krat v_a}{2} = \frac{b \krat v_b}{2} = \frac{c \krat v_c}{2} \\
+  p &= \frac{a \krat b \krat \sin\gamma}{2} = \frac{a \krat c \krat\sin\beta}{2} =
+  \frac{b \krat c \krat\sin\alpha}{2} \\
+  o &= a + b + c
+\end{align*}
+
+\subsection{Enakostranični trikotnik}
+\label{sec:liki:enaktrik}
+\begin{align*}
+  p &= \frac{a \krat v}{2} = \frac{a^2\sqrt{3}}{4} \\
+  o &= 3\krat a \\
+  v &= \frac{a\sqrt{3}}{2}
+\end{align*}
 
 \section{Telesa}
 \label{sec:tel}
