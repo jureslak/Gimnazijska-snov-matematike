@@ -52,6 +52,7 @@ menucolor=black, runcolor=black, urlcolor=black%
 \usepackage{units} % da lahko napišeš 12kg lepo v math modu
 \usepackage{mathtools} % matrike z alignment specification
 \usepackage{footmisc} % da lahko ponavlam footnote
+\usepackage{floatflt} % floating figure and table
 
 \def\R{\ensuremath{\mathbb R}}
 \def\N{\ensuremath{\mathbb N}}
@@ -81,6 +82,7 @@ menucolor=black, runcolor=black, urlcolor=black%
 \newcommand{\tg}{\ensuremath{\operatorname{tg}}} % tg 
 \newcommand{\ctg}{\ensuremath{\operatorname{ctg}}} % ctg
 \newcommand{\pr}{\ensuremath{\operatorname{pr}}} % pravokotna projekcija
+\newcommand{\st}{\ensuremath{\operatorname{st}}} % stopnja polinoma
 
 \newcommand{\asimptota}{\psline[linecolor=lightgrey, linestyle=dashed, linewidth=.5pt]}
 \newcommand{\oznaka}{\psline[linecolor=red, linestyle=dotted]}
@@ -101,6 +103,7 @@ menucolor=black, runcolor=black, urlcolor=black%
 \renewcommand\implies\Rightarrow
 \renewcommand\iff\Leftrightarrow
 
+% PST DRAWING
 % colour settings
 \newrgbcolor{lightgreen1}{0.3164 0.9531 0.3125}
 \newrgbcolor{skyblue}{0.3125 0.5898 0.9531}
@@ -110,9 +113,11 @@ menucolor=black, runcolor=black, urlcolor=black%
 \newrgbcolor{lightred}{0.9531 0.3125 0.3867}
 \newrgbcolor{lightorange}{0.9531 0.7031 0.3125}
 \newrgbcolor{lightgreen2}{0.5547 0.9141 0.2734}
+\psset{arrowscale=1.5,RightAngleSize=.3} % arrow settings, angle markers
 
 %counter settings
 \numberwithin{equation}{section}
+\setcounter{lofdepth}{2}
 
 \title{Teorija pri matematiki}
 \author{Jure Slak}
@@ -1534,7 +1539,7 @@ vrednosti po absolutni vrednosti.
 Vsako racionalno funkcijo lahko zapišemo kot vsoto polinoma in nove racionalne funkcije,
 ki ima v števcu polinom nižje stopnje kot v imenovalcu.
 \begin{align*}
-    p(x) &= k(x) \krat q(x) + o(x) \; /:q(x)  \quad st(q(x)) > st(o(x)) \comment{osn. izr. o
+    p(x) &= k(x) \krat q(x) + o(x) \; /:q(x)  \quad \st(q(x)) > \st(o(x)) \comment{osn. izr. o
     del. pol.} \\
     \frac{p(x)}{q(x)} &= k(x) + \frac{o(x)}{q(x)} 
 \end{align*}
@@ -2022,7 +2027,7 @@ prikazana v tabeli~\ref{tab:kot:kot:degrad}.
       \psset{unit=1cm}
   \end{center}
   \beforecaptionskip
-  \caption{Kot med enotskima vektorjema, uporabljen pri definiciji sinusa in kosinusa.}
+  \caption[Definicija sinusa in kosinusa.]{Kot med enotskima vektorjema, uporabljen pri definiciji sinusa in kosinusa.}
   \label{fig:kot:sincosdef}
 \end{figure}
 Ob izpeljavi glej sliko~\ref{fig:kot:sincosdef}.
@@ -3296,12 +3301,13 @@ Glej sliki~\ref{fig:liki:trik1} in~\ref{fig:liki:trik2}.
     }
     \subfigure[Ploščina trikotnika.]{
       \label{fig:liki:trik2}
-      \begin{pspicture*}(0,-1)(4,2)
+      \begin{pspicture*}(0,-1)(4,2.5)
         \pspolygon(0,0)(1,2)(3,0)
         \pspolygon[linestyle=dashed](3,0)(1,2)(4,2)
         \psline(1,0)(1,2)
         \uput[d](1.5,0){$c$}
         \uput[r](.9,1){$v_c$}
+        \uput[u](2.5,2){$c$}
       \end{pspicture*}
     }
   \end{center}
@@ -3311,26 +3317,179 @@ Glej sliki~\ref{fig:liki:trik1} in~\ref{fig:liki:trik2}.
 \end{figure}
 
 \subsection{Sinusni izrek}
-\label{fig:liki:sin}
+\label{sec:liki:sin}
 
+\begin{figure}[ht]
+  \begin{center}
+    \begin{pspicture*}(-5,-5)(5,5)
+      \pstTriangle(-3,-1){A}(4,-1){B}(-1.5,4){C}
+      \pstCircleABC{A}{B}{C}{S}
+      \pstLineAB{A}{S}
+      \pstLineAB{B}{S}
+      \psset{PointSymbolB=none,PointNameB=none,nodesep=-2.5,PosAngle=45}
+      \pstMediatorAB[linestyle=dashed]{A}{B}{D}{L}
+      \pstRightAngle{A}{D}{S}
+      \psset{MarkAngleRadius=.8,LabelSep=1.1}
+      \pstMarkAngle[linecolor=red,linewidth=2pt]{A}{C}{B}{$\gamma$}
+      \pstMarkAngle[linecolor=red,linewidth=2pt]{A}{S}{D}{$\gamma$}
+      \uput[d](-1.25,-1){$\frac{c}{2}$}
+      \uput[d](-1.25,.5){$R$}
+      \uput[d](2.25,-1){$\frac{c}{2}$}
+      \uput[d](2.25,.5){$R$}
+      \uput[dr](.5,-1){$c$}
+      \uput[l](-2.25,1.5){$b$}
+      \uput[r](1.25,1.5){$a$}
+    \end{pspicture*}
+  \end{center}
+  \beforecaptionskip
+  \caption{Sinusni izrek.}
+  \label{fig:liki:sin}
+\end{figure}
+
+Ob izpeljavi glej sliko~\ref{fig:liki:sin}.
+\begin{enumerate*}
+  \item Vsakemu trikotniku lahko očrtamo krožnico.
+  \item Kot $\gamma$ je obodni kot.
+  \item $\angle ASB = 2\gamma$, ker je središčni kot.
+  \item $\triangle ABS$ je enakokrak $\implies AD = \frac{c}{2} \land \angle ASD = \gamma$
+  \item $\triangle ADS$ je pravokoten, torej veljajo kotne funkcije.
+  \item $\sin\gamma = \frac{\frac{c}{2}}{R}$
+  \item $\frac{c}{\sin\gamma} = 2R$
+  \item Ponovimo za vse kote.
+\end{enumerate*}
+\begin{align*}
+  a &= 2R \krat\sin\alpha \\
+  b &= 2R \krat\sin\beta  \\
+  c &= 2R \krat\sin\gamma
+\end{align*}
+
+Razmerje med stranico in sinusom nasprotnega kota je konstantno.
+\[ \frac{a}{\sin\alpha} = \frac{b}{\sin\beta} = \frac{c}{\sin\gamma} = 2R \]
+
+Uporaba: 2 kota in stranica, 2 stranici in kot, ki ni med njima.
+
+\begin{align*}
+  p &= \frac{ab\sin\gamma}{2} = \frac{ac\sin\beta}{2} = \frac{bc\sin\alpha}{2} \\
+  2p &=  ab\sin\gamma = ac\sin\beta = bc\sin\alpha \\
+  \frac{2p}{abc} &= \frac{\sin\alpha}{a} = \frac{\sin\beta}{b} = \frac{\sin\gamma}{c} =
+  \frac{1}{2R} \\
+  \frac{abc}{2p} &= 2R \\
+  R &= \frac{abc}{4p} \\
+  p &= \frac{abc}{4R}
+\end{align*}
 
 \subsection{Kosinusni izrek}
-\label{fig:liki:cos}
+\label{sec:liki:cos}
+Ob izpeljavi glej sliko~\ref{fig:liki:cos}.
+\begin{align*}
+  c^2 &= \vec{c}\krat\vec{c} \\
+  c^2 &= (\vec{a} = \vec{b})(\vec{a} - \vec{b}) \\
+  c^2 &= a^2 - 2ab\kos\gamma + b^2 \\
+  c^2 &= a^2 + b^2 - 2ab\kos\gamma
+\end{align*}
+Ponovimo za vse stranice:
+\begin{align}
+  a^2 &= b^2 + c^2 - 2bc\kos\alpha \nonumber\\
+  b^2 &= a^2 + c^2 - 2ac\kos\beta \nonumber \\
+  c^2 &= a^2 + b^2 - 2ab\kos\gamma \label{eq:liki:cos}
+\end{align}
+
+Kvadrat stranice trikotnika je enak vsoti kvadratov drugih dveh stranic zmanjšanih za
+produkt dolžin teh dveh stranic s kosinusom njunega vmesnega kota.
+
+Uporaba: 2 stranici in en kot, 3 stranice.
+
+\begin{figure}[ht]
+  \begin{center}
+    \subfigure[Kosinusni izrek.]{
+    \label{fig:liki:cos}
+    \begin{pspicture*}(-5,-5)(5,5)
+      \pstGeonode[PosAngle=-120](-3,-1){A}
+      \pstGeonode(3,-1){B}
+      \pstGeonode[PosAngle=90](-1,3){C}
+      \ncline{->}{A}{B}
+      \ncline{->}{C}{A}
+      \ncline{->}{C}{B}
+      \pstMarkAngle[MarkAngleRadius=1,LabelSep=.6]{A}{C}{B}{$\gamma$}
+      \uput[d](0,-1){$\vec{c}$}
+      \uput[l](-2,1.25){$\vec{b}$}
+      \uput[r](1,1.25){$\vec{a}$}
+    \end{pspicture*}
+    }
+    \subfigure[Polmer včrtanega kroga.]{
+    \label{fig:liki:malir}
+    \begin{pspicture*}(-5,-5)(5,5)
+      \pstTriangle(-3,-1){A}(3,-1){B}(-.5,3){C}
+      \pstBissectBAC[PointSymbol=none,PointName=none,linestyle=none]{B}{A}{C}{D}
+      \pstBissectBAC[PointSymbol=none,PointName=none,linestyle=none]{C}{B}{A}{E}
+      \pstInterLL{A}{D}{B}{E}{S}
+      \pspolygon*[linecolor=lightorange](A)(S)(C)
+      \pspolygon*[linecolor=lightgreen2](A)(S)(B)
+      \pspolygon*[linecolor=skyblue](B)(S)(C)
+      \pstTriangle(-3,-1){A}(3,-1){B}(-.5,3){C}
+      \pstInterLL{A}{D}{B}{E}{S}
+      \psset{CodeFig=true,CodeFigColor=black,PointSymbol=none,CodeFigStyle=solid,PointName=none}
+      \pstProjection{A}{B}{S}[T]
+      \pstProjection{B}{C}{S}[Y]
+      \pstProjection{A}{C}{S}[U]
+      \pstCircleOA{S}{T}
+      \uput[d](0,-1){$c$}
+      \uput[l](-1.75,1.25){$b$}
+      \uput[r](1.25,1.25){$a$}
+      \uput[r](-.4,-.2){$r$}
+      \uput[u](-.7,.8){$r$}
+      \uput[u](.2,.8){$r$}
+    \end{pspicture*}
+    }
+  \end{center}
+  \beforecaptionskip
+  \caption{Kosinusni izrek in polmer včrtanega kroga.}
+  \label{fig:liki:cosmalir}
+\end{figure}
 
 \subsection{Polmer včrtanega kroga}
-\label{fig:liki:malir}
+\label{sec:liki:malir}
+Ob izpeljavi glej sliko~\ref{fig:liki:malir}.
+\begin{align}
+  p &= \frac{c\krat r}{2} + \frac{a \krat r}{2} + \frac{b \krat r}{2} \nonumber \\
+  p &= r \krat \left( \frac{a+b+c}{2} \right) \nonumber \\
+  p &= r \krat s \nonumber \\
+  r &= \frac{p}{s} \nonumber \\
+  s &= \frac{a+b+c}{2} \comment{Polovični obseg.} \label{eq:liki:polobseg}
+\end{align}
 
 \subsection{Heronov obrazec}
-\label{fig:liki:heron}
+\label{sec:liki:heron}
+\begin{align*}
+  p &= \frac{b\krat c \krat \sin\alpha}{2} \comment{Kvadriramo, vse je pozitivno.} \\
+  p^2 &= \frac{b^2\krat c^2\krat \sin^2\alpha}{4} \comment{Zamenjamo $\sin^2\alpha$ po osnovni
+  zvezi~\eqref{eq:kot:zvez:sincos}.} \\
+  p^2 &= \frac{b^2c^2(1-cos^2\alpha)}{4} \comment{Razlika
+  kvadratov~\eqref{eq:izr:razlikakvadratov}.} \\
+  p^2 &= \frac{b^2c^2\left( 1-\kos\alpha \right)\left( 1+\kos\alpha \right)}{4}
+  \comment{Kosinusni izrek~\ref{eq:liki:cos}. $\kos\alpha=\frac{b^2+c^2-a^2}{2bc}$} \\
+  p^2 &= \frac{b^2c^2\left( 1- \frac{b^2+c^2-a^2}{2bc}\right)\left( 1+
+  \frac{b^2+c^2-a^2}{2bc}\right)}{4} \comment{Se znebimo dvojnih ulomkov.} \\
+  p^2 &= \frac{b^2c^2}{16\krat b^2c^2}\left( 2bc-b^2-c^2+a^2 \right)\left( 2bc+b^2+c^2-a^2
+  \right) \comment{Sestavimo popolne kvadrate.} \\
+  p^2 &= \frac{1}{16}\left( a^2 - \left( b-c \right)^2 \right)\left( \left( b+c
+  \right)^2 - a^2\right) \comment{Razlika kvadratov~\eqref{eq:izr:razlikakvadratov}.} \\
+  p^2 &= \frac{1}{16}\left( a-b+c \right)\left( a+b-c \right)\left( b+c-a \right)\left(
+  b+c+a \right) \\
+  p^2 &= \frac{a+b+c}{2}\krat\frac{b+c-a}{2}\krat\frac{a-b+c}{2}\krat\frac{a+b-c}{2}
+  \comment{Uporabimo polobseg~\eqref{eq:liki:polobseg}.} \\
+  p^2 &= s\left( s-a \right)\left( s-b \right)\left( s-c \right) \\
+  p &= \sqrt{s\left( s-a \right)\left( s-b \right)\left( s-c \right)}
+\end{align*}
+Uporabimo ga, ko imamo podane vse tri stranice in želimo izračunati ploščino.
 
 \subsection{Krog}
-\label{fig:liki:krog}
+\label{sec:liki:krog}
 \textbf{Krog} je množica točk v ravnini, ki so $r$ ali \textbf{manj} oddaljene od neke točke $S$ v isti
 ravnini $\Pi$. Točki $S$ pravimo \textbf{središče}.
 \[ \mathcal{K} = \left\{ T; \; T,S \in \Pi \land d(T,S) \le r \right\} \]
 
 Razmerje med obsegom in premerom kroga je \textbf{konstantno}. Konstanto označimo s~$\boldsymbol\pi$.
-
 \begin{align*}
   o &= 2\pi r \\
   l &= \frac{\pi r\alpha}{180\deg} = r\alpha \\
@@ -3345,6 +3504,86 @@ Razmerje med obsegom in premerom kroga je \textbf{konstantno}. Konstanto označi
 
 \section{Polinomi}
 \label{sec:pol}
+\textbf{Polinom} je funkcija oblike:
+\[ p(x) = a_nx^n+a_{n-1}x^{n-1}+\cdots+a_2x^2+a_1x+a_0; \; a_n,\ldots,a_0 \in \C \]
+$a_n,\ldots,a_0$ --- koeficienti \\
+$a_0$ --- prosti člen ali svobodni člen \\
+$a_n$ --- vodilni koeficient \\
+$a_nx^n$ --- vodilni člen \\
+
+\textbf{Stopnja} polinoma je tista največja potenca $x$, ki ima poleg sebe neničelni
+koeficient. Dva polinoma sta \textbf{enaka} natanko tedaj, ki imata enaki stopnji in enake
+koeficiente pri potencah iste stopnje.
+
+\subsection{Seštevanje polinomov}
+\label{sec:pol:ses}
+Dva polinoma seštejemo tako, da seštejemo koeficiente pri potencah istih stopenj.
+\textbf{Vsota} dveh polinomov je \textbf{polinom}, njegova stopnja pa je \textbf{manjša}
+ali \textbf{enaka} višji od stopenj sumandov.
+
+\subsection{Množenje polinomov}
+\label{sec:pol:mnoz}
+Množimo vsak člen z vsakim.
+\textbf{Produkt} dveh polinomov \textbf{je} polinom, stopnja produkta neničelnih polinomov pa je enaka
+\textbf{vsoti} stopenj polinomov, ki jih množimo.
+
+\subsection{Deljenje polinomov}
+\label{sec:pol:del}
+Osnovni izrek o deljenju:
+\[ p(x) = k(x)\krat q(x) + o(x); \; \st\left( o(x) \right) < \st\left( q(x)) \right) \]
+Za dva polinoma $p(x)$ in $q(x)$ obstajata dva natanko določena polinoma $k(x)$ in $o(x)$,
+tako da velja osnovni izrek o deljenju.
+
+\subsection{Hornerjev algoritem}
+\label{sec:pol:horner}
+Hornerjev algoritem je \textbf{postopek} za \textbf{deljenje} polinoma $p(x)$ z
+\textbf{linearnim} polinomom $(x-a)$.
+V prvi vrstici Hornerjeve sheme so koeficienti polinoma $p(x)$. V zadnji vrstici pa so po
+vrsti koeficienti \textbf{količnika} $k(x)$, ki ima za ena manjšo stopnjo od polinoma $p(x)$. Zadnje
+število pa je ravno \textbf{vrednost} polinoma pri $a$ ($p(a)$) oz. ostanek ($o(x)$).
+\begin{align*}
+  p(x) &= k(x)q(x)+o(x) \\
+  p(a) &= k(a)(a-a)+o(x) \\
+  p(a) &= o(x)
+\end{align*}
+
+Shema:
+\[ p(x) = a_nx^n+a_{n-1}x^{n-1}+\cdots+a_2x^2+a_1x+a_0 \]
+\begin{tabular}[h!]{c|lllll}
+  & $a_n$ & $a_{n-1}$ & $\dots$ & $a_1$ & $a_0$ \\
+  &       & $a\krat a_n$ & $\dots$ & $\dots$ & $\dots$ \\ \hline
+  $a$ & $a_n$ & $a\krat a_n + a_{n-1}$ & $\dots$ & $\dots$ & $p(a)$
+\end{tabular}
+
+\subsection{Ničle polinoma}
+\label{sec:pol:nic}
+Število $a$ je \textbf{ničla} polinoma, če je vrednost polinoma pri $a$ enaka 0.
+\[ a \text{ ničla} \iff p(a) = 0 \]
+
+Število $a$ je ničla polinoma natanko takrat, ko je polinom $p(x)$ deljiv z linearnim
+polinomom $(x-a)$.
+\[ p(a) = 0 \iff p(x) = k(x)(x-a) \]
+Dokaz:
+\begin{align*}
+  p(x) &= k(x)(x-a) \\
+  p(a) &= k(x)(a-a) \\
+  p(a) &= 0
+\end{align*}
+
+Število ničel ne presega stopnje $p(x)$. Dokaz:
+\begin{align*}
+  \st\left( p(x) \right) &= n \\
+  x_1 \text{ ničla} &\implies p(x) = k_1(x)(x-x_1); \; \st\left( k_1(x) \right) = n-1 \\
+  x_2 \text{ ničla} &\implies p(x) = k_2(x)(x-x_1)(x-x_2); \; \st\left( k_2(x) \right) = n-2 \\
+  & \;\; \vdots \\
+  x_n \text{ ničla} &\implies p(x) = k_n(x)\underbrace{(x-x_1)(x-x_2)\krat\,\cdots\,\krat(x-x_n)}_{n}; \; \st\left( k_n(x) \right) = 0 \\
+\end{align*}
+
+Število $a$ je ničla \textbf{$\boldsymbol k$-te stopnje}, če je $(x-a^k)\,|\,p(x)$. Ničla je
+\textbf{enostavna}, če ni večkratna.
+
+\subsubsection{Osnovni izrek algebre}
+\label{sec:pol:nic:osnalg}
 
 \section{Stožnice}
 \label{sec:kroz}
@@ -3554,6 +3793,9 @@ Enačba \textbf{zrcaljene}, \textbf{pokončne} in \textbf{pokončne zrcaljene} p
 \textbf{Potreben pogoj} za parabolo:
 \[ A = B = 0 \lor B = C = 0 \]
 
+\pagebreak
+\listoffigures
+\pagebreak
 \printindex
 \end{document}
 % vim: spell spelllang=sl
