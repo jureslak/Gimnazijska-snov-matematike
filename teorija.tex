@@ -53,6 +53,8 @@ menucolor=black, runcolor=black, urlcolor=black%
 \usepackage{mathtools} % matrike z alignment specification
 \usepackage{footmisc} % da lahko ponavlam footnote
 \usepackage{floatflt} % floating figure and table
+\usepackage{algorithm} % za algoritem kot float
+\usepackage{algpseudocode} % za psevdokodo 
 
 \def\R{\ensuremath{\mathbb R}}
 \def\N{\ensuremath{\mathbb N}}
@@ -178,7 +180,8 @@ menucolor=black, runcolor=black, urlcolor=black%
 \setlength{\abovedisplayskip}{3pt}
 \setlength{\belowdisplayskip}{6pt}
 
-% \renewcommand{\listfigurename}{Kazalo slik} 
+\renewcommand{\listfigurename}{Kazalo slik} 
+\floatname{algorithm}{Algoritem}
 
 \thispagestyle{empty}
 % naslovnica
@@ -1000,11 +1003,11 @@ po $x$ osi (levo -- desno), parameter $q$ pa na premik po $y$ osi (gor -- dol).
         \oznaka(-1,1)(-1,0)
         \oznaka(1,2)(0,2)
         \oznaka(1,2)(1,0)
-        \uput[0](0,1){$y$}
-        \uput[180](0,2){$y'$}
-        \uput[-90](-1,0){$x$}
-        \uput[-90](1,0){$x'$}
-        \uput[180](-1,1){$T(x,y)$}
+        \uput[r](0,1){$y$}
+        \uput[l](0,2){$y'$}
+        \uput[d](-1,0){$x$}
+        \uput[d](1,0){$x'$}
+        \uput[l](-1,1){$T(x,y)$}
         \uput[60](-1,1){$\vec{v}$}
         \uput[45](1,2){$T'(x',y')$}
       \end{pspicture*}
@@ -1034,10 +1037,10 @@ preslika čez $x$ os. Odvisnost funkcije od parametra $b$ je prikazana na sliki~
         \psplot[plotstyle=curve,linecolor=blue, linewidth=1pt]{-3.5}{3.5}{x 2 exp 4 mul}
         \psplot[plotstyle=curve,linecolor=red, linewidth=1pt]{-3.5}{3.5}{x 2 exp 0.3 mul}
         \psplot[plotstyle=curve,linecolor=green, linewidth=1pt]{-3.5}{3.5}{x 2 exp -1 mul}
-        \uput[0](1.8,3){1}
-        \uput[0](0.8,3){4}
-        \uput[0](2,1){0.3}
-        \uput[0](1.8,-3){$-1$}
+        \uput[r](1.8,3){1}
+        \uput[r](0.8,3){4}
+        \uput[r](2,1){0.3}
+        \uput[r](1.8,-3){$-1$}
       \end{pspicture*}
     }
     \subfigure[Parameter $b$.]{
@@ -1048,10 +1051,10 @@ preslika čez $x$ os. Odvisnost funkcije od parametra $b$ je prikazana na sliki~
         \psplot[plotstyle=curve,linecolor=blue, linewidth=1pt]{-3.5}{3.5}{x 2.5 div 3 exp}
         \psplot[plotstyle=curve,linecolor=red, linewidth=1pt]{-3.5}{3.5}{x 0.3 div 3 exp}
         \psplot[plotstyle=curve,linecolor=green, linewidth=1pt]{-3.5}{3.5}{x -1 div 3 exp}
-        \uput[0](1.5,3){$1$}
-        \uput[0](0.4,3){$0.3$}
-        \uput[0](2.5,1){$2.5$}
-        \uput[0](-1.5,3){$-1$}
+        \uput[r](1.5,3){$1$}
+        \uput[r](0.4,3){$0.3$}
+        \uput[r](2.5,1){$2.5$}
+        \uput[r](-1.5,3){$-1$}
       \end{pspicture*}
     }
   \end{center}
@@ -1180,8 +1183,8 @@ $n$ lih: $D_f = \R, \; Z_f = \R$ \\
       \uput[30](-2,-1){$\sqrt[3]{x}$}
       \oznaka(0,1)(1,1)
       \oznaka(1,0)(1,1)
-      \uput[180](0,1){$1$}
-      \uput[-90](1,0){$1$}
+      \uput[l](0,1){$1$}
+      \uput[d](1,0){$1$}
     \end{pspicture*}
   \end{center}
   \beforecaptionskip
@@ -1275,9 +1278,9 @@ Prikazan je na sliki~\ref{fig:fun:kvad:aD}.
         \parabola(-7,3)(-5.5,0)
         \parabola(-3,3)(-1.5,0.5)
         \parabola(1,3)(2.5,1)
-        \uput[0](-6.2,2.5){$D > 0$}
-        \uput[0](-2.3,2.5){$D = 0$}
-        \uput[0](1.8,2.5){$D < 0$}
+        \uput[r](-6.2,2.5){$D > 0$}
+        \uput[r](-2.3,2.5){$D = 0$}
+        \uput[r](1.8,2.5){$D < 0$}
       \end{pspicture*}
     }
     \subfigure[$a < 0$]{
@@ -1287,9 +1290,9 @@ Prikazan je na sliki~\ref{fig:fun:kvad:aD}.
         \parabola(-7,-3)(-5.5,0)
         \parabola(-3,-3)(-1.5,0.5)
         \parabola(1,-3)(2.5,1)
-        \uput[0](-6.2,-1.5){$D < 0$}
-        \uput[0](-2.3,-1.5){$D = 0$}
-        \uput[0](1.8,-1.5){$D > 0$}
+        \uput[r](-6.2,-1.5){$D < 0$}
+        \uput[r](-2.3,-1.5){$D = 0$}
+        \uput[r](1.8,-1.5){$D > 0$}
       \end{pspicture*}
     }
   \end{center}
@@ -1360,9 +1363,9 @@ Možne lege so prikazane na sliki~\ref{fig:fun:kvad:legapinp}.
         \psplot[plotstyle=curve,linecolor=red, linewidth=1pt]{-4.9}{4.9}{2.7182 x exp}
         \psplot[plotstyle=curve,linecolor=blue, linewidth=1pt]{-4.9}{4.9}{1.5 x exp}
         \psplot[plotstyle=curve,linecolor=green, linewidth=1pt]{-4.9}{4.9}{10 x exp}
-        \uput[180](0,4.5){$10^x$}
-        \uput[0](1.5,4.5){$e^x$}
-        \uput[0](2.5,2.8){$1,5^x$}
+        \uput[l](0,4.5){$10^x$}
+        \uput[r](1.5,4.5){$e^x$}
+        \uput[r](2.5,2.8){$1,5^x$}
       \end{pspicture*}
     }
     \subfigure[a < 1]{
@@ -1372,9 +1375,9 @@ Možne lege so prikazane na sliki~\ref{fig:fun:kvad:legapinp}.
         \psplot[plotstyle=curve,linecolor=red, linewidth=1pt]{-4.9}{4.9}{0.5 x exp}
         \psplot[plotstyle=curve,linecolor=blue, linewidth=1pt]{-4.9}{4.9}{0.66666667 x exp}
         \psplot[plotstyle=curve,linecolor=green, linewidth=1pt]{-4.9}{4.9}{0.1 x exp}
-        \uput[180](-0.5,4.5){$\frac{1}{10^x}$}
-        \uput[180](-2.2,4.5){$\frac{1}{2^x}$}
-        \uput[180](-2.5,2.6){$\left( \frac{2}{3} \right)^x$}
+        \uput[l](-0.5,4.5){$\frac{1}{10^x}$}
+        \uput[l](-2.2,4.5){$\frac{1}{2^x}$}
+        \uput[l](-2.5,2.6){$\left( \frac{2}{3} \right)^x$}
       \end{pspicture*}
     }
     \psset{unit=1cm}
@@ -1413,9 +1416,9 @@ Je \textbf{inverzna} funkcija eksponentni funkciji.
         \psplot[plotstyle=curve,swapaxes=true, linecolor=red, linewidth=1pt]{-4.9}{4.9}{2.7182 x exp}
         \psplot[plotstyle=curve,swapaxes=true, linecolor=blue, linewidth=1pt]{-4.9}{4.9}{1.5 x exp}
         \psplot[plotstyle=curve,swapaxes=true, linecolor=green, linewidth=1pt]{-4.9}{4.9}{10 x exp}
-        \uput[-90](3.7,0){$\log_{10}\!x$}
-        \uput[0](2.7,2){$\log_e\!x$}
-        \uput[0](1.5,3.8){$\log_{1,5}\!x$}
+        \uput[d](3.7,0){$\log_{10}\!x$}
+        \uput[r](2.7,2){$\log_e\!x$}
+        \uput[r](1.5,3.8){$\log_{1,5}\!x$}
       \end{pspicture*}
     }
     \subfigure[a < 1]{
@@ -1425,9 +1428,9 @@ Je \textbf{inverzna} funkcija eksponentni funkciji.
         \psplot[plotstyle=curve,swapaxes=true, linecolor=red, linewidth=1pt]{-4.9}{4.9}{0.4 x exp}
         \psplot[plotstyle=curve,swapaxes=true, linecolor=blue, linewidth=1pt]{-4.9}{4.9}{0.66666667 x exp}
         \psplot[plotstyle=curve,swapaxes=true, linecolor=green, linewidth=1pt]{-4.9}{4.9}{0.1 x exp}
-        \uput[90](3.5,0){$\log_{0,1}\!x$}
-        \uput[0](2.2,-2.2){$\log_{0,4}\!x$}
-        \uput[0](2,-4){$\log_{\frac{2}{3}}\!x$}
+        \uput[u](3.5,0){$\log_{0,1}\!x$}
+        \uput[r](2.2,-2.2){$\log_{0,4}\!x$}
+        \uput[r](2,-4){$\log_{\frac{2}{3}}\!x$}
       \end{pspicture*}
     }
     \psset{unit=1cm}
@@ -1476,10 +1479,10 @@ Grafi arcus funkcij so prikazani na sliki~\ref{fig:fun:arc:grafi}.
         \oznaka(0,-1.5)(-1,-1.5)
         \oznaka(-1,0)(-1,-1.5)
         \oznaka(1,0)(1,1.5)
-        \uput[180](0,1.5){$\frac{\pi}{2}$}
-        \uput[0](0,-1.5){$-\frac{\pi}{2}$}
-        \uput[-90](1,0){$1$}
-        \uput[90](-1,0){$-1$}
+        \uput[l](0,1.5){$\frac{\pi}{2}$}
+        \uput[r](0,-1.5){$-\frac{\pi}{2}$}
+        \uput[d](1,0){$1$}
+        \uput[u](-1,0){$-1$}
       \end{pspicture*}
     }
     \subfigure[Arcus kosinus]{
@@ -1489,9 +1492,9 @@ Grafi arcus funkcij so prikazani na sliki~\ref{fig:fun:arc:grafi}.
         \psplot[plotstyle=curve,linecolor=black, linewidth=1pt,swapaxes=true]{-1}{2}{x 1 add 60 mul cos}
         \oznaka(-1,-1)(-1,2)
         \oznaka(-1,2)(0,2)
-        \uput[0](0,2){$\pi$}
-        \uput[-90](1,-1){$1$}
-        \uput[-90](-1,-1){$-1$}
+        \uput[r](0,2){$\pi$}
+        \uput[d](1,-1){$1$}
+        \uput[d](-1,-1){$-1$}
       \end{pspicture*}
     } \\
     \subfigure[Arcus tangens]{
@@ -1501,8 +1504,8 @@ Grafi arcus funkcij so prikazani na sliki~\ref{fig:fun:arc:grafi}.
         \psplot[plotstyle=curve,linecolor=black, linewidth=1pt,swapaxes=true]{-1.4}{1.4}{x 60 mul sin x 60 mul cos div}
         \asimptota(-3,1.5)(3,1.5)
         \asimptota(-3,-1.5)(3,-1.5)
-        \uput[180](0,1.5){$\frac{\pi}{2}$}
-        \uput[0](0,-1.5){$-\frac{\pi}{2}$}
+        \uput[l](0,1.5){$\frac{\pi}{2}$}
+        \uput[r](0,-1.5){$-\frac{\pi}{2}$}
       \end{pspicture*}
     }
     \subfigure[Arcus kotangens]{
@@ -3000,10 +3003,26 @@ Rezultat množenja kompleksnih števil je vedno kompleksno število.
     $\konj{\konj{z}} = z \]
   \item produkt števila in njegove konjugirane vrednosti je enak vsoti kvadratov realne in
     imaginarne komponente: \begin{equation} z\krat \konj{z} = (x+y\ii)(x-y\ii) = x^2+y^2 \label{eq:kompl:zzkonj} \end{equation}
-  \item konjugirana vrednost vsote je enaka vsoti konjugiranih vrednosti: \[ \konj{z+w} =
-    \konj{z} + \konj{w}\]
+  \item konjugirana vrednost vsote je enaka vsoti konjugiranih vrednosti: 
+    \begin{equation}
+      \konj{z+w} = \konj{z} + \konj{w}
+      \label{eq:kompl:konj:plus}
+    \end{equation}
   \item konjugirana vrednost produkta je enaka produktu konjugiranih vrednosti:
-    \[ \konj{z\krat w} = \konj{z} \krat \konj{w} \]
+    \begin{equation}
+      \konj{z\krat w} = \konj{z} \krat \konj{w}
+      \label{eq:kompl:konj:krat}
+    \end{equation}
+  \item konjugirana vrednost potence je enaka potenci konjugirane vrednosti:
+    \begin{equation}
+      \konj{z^n} = \konj{z}^n
+      \label{eq:kompl:konj:pot}
+    \end{equation}
+  \item konjugirana vrednost realnega števila je enaka realnemu številu:
+    \begin{equation}
+      \konj{a} = a, \; a \in \R
+      \label{eq:kompl:konj:konst}
+    \end{equation}
 \end{itemize*}
 
 \begin{figure}[ht]
@@ -3527,6 +3546,9 @@ Množimo vsak člen z vsakim.
 \textbf{Produkt} dveh polinomov \textbf{je} polinom, stopnja produkta neničelnih polinomov pa je enaka
 \textbf{vsoti} stopenj polinomov, ki jih množimo.
 
+Polinom je \textbf{razcepen}, če ga lahko zapišemo kot produkt dveh nekonstantnih polinomov s
+koeficienti iz iste množice števil kot so koeficienti prvotnega polinoma.
+
 \subsection{Deljenje polinomov}
 \label{sec:pol:del}
 Osnovni izrek o deljenju:
@@ -3552,7 +3574,7 @@ Shema:
 \begin{tabular}[h!]{c|lllll}
   & $a_n$ & $a_{n-1}$ & $\dots$ & $a_1$ & $a_0$ \\
   &       & $a\krat a_n$ & $\dots$ & $\dots$ & $\dots$ \\ \hline
-  $a$ & $a_n$ & $a\krat a_n + a_{n-1}$ & $\dots$ & $\dots$ & $p(a)$
+  $a$ & $a_n$ & $a\krat a_n + a_{n-1}$ & $\dots$ & $\dots$ & \multicolumn{1}{|c}{$p(a)$}
 \end{tabular}
 
 \subsection{Ničle polinoma}
@@ -3579,14 +3601,189 @@ Dokaz:
   x_n \text{ ničla} &\implies p(x) = k_n(x)\underbrace{(x-x_1)(x-x_2)\krat\,\cdots\,\krat(x-x_n)}_{n}; \; \st\left( k_n(x) \right) = 0 \\
 \end{align*}
 
-Število $a$ je ničla \textbf{$\boldsymbol k$-te stopnje}, če je $(x-a^k)\,|\,p(x)$. Ničla je
+Število $a$ je ničla \textbf{$\boldsymbol k$-te stopnje}, če $(x-a^k)\;|\;p(x)$. Ničla je
 \textbf{enostavna}, če ni večkratna.
 
 \subsubsection{Osnovni izrek algebre}
 \label{sec:pol:nic:osnalg}
+Vsak \textbf{nekonstanten} polinom s kompleksnimi koeficienti ima vsaj \textbf{eno} kompleksno ničlo.
+
+Posledica:\\
+Polinom stopnje $n$ s kompleksnimi koeficienti ima natanko $n$ kompleksnih ničel.
+
+Dokaz:
+\begin{align*}
+  \st\left( p(x) \right) &= n \\
+  x_1 \text{ ničla} &\implies p(x) = k_1(x)(x-x_1) \\
+  \st\left( k_1(x) \right) &= n-1 \comment{$k_1(x)$ je nekonstanten, torej ima
+  vsaj eno kompleksno ničlo.} \\
+  x_2 \text{ ničla} &\implies p(x) = k_2(x)(x-x_1)(x-x_2) \\
+  \st\left( k_2(x) \right) &= n-2 \comment{$k_2(x)$ je nekonstanten, torej ima
+  vsaj eno kompleksno ničlo.} \\
+  & \;\; \vdots \\
+  x_n \text{ ničla} &\implies p(x) =
+  k_n(x)\underbrace{(x-x_1)(x-x_2)\krat\,\cdots\,\krat(x-x_n)}_{n \text{ ničel}} \\
+  \st\left( k_n(x) \right) &= 0 \comment{Polinom $k_n(x)$ je konstanten.} \\
+  p(x) &= c(x-x_1)(x-x_2)\krat\,\cdots\,\krat(x-x_n)
+\end{align*}
+$c$ je vodilni koeficient. Polinom je z ničlami določen do konstante natančno.
+
+\subsubsection{Kompleksne ničle polinoma z realnimi koeficienti}
+\label{sec:pol:nic:kompl}
+Če je ničla polinoma z realnimi koeficienti kompleksno število $z=a+b\ii$, potem je ničla
+tudi konjugirano število $\konj{z} = a-b\ii$.
+
+Dokaz:
+\begin{align*}
+  p(z) &= 0 \\
+  \konj{p(z)} &= \konj{0} \comment{Konjugiramo obe strani enačbe.} \\
+  \konj{a_nz^n+a_{n-1}z^{n-1}+\cdots+a_1z+a_0} &= 0; \; a_n,\ldots,a_0 \in \R \comment{Uporabimo pravilo~
+  \eqref{eq:kompl:konj:konst}.} \\
+  \konj{a_nz^n}+\konj{a_{n-1}z^{n-1}}+\cdots+\konj{a_1z}+\konj{a_0} &= 0
+  \comment{Uporabimo pravilo~\eqref{eq:kompl:konj:plus}.} \\
+  a_n\konj{z^n}+a_{n-1}\konj{z^{n-1}}+\cdots+a_1\konj{z}+a_0 &= 0 \comment{Uporabimo
+  pravilo~\eqref{eq:kompl:konj:krat}.} \\
+  a_n\konj{z}^n+a_{n-1}\konj{z}^{n-1}+\cdots+a_1\konj{z}+a_0 &= 0 \comment{Uporabimo
+  pravilo~\eqref{eq:kompl:konj:pot}.}\\
+  p(\konj{z}) &= 0
+\end{align*}
+
+Kompleksne ničle polinoma z realnimi koeficienti nastopajo v \textbf{konjugiranih parih}.
+
+Posledica: \\
+Polinom \textbf{lihe} stopnje z realnimi koeficienti ima vsaj \textbf{eno} realno ničlo.
+
+\subsubsection{Cele ničle polinoma s celimi koeficienti}
+\label{sec:pol:nic:cel}
+Če je celo število $c$ ničla polinoma s celimi koeficienti, potem velja, da $c$ deli
+prosti člen.
+\[ c \in \Z\!:\;p(c) = 0 \implies c|a_0 \]
+Dokaz:
+\begin{align*}
+  p(c) &= 0 \\
+  0 &= a_nc^n+a_{n-1}c^{n-1}+\cdots+a_1c+a_0; \; a_n,\ldots,a_0 \in \Z \\
+  -a_0 &= c\underbrace{\left(a_nc^{n-1} + a_{n-1}c^{n-2} +\cdots+a_1\right)}_{\in\;\Z} \\
+  -a_0 &= c \krat k; \; k \in \Z \\
+  &c | a_0 \\
+\end{align*}
+
+
+\subsubsection{Racionalne ničle polinoma s celimi koeficienti}
+\label{sec:pol:nic:rac}
+Če je okrajšani ulomek $\frac{c}{d}$ ničla polinoma s celimi koeficienti, potem velja, da $c$ deli
+prosti člen, $d$ pa deli vodilni koeficient.
+\[ \frac{c}{d} \in \Q,\,D(c,d)=1\!:\;p\left( \frac{c}{d} \right) = 0 \implies
+c|a_0 \land d|a_n \]
+Dokaz:
+\begin{align}
+  p\left(\frac{c}{d}\right) &= 0 \nonumber \\
+  0 &= a_n\left(\frac{c}{d}\right)^n+a_{n-1}\left(\frac{c}{d}\right)^{n-1}+\cdots+a_1\frac{c}{d}+a_0; \; a_n,\ldots,a_0 \in \Z \nonumber \\
+  0 &= a_n\frac{c^n}{d^n}+a_{n-1}\frac{c^{n-1}}{d^{n-1}}+\cdots+a_1\frac{c}{d}+a_0
+  \comment{$\krat d^n$} \nonumber \\
+  0 &= a_nc^n+a_{n-1}c^{n-1}d+\cdots+a_1cd^{n-1}+a_0d^n \label{eq:pol:nic:rac} \\
+  -a_0d^n &= c\underbrace{\left(a_nc^{n-1}+a_{n-1}c^{n-2}d+\cdots+a_1d^{n-1}\right)}_{\in\;\Z} \nonumber \\
+  -a_0d^n &= c \krat k; \; k \in \Z \nonumber \\
+  & c|a_0 \comment{$c$ ne more deliti $d^n$, ker $D(c,d)=1$} \nonumber
+\end{align}
+Če pa enačbo~\eqref{eq:pol:nic:rac} preoblikujemo drugače:
+\begin{align*}
+  -a_nc^n &= a_{n-1}c^{n-1}d+\cdots+a_1cd^{n-1}+a_0d^n \\
+  -a_nc^n &= d\underbrace{\left(a_{n-1}c^{n-1}+\cdots+a_1cd^{n-2}+a_0d^{n-1}\right)}_{\in\;\Z} \\
+  -a_nc^n &= d \krat k; \; k \in \Z \\
+  & d|a_n \comment{$d$ ne more deliti $c^n$, ker $D(c,d)=1$}
+\end{align*}
+
+\subsection{Graf polinoma}
+\label{sec:pol:graf}
+\[ p(x)\!: \R \rightarrow \R \]
+Med dvema zaporednima ničlama polinom \textbf{ne more spremeniti predznaka}. Vsak polinom z
+realnimi koeficienti lahko zapišemo kot produkt linearnih faktorjev in kvadratnih
+faktorjev, ki imajo diskriminanto negativno.
+Vrednost polinoma \textbf{ohrani} predznak pri prehodu čez ničlo \textbf{sode} stopnje,
+\textbf{spremeni} pa ga pri prehodu čez ničlo \textbf{lihe} stopnje.
+Polinom se pri zelo velikih in zelo majhnih $x$ obnaša tako kot vodilni člen. Primera
+grafov polinoma sta na slikah~\ref{fig:pol:graf:a} in~\ref{fig:pol:graf:b}.
+\[ p(x) = a_nx^n\underbrace{\left(\frac{a_{n-1}}{x}+\frac{a_{n-2}}{x^2}+\cdots+\frac{a_1}{x_{n-1}}+\frac{a_0}{x^n}\right)}_{\text{to
+so zelo majhna števila}} \]
+
+\begin{figure}[ht]
+  \begin{center}
+    \subfigure[$p(x)=x^3+\frac{1}{4}x^2-2x-1$]{
+      \label{fig:pol:graf:a}
+      \begin{pspicture*}(-3.5,-3.5)(3.5,3.5)
+        \psaxes[labels=none]{->}(0,0)(-3.5,-3.5)(3.5,3.5)
+        \psplot[plotstyle=curve,linewidth=1.5pt]{-3.5}{3.5}{x 3 exp 0.25 x 2 exp mul add 2
+        x mul sub 1 sub}
+        \uput[ul](0,0){0}
+        \uput[l](0,-1){$-1$}
+        \uput[l](0,-2){$-1$}
+        \uput[l](0,-3){$-1$}
+        \uput[l](0,1){$1$}
+        \uput[l](0,2){$2$}
+        \uput[l](0,3){$3$}
+        \uput[d](1,0){$1$}
+        \uput[d](2,0){$2$}
+        \uput[d](3,0){$3$}
+        \uput[d](-1,0){$-1$}
+        \uput[d](-2,0){$-2$}
+        \uput[d](-3,0){$-3$}
+      \end{pspicture*}
+    }
+    \subfigure[$p(x)= -\frac{1}{4}x^4 + 0,2x^3 + x^2 -\frac{\sqrt{3}}{2}x + \frac{1}{2}$]{
+      \label{fig:pol:graf:b}
+      \begin{pspicture*}(-3.5,-3.5)(3.5,3.5)
+        \psaxes[labels=none]{->}(0,0)(-3.5,-3.5)(3.5,3.5)
+        \psplot[plotstyle=curve,linewidth=1.5pt]{-3.5}{3.5}{-.25 x 4 exp mul 0.2 x 3 exp
+        mul add x x mul add 3 sqrt 2 div x mul sub 0.5 add}
+        \uput[dl](0,0){0}
+        \uput[l](0,-1){$-1$}
+        \uput[l](0,-2){$-1$}
+        \uput[l](0,-3){$-1$}
+        \uput[l](0,1){$1$}
+        \uput[l](0,2){$2$}
+        \uput[l](0,3){$3$}
+        \uput[d](1,0){$1$}
+        \uput[d](2,0){$2$}
+        \uput[d](3,0){$3$}
+        \uput[d](-1,0){$-1$}
+        \uput[d](-2,0){$-2$}
+        \uput[d](-3,0){$-3$}
+      \end{pspicture*}
+    }
+  \end{center}
+  \beforecaptionskip
+  \caption{Graf polinoma.}
+  \label{fig:pol:graf}
+\end{figure}
+
+\subsection{Bisekcija}
+\label{sec:pol:bisekcija}
+Bisekcija je postopek za iskanje ničel zveznih funkcij. Denimo, da poznamo tak interval $[a, b]$,
+da je zvezna funkcija $f\!: \R \rightarrow \R$ (polinom) v krajiščih različno predznačena.
+Potem iz zveznosti sledi, da ima $f$ na intervalu $(a, b)$ vsaj eno ničlo. Če vzamemo sredinsko 
+točko $s = \frac{a + b}{2}$, potem bo, razen, če je $f(s) = 0$, kar pomeni, da smo imeli srečo in 
+zadeli ničlo, na enem izmed intervalov $[a, s]$ ali $[s, b]$ funkcija v krajiščih spet različno 
+predznačena in to vzamemo za nov interval $[a, b]$. Postopek rekurzivno ponavljamo in v vsakem 
+koraku nadaljujemo z razpolovljenim intervalom, ki zagotovo vsebuje vsaj eno ničlo. Ko je interval
+dovolj majhen (manjši od želene vrednosti $\epsilon$), končamo in vrnemo točko s sredine intervala
+kot približek za ničlo funkcije $f$. Algoritem bisekcije je zapisan v psevdokodi kot algoritem~\ref{algo:bisekcija}.
+
+\begin{algorithm}[h!]
+  \caption{Bisekcija}\label{algo:bisekcija}
+  \begin{algorithmic}[1]
+    \While{$|b-a| < \epsilon$}
+        \State $s \gets \frac{a+b}{2}$
+        \If{\textsc{predznak}$(f(a)) =\ $\textsc{predznak}$(f(b))$}
+          \State $a \gets s$
+        \Else
+          \State $b \gets s$
+        \EndIf
+    \EndWhile
+  \end{algorithmic}
+\end{algorithm}
 
 \section{Stožnice}
-\label{sec:kroz}
+\label{sec:stoz}
 \textbf{Stožnice} so dvorazsežne presečne krivulje, ki nastanejo, če presekamo enojni ali dvojni
 neskončni stožec z ravnino pod različnimi koti.
 
@@ -3617,8 +3814,6 @@ imenujemo \textbf{središče} krožnice. Razdaljo med točko krožnice in sredi�
 ga označimo z $r$.
 \[ \mathcal{K} = \left\{ T(x, y); \; d(T, S) = r \right\} \]
 
-Vstavi izpeljavo enačbe tukaj. Sliko tudi.
-
 Enačba krožnice v \textbf{središčni} legi:
 \[ x^2 + y^2 = r^2 \]
 
@@ -3636,13 +3831,39 @@ razvijemo do konca in nato končno enačbo primerjamo s splošno enačbo stožni
 \[ A = C \land B = 0 \comment{konstante so iz splošne enačbe stožnice \eqref{eq:stoz:def}} \]
 
 Krožnici sta \textbf{koncentrični}, če imata skupno središče.
+Sliki krožnice v središčni legi in ``premaknjene'' krožnice sta prikazani na
+sliki~\ref{fig:stoz:kroz}.
+
+\begin{figure}[ht]
+  \begin{center}
+    \subfigure[$x^2+y^2=4$]{
+      \label{fig:stoz:kroz:a}
+      \begin{pspicture*}(-3.5,-3.5)(3.5,3.5)
+        \psaxes[labels=none]{->}(0,0)(-3.5,-3.5)(3.5,3.5)
+        \parametricplot[plotstyle=ccurve]{0}{360}{t cos 2 mul t sin 2 mul}
+        \psdots[*](0,0)
+        \uput[dl](0,0){$S$}
+      \end{pspicture*}
+    }
+    \subfigure[$(x+1)^2+(y-1)^2=4$]{
+      \label{fig:stoz:kroz:b}
+      \begin{pspicture*}(-3.5,-3.5)(3.5,3.5)
+        \psaxes[labels=none]{->}(0,0)(-3.5,-3.5)(3.5,3.5)
+        \parametricplot[plotstyle=ccurve]{0}{360}{t cos 2 mul 1 add t sin 2 mul 1 sub}
+        \psdots[*](1,-1)
+        \uput[dr](1,-1){$S(1,-1)$}
+      \end{pspicture*}
+    }
+  \end{center}
+  \beforecaptionskip
+  \caption{Slika krožnice.}
+  \label{fig:stoz:kroz}
+\end{figure}
 
 \subsection{Elipsa}
-\label{sec:elips}
+\label{sec:stoz:elips}
 \textbf{Elipsa} je množica točk v ravnini, ki imajo konstantno vsoto razdalj do dveh izbranih točk,
 ki ju imenujemo gorišči. $|G_1G_2| = 2e, r_1 + r_2 = 2a$
-
-Vstavi izpeljavo enačbe tukaj. Sliko tudi.
 
 Enačba elipse v \textbf{središčni} legi:
 \[ a^2b^2 = b^2x^2 + a^2y^2 \]
@@ -3661,7 +3882,7 @@ $p$ se imenuje \textbf{polparameter} elipse in je vrednost elipse pri $e$.
 \textbf{Eksplicitna} enačba elipse:
 \[ y = \pm \frac{b}{a} \sqrt{a^2 - x^2} \]
 Če to enačbo primerjamo z enačbo krožnice \eqref{eq:kroz:eksp}, ugotovimo, da je elipsa
-pravzaprav krožnica, raztegnjena za faktor $b/a$.
+pravzaprav krožnica, raztegnjena za faktor $\frac{b}{a}$.
 
 \textbf{Gorišči}:
 \begin{align*}
@@ -3682,7 +3903,8 @@ $D_f[-a, a]$, saj drugače $e$ ni definiran, $e^2 = a^2 - b^2 > 0$.
 
 Vse zgornje enačbe veljajo za ``ležeče'' elipse, pri katerih je $a > b$. Če pa imamo
 ``pokončno'' elipso, moramo v vseh enačbah zamenjati $a$ in $b$, pa tudi gorišča so na
-ordinatni osi.
+ordinatni osi. Za sliko ``ležeče'' elipse glej sliko~\ref{fig:stoz:elip:a}, za sliko
+``pokončne'' elipse pa glej sliko~\ref{fig:stoz:elip:b}.
 
 Enačba elipse v \textbf{premaknjeni} legi:
 \[ \frac{(x-p)^2}{a^2} + \frac{(y-q)^2}{b^2} = 1 \]
@@ -3691,15 +3913,49 @@ Središče elipse je v točki $S(p,q)$.
 \textbf{Potreben pogoj} za elipso (do njega pridemo podobno kot pri krožnici):
 \[ B = 0 \land A \krat C > 0 \comment{$A$ in $C$ sta enako predznačena} \]
 
+\begin{figure}[ht]
+  \begin{center}
+    \subfigure[$3x^2+4y^2=27$]{
+      \label{fig:stoz:elip:a}
+      \begin{pspicture*}(-3.5,-3.5)(3.5,3.5)
+        \psaxes[labels=none]{->}(0,0)(-3.5,-3.5)(3.5,3.5)
+        \parametricplot[plotstyle=ccurve]{0}{360}{t cos 3 mul t sin 27 sqrt mul 2 div}
+        \psdots[*](-1.5,0)(1.5,0)(-3,0)(3,0)(0,2.6)(0,-2.6)
+        \uput[d](-1.5,0){$G_1$}
+        \uput[d](1.5,0){$G_2$}
+        \uput[ul](-3,0){$A$}
+        \uput[dr](3,0){$B$}
+        \uput[ur](0,2.6){$C$}
+        \uput[dl](0,-2.6){$D$}
+      \end{pspicture*}
+    }
+    \subfigure[$100x^2+36y^2=255$]{
+      \label{fig:stoz:elip:b}
+      \begin{pspicture*}(-3.5,-3.5)(3.5,3.5)
+        \psaxes[labels=none]{->}(0,0)(-3.5,-3.5)(3.5,3.5)
+        \parametricplot[plotstyle=ccurve]{0}{360}{t cos 2.5 mul 0.6 mul t sin 2.5 mul}
+        \psdots[*](0,2)(0,-2)(-1.5,0)(1.5,0)(0,2.5)(0,-2.5)
+        \uput[dr](0,2){$G_1$}
+        \uput[ur](0,-2){$G_2$}
+        \uput[ul](-1.5,0){$A$}
+        \uput[dr](1.5,0){$B$}
+        \uput[ur](0,2.5){$C$}
+        \uput[dl](0,-2.5){$D$}
+      \end{pspicture*}
+    }
+  \end{center}
+  \beforecaptionskip
+  \caption{Slika elipse.}
+  \label{fig:stoz:elip}
+\end{figure}
+
 \subsection{Hiperbola}
-\label{sec:hiper}
+\label{sec:stoz:hiper}
 \textbf{Hiperbola} je množica točk ravnine, ki imajo konstantno absolutno vrednost razlike razdalj
 do dveh izbranih točk, ki ju imenujemo gorišči hiperbole.
 
 \[ |G_1G_2| = 2e \]
 \[ |r_1 - r_2| = 2a \]
-
-Vstavi izpeljavo enačbe tukaj. Sliko tudi.
 
 \textbf{Odsekovna} enačba hiperbole:
 \[ \frac{x^2}{a^2} - \frac{y^2}{b^2} = 1 \]
@@ -3730,12 +3986,14 @@ Hiperbola je \textbf{simetrična} glede na obe koordinatni osi.
 
 \textbf{Asimptoti} hiperbole sta premici
 \[ y = \pm \frac{b}{a}x \]
-\[ y = \pm \frac{b}{a} \sqrt{x^2 - a^2}  = \pm \frac{b}{a} x \sqrt{1 -
-\frac{a^2}{x^2}} \]
 Če gre $x$ proti $\infty$, gre vrednost ulomka $\frac{a^2}{x^2}$ proti 0 in vrednost korena v eksplicitni enačbi proti 1, iz česar
 ugotovimo asimptoti.
+\[ y = \pm \frac{b}{a} \sqrt{x^2 - a^2}  = \pm \frac{b}{a} x \sqrt{1 -\frac{a^2}{x^2}} \]
 
-$p$ je \textbf{polparameter} hiperbole in je vrednost parabole pri $e$.
+Slika ``ležeče'' hiperbole je prikazana na sliki~\ref{fig:stoz:hiper:a}, slika
+``pokončne'' hiperbole pa na sliki~\ref{fig:stoz:hiper:b}.
+
+$p$ je \textbf{polparameter} hiperbole in je vrednost hiperbole pri $e$.
 \[ p = \pm \frac{b^2}{a} \]
 
 \textbf{Potreben pogoj} za hiperbolo:
@@ -3745,9 +4003,48 @@ Enačba ``pokončne'' hiperbole:
 \[ \frac{x^2}{a^2} - \frac{y^2}{b^2} = -1 \]
 
 Enačba hiperbole v \textbf{premaknjeni} legi:
-\[ \frac{(x-p)^2}{a^2} - \frac{(y-q)^2}{b^2} = 1 \]
-Središče hiperbole je v točki $S(p,q)$.
+\[ \frac{(x-p)^2}{a^2} - \frac{(y-q)^2}{b^2} = 1 \comment{Središče hiperbole je v točki
+$S(p,q)$.} \]
 
+\begin{figure}[ht]
+  \begin{center}
+    \subfigure[$5x^2-4y^2=5$]{
+      \label{fig:stoz:hiper:a}
+      \begin{pspicture*}(-3.5,-3.5)(3.5,3.5)
+        \psaxes[labels=none]{->}(0,0)(-3.5,-3.5)(3.5,3.5)
+        \asimptota(-3.5,3.91)(3.5,-3.91) % a = 1, b = sqrt(5)/2
+        \asimptota(-3.5,-3.91)(3.5,3.91)
+        \psplot{-3.5}{-1}{5 sqrt 2 div x x mul 1 sub sqrt mul}
+        \psplot{-3.5}{-1}{5 sqrt 2 div x x mul 1 sub sqrt mul neg}
+        \psplot{1}{3.5}{5 sqrt 2 div x x mul 1 sub sqrt mul neg}
+        \psplot{1}{3.5}{5 sqrt 2 div x x mul 1 sub sqrt mul}
+        \psdots[*](-1.5,0)(-1,0)(1,0)(1.5,0)
+        \uput[d](-1.5,0){$G_1$}
+        \uput[ur](-1,0){$A$}
+        \uput[ul](1,0){$B$}
+        \uput[d](1.5,0){$G_2$}
+      \end{pspicture*}
+    }
+    \subfigure[$4x^2-7y^2=-8$]{
+      \label{fig:stoz:hiper:b}
+      \begin{pspicture*}(-3.5,-3.5)(3.5,3.5)
+        \psaxes[labels=none]{->}(0,0)(-3.5,-3.5)(3.5,3.5)
+        \asimptota(-3.5,2.65)(3.5,-2.65) % a = sqrt(2), b = sqrt(8/7)
+        \asimptota(-3.5,-2.65)(3.5,2.65)
+        \psplot{-3.5}{3.5}{2 7 sqrt div 2 x x mul add sqrt mul}
+        \psplot{-3.5}{3.5}{2 7 sqrt div 2 x x mul add sqrt mul neg}
+        \psdots[*](0,3.14)(0,1.07)(0,-1.07)(0,-3.14)
+        \uput[r](0,3.14){$G_1$}
+        \uput[ur](0,1.07){$A$}
+        \uput[dr](0,-1.07){$B$}
+        \uput[r](0,-3.14){$G_2$}
+      \end{pspicture*}
+    }
+  \end{center}
+  \beforecaptionskip
+  \caption{Slika hiperbole.}
+  \label{fig:stoz:hiper}
+\end{figure}
 
 \subsection{Parabola}
 \label{sec:stoz:parab}
@@ -3755,8 +4052,6 @@ Središče hiperbole je v točki $S(p,q)$.
 \textbf{vodnice} $v$ in izbrane točke \textbf{gorišča} $G$.
 
 \[ \mathcal{P} = \left\{ T(x,y): d(T,v) = d(T,G) \right\} \]
-
-Vstavi skico tukaj. Izpeljavo enačbe tudi.
 
 \textbf{Temenska} enačba parabole:
 \[ y^2 = 2px \]
@@ -3780,8 +4075,7 @@ Parabola je \textbf{simetrična}, njena os simetrije pa se imenuje os parabole. 
 parabole $D_f = [0, \infty)$.
 
 Enačba \textbf{premaknjene} parabole:
-\[ (y-b)^2 = 2p(x-a) \]
-Teme je v točki $T(a, b)$.
+\[ (y-b)^2 = 2p(x-a) \comment{Teme je v točki $T(a, b)$.} \]
 
 Enačba \textbf{zrcaljene}, \textbf{pokončne} in \textbf{pokončne zrcaljene} parabole v tem vrstnem redu:
 \begin{align*}
@@ -3790,8 +4084,43 @@ Enačba \textbf{zrcaljene}, \textbf{pokončne} in \textbf{pokončne zrcaljene} p
   y &= -\frac{1}{2p}x^2
 \end{align*}
 
+Slika normalne parabole je na sliki~\ref{fig:stoz:para:a}, slika zrcaljene in premaknjene
+parabole pa na sliki~\ref{fig:stoz:para:b}.
+
 \textbf{Potreben pogoj} za parabolo:
 \[ A = B = 0 \lor B = C = 0 \]
+
+\begin{figure}[ht]
+  \begin{center}
+    \subfigure[$y^2=4x$]{
+      \label{fig:stoz:para:a}
+      \begin{pspicture*}(-3.5,-3.5)(3.5,3.5)
+        \psaxes[labels=none]{->}(0,0)(-3.5,-3.5)(3.5,3.5)
+        \asimptota(-1,3.5)(-1,-3.5)
+        \psplot{0}{3.5}{4 x mul sqrt}
+        \psplot{0}{3.5}{4 x mul sqrt neg}
+        \psdots[*](0,0)(1,0)
+        \uput[d](1,0){$G$}
+        \uput[dl](0,0){$T$}
+      \end{pspicture*}
+    }
+    \subfigure[$y^2=-2x+4$]{
+      \label{fig:stoz:para:b}
+      \begin{pspicture*}(-3.5,-3.5)(3.5,3.5)
+        \psaxes[labels=none]{->}(0,0)(-3.5,-3.5)(3.5,3.5)
+        \asimptota(2.5,3.5)(2.5,-3.5)
+        \psplot{-3.5}{2}{-2 x mul 4 add sqrt}
+        \psplot{-3.5}{2}{-2 x mul 4 add sqrt neg}
+        \psdots[*](2,0)(1.5,0)
+        \uput[d](1.5,0){$G$}
+        \uput[ur](2,0){$T$}
+      \end{pspicture*}
+    }
+  \end{center}
+  \beforecaptionskip
+  \caption{Slika parabole.}
+  \label{fig:stoz:para}
+\end{figure}
 
 \pagebreak
 \listoffigures
