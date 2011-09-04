@@ -699,7 +699,7 @@ Pri dokazih se uporabljajo pravila za računanje s potencami s celim eksponentom
 \ref{sec:pot:cela:prav}).\\[5pt]
 Dokaz pravila \ref{eq:kor:prav:mpjeqn}:
 \begin{align*}
-  \sqrt[n]{a^m} &= \sqrt[p]{a^q} \;/^{np} \\
+  \sqrt[n]{a^m} &= \sqrt[p]{a^q} \comment{$^{np}$} \\
   \left(\sqrt[n]{a^m}\right)^{np} &= \left(\sqrt[p]{a^q} \right)^{np} \comment{upoštevamo
   osnovno izpeljavo \eqref{eq:kor:dog:nkornzakn}} \\
   \left( a^m \right)^p &= \left( a^q \right)^n \\
@@ -733,7 +733,7 @@ Dokaz pravila \ref{eq:kor:prav:ulenakkor}:
 
 Dokaz pravila \ref{eq:kor:prav:prodkor}:
 \begin{align*}
-  \sqrt[n]{a^m} \krat \sqrt[p]{a^q} &= x \;/^{np} \\
+  \sqrt[n]{a^m} \krat \sqrt[p]{a^q} &= x \comment{$^{np}$} \\
   \left( a^m \right)^p \krat \left( a^q \right)^n &= x^{np} \\
   a^{mp} \krat a^{qn} &= x^{np} \\
   a^{mp + qn} &= x^{np} \\
@@ -902,7 +902,7 @@ $z$ --- aplikatna os
 Formule so enake kot v ravnini (razdelek \ref{sec:koor:pravrav}), le da vsebujejo še
 tretjo koordinato.
 
-\section{Polarni, v ravnini}
+\subsection{Polarni, v ravnini}
 \label{sec:koor:pol}
 Nekoč drugič.
 
@@ -1356,7 +1356,7 @@ Možne lege so prikazane na sliki~\ref{fig:fun:kvad:legapinp}.
 \begin{figure}[ht]
   \begin{center}
     \psset{unit=.5cm}
-    \subfigure[a > 1]{
+    \subfigure[$a > 1$]{
       \label{fig:fun:eks:avec}
       \begin{pspicture*}(-4.9,-4.9)(4.9,4.9)
         \psaxes[labels=none]{->}(0,0)(-4.9,-4.9)(4.9,4.9)
@@ -1368,7 +1368,7 @@ Možne lege so prikazane na sliki~\ref{fig:fun:kvad:legapinp}.
         \uput[r](2.5,2.8){$1,5^x$}
       \end{pspicture*}
     }
-    \subfigure[a < 1]{
+    \subfigure[$a < 1$]{
       \label{fig:fun:eks:amanj}
       \begin{pspicture*}(-4.9,-4.9)(4.9,4.9)
         \psaxes[labels=none]{->}(0,0)(-4.9,-4.9)(4.9,4.9)
@@ -1409,7 +1409,7 @@ Je \textbf{inverzna} funkcija eksponentni funkciji.
 \begin{figure}[ht]
   \begin{center}
     \psset{unit=.5cm}
-    \subfigure[a > 1]{
+    \subfigure[$a > 1$]{
       \label{fig:fun:log:avec}
       \begin{pspicture*}(-4.9,-4.9)(4.9,4.9)
         \psaxes[labels=none]{->}(0,0)(-4.9,-4.9)(4.9,4.9)
@@ -1421,7 +1421,7 @@ Je \textbf{inverzna} funkcija eksponentni funkciji.
         \uput[r](1.5,3.8){$\log_{1,5}\!x$}
       \end{pspicture*}
     }
-    \subfigure[a < 1]{
+    \subfigure[$a < 1$]{
       \label{fig:fun:log:amanj}
       \begin{pspicture*}(-4.9,-4.9)(4.9,4.9)
         \psaxes[labels=none]{->}(0,0)(-4.9,-4.9)(4.9,4.9)
@@ -1542,8 +1542,8 @@ vrednosti po absolutni vrednosti.
 Vsako racionalno funkcijo lahko zapišemo kot vsoto polinoma in nove racionalne funkcije,
 ki ima v števcu polinom nižje stopnje kot v imenovalcu.
 \begin{align*}
-    p(x) &= k(x) \krat q(x) + o(x) \; /:q(x)  \quad \st(q(x)) > \st(o(x)) \comment{osn. izr. o
-    del. pol.} \\
+  p(x) &= k(x) \krat q(x) + o(x) \comment{$:q(x)$}  \quad \st(q(x)) > \st(o(x))
+  \comment{Izrek~\eqref{eq:pol:osndel}.} \\
     \frac{p(x)}{q(x)} &= k(x) + \frac{o(x)}{q(x)} 
 \end{align*}
 
@@ -3060,7 +3060,7 @@ Rezultat množenja kompleksnih števil je vedno kompleksno število.
   \item grafično predstavlja oddaljenost števila od izhodišča kompleksne ravnine
     (slika~\ref{fig:kompl:abs})
   \item $\left| z \right| \ge 0; \;\; \left| z \right| = 0 \iff z = 0 + 0\ii$
-  \item produkt absolutnih vrednosti je enak absolutni vrednosti produkta: \[ \left| y
+  \item produkt absolutnih vrednosti je enak absolutni vrednosti produkta: \[ \left| z
     \right| \krat \left| w \right| = \left| z \krat w \right| \]
   \item vsota absolutnih vrednosti je večja ali enaka absolutni vrednosti vsote
     (trikotniška neenakost): $\left| z \right| + \left| w \right| \ge \left| z+w
@@ -3753,8 +3753,12 @@ koeficienti iz iste množice števil kot so koeficienti prvotnega polinoma.
 
 \subsection{Deljenje polinomov}
 \label{sec:pol:del}
-Osnovni izrek o deljenju:
-\[ p(x) = k(x)\krat q(x) + o(x); \; \st\left( o(x) \right) < \st\left( q(x)) \right) \]
+Osnovni izrek o deljenju polinomov:
+\begin{equation}
+  p(x) = k(x)\krat q(x) + o(x); \; \st\left( o(x) \right) < \st\left( q(x)) \right)
+  \label{eq:pol:osndel}
+\end{equation}
+
 Za dva polinoma $p(x)$ in $q(x)$ obstajata dva natanko določena polinoma $k(x)$ in $o(x)$,
 tako da velja osnovni izrek o deljenju.
 
@@ -4216,10 +4220,10 @@ $S(p,q)$.} \]
         \psaxes[labels=none]{->}(0,0)(-3.5,-3.5)(3.5,3.5)
         \asimptota(-3.5,3.91)(3.5,-3.91) % a = 1, b = sqrt(5)/2
         \asimptota(-3.5,-3.91)(3.5,3.91)
-        \psplot{-3.5}{-1}{5 sqrt 2 div x x mul 1 sub sqrt mul}
-        \psplot{-3.5}{-1}{5 sqrt 2 div x x mul 1 sub sqrt mul neg}
-        \psplot{1}{3.5}{5 sqrt 2 div x x mul 1 sub sqrt mul neg}
-        \psplot{1}{3.5}{5 sqrt 2 div x x mul 1 sub sqrt mul}
+        \psplot[plotstyle=curve]{-3.5}{-1}{5 sqrt 2 div x x mul 1 sub sqrt mul}
+        \psplot[plotstyle=curve]{-3.5}{-1}{5 sqrt 2 div x x mul 1 sub sqrt mul neg}
+        \psplot[plotstyle=curve]{1}{3.5}{5 sqrt 2 div x x mul 1 sub sqrt mul neg}
+        \psplot[plotstyle=curve]{1}{3.5}{5 sqrt 2 div x x mul 1 sub sqrt mul}
         \psdots[*](-1.5,0)(-1,0)(1,0)(1.5,0)
         \uput[d](-1.5,0){$G_1$}
         \uput[ur](-1,0){$A$}
@@ -4233,8 +4237,8 @@ $S(p,q)$.} \]
         \psaxes[labels=none]{->}(0,0)(-3.5,-3.5)(3.5,3.5)
         \asimptota(-3.5,2.65)(3.5,-2.65) % a = sqrt(2), b = sqrt(8/7)
         \asimptota(-3.5,-2.65)(3.5,2.65)
-        \psplot{-3.5}{3.5}{2 7 sqrt div 2 x x mul add sqrt mul}
-        \psplot{-3.5}{3.5}{2 7 sqrt div 2 x x mul add sqrt mul neg}
+        \psplot[plotstyle=curve]{-3.5}{3.5}{2 7 sqrt div 2 x x mul add sqrt mul}
+        \psplot[plotstyle=curve]{-3.5}{3.5}{2 7 sqrt div 2 x x mul add sqrt mul neg}
         \psdots[*](0,3.14)(0,1.07)(0,-1.07)(0,-3.14)
         \uput[r](0,3.14){$G_1$}
         \uput[ur](0,1.07){$A$}
@@ -4262,7 +4266,7 @@ $S(p,q)$.} \]
 \[ y = \pm \sqrt{2px} \]
 
 $p$ je \textbf{polparameter} parabole in je enak razdalji med vodnico in goriščem.
-Vrednost parabole pri $p/2$ je $p$.
+Vrednost parabole pri $\frac{p}{2}$ je $p$.
 
 \textbf{Gorišče} parabole:
 \[ G\left(\frac{p}{2}, 0  \right) \]
@@ -4299,8 +4303,8 @@ parabole pa na sliki~\ref{fig:stoz:para:b}.
       \begin{pspicture*}(-3.5,-3.5)(3.5,3.5)
         \psaxes[labels=none]{->}(0,0)(-3.5,-3.5)(3.5,3.5)
         \asimptota(-1,3.5)(-1,-3.5)
-        \psplot{0}{3.5}{4 x mul sqrt}
-        \psplot{0}{3.5}{4 x mul sqrt neg}
+        \psplot[plotstyle=curve]{0}{3.5}{4 x mul sqrt}
+        \psplot[plotstyle=curve]{0}{3.5}{4 x mul sqrt neg}
         \psdots[*](0,0)(1,0)
         \uput[d](1,0){$G$}
         \uput[dl](0,0){$T$}
@@ -4311,8 +4315,8 @@ parabole pa na sliki~\ref{fig:stoz:para:b}.
       \begin{pspicture*}(-3.5,-3.5)(3.5,3.5)
         \psaxes[labels=none]{->}(0,0)(-3.5,-3.5)(3.5,3.5)
         \asimptota(2.5,3.5)(2.5,-3.5)
-        \psplot{-3.5}{2}{-2 x mul 4 add sqrt}
-        \psplot{-3.5}{2}{-2 x mul 4 add sqrt neg}
+        \psplot[plotstyle=curve]{-3.5}{2}{-2 x mul 4 add sqrt}
+        \psplot[plotstyle=curve]{-3.5}{2}{-2 x mul 4 add sqrt neg}
         \psdots[*](2,0)(1.5,0)
         \uput[d](1.5,0){$G$}
         \uput[ur](2,0){$T$}
@@ -4326,7 +4330,7 @@ parabole pa na sliki~\ref{fig:stoz:para:b}.
 
 \pagebreak
 \listoffigures
-\pagebreak
-\printindex
+%\pagebreak
+%\printindex
 \end{document}
 % vim: spell spelllang=sl
