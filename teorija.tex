@@ -3120,7 +3120,7 @@ kvadratkov popolnoma prekrije dani lik.
       \put(-.55,.3){ {\tiny 1}}
     \end{picture}
       \right) = 1$
-  \item $p(L) = p(L_1) + p(L_2) \iff L = L_1 + L_2 \land L_1 \cap L_2 = \emptyset$ Glej
+  \item $p(L) = p(L_1) + p(L_2) \iff L = L_1 + L_2 \land L_1 \cap L_2 = \emptyset \qquad$ Glej
     sliko~\ref{fig:liki:plosc}.
   \item $L_1 \cong L_2 \iff p(L_1) = p(L_2)$
 \end{itemize*}
@@ -3335,6 +3335,29 @@ Glej sliki~\ref{fig:liki:trik1} in~\ref{fig:liki:trik2}.
   \label{fig:liki:dt}
 \end{figure}
 
+\subsection{Pravilni mnogokotnik}
+\label{sec:liki:nkot}
+Pravilni mnogokotnik mnogokotnik, ki ima vse stranice enako
+dolge in vse kote med seboj skladne.
+Pravilni mnogokotnik je vedno konveksen.
+Vsakemu pravilnemu mnogokotniku se da hkrati včrtati in očrtati krožnico, ki imata skupno
+središče.
+
+Vsota notranjih kotov: $S_n = (n-2)\krat 180\deg$ \\
+Vsota zunanjih kotov: $S_n' = 360\deg$ \\
+Število diagonal: $D_n = \frac{n(n-3)}{2}$ \\
+
+Ploščina se izračuna kot vsota ploščin enakokrakih trikotnikov, ki imajo za osnovnico eno
+stranico, vrh pa imajo v središču mnogokotniku včrtane krožnice. Polmer mnogokotniku
+včrtane krožnice označimo z $r$, polmer mnogokotniku očrtane krožnice pa z $R$.
+\begin{align*}
+  o &=  n \krat a \\
+  \varphi &= \frac{360\deg}{n} \\
+  p &= \frac{nar}{2} \\
+  p &= \frac{nR^2\sin\varphi}{2} \\
+  p &= \frac{na^2}{4\tan\frac{\varphi}{2}}
+\end{align*}
+
 \subsection{Sinusni izrek}
 \label{sec:liki:sin}
 
@@ -3520,6 +3543,185 @@ Razmerje med obsegom in premerom kroga je \textbf{konstantno}. Konstanto označi
 
 \section{Telesa}
 \label{sec:tel}
+Poznamo \textbf{okrogla} in \textbf{oglata} telesa. Okrogla so med drugim tudi
+\textbf{valj}, \textbf{krogla}, \textbf{stožec} in
+\textbf{vrtenine}. Oglata telesa ali \textbf{poliedre} med drugim delimo tudi na pravilne poliedre
+(\textbf{platonska telesa}), \textbf{piramide} in \textbf{prizme}.
+
+\textbf{Rob} je stičišče dveh ploskev. \textbf{Oglišče} je stičišče dveh ali več robov.
+\textbf{Površina} telesa je enaka vsoti ploščin vseh mejnih ploskev. 
+\textbf{Volumen} ali prostornina je funkcija, ki telesu
+priredi določeno število, ki nam pove koliko enotskih kock popolnoma napolni lik.
+
+\textbf{Lastnosti:}
+\begin{itemize*}
+  \item $V(T) \ge 0$
+  \item $V\left(
+    \raisebox{-.4\height}{\scalebox{0.4}{
+    \begin{pspicture*}(0,-.5)(1.8,1.5)
+      \psline(1,0)(0,0)(0,1)(1,1)(1,0)(1.5,.5)(1.5,1.5)(.5,1.5)(0,1)
+      \psline(1,1)(1.5,1.5)
+      \psline(0,0)(.5,.5)(1.5,.5)
+      \psline(.5,.5)(.5,1.5)
+      \uput[d](.5,0){$1$}
+      \uput[r](1.4,1){$1$}
+      \uput[r](1.1,0){$1$}
+    \end{pspicture*}}}\right) = 1$
+  \item $T_1 \cong T_2 \implies V(T_1) = V(T_2)$
+  \item $V(T) = V(T_1) + V(T_2) \iff T = T_1 \cup T_2 \land T_1 \cap T_2 = \emptyset$
+\end{itemize*}
+
+\textbf{Polieder} je oglato telo, omejeno s samimi $n$-kotniki.
+\textbf{Pravilni polieder} je polieder, ki je omejen s samimi pravilnimi $n$-kotniki, v vsakem
+oglišču pa se stika enako število robov. (tetraeder, heksaeder, oktaeder, dodekaeder,
+ikozaeder)
+
+\subsection{Cavalierjevo načelo}
+\label{sec:tel:cavalieri}
+Dve telesi imata \textbf{enaki prostornini}, če sta \textbf{ploščinsko enaka poljubna ravninska preseka} s
+skupno ravnino, ki je \textbf{vzporedna} ravnini, na kateri leži osnovna ploskev.
+
+\subsection{Prizma}
+\label{sec:tel:priz}
+Prizma je polieder, ki je omejen z dvema vzporednima $n$-kotnikoma, v plašču pa ima $n$
+paralelogramov. Poznamo pokončne in poševne prizme.
+
+Višina prizme je najkrajša možna razdalja med osnovnima ploskvama.
+Prizma je pokončna, če je višina enaka stranskemu robu. Prizma je pravilna, če sta osnovni
+ploskvi pravilna $n$-kotnika in če je pokončna. Prizma je enakoroba, če so vsi robovi
+enako dolgi. (ni nujno pokončna).
+\begin{align*}
+  P &= 2 \krat O + pl \\
+  V &= O \krat v 
+\end{align*}
+
+\parbox[t]{0.5\textwidth}{
+\subsubsection{Kvader}
+\label{sec:tel:priz:kvad}
+Pokončna štiristrana prizma.
+\begin{align*}
+  P &= 2\krat (ab+ac+bc) \\
+  V &= a\krat b\krat c
+\end{align*}
+}\parbox[t]{0.5\textwidth}{
+\subsubsection{Kocka}
+\label{sec:tel:priz:koc}
+Pravilna enakoroba štiristrana prizma ali heksaeder.
+\begin{align*}
+    P &= 6a^2 \\
+    V &= a^3
+\end{align*}
+}
+
+\subsection{Valj}
+\label{sec:tel:valj}
+\textbf{Krožni valj} je rotacijsko geometrijsko telo, ki nastane z rotacijo paralelograma okoli ene
+od njegovih stranic za $360\deg$. Poznamo pokončen in poševen valj.
+
+\textbf{Višina} valja je najkrajša razdalja med osnovnima ploskvama. Valj je
+\textbf{pokončen}, če je višina
+enaka stranskemu robu, če ne je \textbf{poševen}.
+
+\textbf{Površino} valja sestavljata dva skladna kroga s polmerom $r$ in
+\textbf{paralelogram}, katerega
+osnovnica je enaka obsegu osnovne ploskve, višina pa je enaka višini valja $v$.
+
+\textbf{Osni presek} pokončnega valja je pravokotnik. \textbf{Značilni} osni presek valja je tisti, ki
+vsebuje višino valja. \textbf{Pravokotni} osni presek valja je tisti, ki je pravokoten na
+značilnega in je vedno pravokotnik.
+\begin{align*}
+  P &= 2 \krat O + pl = 2\pi r^2 + 2\pi rv = 2\pi r(r+v) \\
+  V &= O \krat v = \pi r^2v
+\end{align*}
+
+\subsubsection{Enakostranični valj}
+\label{sec:tel:valj:enak}
+\textbf{Enakostranični} valj je valj, katerega vsak osni presek \textbf{je} kvadrat.
+\begin{align*}
+  v &= 2r \\
+  P &= 2\pi r(r+v) = 6\pi r^2 \\
+  V &= \pi r^2v = 2\pi r^3
+\end{align*}
+
+\subsection{Piramida}
+\label{sec:tel:pir}
+\textbf{Piramida} je množica točk prostora, ki je omejena s ploskvijo, ki je poljuben $n$-kotnik in plaščem, ki
+je zgrajen iz $n$ trikotnikov.
+
+\textbf{Vrh} piramide $V$ je oglišče, ki ne meji na osnovno ploskev. \textbf{Višina}
+piramide $v$ je najkrajša razdalja med 
+vrhom in ravnino v kateri leži osnovna ploskev. Poznamo \textbf{poševne} in
+\textbf{pokončne} piramide. Piramida je \textbf{pokončna}, 
+če se vrh piramide projicira v središče $n$-kotniku očrtanega kroga. Piramida je
+\textbf{pravilna}, če je pokončna in če je osnovna ploskev pravilni $n$-kotnik. 
+Stranske ploskve so enakokraki trikotniki. Piramida je \textbf{enakoroba}, če ima 
+vse robove enako dolge.
+\begin{align*}
+  P &= O + pl \\
+  V &= \frac{O \krat v}{3} \\
+  \alpha &= \sphericalangle(s,O) \comment{Kot med stranskim robom in osnovno ploskvijo.} \\
+  \beta &= \sphericalangle(v_s,0) \comment{Kot med stransko in osnovno ploskvijo.}
+\end{align*}
+
+\subsection{Stožec}
+\label{sec:tel:stoz}
+\textbf{Krožni stožec} je množica točk v prostoru, ki je omejena s ploskvijo, ki je krog
+in plaščem, ki je unija vseh daljic, ki povezujejo rob osnovne ploskve s poljubno 
+točko, ki ni v isti ravnini kot osnovna ploskev. 
+
+\textbf{Vrh} stožca $V$ je edino oglišče stožca. \textbf{Višina} stožca $v$ je najkrajša razdalja med vrhom
+in ravnino v kateri leži osnovna ploskev. \textbf{Stranica} stožca $s$ je daljica, ki povezuje vrh
+stožca s točko na robu osnovne ploskve.
+
+Poznamo \textbf{poševen} in \textbf{pokončen} stožec. Stožec je pokončen, če se vrh projicira v središče
+osnovne ploskve, če ne, je poševen. 
+
+\textbf{Osni} presek pokončnega stožca je enakokrak trikotnik.
+\textbf{Značilni} presek stožca vsebuje višino, \textbf{pravokotni} pa je pravokoten na značilnega in je
+vedno enakokrak trikotnik.
+\begin{align*}
+  pl &= \frac{\pi s^2\alpha}{360\deg} = \frac{\pi s\alpha}{180\deg} \krat
+  \frac{s}{2} = \frac{l \krat s}{2} = \frac{2\pi rs}{2} = \pi rs \\
+  P &= O + pl = \pi r^2 + \pi rs = \pi r(r+s) \\
+  V &= \frac{O\krat v}{3} = \frac{\pi r^2v}{3}
+\end{align*}
+
+\subsubsection{Enakostranični stožec}
+\label{sec:tel:stoz:enak}
+Stožec je \textbf{enakostraničen}, če je njegov vsak osni
+presek \textbf{enakostraničen trikotnik}.
+\begin{align*}
+  s &= 2r \\
+  v &= r\sqrt{3} \\
+  P &= \pi r(r+s) = 3\pi r^2 \\
+  V &= \frac{\pi r^2v}{3} = \frac{\pi r^3\sqrt{3}}{3}
+\end{align*}
+
+\subsection{Krogla}
+\label{sec:tel:krog}
+Množica točk prostora, ki so za radij ali manj oddaljene od izbrane točke, ki ji pravimo
+središče. Katerikoli presek krogle je krog. Dokaz?
+
+Volumen polkrogle je po Cavalierjevem načelu enak valju z višino in radijem $r$, ki mu izrežemo
+največji možen stožec.
+\begin{align*}
+  \frac{V}{2} &= \pi r^2 r - \frac{\pi r^2 r}{3} \\
+  V &= \frac{4 \pi r^3}{3} 
+\end{align*}
+
+Površina krogle (psevdodokaz):
+\begin{align*}
+  V &= \sum_{i = 0}^{\infty} \frac{O_i \krat v}{3} \comment{Volumen je vsota volumnov zelo
+  majhnih piramid.} \\
+  V &= \frac{v}{3}\left( \sum_{i=0}^{\infty} O_i \right) \comment{Vsota vseh osnovnih
+  ploskev je površina.} \\
+  V &= \frac{v}{3}P \\
+  P &= \frac{3V}{r} \\
+  P &= \frac{3 \krat 4\pi r^3}{3r} \\
+  P &= 4\pi r^2
+\end{align*}
+
+
 
 \section{Polinomi}
 \label{sec:pol}
