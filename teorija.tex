@@ -40,6 +40,7 @@ menucolor=black, runcolor=black, urlcolor=black%
 \usepackage{makeidx} % stvarno kazalo
 \makeindex
 
+\usepackage{enumerate} % za lep enumerate
 \usepackage{auto-pst-pdf} % slike
 \usepackage{pst-plot} %slike
 \usepackage{pst-math} %slike 
@@ -3680,8 +3681,8 @@ vse robove enako dolge.
 \begin{align*}
   P &= O + pl \\
   V &= \frac{O \krat v}{3} \\
-  \alpha &= \sphericalangle(s,O) \comment{Kot med stranskim robom in osnovno ploskvijo.} \\
-  \beta &= \sphericalangle(v_s,0) \comment{Kot med stransko in osnovno ploskvijo.}
+  \alpha &= \angle(s,O) \comment{Kot med stranskim robom in osnovno ploskvijo.} \\
+  \beta &= \angle(v_s,0) \comment{Kot med stransko in osnovno ploskvijo.}
 \end{align*}
 
 \subsection{Stožec}
@@ -4384,16 +4385,68 @@ Zaporedje je \textbf{omejeno}, če je omejeno navzgor in navzdol.
 Zaporedje je \textbf{konstantno}, če so vsi členi enaki med seboj.
 
 \subsection{Aritmetično zaporedje}
-\textbf{Aritmetično zaporedje} je zaporedje, pri katerem je razlika med vsakima dvema členoma
-konstantna. Konstanta se imenuje \textbf{diferenca} in se označi z $d$.
-\[ a_n \text{ aritmetično} \iff a_{n+1} - a_n = d \; d \in \R \quad \forall n \in \N \]
-Splošni člen aritmetičnega zaporedja:
-\[ a_n = a_1 + (n-1)\krat d \]
+\label{sec:zap:aritm}
+\textbf{Aritmetično zaporedje} je zaporedje, pri katerem je razlika med vsakima dvema
+sosednjima členoma $a_n$ in $a_{n+1}$ konstantna. Konstanta se imenuje \textbf{diferenca} in se označi z $d$.
+\[ a_n \text{ aritmetično} \iff a_{n+1} - a_n = d; \; d \in \R \quad \forall n \in \N \]
 
-Vsak člen aritmetičnega zaporedja je aritmetična sredina simetrično ležečih členov.
+Če $d < 0$ bo zaporedje padajoče, če $d > 0$ bo zaporedje naraščajoče, če $d = 0$ bo
+zaporedje konstantno.
+
+\textbf{Splošni člen} aritmetičnega zaporedja:
+\[ a_n = a_1 + (n-1)\krat d \]
+Lahko preoblikujemo v:
+\[ a_1 = a_n - (n-1)\krat d \]
+
+Vsak člen aritmetičnega zaporedja je \textbf{aritmetična sredina} simetrično ležečih členov.
 \[ a_n = \frac{a_{n-i} + a_{n+i}}{2} \]
 
+Formula za \textbf{vsoto} $n$ členov aritmetičnega zaporedja.
+\begin{align*}
+  S_n &= a_1 + a_2 + a_3 + \cdots + a_n \\
+  S_n &= a_1 + (a_1 + d) + (a_1 + 2d) + \cdots + (a_1 + (n-1)d) \\
+  S_n &= a_n + (a_n - d) + (a_n - 2d) + \cdots + (a_n - (n-1)d) \\
+  2S_n &= n\krat a_n + n \krat a_1 \comment{Seštejemo zgornji dve enačbi.} \\
+  S_n &= \frac{n\krat(a_1 + a_n)}{2}
+\end{align*}
+\[  S_n = \sum_{i = 1}^n a_i = \frac{n(a_1 + a_n)}{2} = \frac{n(2a_1 + (n-1)d)}{2} =
+  \frac{n(2a_n - (n-1)d)}{2} \]
 
+Velja tudi:
+\[ a_n = S_n - S_{n-1} \]
+%TODO dokaz
+%TODO a_n - a_m = (n-m)d
+
+\subsection{Geometrijsko zaporedje}
+\label{sec:zap:geom}
+\textbf{Geometrijsko zaporedje} je zaporedje, pri katerem je količnik vsakih dveh sosednjih členov
+$a_n$ in $a_{n+1}$ konstanten. Količnik se označi s $k$.
+\[ a_n \text{ geometrijsko} \iff \frac{a_{n+1}}{a_n} = k \]
+
+\textbf{Naraščanje} in \textbf{padanje} geometrijskega zaporedja:
+\begin{enumerate*}
+  \item $a_1 > 0$
+    \begin{enumerate}[a)]
+      \item $k > 1 \implies $ naraščajoče
+      \item $0 < k < 1 \implies $ padajoče
+      \item $k < 0 \implies $ alternirajoče
+    \end{enumerate}
+  \item $a_1 < 0$
+    \begin{enumerate}[a)]
+      \item $k > 1 \implies $ padajoče
+      \item $0 < k < 1 \implies $ naraščajoče
+      \item $k < 0 \implies $ alternirajoče
+    \end{enumerate}
+  \item $k = 1 \implies $ konstantno
+  \item $k = 0$ in $a_1 = 0$ ne obstajata zaradi definicije geometrijskega zaporedja.
+\end{enumerate*}
+
+\textbf{Splošni člen} geometrijskega zaporedja:
+\[ a_n = a_1\krat k^{n-1} \]
+
+Geometrijsko zaporedje je omejeno, ko je $\left| k \right| \le 1$.
+
+%TODO vsota, a_n/a_m, geom. sredina
 
 
 \pagebreak
