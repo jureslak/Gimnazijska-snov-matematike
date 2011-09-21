@@ -293,6 +293,12 @@ Relacija je \textbf{ekvivalenčna}, če je refleksivna, simetrična in tranzitiv
 \section{Naravna števila}
 \label{sec:naravna}
 \[ \N = {1, 2, 3, 4, 5, 6, \ldots} \]
+
+\[ \N_0 = \N \cup \left\{ 0 \right\} \]
+
+Z $\N_n$ označimo množico prvih $n$ naravnih števil.
+
+
 \textbf{Operacija} dvema elementoma priredi nov element.
 
 \subsection{Zakoni}
@@ -530,7 +536,7 @@ spremenljivke x, razen za x = 0.
 Dva matematična izraza sta \textbf{enakovredna}, če imata pri istih izbirah spremenljivk vedno
 enako vrednost.
 Primer: Zgornji izraz je enakovreden izrazu 
-\[ 1 + \frac{1}{x} \]
+\[ 1 + \frac{1}{x} \edot \]
 
 Izraz \textbf{poimenujemo} glede na glavno računsko operacijo, ki v njem nastopa -- to je računska
 operacija, ki jo izračunamo nazadnje.
@@ -547,14 +553,16 @@ Pri preoblikovanju matematičnih izrazov pogosto uporabljamo naslednja dva posto
 \textbf{faktorizacija} (preoblikovanje v produkt faktorjev)
 \textbf{razčlenjevanje} (preoblikovanje v vsoto členov).
 
-Formule za preoblikovanje izrazov:
+Formule za preoblikovanje izrazov:\\
+\parbox{\textwidth}{
 \begin{align}
-   n \in \N, \quad & a, b, c \in \R \\
+   n \in \N, \quad & a, b, c \in \R \nonumber \\
    \label{eq:izr:kvadrat:dvoclenika} (a \pm b)^2 &= a^2 \pm 2ab + b^2 \comment{kvadrat
    dvočlenika} \\
-   \label{eq:izr:kub:dvoclenika} (a \pm b)^3 &= a^3 \pm 3a^2b + 3ab^2 \pm b^3 \comment{kub
-   dvočlenika} \\
-   \label{eq:izr:kvadrat:troclenika} (a \pm b \pm c)^2 &= a^2 + b^2 + c^2 \pm 2ab \pm 2ac \pm 2bc \\
+   \label{eq:izr:kub:dvoclenika} (a \pm b)^3 &= a^3 \pm 3a^2b + 3ab^2 \pm b^3 = a^3 \pm
+   b^3 + 3ab(a\pm b) \quad \footnotemark \\
+   \label{eq:izr:kvadrat:troclenika} (a \pm b \pm c)^2 &= a^2 + b^2 + c^2 \pm 2ab \pm 2ac
+   \pm 2bc \comment{kvadrat tročl.} \\
    \label{eq:izr:razlikakvadratov} a^2 - b^2 &= (a+b)(a-b) \comment{razlika kvadratov} \\
    \label{eq:izr:vsotakubov} a^3 \pm b^3 &= (a \pm b)(a^2 \mp ab + b^2) \comment{razlika ali
    vsota kubov} \\
@@ -562,13 +570,13 @@ Formule za preoblikovanje izrazov:
    previlo} \\
    \label{eq:izr:ananminusbnan} a^n - b^n &= (a - b)(a^{n-1} + a^{n-2}b + \cdots
    + ab^{n-2} + b^{n-1}) \\ 
-   \label{eq:izr:ananminusbnansum} a^n - b^n &= (a - b)\sum_{i=0}^{n-1} a^ib^{n-i-1} \\
+   a^n - b^n &= (a - b)\sum_{i=1}^{n} a^{i-1}b^{n-i} = (a - b)\sum_{i=1}^{n} a^{n-i}b^{i-1} \nonumber \\
    \label{eq:izr:ananplubnan}  a^n + b^n &=  (a + b)(a^{n-1} - a^{n-2}b + \cdots
    - ab^{n-2} + b^{n-1}) \\
-   \label{eq:izr:ananplusbnansum} a^n +b^n &= (a+b)\sum_{i=0}^{n-1} (-1)^ia^ib^{n-i-1}
-   \comment{na lihe $n$}
+   a^n +b^n &= (a+b)\sum_{i=1}^{n} (-1)^{i+1}a^{i-1}b^{n-i} \comment{za lihe $n$} \nonumber
 \end{align}
-
+}
+\footnotetext{Kub dvočlenika.}
 \section{Potence}
 \label{sec:pot}
 \subsection{Potence z naravnim eksponentom}
@@ -1565,7 +1573,7 @@ enačbe. Med njima stoji \textbf{enačaj}. Spremenljivke, ki nastopajo v enačbi
 \textbf{neznanke}.
 Vrednost neznanke, ki zadosti enakosti imenujemo \textbf{rešitev} ali \textbf{koren} enačbe.
 
-Enačbi, ki imata enaki množici rešitev sta enakovredni ali \textbf{ekvivalentni}.
+Enačbi, ki imata enaki množici rešitev, sta enakovredni ali \textbf{ekvivalentni}.
 
 Enačba, ki nima rešitve se imenuje \textbf{nerešljiva enačba}. Primer:
 \[ x + 1 = x + 3 \]
@@ -1647,7 +1655,7 @@ Kvadratne enačba ima:
 
 \subsection{Kompleksne enačbe}
 \label{sec:enac:kompl}
-\textbf{Kompleksna\footref{fn:komplnotyet} enačba} je vsaka enačba oblike $z = w; z, w \in \C$ ali vsaka neenačba, ki jo v
+\textbf{Kompleksna\footref{fn:komplnotyet} enačba} je vsaka enačba oblike $z = w;\; z, w \in \C$ ali vsaka neenačba, ki jo v
 to obliko lahko prevedemo.
 
 Kompleksno število je enako nič, če sta obe njegovi komponenti enaki nič.
@@ -1700,7 +1708,7 @@ Uporaba \textbf{faktorizacije}, \textbf{substitucije}, metoda \textbf{polovični
 
 \subsection{Polinomske enačbe}
 \label{sec:enac:pol}
-\textbf{Polinomska\footnote{Polinomi so definirani kasneje, v razdelku \ref{sec:pol}}
+\textbf{Polinomska\footnote{Polinomi so definirani kasneje, v razdelku \ref{sec:pol}.}
 enačba} je vsaka enačba oblike $p(x) = 0$ ali vsaka enačba, ki jo v to obliko lahko prevedemo. 
 
 Rešitve enačbe so ničle polinoma $p(x)$.
@@ -1711,6 +1719,18 @@ Rešitve enačbe so ničle polinoma $p(x)$.
 v to obliko lahko prevedemo. $p(x)$ in $q(x)$ sta polinoma.
 Pomembno je, da si pri reševanju take enačbe zapišemo pogoje
 za rešitve (ničle imenovalcev ne smejo biti rešitve).
+
+\subsection{Iracionalne enačbe}
+\textbf{Iracionalne} enačbe so enačbe v katerih nastopajo koreni. Ponavadi jih rešujemo
+tako, da koren \textbf{osamimo} na eni strani in kvadriramo. Če nastopata dva tretja korena lahko
+uporabimo trik z uporabo drugega dela enačbe~\ref{eq:izr:kub:dvoclenika}. Primer:
+\begin{align*}
+  \sqrt[3]{x} + \sqrt[3]{x+1} &= 2  \comment{ na $^3$} \\
+  x + (x+1) + 3\sqrt[3]{x}\sqrt[3]{x+1}(\underbrace{\sqrt[3]{x} + \sqrt[3]{x+1}}_{2}) &=  2
+  \comment{Po zgornji enačbi.} \\
+  x + (x+1) + 3\sqrt[3]{x}\sqrt[3]{x+1} \krat 2 &= 2
+\end{align*}
+
 
 \section{Neenačbe}
 \label{sec:neenac}
@@ -3350,6 +3370,7 @@ Vsota zunanjih kotov: $S_n' = 360\deg$ \\
 Ploščina se izračuna kot vsota ploščin enakokrakih trikotnikov, ki imajo za osnovnico eno
 stranico, vrh pa imajo v središču mnogokotniku včrtane krožnice. Polmer mnogokotniku
 včrtane krožnice označimo z $r$, polmer mnogokotniku očrtane krožnice pa z $R$.
+
 \begin{align*}
   o &=  n \krat a \\
   \varphi &= \frac{360\deg}{n} \\
@@ -3804,7 +3825,8 @@ Dokaz:
   x_1 \text{ ničla} &\implies p(x) = k_1(x)(x-x_1); \; \st\left( k_1(x) \right) = n-1 \\
   x_2 \text{ ničla} &\implies p(x) = k_2(x)(x-x_1)(x-x_2); \; \st\left( k_2(x) \right) = n-2 \\
   & \;\; \vdots \\
-  x_n \text{ ničla} &\implies p(x) = k_n(x)\underbrace{(x-x_1)(x-x_2)\krat\,\cdots\,\krat(x-x_n)}_{n}; \; \st\left( k_n(x) \right) = 0 \\
+  x_n \text{ ničla} &\implies p(x) =
+  k_n(x)\underbrace{(x-x_1)(x-x_2)\krat\,\cdots\,\krat(x-x_n)}_{n}; \; \st\left( k_n(x) \right) = 0 \\
 \end{align*}
 
 Število $a$ je ničla \textbf{$\boldsymbol k$-te stopnje}, če $(x-a^k)\;|\;p(x)$. Ničla je
@@ -4327,6 +4349,52 @@ parabole pa na sliki~\ref{fig:stoz:para:b}.
   \caption{Slika parabole.}
   \label{fig:stoz:para}
 \end{figure}
+\section{Zaporedja}
+\label{sec:zap}
+Zaporedje je vsaka \textbf{funkcija}, ki množico \textbf{naravnih} števil preslika v
+\textbf{realna} števila. 
+\[ f\!: \N \rightarrow \R \]
+Slike funkcije se imenujejo \textbf{členi} zaporedja in jih označimo s $a_1,a_2,a_3, \ldots$. 
+\begin{align*}
+  1 &\mapsto f(1) = a_1 \\
+  2 &\mapsto f(2) = a_2 \\
+    & \;\; \vdots \\
+  n &\mapsto f(n) = a_n \comment{Splošni člen zaporedja.}
+\end{align*}
+
+Zaporedje lahko navajamo s funkcijo, s splošnim členom ali s členi zaporedja.
+Poznamo \textbf{končna} in \textbf{neskončna} zaporedja. Končno zaporedje je vsaka
+funkcija, ki množico prvih $n$ naravnih števil preslika v realna števila.
+\[ f\!: \N_n \rightarrow \R \]
+
+Zaporedje je \textbf{alternirajoče} kadar imata vsaka dva zaporedna člena različen predznak.
+\[ a_n \text{ padajoče} \iff a_n \krat a_{n+1} < 0 \quad \forall n \in \N \]
+Zaporedje je \textbf{naraščajoče} natanko takrat, kadar je vsak naslednji člen večji od
+prejšnjega.
+\[ a_n \text{ naraščajoče} \iff a_n < a_{n+1} \quad \forall n \in \N \]
+Zaporedje je \textbf{padajoče} natanko takrat, kadar je vsak naslednji člen manjši od prejšnjega.
+\[ a_n \text{ padajoče} \iff a_n > a_{n+1} \quad \forall n \in \N \]
+Zaporedje je \textbf{navzgor omejeno}, če obstaja tako naravno število $M$, da so vsi
+členi zaporedja manjši ali enaki temu številu.
+\[ \exists M \in \R \ni: a_n \le M \quad \forall n \in \N \]
+Zaporedje je \textbf{navzdol omejeno}, če obstaja tako naravno število $m$, da so vsi
+členi zaporedja večji ali enaki temu številu.
+\[ \exists m \in \R \ni: a_n \ge m \quad \forall n \in \N \]
+Zaporedje je \textbf{omejeno}, če je omejeno navzgor in navzdol.
+Zaporedje je \textbf{konstantno}, če so vsi členi enaki med seboj.
+
+\subsection{Aritmetično zaporedje}
+\textbf{Aritmetično zaporedje} je zaporedje, pri katerem je razlika med vsakima dvema členoma
+konstantna. Konstanta se imenuje \textbf{diferenca} in se označi z $d$.
+\[ a_n \text{ aritmetično} \iff a_{n+1} - a_n = d \; d \in \R \quad \forall n \in \N \]
+Splošni člen aritmetičnega zaporedja:
+\[ a_n = a_1 + (n-1)\krat d \]
+
+Vsak člen aritmetičnega zaporedja je aritmetična sredina simetrično ležečih členov.
+\[ a_n = \frac{a_{n-i} + a_{n+i}}{2} \]
+
+
+
 
 \pagebreak
 \listoffigures
