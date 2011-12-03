@@ -94,6 +94,8 @@ menucolor=black, runcolor=black, urlcolor=black%
 \def\deg{\degree}
 \def\Vec{\overrightarrow}
 \def\konj{\overline} % conjugate
+\def\limi{\displaystyle\lim_{n\to\infty}} % limit to infty
+\def\sumi{\displaystyle\sum^{\infty}} % sum to infty
 
 % multi line table cell with 0.5mm margin
 \newcommand{\mltc}[1]{\pbox{21cm}{\vspace{0.5mm} #1 \vspace{0.5mm}}}
@@ -517,6 +519,7 @@ obstaja bijektivna preslikava.
 \end{itemize*}
 
 \section{Intervali}
+\label{sec:intervali}
 $\left[a,b \right] = \left\{x; a \leq x \leq b; \; x \in \R \right\}$ --- zaprt interval \\
 $\left(a,b \right) = \left\{x; a < x < b; \; x \in \R \right\}$ --- odprt interval \\
 $\left[a,b \right] = \left\{x; a \leq x < b; \; x \in \R \right\}$ --- polodprt interval \\
@@ -578,6 +581,7 @@ Formule za preoblikovanje izrazov:\\
 \end{align}
 }
 \footnotetext{Kub dvočlenika.}
+
 \section{Potence}
 \label{sec:pot}
 \subsection{Potence z naravnim eksponentom}
@@ -795,12 +799,13 @@ Osnovne izpeljave iz definicije:
   \log_a\! a^y &= y \label{eq:log:logaanay}
 \end{align}
 
-Dogovora: \\
-\[ \log_{10}\!x = \log x \]
-\[ \log_{e}\!x = \ln x \] 
+Dogovora:
+\begin{align*}
+  \log_{10}\!x &= \log x \\
+  \log_{e}\!x &= \ln x
+\end{align*}
 
 \vspace{-24pt}
-
 \hspace{95pt}
 \footnote{Matematiki za logaritem z osnovo $e$ pogosto uporabljajo
 kar zapis $\log x$.}
@@ -813,7 +818,7 @@ Logaritem potence je enak produktu med eksponentom in logaritmom osnove:
 \end{equation}
 Logaritem produkta je enak vsoti logaritmov posameznih faktorjev:
 \begin{equation}
-  \log_a\! xy = log_a\!x+ \log_a\!y \label{eq:log:prav:logprod}
+  \log_a\! xy = \log_a\!x+ \log_a\!y \label{eq:log:prav:logprod}
 \end{equation}
 Logaritem kvocienta je enak razliki med logaritmom števca in imenovalca:
 \begin{equation}
@@ -854,6 +859,8 @@ $x$ --- abscisna os \\
 $y$ --- ordinatna os
 \[ \mathcal{M} = \left\{ (x,y); \; x, y \in \R \right\} = \R \times \R = \R^2 \]
 
+Glej tudi sliko. % todo
+
 Osi razdelita ravnino na štiri \textbf{kvadrante}: \\[3pt]
 \begin{tabular}{ll}
   \Rom{1} kvadrant: & $x > 0 \land y > 0$ \\
@@ -868,7 +875,7 @@ Pomembni \textbf{premici}:
   y &= -x \comment{simetrala sodih kvadrantov}
 \end{align*}
 
-Pas: $a < x < b$ 
+\textbf{Pas:} $a < x < b$ 
 
 \textbf{Razdalja} med dvema točkama (dokaz: Pitagorov izrek):
 \begin{align*}
@@ -913,7 +920,51 @@ tretjo koordinato.
 
 \subsection{Polarni, v ravnini}
 \label{sec:koor:pol}
-Nekoč drugič.
+Za polarni koordinatni sistem potrebujemo izhodišče, poltrak in enoto. Točka je enolično
+določena z oddaljenostjo od izhodišča in pozitivnim kotom od poltraka. Polarni koordinatni
+sistem je prikazan pa sliki~\ref{fig:koor:pol}.
+\[ T(r,\varphi); \; r \ge 0; \; 0 \le \varphi \le 2\pi \]
+
+\begin{figure}[ht]
+  \begin{center}
+      \begin{pspicture*}(-3.5,-3.5)(3.5,3.5)
+        \psdots(0,0)(2,1)
+        \psline(0,0)(3.5,0)
+        \psline(0,0)(2,1)
+        \pscurve{->}(1.5,0)(1.46,.3)(1.3,.65)
+        \uput[dl](0,0){$0$}
+        \uput[d](3.2,0){$p$}
+        \uput[ur](2,1){$T(r,\varphi)$}
+        \uput[u](1,0.5){$r$}
+        \uput[r](0.75, 0.25){$\varphi$}
+      \end{pspicture*}
+  \end{center}
+  \beforecaptionskip
+  \caption{Polarni koordinatni sistem.}
+  \label{fig:koor:pol}
+\end{figure}
+
+Pretvarjanje med kartezičnim in polarnih sistemom je možno. Držijo naslednje enakosti
+(za razlago glej sliko): % todo
+\begin{align*}
+  & r^2 = x^2 + y^2 \\
+  & \tan\varphi = \frac{y}{x} \\
+  & x = r\krat\kos\varphi \\
+  & y = r\krat\sin\varphi \\
+\end{align*}
+
+\subsubsection{Polarni zapis kompleksnega števila}
+Kompleksno število predstavimo kot točko v koordinatnem sistemu. Po formulah za
+pretvarjanje med sistemoma ugotovimo:
+\begin{align*}
+  z &= x + y\ii \\
+  z &= r\kos\varphi + r\sin\varphi \krat \ii \\
+  z &= \left|z\right|\left( \kos\varphi+\ii\sin\varphi \right) \\
+\end{align*}
+
+Formula za potenciranje kompleksnega števila z naravnim številom (dokažemo s popolno
+indukcijo):
+\[ z^n = |z|^n(\kos n\varphi + \ii\sin n\varphi) \]
 
 \section{Funkcije}
 \label{sec:fun}
@@ -1046,9 +1097,9 @@ preslika čez $x$ os. Odvisnost funkcije od parametra $b$ je prikazana na sliki~
         \psplot[plotstyle=curve,linecolor=blue, linewidth=1pt]{-3.5}{3.5}{x 2 exp 4 mul}
         \psplot[plotstyle=curve,linecolor=red, linewidth=1pt]{-3.5}{3.5}{x 2 exp 0.3 mul}
         \psplot[plotstyle=curve,linecolor=green, linewidth=1pt]{-3.5}{3.5}{x 2 exp -1 mul}
-        \uput[r](1.8,3){1}
-        \uput[r](0.8,3){4}
-        \uput[r](2,1){0.3}
+        \uput[r](1.8,3){$1$}
+        \uput[r](0.8,3){$4$}
+        \uput[r](2,1){$0,3$}
         \uput[r](1.8,-3){$-1$}
       \end{pspicture*}
     }
@@ -1061,8 +1112,8 @@ preslika čez $x$ os. Odvisnost funkcije od parametra $b$ je prikazana na sliki~
         \psplot[plotstyle=curve,linecolor=red, linewidth=1pt]{-3.5}{3.5}{x 0.3 div 3 exp}
         \psplot[plotstyle=curve,linecolor=green, linewidth=1pt]{-3.5}{3.5}{x -1 div 3 exp}
         \uput[r](1.5,3){$1$}
-        \uput[r](0.4,3){$0.3$}
-        \uput[r](2.5,1){$2.5$}
+        \uput[r](0.4,3){$0,3$}
+        \uput[r](2.5,1){$2,5$}
         \uput[r](-1.5,3){$-1$}
       \end{pspicture*}
     }
@@ -1082,17 +1133,38 @@ prvotna funkcija \textbf{injektivna}.\footnote{Za definicijo injektivnosti glej 
 \ref{sec:preslikave}.}
 
 \subsection{Linearna funkcija}
-\textbf{Linearna funkcija} je vsaka funkcija oblike $y = kx + n$.
+\textbf{Linearna funkcija} je vsaka funkcija oblike $y = kx + n; \; k, n \in \R$.
+Graf linearne funkcije je premica. Funkcijski predpis lahko zapišemo v treh oblikah:
 \label{sec:fun:lin}
 \begin{align*}
-  y = kx + n \comment{explicitna} \\
+  y = kx + n \comment{eksplicitna} \\
   ax + by + c = 0 \comment{implicitna} \\
   \frac{x}{m} + \frac{y}{n} = 1 \comment{odsekovna}
 \end{align*}
+V eksplicitni obliki ne moremo napisati premic vzporednih z ordinatno osjo, v odsekovni
+obliki pa ne moremo napisati premic, ki so vzporedne katerikoli izmed osi ali gredo skozi
+središče koordinatnega sistema.
 
-$k$ --- smerni koeficient (vzporedne  premice imajo enak smerni koeficient) \\
+$k$ --- smerni koeficient \\
 $n$ --- začetna vrednost, odsek na ordinatni osi \\
 $m$ --- odsek na abscisni osi
+
+Osnovni Evklidov aksiom: Skozi dve točki lahko potegnemo natanko eno premico.
+\textbf{Smerni koeficient} premice skozi dve točki se izračuna kot razmerje med razliko v smeri $y$
+in razliko v smeri $x$ osi.
+\[ k = \frac{y_2 - y_1}{x_2 - x_1} \]
+Če je smerni koeficient večji od 0 je premica naraščajoča, če je manjši od 0, je premica
+padajoča.
+
+Družina premic ki so \textbf{vzporedne} premici $y = k_1x+n_1$: $y=k_1x+n_2$ \\
+Družina premic, ki gredo skozi \textbf{točko} $T_0(x_0,y_0)$: $y - y_0 = k(x-x_0)$ 
+
+\textbf{Vzporedna} premica dani premici ima enak $k$ kot podana, $k$ premice, ki je na dano premico
+\textbf{pravokotna}, pa je nasprotno in obratno število smernemu koeficientu dane premice.
+\[ k_2 = -\frac{1}{k_1} \]
+
+\textbf{Razdalja točke} $T(x_0, y_0)$ od \textbf{premice} $p\;(ax+by-c=0)$:
+\[ d(p, T) = \left|\frac{ax_0+by_0-c}{\sqrt{a^2+b^2}}\right|  \]
 
 \textbf{Snop} premic na sliki~\ref{fig:fun:lin:snop}, \textbf{šop} premic na sliki~\ref{fig:fun:lin:sop}.
 
@@ -1101,7 +1173,7 @@ $m$ --- odsek na abscisni osi
     \subfigure[Snop premic.]{
       \label{fig:fun:lin:snop}
       \begin{pspicture*}(-2.0,-2.0)(2.0,2.0)
-        \psaxes[labels=none]{->}(0,0)(-2.0,-2.0)(2.0,2.0)
+        \psaxes[labels=none]{->}(0,0)(-2.0,-1.99)(2.0,2.0)
         \psplot[plotstyle=curve,linecolor=black, linewidth=1pt]{-2.0}{2.0}{x}
         \psplot[plotstyle=curve,linecolor=black, linewidth=1pt]{-2.0}{2.0}{x 1.5 sub}
         \psplot[plotstyle=curve,linecolor=black, linewidth=1pt]{-2.0}{2.0}{x 0.5 add}
@@ -1111,7 +1183,7 @@ $m$ --- odsek na abscisni osi
     \subfigure[Šop premic.]{
       \label{fig:fun:lin:sop}
       \begin{pspicture*}(-2.0,-2.0)(2.0,2.0)
-        \psaxes[labels=none]{->}(0,0)(-2.0,-2.0)(2.0,2.0)
+        \psaxes[labels=none]{->}(0,0)(-2.0,-1.99)(2.0,2.0)
         \psplot[plotstyle=curve,linecolor=black, linewidth=1pt]{-2.0}{2.0}{x 0.5 add}
         \psplot[plotstyle=curve,linecolor=black, linewidth=1pt]{-2.5}{2.5}{x 0.5 add 0.5 mul}
         \psplot[plotstyle=curve,linecolor=black, linewidth=1pt]{-2.5}{2.5}{x 0.5 add -2 mul}
@@ -1194,6 +1266,7 @@ $n$ lih: $D_f = \R, \; Z_f = \R$ \\
       \oznaka(1,0)(1,1)
       \uput[l](0,1){$1$}
       \uput[d](1,0){$1$}
+      \psdots(1,1)
     \end{pspicture*}
   \end{center}
   \beforecaptionskip
@@ -1204,22 +1277,32 @@ $n$ lih: $D_f = \R, \; Z_f = \R$ \\
 \subsection{Kvadratna funkcija}
 \label{sec:fun:kvad}
 Kvadratna funkcija je vsaka funkcija oblike $f(x) = ax^2 + bx + c; \; a, b, c \in \R; \; a
-\neq 0$.
+\neq 0$. Definicijsko območje so vsa realna števila.
 
 \textbf{Splošna oblika} kvadratne funkcije:
 \begin{equation}
   f(x) = ax^2 + bx + c
   \label{eq:fun:kvad:splos}
 \end{equation}
+$a$ --- vpliva na konkavnost oz. konveksnost in razteg \\
+$c$ --- vpliva na premik v smeri $y$ osi
 
 \textbf{Temenska oblika} kvadratne funkcije, teme $T(p,q)$:
 \begin{equation}
   f(x) = a(x-p)^2 + q
   \label{eq:fun:kvad:tem}
 \end{equation}
+$a$ --- vpliva na konkavnost oz. konveksnost in razteg \\
+$p$ --- vpliva na premik v smeri $x$ osi \\
+$q$ --- vpliva na premik v smeri $y$ osi
+
 
 \textbf{Oblika za ničle} (razcep tročlenika):
-\[ f(x) = a(x-x_1)(x-x_2) \]
+\begin{equation}
+  f(x) = a(x-x_1)(x-x_2) \label{eq:fun:kvad:oblikazanicle}
+\end{equation}
+$a$ --- vpliva na konkavnost oz. konveksnost in razteg \\
+$x_1, x_2$ --- ničli funkcije
 
 Prehod iz splošne v temensko obliko, formule za $p$ in $q$:
 \begin{align}
@@ -1228,14 +1311,34 @@ Prehod iz splošne v temensko obliko, formule za $p$ in $q$:
   f(x) &= a\left( \left( x + \frac{b}{2a}\right)^2 - \left( \frac{b}{2a} \right)^2\right) + c \nonumber \\
   f(x) &= a\left( x + \frac{b}{2a}\right)^2 - \frac{b^2}{4a} + c \nonumber \\
   f(x) &= a\left( x + \frac{b}{2a}\right)^2 - \frac{b^2-4ac}{4a} \comment{primerjamo s
-  temesko obliko} \nonumber \\
+  temensko obliko} \nonumber \\
   p &= -\frac{b}{2a} \label{eq:fun:kvad:p} \\
   q &= -\frac{b^2 - 4ac}{4a} = -\frac{D}{4a} \label{eq:fun:kvad:q} \\
   D &= b^2 - 4ac \comment{diskriminanta} \label{eq:fun:kvad:D}
 \end{align}
 
 \textbf{Graf} kvadratne funkcije je premaknjena in raztegnjena parabola $f(x) = x^2$. Vsako
-kvadratno funkcijo v splošni obliki lahko zapišemo tudi v temenski obliki.
+kvadratno funkcijo v splošni obliki lahko zapišemo tudi v temenski obliki. Primeri grafov
+kvadratne funkcije so na sliki~\ref{fig:fun:kvad:graf}.
+
+\begin{figure}[ht]
+  \begin{center}
+    \begin{pspicture*}(-3.5,-3.5)(3.5,3.5)
+      \psaxes[labels=none]{->}(0,0)(-3.5,-3.5)(3.5,3.5)
+      \psplot[plotstyle=curve,linecolor=red, linewidth=1pt]{-3.5}{3.5}{1 x mul x mul}
+      \psplot[plotstyle=curve,linecolor=blue, linewidth=1pt]{-3.5}{3.5}{3 x mul x mul}
+      \psplot[plotstyle=curve,linecolor=green, linewidth=1pt]{-3.5}{3.5}{0.3 x mul x mul}
+      \psplot[plotstyle=curve,linecolor=orange, linewidth=1pt]{-3.5}{3.5}{-0.8 x mul x mul}
+      \uput[l](-1.7,3){$1$}
+      \uput[u](-3,1.7){$\frac{3}{10}$}
+      \uput[l](1,3){$3$}
+      \uput[d](-1.5,-2.5){$-\frac{4}{5}$}
+    \end{pspicture*}
+  \end{center}
+  \beforecaptionskip
+  \caption[Graf kvadratne funkcije in $a$]{Graf kvadratne funkcije v odvisnosti od parametra $a$.}
+  \label{fig:fun:kvad:graf}
+\end{figure}
 
 \subsubsection{Ničle kvadratne funkcije}
 \label{sec:fun:kvad:nic}
@@ -1275,6 +1378,9 @@ $D = 0$ in nobene realne ničle, če je $D < 0$.
 
 \textbf{Abscisa temena} izražena z ničlami:
 \[ p = \frac{x_1+x_2}{2} \]
+
+Teme je tudi \textbf{ekstrem} funkcije, funkcija ima ekstremno vrednost ko $x = p$. To je
+minimum če je $a > 0$ ali maksimum, če je $a < 0$.
 
 \subsubsection{Vpliv diskriminante in parametra $a$ na parabolo}
 Prikazan je na sliki~\ref{fig:fun:kvad:aD}.
@@ -1541,7 +1647,7 @@ Grafi arcus funkcij so prikazani na sliki~\ref{fig:fun:arc:grafi}.
 ulomek okrajšan.
 
 \textbf{Ničle} racionalne funkcije so ničle polinoma $p(x)$, \textbf{poli} racionalne funkcije pa so ničle
-polinoma $q(x)$. \textbf{Stopnja} pola racionalne funkcije je enaka stopnji ničle
+polinoma $q(x)$, torej abscise pri katerih funkcija ni definirana. \textbf{Stopnja} pola racionalne funkcije je enaka stopnji ničle
 imenovalca. Stopnja ničle racionalne funkcije je enaka stopnji ničle imenovalca.
 
 Pri polih in ničlah \textbf{lihe} stopnje se predznak racionalne funkcije spremeni, pri polih ali
@@ -1558,7 +1664,8 @@ ki ima v števcu polinom nižje stopnje kot v imenovalcu.
 
 $k(x)$ je \textbf{asimptota} racionalne funkcije. Je krivulja, kateri se graf približuje pri zelo
 velikih in majhnih $x$-ih, ker je takrat ulomek $\frac{o(x)}{q(x)} \approx 0$, ker je $q(x)
-\gg o(x)$.
+\gg o(x)$. Racionalna funkcija ima asimptoto če je stopnja polinoma v imenovalcu večja ali
+enaka stopnji polinoma v števcu. Če sta stopnji enaki je asimptota vodoravna.
 
 \textbf{Presečišče z asimptoto} (kadar je funkcijska vrednost enaka $k(x)$)
 \begin{align*}
@@ -1606,6 +1713,9 @@ enak 0 (za določeno vrednost spremenljivke), dobljena enačba ni nujno enakovre
 Če na levi in desni strani izvedemo funkcijo, ki ni bijektivna (npr. kvadriranje),
 dobljena enačba ni nujno enakovredna prvotni.
 
+Sistem enačb je več enačb v katerih nastopajo enake neznanke. Sistem je enolično rešljiv,
+če je enačb vsaj toliko kot neznank.
+
 \subsection{Linearne enačbe}
 \label{sec:enac:lin}
 \textbf{Linearna enačba} je vsaka enačba oblike $kx + n = 0; k, n \in \R$ ali vsaka enačba, ki jo v to
@@ -1613,10 +1723,27 @@ obliko lahko prevedemo.
 
 \textbf{Število rešitev} linearne enačbe:
 \begin{align*}
-  k \neq 0 &\implies \textnormal{1 rešitev} \\
+  k \neq 0 &\implies \textnormal{1 rešitev } x = -\frac{n}{k} \\
   k = 0 \land n = 0 &\implies \infty \textnormal{ rešitev, identiteta} \\
   k = 0 \land n \neq 0 &\implies \textnormal{ni rešitve}
 \end{align*}
+
+Sistem linearnih enačb se rešuje na več načinov. Z zamenjalnim načinom: iz ene enačbe
+izrazimo eno neznanko in jo vstavimo v vse druge. S primerjalnim načinom: iz dveh enačb
+izrazimo enako neznanko in ju izenačimo. Z metodo
+nasprotnih koeficientov: eno enačbo pomnožimo tako, da se pri odštevanju ali seštevanju
+enačb členi z isto neznanko odštejejo med seboj.
+
+Primer:\\
+Sistem dveh linearnih neenačb z dvema neznankama:
+\begin{align*}
+  ax + by &= e \\
+  cx + dy &= f
+\end{align*}
+Sistem ima lahko nič, eno ali neskončno rešitev. Grafično te rešitve predstavljajo po
+vrsti: dve vzporednici brez skupne točke, dve premici, ki se sekata v eni točki in dve
+premici, ki se popolnoma pokrivata. Sistem lahko predstavlja tudi ravnino in sicer, ko so
+vsi koeficienti enaki 0.
 
 \subsection{Razcepne enačbe}
 \label{sec:enac:razc}
@@ -1652,6 +1779,15 @@ Kvadratne enačba ima:
   x&^2 + ux + v = 0 \\
   u& = -(x_1 + x_2) \\
   v& = x_1 \krat x_2
+\end{align*}
+
+Dokaz:\\
+Izhajajmo iz kvadratne funkcije in njene oblike za ničle, upoštevajoč $a = 1$
+\eqref{eq:fun:kvad:oblikazanicle}.
+\begin{align*}
+  &(x-x_1)(x-x_2) =  0 \\
+  &x^2 - x_1x-x_2x +x_1x_2 = 0 \\
+  &x^2 - (x_1+x_2) \krat x + x_1x_2 = 0 \comment{Preberemo $u$ in $v$.}
 \end{align*}
 
 \subsection{Kompleksne enačbe}
@@ -1783,6 +1919,19 @@ Rešitev \textbf{sistema} neenačb je presek rešitev posameznih neenačb.
 \textbf{Linearna neenačba} je vsaka neenačba oblike $kx + n$
 \hyperlink{point:neenacaj}{\texttt{neenačaj}} $0; k, n \in \R$ ali vsaka
 neenačba, ki jo v to obliko lahko prevedemo.
+
+Primer:\\
+Obravnavajmo linearno enačbo $ax+b<0$.
+Preoblikujemo jo v $ax<-b$.
+\begin{enumerate*}
+  \item $a = 0$
+    \begin{enumerate}[i.]
+      \item $b \ge 0 \implies 0$ rešitev
+      \item $b < 0 \implies \forall x \in \R$ je rešitev (premica)
+    \end{enumerate}
+  \item $a < 0 \implies \forall x > -\frac{b}{a}$ je rešitev (poltrak)
+  \item $a > 0 \implies \forall x < -\frac{b}{a}$ je rešitev (poltrak)
+\end{enumerate*}
 
 \subsection{Kvadratne neenačbe}
 \label{sec:neenac:kvad}
@@ -2093,8 +2242,8 @@ Grafična predstavitev sinusa in kosinusa je prikazana na sliki~\ref{fig:kot:dal
 
 \textbf{Lastnosti:}
 \begin{enumerate*}
-  \item $D_{sin} = D_{cos} = \R$
-  \item $Z_{sin} = Z_{cos} = [-1,1]$
+  \item $D_{\sin} = D_{\cos} = \R$
+  \item $Z_{\sin} = Z_{\cos} = [-1,1]$
   \item Obe sta omejeni $m = -1$, $M = 1$
   \item Sinus je \textbf{liha} funkcija: $\sin(-x) = -\sin(x)$
   \item Kosinus je \textbf{soda} funkcija: $\kos(-x) = \kos(x)$
@@ -2156,9 +2305,9 @@ Grafična predstavitev tangensa in kotangensa je prikazana na sliki~\ref{fig:kot
 
 \textbf{Lastnosti:}
 \begin{enumerate*}
-  \item $D_tan = \R - \left\{ \frac{\pi}{2} + k\pi; \; k \in \Z \right\}$
-  \item $D_cot = \R - \left\{ k\pi; \; k \in \Z \right\}$
-  \item $Z_tan = Z_cot = \R$
+  \item $D_{\tan} = \R - \left\{ \frac{\pi}{2} + k\pi; \; k \in \Z \right\}$
+  \item $D_{\cot} = \R - \left\{ k\pi; \; k \in \Z \right\}$
+  \item $Z_{\tan} = Z_{\cot} = \R$
   \item Tangens in kotangens \textbf{sta} lihi funkciji. \[ \tan(-x) = -\tan(x) \;\;
     \cot(-x) = -\cot(x) \]
   \item Obe funkciji sta \textbf{periodični} s periodo $\omega = \pi$.
@@ -2504,7 +2653,7 @@ V naslednjih definicijah velja: $k \in \Z$.
 \label{sec:kot:prem}
 
 \textbf{Naklonski kot} premice je pozitiven kot med abscisno osjo in premico.
-Če je premica vzporedna abscisni osi je kot enak 0.
+Če je premica vzporedna abscisni osi je kot enak $0\deg$.
 \[ k = \frac{y_2-y_1}{x_2-x_1} = \tan\varphi; \; 0\deg \le \varphi < 180\deg \comment{Za
 $k$ glej razdelek~\ref{sec:fun:lin}} \]
 
@@ -3830,15 +3979,15 @@ Dokaz:
   k_n(x)\underbrace{(x-x_1)(x-x_2)\krat\,\cdots\,\krat(x-x_n)}_{n}; \; \st\left( k_n(x) \right) = 0 \\
 \end{align*}
 
-Število $a$ je ničla \textbf{$\boldsymbol k$-te stopnje}, če $(x-a^k)\;|\;p(x)$. Ničla je
-\textbf{enostavna}, če ni večkratna.
+Število $a$ je ničla \textbf{$\boldsymbol k$-te stopnje}, če $(x-a)^k\;|\;p(x)$. Ničla je
+\textbf{enostavna} če je $k = 1$, če ne je \textbf{večkratna} ($k$-kratna).
 
 \subsubsection{Osnovni izrek algebre}
 \label{sec:pol:nic:osnalg}
 Vsak \textbf{nekonstanten} polinom s kompleksnimi koeficienti ima vsaj \textbf{eno} kompleksno ničlo.
 
 Posledica:\\
-Polinom stopnje $n$ s kompleksnimi koeficienti ima natanko $n$ kompleksnih ničel.
+Polinom stopnje $\boldsymbol n$ s kompleksnimi koeficienti ima natanko $\boldsymbol n$ kompleksnih ničel.
 
 Dokaz:
 \begin{align*}
@@ -3853,7 +4002,7 @@ Dokaz:
   x_n \text{ ničla} &\implies p(x) =
   k_n(x)\underbrace{(x-x_1)(x-x_2)\krat\,\cdots\,\krat(x-x_n)}_{n \text{ ničel}} \\
   \st\left( k_n(x) \right) &= 0 \comment{Polinom $k_n(x)$ je konstanten.} \\
-  p(x) &= c(x-x_1)(x-x_2)\krat\,\cdots\,\krat(x-x_n)
+  p(x) &= c(x-x_1)(x-x_2)\krat\,\cdots\,\krat(x-x_n) \comment{Oblika za ničle.}
 \end{align*}
 $c$ je vodilni koeficient. Polinom je z ničlami določen do konstante natančno.
 
@@ -3861,6 +4010,9 @@ $c$ je vodilni koeficient. Polinom je z ničlami določen do konstante natančno
 \label{sec:pol:nic:kompl}
 Če je ničla polinoma z realnimi koeficienti kompleksno število $z=a+b\ii$, potem je ničla
 tudi konjugirano število $\konj{z} = a-b\ii$.
+\begin{equation}
+  p(z) = 0 \iff p(\konj{z}) = 0 \label{eq:pol:konjug}
+\end{equation}
 
 Dokaz:
 \begin{align*}
@@ -3880,7 +4032,18 @@ Dokaz:
 Kompleksne ničle polinoma z realnimi koeficienti nastopajo v \textbf{konjugiranih parih}.
 
 Posledica: \\
-Polinom \textbf{lihe} stopnje z realnimi koeficienti ima vsaj \textbf{eno} realno ničlo.
+Polinom \textbf{lihe} stopnje z realnimi koeficienti ima vsaj \textbf{eno} realno ničlo. \\
+Primer: \\
+stopnja 3: ena realna, 2 kompleksni ali 3 realne. \\
+stopnje 4: 4 realne ali 2 realni in 2 kompleksni ali 4 kompleksne. \\
+
+Polinom stopnje 3 lahko zapišemo kot produkt dveh polinomov z realnimi koeficienti, če
+poznamo eno njegovo kompleksno ničlo $a+b\ii$:
+\begin{align*}
+  p(x) &= a(x-x_1)(x-(a+b\ii))(x-(a-b\ii)) = \comment{Po pravilu \eqref{eq:pol:konjug}.} \\
+  &= a(x-x_1)(x^2 -(a+b\ii+a-b\ii)x + (a+b\ii)(a-b\ii) = \\
+  &= a(x-x_1)(x^2 -2ax + a^2+b^2) \comment{$x_1$ je realna ničla.}
+\end{align*}
 
 \subsubsection{Cele ničle polinoma s celimi koeficienti}
 \label{sec:pol:nic:cel}
@@ -3895,7 +4058,6 @@ Dokaz:
   -a_0 &= c \krat k; \; k \in \Z \\
   &c | a_0 \\
 \end{align*}
-
 
 \subsubsection{Racionalne ničle polinoma s celimi koeficienti}
 \label{sec:pol:nic:rac}
@@ -3995,7 +4157,9 @@ zadeli ničlo, na enem izmed intervalov $[a, s]$ ali $[s, b]$ funkcija v krajiš
 predznačena in to vzamemo za nov interval $[a, b]$. Postopek rekurzivno ponavljamo in v vsakem 
 koraku nadaljujemo z razpolovljenim intervalom, ki zagotovo vsebuje vsaj eno ničlo. Ko je interval
 dovolj majhen (manjši od želene vrednosti $\epsilon$), končamo in vrnemo točko s sredine intervala
-kot približek za ničlo funkcije $f$. Algoritem bisekcije je zapisan v psevdokodi kot algoritem~\ref{algo:bisekcija}.
+kot približek za ničlo funkcije $f$. Ker mora biti funkcija v krajiščih različno
+predznačena pa lahko tako najdemo le ničle lihe stopnje.
+Algoritem bisekcije je zapisan v psevdokodi kot algoritem~\ref{algo:bisekcija}.
 
 \begin{algorithm}[h!]
   \caption{Bisekcija}\label{algo:bisekcija}
@@ -4375,6 +4539,7 @@ prejšnjega.
 \[ a_n \text{ naraščajoče} \iff a_n < a_{n+1} \quad \forall n \in \N \]
 Zaporedje je \textbf{padajoče} natanko takrat, kadar je vsak naslednji člen manjši od prejšnjega.
 \[ a_n \text{ padajoče} \iff a_n > a_{n+1} \quad \forall n \in \N \]
+Zaporedje je \textbf{monotono}, če je naraščajoče ali padajoče.\\
 Zaporedje je \textbf{navzgor omejeno}, če obstaja tako naravno število $M$, da so vsi
 členi zaporedja manjši ali enaki temu številu.
 \[ \exists M \in \R \ni: a_n \le M \quad \forall n \in \N \]
@@ -4383,6 +4548,21 @@ Zaporedje je \textbf{navzdol omejeno}, če obstaja tako naravno število $m$, da
 \[ \exists m \in \R \ni: a_n \ge m \quad \forall n \in \N \]
 Zaporedje je \textbf{omejeno}, če je omejeno navzgor in navzdol.
 Zaporedje je \textbf{konstantno}, če so vsi členi enaki med seboj.
+
+\textbf{Graf} zaporedja je prikazana na sliki~\ref{fig:zap}.
+\begin{figure}[ht]
+  \begin{center}
+      \begin{pspicture*}(-.5,-3.5)(10.5,3.5)
+        \psset{unit=.8cm}
+        \psaxes[labels=none]{->}(0,0)(-.5,-3.5)(10.5,3.5)
+        \psplot[plotstyle=dots,linecolor=black,plotpoints=10]{1}{10}{x 4 sub x 1 add div 3
+        mul 1.5 add}
+      \end{pspicture*}
+  \end{center}
+  \beforecaptionskip
+  \caption{Graf zaporedja $a_n = 3\frac{n-4}{n+1} + 1,5$.}
+  \label{fig:zap}
+\end{figure}
 
 \subsection{Aritmetično zaporedje}
 \label{sec:zap:aritm}
@@ -4401,7 +4581,8 @@ Lahko preoblikujemo v:
 Vsak člen aritmetičnega zaporedja je \textbf{aritmetična sredina} simetrično ležečih členov.
 \[ a_n = \frac{a_{n-i} + a_{n+i}}{2} \]
 
-Formula za \textbf{vsoto} $n$ členov aritmetičnega zaporedja.
+Formula za \textbf{vsoto} $n$ členov aritmetičnega zaporedja ali za vsoto končne
+aritmetične vrste.
 \begin{align*}
   S_n &= a_1 + a_2 + a_3 + \cdots + a_n \\
   S_n &= a_1 + (a_1 + d) + (a_1 + 2d) + \cdots + (a_1 + (n-1)d) \\
@@ -4409,13 +4590,27 @@ Formula za \textbf{vsoto} $n$ členov aritmetičnega zaporedja.
   2S_n &= n\krat a_n + n \krat a_1 \comment{Seštejemo zgornji dve enačbi.} \\
   S_n &= \frac{n\krat(a_1 + a_n)}{2}
 \end{align*}
-\[  S_n = \sum_{i = 1}^n a_i = \frac{n(a_1 + a_n)}{2} = \frac{n(2a_1 + (n-1)d)}{2} =
-  \frac{n(2a_n - (n-1)d)}{2} \]
+\begin{equation}
+  S_n = \sum_{i = 1}^n a_i = \frac{n(a_1 + a_n)}{2} = \frac{n(2a_1 + (n-1)d)}{2} =
+  \frac{n(2a_n - (n-1)d)}{2} \label{eq:zap:arisum}
+\end{equation}
 
 Velja tudi:
 \[ a_n = S_n - S_{n-1} \]
-%TODO dokaz
-%TODO a_n - a_m = (n-m)d
+Dokaz:
+\begin{align*}
+  S_n - S_{n-1} &= a_n + a_{n-1} + a_{n-2} + \cdots + a_2 + a_1 - (a_{n-1} + a_{n-2} +
+  \cdots + a_2 + a_1) = \\ &= a_n + a_{n-1} - a_{n-1} + a_{n-2} - a_{n-2} + \cdots + a_2 - a_2 +
+  a_1 - a_1 = \\ &=  a_n 
+\end{align*}
+
+\textbf{Razlika} dveh členov aritmetičnega zaporedja.
+\[ a_n - a_m = (n-m)d; \; n > m \]
+Dokaz:
+\begin{align*}
+  a_n - a_m &=  a_1 + (n-1)d - ( a_1 + (m-1)d) = (n-1)d - (m-1)d = \\
+  &= d(n-1-m+1) = (n-m)d  
+\end{align*}
 
 \subsection{Geometrijsko zaporedje}
 \label{sec:zap:geom}
@@ -4444,10 +4639,195 @@ $a_n$ in $a_{n+1}$ konstanten. Količnik se označi s $k$.
 \textbf{Splošni člen} geometrijskega zaporedja:
 \[ a_n = a_1\krat k^{n-1} \]
 
-Geometrijsko zaporedje je omejeno, ko je $\left| k \right| \le 1$.
+Geometrijsko zaporedje je \textbf{omejeno}, ko je $\left| k \right| \le 1$.
 
-%TODO vsota, a_n/a_m, geom. sredina
+Formula za \textbf{vsoto} členov geometrijskega zaporedja ali za vsoto členov končne
+geometrijske vrste.
+\begin{align*}
+  S_n &= a_1 + a_2 + a_3 + \cdots + a_{n-1} + a_n \\
+  S_n &= a_1 + a_1\krat k + a_1\krat k^2 + \cdots + a_1\krat k^{n-2} + a_1\krat k^{n-1}
+  \comment{Množimo s $k$.}\\
+  k\krat S_n &= a_1\krat k + a_1\krat k^2 + a_1\krat k^3 + \cdots + a_1\krat k^{n-1} + a_1\krat
+  k^n \\
+  k\krat S_n - S_n &=  a_1 \krat k^n - a_1 \\
+  S_n(k-1) &= a_1(k^n -1) \\
+  S_n &= a_1\frac{k^n - 1}{k-1}; \; k \neq 0
+\end{align*}
+\begin{equation}
+  S_n = \sum_{i=1}^n a_i = a_1\frac{k^n-1}{k-1} = a_n\frac{k^n -1}{k^n - k^{n-1}}; \; k \neq 0 
+  \label{eq:zap:geomsum}
+\end{equation}
+\[ S_n = n\krat a_1; \; k = 0 \]
 
+\textbf{Kvocient} dveh členov geometrijskega zaporedja:
+\[ \frac{a_n}{a_m} = k^{n-m}; \; n > m \]
+Dokaz:
+\[  \frac{a_n}{a_m} = \frac{a_1\krat k^{n-1}}{a_1\krat k^{m-1}} = \frac{k^{n-1}}{k^{m-1}} =
+  k^{n-1-m+1} = k^{n-m} \]
+
+Vsak člen geometrijskega zaporedja je \textbf{geometrijska sredina} simetrično ležečih členov.
+\[ a_n = \sqrt{a_{n-1}\krat a_{n+1}} \]
+Dokaz:
+\begin{align*}
+  \frac{a_n}{a_{n-1}} &=  \frac{a_{n+1}}{a_n} \comment{Po definiciji geometrijskega 
+  zaporedja.} \\
+  a_n^2 &= a_{n-1}\krat a_{n+1} \\
+  a_n &= \sqrt{a_{n-1}\krat a_{n+1}}
+\end{align*}
+
+\subsection{Matematična indukcija}
+\label{sec:zap:ind}
+\textbf{Matematična indukcija} ali \textbf{popolna indukcija} je način dokazovanja matematičnih trditev, v
+katerih nastopajo \textbf{naravna} števila. Poteka v dveh korakih. Prvi korak je, da dokažemo, da
+trditev velja za \textbf{prvo} naravno število $n = 1$. Nato dokažemo, da iz predpostavke, da
+trditev velja za poljubno naravno število $n$ izhaja, da trditev velja tudi za njegovega
+\textbf{naslednika} $n +
+1$. Izrek je s tem dokazan. Ker trditev velja za 1 (po prvi točki), velja tudi za
+naslednika, to je 2. Ker velja za 2, velja za 3 in tako naprej za vsa naravna števila.
+
+Primer: \\
+Dokaži da velja:
+\[ 1\krat 2 + 2\krat 5 + 3\krat 8 + \cdots + n(3n-1) = n^2(n+1) \]
+\begin{enumerate*}
+  \item $n = 1$
+    \begin{align*}
+      & n^2(n+1) = 1(1+1) = 2 \\
+      & n(3n-1) = 1(3\krat 1 - 1) = 2
+    \end{align*}
+  \item $n + 1$
+    \begin{align*}
+      S_n &= n^2(n+1), S_{n+1} = (n+1)^2(n+1) \\
+      S_{n+1} &= S_n + a_{n+1} = \\
+      & = n^2(n+1) + (n+1)(3(n+1)-1) = (n+1)(n^2 + 3n + 2) = \\
+      & = (n+1)(n+1)(n+2) = (n+1)^2(n+2)
+    \end{align*}
+\end{enumerate*}
+
+\subsection{Limita zaporedja}
+\label{sec:zap:lim}
+\textbf{Okolica} $\varepsilon$ točke $a$ je odprt interval\footnote{Za osvežitev spomina o
+intervalih glej razdelek~\ref{sec:intervali}.} $(-\varepsilon+a, a+\varepsilon)$. Točka
+$a$ je \textbf{stekališče} zaporedja $a_n$, če je v vsaki okolici točke $a$ neskončno mnogo členov
+zaporedja. Točka $a$ je \textbf{limita} zaporedja $a_n$ če je v vsaki okolici točke $a$
+\textbf{neskončno} mnogo členov zaporedja, izven te okolice pa \textbf{končno} mnogo. Zaporedje, ki ima limito je
+\textbf{konvergentno} zaporedje, zaporedje, ki limite nima pa je \textbf{divergentno}. 
+\[ a_n \in \mathcal{O}_{\varepsilon}(a) \iff |a_n - a| > \varepsilon; \; \varepsilon > 0 \]
+\[ \limi a_n = a \iff (\forall \varepsilon > 0)(\exists N \in \N): n > N \implies a_n \in
+\mathcal{O}_{\varepsilon}(a) \]
+
+Pomembne limite:
+\begin{align}
+  & \limi C = C \comment{Limita konstante je konstanta.} \label{eq:zap:lim:konst} \\
+  & \limi \frac{1}{n} = 0  \label{eq:zap:lim:1n} \\
+  & \limi a^n = 0; \; \left|a\right| < 1 \label{eq:zap:lim:an} \\
+  & \limi \left(1 + \frac{1}{n}\right)^n = e \label{eq:zap:lim:e} \\
+\end{align}
+
+\subsubsection{Pravila za računanje z limitami}
+\label{sec:zap:lim:rac}
+\begin{itemize}
+  \item Limita vsote dveh zaporedij je enaka vsoti limit dveh zaporedij.
+    \begin{equation}
+      \limi(a_n + b_n) = \limi a_n + \limi b_n \label{eq:zap:lim:plus}
+    \end{equation}
+  \item Limita produkta dveh zaporedij je enaka produktu limit dveh zaporedij.
+    \begin{equation}
+      \limi(a_n\krat b_n) = \limi a_n \krat \limi b_n \label{eq:zap:lim:krat}
+    \end{equation}
+  \item Limita kvocienta dveh zaporedji je enaka kvocientu limit dveh zaporedij, pri čemer
+    morajo biti vsi členi in limita drugega zaporedja neničelni.
+    \begin{equation}
+      \limi\frac{a_n}{b_n} = \frac{\limi a_n}{\limi b_n}; \; \limi b_n \neq 0 \land b_n
+      \neq 0 \quad \forall n \in \N \label{eq:zap:lim:del}
+    \end{equation}
+  \item Limita potence je enaka potenci limite.
+    \begin{equation}
+      \limi (a_n)^k = (\limi a_n)^k \label{eq:zap:lim:pot}
+    \end{equation}
+  \item Limita korena je enaka korenu limite.
+    \begin{equation}
+      \limi \sqrt[k]{a_n} = \sqrt[k]{\limi a_n} \label{eq:zap:lim:kor}
+    \end{equation}
+\end{itemize}
+
+Primer računanja:
+\begin{align*}
+  & \limi\frac{3n+4}{1-2n} = \comment{Preoblikujemo števec in imenovalec.} \\
+  & = \limi\frac{3+\frac{4}{n}}{\frac{1}{n} - 2} = \comment{Uporabimo pravilo~\eqref{eq:zap:lim:del}.} \\
+  & = \frac{\limi\left(3+\textstyle\frac{4}{n}\right)}{\limi\left(\textstyle\frac{1}{n} - 2\right)} = \comment{Uporabimo pravilo~\eqref{eq:zap:lim:plus}.} \\
+  & = \frac{\limi3 + \limi\textstyle\frac{4}{n}}{\limi\textstyle\frac{1}{n} - \limi2} = \comment{Uporabimo pravilo~\eqref{eq:zap:lim:krat}.} \\
+  & = \frac{\limi3 + \limi4 \krat \limi\textstyle\frac{1}{n}}{\limi\textstyle\frac{1}{n} - \limi2} =
+  \comment{Izračunamo poznane limite~\eqref{eq:zap:lim:konst} in~\eqref{eq:zap:lim:1n}.} \\
+  & = \frac{3 + 4 \krat 0}{0 - 2} = -\frac{3}{2} 
+\end{align*}
+
+\subsection{Geometrijska vrsta}
+\label{sec:zap:geovrst}
+\textbf{Vrsta} je \textbf{vsota} vseh členov zaporedja. Poznamo \textbf{končne} in
+\textbf{neskončne} vrste. 
+\[ \sumi_{i=1} a_i = a_1 + a_2 + a_2 + \cdots + a_n + \cdots \]
+
+Zaporedje delnih vsot:
+\begin{align*}
+  \sum^1_{i=1} a_i &= S_1 = a_1 \\
+  \sum^2_{i=1} a_i &= S_2 = a_1 + a_2 \\
+  \sum^3_{i=1} a_i &= S_3 = a_1 + a_2 + a_3 \\[-10pt]
+  & \; \vdots \\[-10pt]
+  \sum^n_{i=1} a_i &= S_n = a_n + a_n + a_3 + \cdots + a_n \\[-10pt]
+  & \; \vdots
+\end{align*}
+
+Neskončna vrsta ima svojo \textbf{vsoto} $S$ natanko takrat, kadar obstaja \textbf{limita
+delnih vsot}, ko gre
+$n$ v neskončnost in je enaka $S$.
+\[ a_1 + a_2 + a_2 + \cdots + a_n + \cdots = S \iff \limi S_n = S \]
+\[ \sumi_{i=1} a_i = S \iff \limi{ \sum^n_{i=1}a_i} = S \]
+
+Vrsta je \textbf{konvergentna}, če ima svojo vsoto, če je nima, je \textbf{divergentna}.
+
+\textbf{Geometrijska vrsta} je vsota vseh členov geometrijskega zaporedja. Konvergentna
+je, kadar je količnik geometrijskega zaporedja po absolutni vrednosti manjši od 1. 
+\[ \sumi_{n=1}a_n = a_1 + a_1k + a_1k^2 + \cdots + a_1k^{n-1} + \cdots = \frac{a_1}{1-k};
+\;  \left|k\right| < 1 \]
+Dokaz:
+\begin{align*}
+   \limi S_n &= \limi \frac{a_1 \left( k^n - 1 \right)}{k-1} = \comment{Po formuli
+  \eqref{eq:zap:geomsum}.} \\
+  & = \frac{\limi a_1 - \limi \left( k^n-1 \right)}{\limi k - \limi1} = \\
+  & = \frac{a_1 \left(\limi k^n - \limi 1 \right)}{k-1} = \comment{Glej limito~\eqref{eq:zap:lim:an}.} \\
+  & = \frac{a_1}{1-k}; \; \left|k\right|<1
+\end{align*}
+
+\section{Obrestni račun}
+\label{sec:obrest}
+\textbf{Obresti} $o$ so denarni znesek, ki ga posojilojemalec da posojilodajalcu kot nadomestilo za
+uporabo določenega zneska denarja denarja -- \textbf{glavnice} $a$. \textbf{Obrestna mera} $p\%$ je količnik
+med obrestmi in glavnico. Čas med dvema zaporednima pripisoma obresti imenujemo
+\textbf{kapitalizacijsko obdobje}.
+
+Poznamo dva načina obrestovanja: \textbf{navadno} obrestovanje in \textbf{obrestno} obrestovanje.
+
+Pri \textbf{navadnem} obrestovanju je vrednost glavnice po $n$ kapitalizacijskih dobah enaka:
+\[ a_n = a + na_1\krat \frac{p}{100} \comment{Aritmetično zaporedje. } \]
+
+Pri \textbf{obrestnem} obrestovanju je vrednost glavnice po $n$ kapitalizacijskih dobah enaka:
+\begin{align*}
+  a_1 &= a + a\krat \frac{p}{100} = a\left(1 + \frac{p}{100}\right) = ak \\
+  a_2 &= a_1 + a_1\left( 1+\frac{p}{100} \right) = a\left(1+\frac{p}{100}\right)^2 = ak^2  \\
+  a_n &= a\left( 1+\frac{p}{100} \right)^n = a\krat k^n \comment{Geometrijsko zaporedje.} \\
+  k &= \left( 1+\frac{p}{100} \right)^n \comment{Obrestovalni faktor.}
+\end{align*}
+
+\textbf{Relativna obrestna mera} je obrestna mera, ki se enakomerno razdeli na posamezna
+krajša obdobja.
+\textbf{Konformna obrestna mera} je obrestna mera, ki prinese pri pogostejšem pripisovanju
+obresti enak znesek obresti. Izračuna se jih po formuli:
+\[ p_{d_1} = 100\left( \sqrt[d]{1+\frac{p}{100}} - 1 \right) ; \; d = \frac{d_2}{d_1} \]
+$d_2$ je osnovna kapitalizacijska doba, $d_1$ pa je doba na katero želimo preračunati
+konformno obrestno mero. 
+
+\textbf{Načelo ekvivalence glavnic} pravi, da lahko različne glavnice primerjamo tako, da
+jih preračunamo na isti trenutek.
 
 \pagebreak
 \listoffigures
