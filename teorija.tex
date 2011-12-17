@@ -859,14 +859,34 @@ $x$ --- abscisna os \\
 $y$ --- ordinatna os
 \[ \mathcal{M} = \left\{ (x,y); \; x, y \in \R \right\} = \R \times \R = \R^2 \]
 
-Glej tudi sliko. % todo
+Glej tudi sliko~\ref{fig:koor:prav}.
+
+\begin{figure}[ht]
+  \begin{center}
+      \begin{pspicture*}(-3.5,-3.5)(3.5,3.5)
+        \psaxes[]{->}(0,0)(-3.5,-3.5)(3.5,3.5)
+        \psdots(2,1)
+        \uput[ur](2,1){$T(x,y)$}
+        \uput[dl](0,0){$0$}
+        \uput[r](0,3){$y$}
+        \uput[u](3,0){$x$}
+        \uput[ur](2,2){\Rom{1}.}
+        \uput[ul](-2,2){\Rom{2}.}
+        \uput[dl](-2,-2){\Rom{3}.}
+        \uput[dr](2,-2){\Rom{4}.}
+      \end{pspicture*}
+  \end{center}
+  \beforecaptionskip
+  \caption{Pravokotni koordinatni sistem.}
+  \label{fig:koor:prav}
+\end{figure}
 
 Osi razdelita ravnino na štiri \textbf{kvadrante}: \\[3pt]
 \begin{tabular}{ll}
-  \Rom{1} kvadrant: & $x > 0 \land y > 0$ \\
-  \Rom{2} kvadrant: & $x < 0 \land y > 0$ \\
-  \Rom{3} kvadrant: & $x < 0 \land y < 0$ \\
-  \Rom{4} kvadrant: & $x > 0 \land y < 0$ \\
+  \Rom{1}. kvadrant: & $x > 0 \land y > 0$ \\
+  \Rom{2}. kvadrant: & $x < 0 \land y > 0$ \\
+  \Rom{3}. kvadrant: & $x < 0 \land y < 0$ \\
+  \Rom{4}. kvadrant: & $x > 0 \land y < 0$ \\
 \end{tabular}
 \\
 Pomembni \textbf{premici}:
@@ -928,11 +948,12 @@ sistem je prikazan pa sliki~\ref{fig:koor:pol}.
 \begin{figure}[ht]
   \begin{center}
       \begin{pspicture*}(-3.5,-3.5)(3.5,3.5)
-        \psdots(0,0)(2,1)
+        \psdots(0,0)(2,1)(1,0)
         \psline(0,0)(3.5,0)
         \psline(0,0)(2,1)
         \pscurve{->}(1.5,0)(1.46,.3)(1.3,.65)
         \uput[dl](0,0){$0$}
+        \uput[d](1,0){$1$}
         \uput[d](3.2,0){$p$}
         \uput[ur](2,1){$T(r,\varphi)$}
         \uput[u](1,0.5){$r$}
@@ -945,7 +966,7 @@ sistem je prikazan pa sliki~\ref{fig:koor:pol}.
 \end{figure}
 
 Pretvarjanje med kartezičnim in polarnih sistemom je možno. Držijo naslednje enakosti
-(za razlago glej sliko): % todo
+(za razlago glej sliko~\ref{fig:koor:pretv}):
 \begin{align*}
   & r^2 = x^2 + y^2 \\
   & \tan\varphi = \frac{y}{x} \\
@@ -953,9 +974,38 @@ Pretvarjanje med kartezičnim in polarnih sistemom je možno. Držijo naslednje 
   & y = r\krat\sin\varphi \\
 \end{align*}
 
+\begin{figure}[ht]
+  \begin{center}
+      \begin{pspicture*}(-3.5,-3.5)(3.5,3.5)
+        \psaxes[labels=none]{->}(0,0)(-1.5,-1.5)(3.5,3.5)
+        \uput[dl](0,0){$0$}
+        \psdots(2,1.5)(0,0)
+        \uput[ur](2,1.5){$T(x,y)$}
+        \uput[-25](2,1.5){$T(r,\varphi)$}
+        \uput[ul](2,1.5){$z$}
+        \uput[u](2.85,0){$x$}
+        \uput[u](3.15,-.08){$p$}
+        \uput[r](0,3){$y$}
+        \uput[d](3,0){$\Re$}
+        \uput[l](0,3){$\Im$}
+        \psline(0,0)(2,1.5)
+        \rput*[b]{36.87}(1,.9){$r = |z|$}
+        \oznaka(2,0)(2,1.5)
+        \uput[r](0.75, 0.3){$\varphi$}
+        \pscurve{->}(1.5,0)(1.40,.5)(1.2,.9)
+        \uput[d](1.5,0){$x$}
+        \uput[r](2,.75){$y$}
+        \psline[width=.5pt](1.8,0)(1.8,.2)(2,.2) % pravi kot
+      \end{pspicture*}
+  \end{center}
+  \beforecaptionskip
+  \caption{Pretvarjanje med koordinatnima sistemoma in kompleksno ravnino.}
+  \label{fig:koor:pretv}
+\end{figure}
+
 \subsubsection{Polarni zapis kompleksnega števila}
 Kompleksno število predstavimo kot točko v koordinatnem sistemu. Po formulah za
-pretvarjanje med sistemoma ugotovimo:
+pretvarjanje med sistemoma ugotovimo (glej sliko~\ref{fig:koor:pretv}):
 \begin{align*}
   z &= x + y\ii \\
   z &= r\kos\varphi + r\sin\varphi \krat \ii \\
@@ -1840,8 +1890,9 @@ s kotno funkcijo.
 Produkt dveh kotnih funkcij je enak 0: $\sin x \krat \tan x = 0$. Glej razcepne enačbe
 (razdelek \ref{sec:enac:razc}).
 
-Uporaba \textbf{faktorizacije}, \textbf{substitucije}, metoda \textbf{polovičnih kotov} (substitucija $x = 2\alpha$),
-\textbf{razčlenjevanje} (produkt dveh kotnih funkcij v enem členu)
+Uporaba \textbf{faktorizacije}, \textbf{substitucije}, metoda \textbf{polovičnih kotov}
+(substitucija $x = 2\alpha$, pri enačbah $A\sin x + B\kos x = C$. Ne pozabite, ko
+izračunate $\alpha$ izračunati še $x$) \textbf{razčlenjevanje} (produkt dveh kotnih funkcij v enem členu)
 
 \subsection{Polinomske enačbe}
 \label{sec:enac:pol}
@@ -2513,8 +2564,8 @@ V naslednjih definicijah velja: $k \in \Z$.
 \textbf{Sinus:} \\[6pt]
 \begin{tabular}[h!]{ll}
   ničle:    & $x = k\pi$ \\
-  minimumi: & $x = \frac{\pi}{2} + 2k\pi$ \\
-  maksimumi:& $x = -\frac{\pi}{2} + 2k\pi$ \\  
+  minimumi: & $x = -\frac{\pi}{2} + 2k\pi$ \\
+  maksimumi:& $x = \frac{\pi}{2} + 2k\pi$ \\  
   graf:     & slika~\ref{fig:kot:graf:sin}
 \end{tabular} \\[12pt]
 \textbf{Kosinus:}\\[6pt]
@@ -4257,6 +4308,7 @@ sliki~\ref{fig:stoz:kroz}.
 \label{sec:stoz:elips}
 \textbf{Elipsa} je množica točk v ravnini, ki imajo konstantno vsoto razdalj do dveh izbranih točk,
 ki ju imenujemo gorišči. $|G_1G_2| = 2e, r_1 + r_2 = 2a$
+Elipsa z označenimi glavnimi konstantami je prikazana na sliki~\ref{fig:stoz:elip:izp}.
 
 Enačba elipse v \textbf{središčni} legi:
 \[ a^2b^2 = b^2x^2 + a^2y^2 \]
@@ -4271,6 +4323,32 @@ manjša od~1.
 \[ \varepsilon  = \frac{e}{a} \]
 $p$ se imenuje \textbf{polparameter} elipse in je vrednost elipse pri $e$.
 \[ p = \pm \frac{b^2}{a} \]
+
+\begin{figure}[ht]
+  \begin{center}
+    \begin{pspicture*}(-3.5,-3.5)(3.5,3.5)
+      \psaxes[labels=none]{->}(0,0)(-3.5,-3.5)(3.5,3.5)
+      \parametricplot[plotstyle=ccurve]{0}{360}{t cos 3 mul t sin 27 sqrt mul 2 div}
+      \psdots[*](-1.5,0)(1.5,0)(-3,0)(3,0)(0,2.6)(0,-2.6)
+      \uput[d](-1.5,0){$G_1$}
+      \uput[d](1.5,0){$G_2$}
+      \uput[ul](-3,0){$A$}
+      \uput[dr](3,0){$B$}
+      \uput[ur](0,2.6){$C$}
+      \uput[dl](0,-2.6){$D$}
+      \psline[linewidth=1.5pt,linecolor=orange](0,0)(1.5,0) \uput[u](0.75,0){$e$}
+      \psline[linewidth=1.5pt,linecolor=red](1.5,0)(1.5,2.25) \uput[r](1.5,1){$p$}
+      \psline[linewidth=1.5pt,linecolor=green](-3,0)(0,0) \uput[u](-1.5,0){$a$}
+      \psline[linewidth=1.5pt,linecolor=blue](0,0)(0,2.6) \uput[r](0,1.3){$b$}
+      \oznaka(-1.5,0)(-1.6,-2.2)(1.5,0)
+      \uput[l](-1.55,-1.1){$r_1$}
+      \uput[d](-.8,-1.7){$r_2$}
+    \end{pspicture*}
+  \end{center}
+  \beforecaptionskip
+  \caption{Slika elipse.}
+  \label{fig:stoz:elip:izp}
+\end{figure}
 
 \textbf{Eksplicitna} enačba elipse:
 \[ y = \pm \frac{b}{a} \sqrt{a^2 - x^2} \]
@@ -4346,6 +4424,36 @@ Središče elipse je v točki $S(p,q)$.
 \label{sec:stoz:hiper}
 \textbf{Hiperbola} je množica točk ravnine, ki imajo konstantno absolutno vrednost razlike razdalj
 do dveh izbranih točk, ki ju imenujemo gorišči hiperbole.
+Hiperbola in njene glavne konstante so prikazane na sliki~\ref{fig:stoz:hip:izp}.
+
+\begin{figure}[ht]
+  \begin{center}
+    \begin{pspicture*}(-3.5,-3.5)(3.5,3.5)
+      \psaxes[labels=none]{->}(0,0)(-3.5,-3.5)(3.5,3.5)
+      \asimptota(-3.5,3.91)(3.5,-3.91) % a = 1, b = sqrt(5)/2
+      \asimptota(-3.5,-3.91)(3.5,3.91)
+      \psplot[plotstyle=curve]{-3.5}{-1}{5 sqrt 2 div x x mul 1 sub sqrt mul}
+      \psplot[plotstyle=curve]{-3.5}{-1}{5 sqrt 2 div x x mul 1 sub sqrt mul neg}
+      \psplot[plotstyle=curve]{1}{3.5}{5 sqrt 2 div x x mul 1 sub sqrt mul neg}
+      \psplot[plotstyle=curve]{1}{3.5}{5 sqrt 2 div x x mul 1 sub sqrt mul}
+      \psdots[*](-1.5,0)(-1,0)(1,0)(1.5,0)
+      \uput[d](-1.5,0){$G_1$}
+      \uput[ur](-1,0){$A$}
+      \uput[ul](1,0){$B$}
+      \uput[d](1.5,0){$G_2$}
+      \oznaka(-1,1.118)(-1,-1.118)(1,-1.118)(1,1.118)(-1,1.118)
+      \psline[linewidth=1.5pt,linecolor=orange](0,0)(1.5,0) \uput[d](0.75,0){$e$}
+      \psline[linewidth=1.5pt,linecolor=red](1.5,0)(1.5,1.25) \uput[r](1.5,.75){$p$}
+      \psline[linewidth=1.5pt,linecolor=green](-1,0)(0,0) \uput[d](-.5,0){$a$}
+      \psline[linewidth=1.5pt,linecolor=blue](0,0)(0,1.118) \uput[r](0,.6){$b$}
+      \oznaka(-1.5,0)(-2,-1.95)(1.5,0) \uput[d](-2,-1){$r_1$} \uput[d](-.5,-1.1){$r_2$}
+      \psdots(-2,-1.95)
+    \end{pspicture*}
+  \end{center}
+  \beforecaptionskip
+  \caption{Primer slike hiperbole z označenimi konstantami.}
+  \label{fig:stoz:hip:izp}
+\end{figure}
 
 \[ |G_1G_2| = 2e \]
 \[ |r_1 - r_2| = 2a \]
@@ -4833,5 +4941,47 @@ jih preračunamo na isti trenutek.
 \listoffigures
 %\pagebreak
 %\printindex
+\section{Statistika}
+\label{sec:stat}
+\textbf{populacija} --- množica, ki jo želimo proučevati (dijaki Gimnazije Vič) \\
+\textbf{vzorec} --- podmnožica populacije, s katero delamo (npr. naključnih 5 dijakov iz vsakega
+oddelka), dobro je da je reprezentativen \\
+statistična enota --- \\
+statistični znak --- \\
+statistični parameter --- \\
+
+more stuff
+
+\section{Zveznost in limite funkcij}
+\label{sec:zvez}
+Limita funkcije $f(x)$ je $b$, ko gre $x$ proti $a$, če za vsako zaporedje $x$-ov, ki
+konvergira proti $a$, ustrezno zaporedje funkcijskih vrednosti konvergira proti $b$.
+\[ \lim_{x\rightarrow a} f(x) = b \iff (\forall\varepsilon>0)(\exists\delta>0): x \in
+\mathcal{O}_\delta(a) \implies y \in \mathcal{O}_\varepsilon(b) \]
+
+Funkcija je zvezna, če za vsak $x = a$ velja, da je funkcija pri tem $x$ definirana in da je
+limita funkcije, ko gre $x$ proti $a$, enaka $f(a)$.
+\[ f(x) \textnormal{ zvezna} \iff \forall x = a: a \in D_{\!f} \land \lim_{x\rightarrow a} f(x) = f(a) \]
+
+\subsection{Pravila za računanje z limitami funkcij}
+\label{sec:zvez:prav}
+Limita vsote je enaka vsoti limit.
+\[ \lim_{x\rightarrow a}f(x) + \lim_{x\rightarrow a}g(x) = \lim_{x\rightarrow a}
+\left(f(x)+g(x)\right) \]
+Limita produkta je enaka produktu limit.
+\[ \lim_{x\rightarrow a}f(x) \krat \lim_{x\rightarrow a}g(x) = \lim_{x\rightarrow a}
+\left(f(x)\krat g(x)\right) \]
+Limita kvocienta je enaka kvocientu limit.
+\[ \frac{\displaystyle \lim_{x\rightarrow a}f(x)}{\displaystyle \lim_{x\rightarrow a}g(x)} = \lim_{x\rightarrow a}
+\frac{f(x)}{g(x)}; \; \lim_{x\rightarrow a} g(x) \neq 0 \]
+
+\textbf{Znane limite:}\\
+Limita konstante je enaka konstanti.
+\[ \lim_{x\rightarrow a}C = C \]
+
+Limita funkcije, ko gre $x$ proti $a$ je $f(a)$, če je funkcija pri $a$ definirana.
+\[ \lim_{x\rightarrow a}f(x) = f(a) \]
+
+
 \end{document}
 % vim: spell spelllang=sl
