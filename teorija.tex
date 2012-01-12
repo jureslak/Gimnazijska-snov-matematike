@@ -148,6 +148,14 @@ menucolor=black, runcolor=black, urlcolor=black%
 \setlength{\parskip}{2pt}}%
 {\end{enumerate}}
 
+\newenvironment{description*}%
+{
+\vspace{-12pt}%
+\begin{description}%
+\setlength{\itemsep}{0pt}%
+\setlength{\parskip}{2pt}}%
+{\end{description}}
+
 % aligned list
 \newenvironment{xlist}[1][\rule{0.75 cm}{0cm}]{%
 \vspace{-14pt}
@@ -2705,8 +2713,11 @@ V naslednjih definicijah velja: $k \in \Z$.
 
 \textbf{Naklonski kot} premice je pozitiven kot med abscisno osjo in premico.
 Če je premica vzporedna abscisni osi je kot enak $0\deg$.
-\[ k = \frac{y_2-y_1}{x_2-x_1} = \tan\varphi; \; 0\deg \le \varphi < 180\deg \comment{Za
-$k$ glej razdelek~\ref{sec:fun:lin}} \]
+\begin{equation}
+  \label{eq:kot:prem:osn}
+k = \frac{y_2-y_1}{x_2-x_1} = \tan\varphi; \; 0\deg \le \varphi < 180\deg \comment{Za
+$k$ glej razdelek~\ref{sec:fun:lin}}
+\end{equation}
 
 \begin{figure}[ht]
   \begin{center}
@@ -4943,14 +4954,47 @@ jih preračunamo na isti trenutek.
 %\printindex
 \section{Statistika}
 \label{sec:stat}
-\textbf{populacija} --- množica, ki jo želimo proučevati (dijaki Gimnazije Vič) \\
-\textbf{vzorec} --- podmnožica populacije, s katero delamo (npr. naključnih 5 dijakov iz vsakega
-oddelka), dobro je da je reprezentativen \\
-statistična enota --- \\
-statistični znak --- \\
-statistični parameter --- \\
+\begin{description*}
+  \item[Populacija] je množica pojavov, ki jo želimo proučevati.
+  \item[Vzorec] je podmnožica populacije, s katero delamo, dobro je, da je
+    reprezentativen.
+  \item[Numerus $n$] (ali $N$) je število podatkov v vzorcu.
+  \item[Statistična enota] je posamezen element populacije.
+  \item[Statistični znak] je lastnost populacije, ki jo preučujemo.
+  \item[Statistični parametri] so splošne lastnosti, ki veljajo za populacijo kot celoto in jih
+    dobimo kot rezultat statistične raziskave ($\bar{x}$, $Mo$, $Me$).
+  \item[Aritmetična sredina] $\bar{x}$ ali \textbf{povprečje} vsota vseh vrednosti, deljena z
+    njihovim številom.
+    \[ \bar{x} = \frac{x_1 + \cdots + x_n}{n} = \frac{1}{n}\sum_{i=1}^nx_i  =
+    \frac{1}{n}\sum_{i=1}^nx_if_i\]
+  \item[Modus $Mo$] je vrednost, ki se najpogosteje pojavlja.
+  \item[Mediana $Me$] je vrednost, ki je na sredini razvrščenih podatkov. Če sta na sredini dva
+    rezultata je mediana aritmetična sredina teh dveh rezultatov.
+  \item[Ranžirna vrsta] so podatki, urejeni po velikosti.
+  \item[Frekvenčna tabela] je tabela, v katero razporedimo rezultate tako, da poleg vsake
+    vrednosti napišemo kolikokrat se pojavlja.
+  \item[Absolutna frekvenca $f$] pove kolikokrat se pojavi določena vrednost (število enot
+    v posameznem frekvenčnem razredu). Velja: $\sum_{i=0}^nf_i = n.$
+  \item[Relativna frekvenca $f'$] predstavlja delež enot v celoti. $f' = \frac{f}{n}$
+  \item[Kumulativna frekvenca $F$] predstavlja koliko je bilo podatkov pred določenim
+    razredom.
+  \item[Relativna kumulativna frekvenca $F'$] predstavlja delež podatkov pred določenim
+    razredom glede na celoto. $F' = \frac{F}{n}$.
+  \item[Variacijski razmik] je razlika med največjo in najmanjšo vrednostjo.
+  \item[Standardni odklon] je povprečje kvadratov odstopanj od aritmetične sredine. Pove
+    nam, kako koncentrirani so podatki. 
+    \[ \sigma = \sqrt{\frac{1}{n}\sum_{i=1}^n\left(\bar{x}-x_i\right)^2} \]
+  \item[Medčetrtinski razmik] je razlika med kvartiloma $Q_1$ in $Q_3$. Ta kvartila dobimo
+    kot mediani prve polovice podatkov (manjši od $Me$) in druge polovice podatkov 
+    (večji od $Me$). Tako lahko narišemo škatlo z brki, ki prikazuje razpršenost podatkov.
+  \item[Histogram] grafična predstavitev rezultata s stolpci, sestavljena iz
+    pravokotnikov, katerih višina je enaka frekvenci razreda, širina pa
+    predstavlja interval enega razreda.
+  \item[Poligon] je grafična predstavitev z lomljeno črto.
+  \item[Krožni diagram] ali tortni diagram je grafična predstavitev, ki nazorno pokaže
+    delež podatkov glede na celoto.
+\end{description*}
 
-more stuff
 
 \section{Zveznost in limite funkcij}
 \label{sec:zvez}
@@ -4982,6 +5026,65 @@ Limita konstante je enaka konstanti.
 Limita funkcije, ko gre $x$ proti $a$ je $f(a)$, če je funkcija pri $a$ definirana.
 \[ \lim_{x\rightarrow a}f(x) = f(a) \]
 
+\[ \lim_{x\rightarrow 0} \frac{x}{\sin{x}} = \lim_{x\rightarrow 0} \frac{\sin{x}}{x} = 1 \]
+
+\[\lim_{x\rightarrow\infty} \left( 1+\frac{1}{x} \right)^x = e \]
+
+\subsection{Neskončna limita in limita v neskončnosti}
+\textbf{Neskončna limita} $f(x)$, ko gre $x$ proti $a$ obstaja, če za vsako pozitivno realno število $A$
+obstaja taka $\delta$ okolica $a$, da so funkcijske vrednosti vseh števil v okolici večje
+od $A$.
+\[ \lim_{x\rightarrow a}f(x) = \infty \iff (\forall A > 0)(\exists \delta > 0): x \in
+\mathcal{O}_\delta(a) \implies f(x) \ge A \]
+\[ \lim_{x\rightarrow a}f(x) = -\infty \iff (\forall A < 0)(\exists \delta > 0): x \in
+\mathcal{O}_\delta(a) \implies f(x) \le A \]
+
+Limita v neskončnosti, oz. limita $f(x)$ ko gre $x$ proti $\infty$ je $b$, če za vsako
+pozitivno realno število $\varepsilon$ obstaja pozitivno realno število $A$, tako da je
+funkcijska vrednost vsakega $x$, ki je večji od $A$, element $\varepsilon$ okolice števila $b$.
+\[ \lim_{x\rightarrow\infty}f(x) = b \iff (\forall\varepsilon>0)(\exists A>0): x > A
+\implies f(x) \in \mathcal{O}_\varepsilon(b) \]
+\[ \lim_{x\rightarrow-\infty}f(x) = b \iff (\forall\varepsilon>0)(\exists A<0): x < A
+\implies f(x) \in \mathcal{O}_\varepsilon(b) \]
+
+\section{Diferencialni račun}
+\label{sec:odvod}
+Definirajmo \textbf{diferenčni kvocient} funkcije $f$ pri $x_0$.
+\[ m = \frac{f(x_0 + h) - f(x_0)}{h} \]
+
+\textbf{Odvod} funkcije pri $x_0$ je limita diferenčnega kvocienta, ko gre $h$ proti 0.
+\[ f'(x) = \lim_{h\rightarrow 0} \frac{f(x_0+h)-f(x_0)}{h} \]
+
+Funkcija je na nekem intervalu odvedljiva, če je odvedljiva v vsaki točki tega intervala.
+
+\textbf{Odvod} funkcije $f$ je nova funkcija $f'$, ki za vsak $x$ vrne odvod funkcije $f$
+pri $x$.
+\[ f'(x) = \lim_{h\rightarrow 0} \frac{f(x+h)-f(x)}{h} \]
+
+\subsection{Geometrijski pomen odvoda}
+Diferenčni kvocient funkcije predstavlja smerni koeficient sekante funkcije v točkah $T(x_0, f(x_0))$ in $U(x_0+h, f(x_0+h))$. 
+
+Premica, ki gre skozi točko $T(x_0, y_0)$ in ima smerni koeficient enak odvodu funkcije v
+točki $x_0$ se imenuje \textbf{tangenta} na graf funkcije $f$ v točki $T$.
+
+Splošna enačba tangente:
+\[ y-y_0 = f'(x)(x-x_0) \]
+
+Tangens \textbf{naklonskega kota} tangente v točki $T(x_0, y_0)$ je po \eqref{eq:kot:prem:osn} enak njenemu smernemu
+koeficientu oz. odvodu funkcije v točki $T$.
+\[ \tan\alpha = k_t = f'(x_0) \]
+
+\textbf{Normala} je premica, ki seka krivuljo v točki $T(x_0, y_0)$ in je pravokotna na tangento na
+funkcijo v točki $T$.
+
+\textbf{Kot} med krivuljo in \textbf{abscisno osjo} je enak naklonskemu kotu tangente na krivuljo
+presečišču.
+
+\textbf{Kot} med krivuljama je enak kotu med tangentama na krivulji v presečišču.
+
+\subsection{Pravila za odvajanje}
+Vzamemo dva deci odvajala, ga zlijemo v kavo in uživamo na školjki.
+% TODO
 
 \end{document}
 % vim: spell spelllang=sl
