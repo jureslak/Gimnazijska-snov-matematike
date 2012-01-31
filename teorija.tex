@@ -2395,9 +2395,9 @@ Grafična predstavitev tangensa in kotangensa je prikazana na sliki~\ref{fig:kot
 \begin{align}
   \sin^2\alpha + \kos^2\alpha &= 1 \label{eq:kot:zvez:sincos} \comment{Grafičen dokaz na
   sliki~\ref{fig:kot:daljice}.} \\
-  \tan\alpha \krat \cot\alpha &= 1 \nonumber \\ %\label{eq:kot:zvez:tancot} \\
-  1 + \tan^2\alpha &= \frac{1}{\kos^2\alpha} \nonumber \\ %\label{eq:kot:zvez:costan} \\
-  1 + \cot^2\alpha &= \frac{1}{\sin^2\alpha} \nonumber \\ %\label{eq:kot:zvez:sincot} \\
+  \tan\alpha \krat \cot\alpha &= 1 \label{eq:kot:zvez:tancot} \\
+  1 + \tan^2\alpha &= \frac{1}{\kos^2\alpha} \label{eq:kot:zvez:costan} \\
+  1 + \cot^2\alpha &= \frac{1}{\sin^2\alpha} \label{eq:kot:zvez:sincot} \\
 \end{align}
 Ostale zveze se dokaže tako, da se tangens ali kotangens zamenja po
 definiciji~\eqref{eq:kot:tandef} ali~\eqref{eq:kot:cotdef} in nato poenostavi enačbo.
@@ -5066,7 +5066,7 @@ Definirajmo \textbf{diferenčni kvocient} funkcije $f$ pri $x_0$.
 \[ m = \frac{f(x_0 + h) - f(x_0)}{h} \]
 
 \textbf{Odvod} funkcije pri $x_0$ je limita diferenčnega kvocienta, ko gre $h$ proti 0.
-\[ f'(x) = \limh  \frac{f(x_0+h)-f(x_0)}{h} \]
+\[ f'(x_0) = \limh  \frac{f(x_0+h)-f(x_0)}{h} \]
 
 Funkcija je na nekem intervalu odvedljiva, če je odvedljiva v vsaki točki tega intervala.
 
@@ -5261,19 +5261,93 @@ Dokaz pravila \eqref{eq:odv:prav:komp}:
   & \left( \arccot x \right)' = -\frac{1}{x^2+1} \label{eq:odv:prav:acot}
 \end{align}
 
+Dokaz pravila \eqref{eq:odv:prav:sin}:
+\begin{align*}
+  f(x) &= \sin x \\
+  f'(x) &= \limh\frac{\sin(x+h)-\sin(x)}{h} =
+  \limh\frac{2\sin\frac{x+h-x}{2}\cos\frac{x+h+x}{2}}{h} = \comment{Faktoriz., razd. \ref{sec:kot:fakt}.} \\
+  &= \limh\frac{\sin\frac{h}{2}\kos\left( x+\frac{h}{2} \right)}{\frac{h}{2}} =
+  \limh\kos\left( x+\frac{h}{2} \right) = \\ &= \kos x
+\end{align*}
+
+Dokaz pravila \eqref{eq:odv:prav:cos}:
+\begin{align*}
+  \left( \kos x \right)' &= \left( \sin\left( \frac{\pi}{2} - x \right) \right)' =
+  \kos\left( \frac{\pi}{2} - x \right) \krat \left( 0 - 1 \right) = -\sin x
+  \comment{ Pravilo \ref{sec:kot:kompl}, sledi \eqref{eq:odv:prav:komp}.}
+\end{align*}
+
+Dokaz pravila \eqref{eq:odv:prav:tan}:
+\begin{align*}
+  \left( \tan x \right)' &= \left( \frac{\sin x}{\kos x} \right)' = \frac{\kos x\kos x -
+  \left( -\sin x \right)\sin x}{\kos^2x} = \frac{1}{\kos^2x} \comment{Pravilo
+  \ref{eq:odv:prav:del}, sledi \eqref{eq:kot:zvez:sincos}.} 
+\end{align*}
+
+Dokaz pravila \eqref{eq:odv:prav:cot}:
+\begin{align*}
+  \left( \cot x \right)' &= \left( \frac{1}{\tan x} \right)' =
+  -\frac{\frac{1}{\kos^2x}}{\tan^2x} = -\frac{1}{\sin^2x} \comment{Pravilo
+  \eqref{eq:odv:prav:enaz}.}
+\end{align*}
+
+Dokaz pravila \eqref{eq:odv:prav:asin}:
+\begin{align*}
+  & \sin(\arcsin x) = x \comment{Odvajamo obe strani.} \\
+  & \kos(\arcsin x)\left( \arcsin x \right)' = 1 \\
+  & \left( \arcsin x \right)' = \frac{1}{\kos(\arcsin x)} \comment{Iz
+  \eqref{eq:kot:zvez:sincos} izpeljemo $\kos\alpha = \pm\sqrt{1-\sin^2\alpha}$.} \\
+  & \left( \arcsin x \right)' = \frac{1}{\sqrt{1-\left( \sin(\arcsin x) \right)^2}} \comment{Pozitivno, ker
+  $-\frac{\pi}{2} \le \arcsin x \le \frac{\pi}{2} \implies \kos x \ge 0$.} \\
+  & \left( \arcsin x \right)' = \frac{1}{\sqrt{1-x^2}}
+\end{align*}
+
+Dokaz pravila \eqref{eq:odv:prav:acos}:
+\begin{align*}
+  & \kos(\arccos x) = x \comment{Odvajamo obe strani.} \\
+  & -\sin(\arccos x)\left( \arccos x\right)' = 1 \\
+  & \left( \arccos x\right)' = -\frac{1}{\sin(\arccos x)} \comment{Iz
+  \eqref{eq:kot:zvez:sincos} izpeljemo $\sin\alpha = \pm\sqrt{1-\kos^2\alpha}$.} \\
+  & \left( \arccos x \right)' = -\frac{1}{\sqrt{1-\left( \kos(\arccos x) \right)^2}}
+  \comment{Koren je pozit., ker $ 0 \le \arccos x \le \pi \implies \sin x \ge 0$.} \\
+  & \left( \arccos x \right)' = -\frac{1}{\sqrt{1-x^2}}
+\end{align*}
+
+Dokaz pravila \eqref{eq:odv:prav:atan}:
+\begin{align*}
+  & \tan(\arctan x)) = x \comment{Odvajamo obe strani.} \\
+  & \frac{1}{\kos^2\arctan x}\left( \arctan x \right)' = 1 \\
+  & \left( \arctan x \right)' = \kos^2\arctan x \comment{Iz \eqref{eq:kot:zvez:costan}
+  izpeljemo $\kos^2\alpha = \frac{1}{1 + \tan^2\alpha}$.} \\
+  & \left( \arctan x \right)' = \frac{1}{1 + \left( \tan(\arctan x) \right)^2}\\
+  &  \left( \arctan x \right)' = \frac{1}{1 + x^2}
+\end{align*}
+
+Dokaz pravila \eqref{eq:odv:prav:atan}:
+\begin{align*}
+  & \cot(\arccot x)) = x \comment{Odvajamo obe strani.} \\
+  & -\frac{1}{\sin^2\arccot x}\left( \arccot x \right)' = 1 \\
+  & \left( \arccot x \right)' = -\sin^2\arccot x \comment{Iz \eqref{eq:kot:zvez:sincot}
+  izpeljemo $\sin^2\alpha = \frac{1}{1 + \cot^2\alpha}$.} \\
+  & \left( \arccot x \right)' = -\frac{1}{1 + \left( \cot(\arccot x) \right)^2} \\
+  &  \left( \arccot x \right)' = -\frac{1}{1 + x^2}
+\end{align*}
+
 \subsubsection{Odvod eksponentne in logaritemske funkcije}
 \label{sec:odvod:prav:exp}
 
 \begin{align}
   & \left( \ln x \right)' = \frac{1}{x} \label{eq:odv:prav:ln} \\
-  & \left( \log_a x \right)' = \frac{1}{x\ln a} \label{eq:odv:prav:log} \\
+  & \left( \log_a\!x \right)' = \frac{1}{x\ln a} \label{eq:odv:prav:log} \\
   & \left( e^x \right)' = e^x \label{eq:odv:prav:ex} \\
   & \left( a^x \right)' = a^x\ln a \label{eq:odv:prav:ax}
 \end{align}
 
+
+
 \subsection{Implicitni odvod}
 \label{sec:odv:impl}
-Uporabljamo kadar bi bil eksplicitni odvod bolj zapleten, ali kadar odvisne spremenljivke
+Uporabljamo, kadar bi bil eksplicitni odvod bolj zapleten, ali kadar odvisne spremenljivke
 v eksplicitni obliki sploh ne moremo izraziti.
 
 Odvajamo enačbo po neodvisni spremenljivki, odvisno obravnavamo kot sestavljeno funkcijo
@@ -5284,7 +5358,7 @@ $y(x)$.
   x^2 + y^2 &= 4  \comment{Odvajamo obe strani enačbe.} \\
   2x + 2yy' &= 0  \comment{$y$ je sestavljena funkcija, odvajamo po pravilu
   \eqref{eq:odv:prav:komp}.} \\
-  2yy' &= -2x \comment{Izrazimo $y'$.}
+  2yy' &= -2x \comment{Izrazimo $y'$.} \\
   y' &= -\frac{x}{y} 
 \end{align*}
 
