@@ -5343,7 +5343,22 @@ Dokaz pravila \eqref{eq:odv:prav:atan}:
   & \left( a^x \right)' = a^x\ln a \label{eq:odv:prav:ax}
 \end{align}
 
+Dokaz pravila \eqref{eq:odv:prav:ln}:
+\begin{align*}
+  f(x) &= \ln x \\
+  f'(x) &= \limh\frac{\ln(x+h) - \ln x}{h} = \limh\frac{1}{h}\ln\left(\frac{x+h}{x}\right) = \\
+  &= \limh\frac{1}{h}\ln\left( 1+\frac{h}{x} \right) = \limh\ln\left(
+  1+\frac{h}{x}\right)^{\frac{1}{h}} = \\ &= \limh\log\left( 1+\frac{1}{n}
+  \right)^{\frac{n}{x}} = \comment{Substitucija $\frac{h}{x} = \frac{1}{n} \implies h =
+  \frac{x}{n}$.} \\
+  &= \limi\ln\left(\left( 1+\frac{1}{n} \right)^n\right)^{\frac{1}{x}} =
+  \limi\frac{1}{x}\ln\left( 1+\frac{1}{n} \right)^n = \frac{1}{x}\ln e = \\
+  &= \frac{1}{x}
+\end{align*}
 
+Dokaz pravila \eqref{eq:odv:prav:log}:
+Dokaz pravila \eqref{eq:odv:prav:ex}:
+Dokaz pravila \eqref{eq:odv:prav:ax}:
 
 \subsection{Implicitni odvod}
 \label{sec:odv:impl}
