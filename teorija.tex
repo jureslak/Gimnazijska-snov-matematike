@@ -95,6 +95,7 @@ menucolor=black, runcolor=black, urlcolor=black%
 \def\Vec{\overrightarrow}
 \def\konj{\overline} % conjugate
 \def\limi{\displaystyle\lim_{n\to\infty}} % limit to infty
+\def\limh{\lim_{h\rightarrow0}} % limit h to 0
 \def\sumi{\displaystyle\sum^{\infty}} % sum to infty
 
 % multi line table cell with 0.5mm margin
@@ -1730,6 +1731,23 @@ enaka stopnji polinoma v števcu. Če sta stopnji enaki je asimptota vodoravna.
     \frac{p(x)}{q(x)} &= k(x) + \frac{o(x)}{q(x)} \\
     f(x) &= k(x) \iff \frac{o(x)}{q(x)} = 0 \iff o(x) = 0 \\
 \end{align*}
+
+\subsection{Kompozitum funkcij}
+\textbf{Komp\'{o}zitum} ali \textbf{sestava} funkcij je matematična operacija v množici funkcij.
+Postopek računanja kompozituma imenujemo komponiranje ali sestavljanje, dobljeni rezultat
+pa se imenuje \textbf{sestavljena funkcija}. Sestavljena funkcija je funkcija, ki ji kot argument podamo vrednost druge
+funkcije.
+\[ (f \circ g)(x) = f(g(x)) \]
+
+Kompozitum funkcij \textbf{ni komutativna} operacija.
+\[ (f \circ g)(x) \neq (g \circ f)(x) \]
+
+Kompozitum funkcij je \textbf{asociativna} operacija.
+\[ ( (f \circ g) \circ h)(x) = (f \circ (g \circ h))(x) \]
+
+Kompozitum \textbf{inverznih} funkcij je enak $x$.
+\[ (f \circ f^{-1})(x) = (f^{-1} \circ f)(x) = f(f^{-1}(x)) = f^{-1}(f(x)) = x \]
+
 
 \section{Enačbe}
 \label{sec:enac}
@@ -4668,7 +4686,7 @@ Zaporedje je \textbf{navzdol omejeno}, če obstaja tako naravno število $m$, da
 Zaporedje je \textbf{omejeno}, če je omejeno navzgor in navzdol.
 Zaporedje je \textbf{konstantno}, če so vsi členi enaki med seboj.
 
-\textbf{Graf} zaporedja je prikazana na sliki~\ref{fig:zap}.
+\textbf{Graf} zaporedja je prikazan na sliki~\ref{fig:zap}.
 \begin{figure}[ht]
   \begin{center}
       \begin{pspicture*}(-.5,-3.5)(10.5,3.5)
@@ -4947,11 +4965,6 @@ konformno obrestno mero.
 
 \textbf{Načelo ekvivalence glavnic} pravi, da lahko različne glavnice primerjamo tako, da
 jih preračunamo na isti trenutek.
-
-\pagebreak
-\listoffigures
-%\pagebreak
-%\printindex
 \section{Statistika}
 \label{sec:stat}
 \begin{description*}
@@ -5053,19 +5066,45 @@ Definirajmo \textbf{diferenčni kvocient} funkcije $f$ pri $x_0$.
 \[ m = \frac{f(x_0 + h) - f(x_0)}{h} \]
 
 \textbf{Odvod} funkcije pri $x_0$ je limita diferenčnega kvocienta, ko gre $h$ proti 0.
-\[ f'(x) = \lim_{h\rightarrow 0} \frac{f(x_0+h)-f(x_0)}{h} \]
+\[ f'(x) = \limh  \frac{f(x_0+h)-f(x_0)}{h} \]
 
 Funkcija je na nekem intervalu odvedljiva, če je odvedljiva v vsaki točki tega intervala.
 
 \textbf{Odvod} funkcije $f$ je nova funkcija $f'$, ki za vsak $x$ vrne odvod funkcije $f$
 pri $x$.
-\[ f'(x) = \lim_{h\rightarrow 0} \frac{f(x+h)-f(x)}{h} \]
+\begin{equation}
+  f'(x) = \limh  \frac{f(x+h)-f(x)}{h}
+  \label{eq:odv:def}
+\end{equation}
 
 \subsection{Geometrijski pomen odvoda}
+\label{sec:odvod:geom}
 Diferenčni kvocient funkcije predstavlja smerni koeficient sekante funkcije v točkah $T(x_0, f(x_0))$ in $U(x_0+h, f(x_0+h))$. 
 
 Premica, ki gre skozi točko $T(x_0, y_0)$ in ima smerni koeficient enak odvodu funkcije v
 točki $x_0$ se imenuje \textbf{tangenta} na graf funkcije $f$ v točki $T$.
+
+Geometrijski pomen odvoda je prikazan na sliki~\ref{fig:odv:geom}. Če bi se $h$ manjšal
+proti nič, bi se sekanta modre krivulje približevala zeleni tangenti. 
+\begin{figure}[ht]
+  \begin{center}
+      \begin{pspicture*}(-1.5,-.5)(10,3.5)
+        \psaxes[labels=none]{->}(0,0)(-1.5,-.5)(6.5,3.5)
+        \psplot[plotstyle=curve,linecolor=blue, linewidth=.5pt]{0}{6.5}{x sqrt}
+        \psline(1,0)(1,1) \psline(5,0)(5,2.236)
+        \psline[linecolor=red,linewidth=1.5pt](1,1)(5,1)(5,2.236)
+        \psline(-2.236,0)(6,2.545) %\psline[linecolor=grey](-2,0)(5,2.333)
+        \psline[linecolor=green](-2,-.5)(6,3.5)
+        \uput[ul](1,1){$T$} \uput[u](5,2.236){$U$}
+        \uput[d](3,1){$h = \Delta x$} \uput[r](5,1.6){$f(x_0+h)-f(x_0) = \Delta y$}
+        \uput[u](4,2.5){$t$} \uput[d](1,0){$x_0$} \uput[d](5,0){$x_0+h$}
+        \uput[u](6,2.45){$\sqrt{x}$} \uput[u](-.5,.5){$s$} \uput[u](-.2,-.1){$\alpha$}
+      \end{pspicture*}
+  \end{center}
+  \beforecaptionskip
+  \caption{Geometrijski pomen odvoda.}
+  \label{fig:odv:geom}
+\end{figure}
 
 Splošna enačba tangente:
 \[ y-y_0 = f'(x)(x-x_0) \]
@@ -5083,8 +5122,136 @@ presečišču.
 \textbf{Kot} med krivuljama je enak kotu med tangentama na krivulji v presečišču.
 
 \subsection{Pravila za odvajanje}
-Vzamemo dva deci odvajala, ga zlijemo v kavo in uživamo na školjki.
-% TODO
+\label{sec:odvod:prav}
+
+\begin{align}
+  & C' = 0 \label{eq:odv:prav:konst} \\
+  & x' = 1 \label{eq:odv:prav:lin} \\
+  & \left( x^r \right)' = r\krat x^{r-1} \quad r \in \R \label{eq:odv:prav:pow} \\
+  & (f(x) \pm g(x))' = f'(x) \pm g'(x) \label{eq:odv:prav:sum} \\
+  & (C\krat f(x))' = C\krat f'(x) \label{eq:odv:prav:konstkrat} \\
+  & (f(x)\krat g(x))' = f'(x)\krat g(x) + f(x)\krat g'(x) \label{eq:odv:prav:krat} \\
+  & \left(\frac{1}{f(x)}\right)' = - \frac{f'(x)}{f^2(x)} \label{eq:odv:prav:enaz} \\
+  & \left( \frac{f(x)}{g(x)} \right)' = \frac{f'(x)\krat g(x) - f(x)\krat g'(x)}{g^2(x)} \label{eq:odv:prav:del} \\
+  & \left( f(g(x)) \right)' = f'(g(x))\krat g'(x) \label{eq:odv:prav:komp}
+\end{align}
+
+Dokaz pravila \eqref{eq:odv:prav:konst}:
+\begin{align*}
+  & f(x) = C \\
+  & m = \frac{C - C}{h} = 0 \\
+  & f'(x) = \limh  m = 0
+\end{align*}
+
+Dokaz pravila \eqref{eq:odv:prav:lin}:
+\begin{align*}
+  & f(x) = x \\
+  & m = \frac{x+h-x}{h} = 1 \\
+  & f'(x) = \limh  m = 1
+\end{align*}
+
+Dokaz pravila \eqref{eq:odv:prav:pow}:
+\begin{align*}
+  f(x) &= x^n  \quad n \in \N \\
+  f'(x) &= \limh  \frac{(x+h)^n - x^n}{h} = \comment{Po pravilu \eqref{eq:izr:ananminusbnan}.} \\
+  &= \limh  \frac{(x+h-x)\displaystyle\sum_{i=0}^n (x+h)^{n-1}x^{i-1}}{h} = \comment{$h$ se krajša, sledi $h = 0$} \\
+  &= \sum_{i=1}^nx^{n-i}x^{i-1} = \sum_{i=1}^nx^{n-1} = n\krat x^{n-1}
+\end{align*}
+
+\begin{align*}
+  f(x) &= x^{-n} = \frac{1}{x^n}  \quad n \in \N \\
+  f'(x) &= -\frac{n\krat x^{n-1}}{x^{2n}} = -n\krat x^{n-1-2n} = \comment{Po pravilu \eqref{eq:odv:prav:enaz}.} \\
+  &= -n\krat x^{-n-1} \comment{Velja tudi za 0 in negativna števila, torej velja za $\Z$.}
+\end{align*}
+
+\begin{align*}
+   f(x) = \sqrt[n]{x} &= x^{\frac{1}{n}} \\
+  \left( \sqrt[n]{x} \right)^n &= x \comment{Odvajamo po \eqref{eq:odv:prav:komp}.} \\
+  n(\sqrt[n]{x})^{n-1}(\sqrt[n]{x})' &= 1 =  
+  \left(\sqrt[n]{x}\right)' = \frac{1}{n\left(\sqrt[n]{x}\right)^{n-1}} =  \\
+  & = \frac{1}{n}\left(x^{\frac{1}{n}}\right)^{-n+1} = \frac{1}{n}x^{-\frac{n}{n} +
+  \frac{1}{n}} = \frac{1}{n}x^{\frac{1}{n}-1}
+\end{align*}
+
+\begin{align*}
+  f(x) &= \left( \sqrt[m]{x}\right)^n = x^{\frac{m}{n}} = \left(x^{\frac{1}{n}}\right)^m \\
+  f'(x) &= m(x^{\frac{1}{n}})^{m-1}\left( x^{\frac{1}{n}} \right)' =
+  m(x^{\frac{1}{n}})^{m-1}\frac{1}{n}x^{\frac{1}{n}-1} = \comment{Po pravilu
+  \eqref{eq:odv:prav:pow}.} \\
+  &= \frac{m}{n}x^{\frac{m}{n}-\frac{1}{n}+\frac{1}{n} - 1} = \frac{m}{n}x^{\frac{m}{n}-1}
+  \comment{Velja za \Q. Pa tudi za \R\ :-).}
+\end{align*}
+
+Dokaz pravila \eqref{eq:odv:prav:sum}:
+\begin{align*}
+  &\left( f(x)+g(x) \right)' = \limh\frac{f(x+h)+g(x+h)-f(x)-g(x)}{h} = \comment{Po definiciji \eqref{eq:odv:def}.} \\
+  &= \limh\frac{f(x+h)-f(x)}{h} + \limh\frac{g(x+h)-g(x)}{h} =
+  f'(x)+g'(x)
+\end{align*}
+
+Dokaz pravila \eqref{eq:odv:prav:konstkrat}:
+\begin{align*}
+  & (C\krat f(x))' = \limh\frac{Cf(x+h)-Cf(x)}{h} = \limh\frac{C(f(x+h)-f(x))}{h} = C\krat f'(x)
+\end{align*}
+
+Dokaz pravila \eqref{eq:odv:prav:krat}:
+\begin{align*}
+  \left( f(x)g(x) \right)' &= \limh \frac{f(x+h)g(x+h)-f(x)g(x)}{h} = \comment{Po definiciji \eqref{eq:odv:def}.} \\
+  &= \limh \frac{f(x+h)g(x+h) - f(x)g(x+h) + f(x)g(x+h) - f(x)g(x)}{h} = \\
+  &= \limh g(x+h)\frac{f(x+h)-f(x)}{h} +
+  \limh f(x)\frac{g(x+h)-g(x)}{h} = \\
+  &= f'(x)g(x)+f(x)g'(x)
+\end{align*}
+
+Dokaz pravila \eqref{eq:odv:prav:enaz}:
+\begin{align*}
+  \left( \frac{1}{f(x)} \right)' &= \limh\frac{\frac{1}{f(x+h)}-\frac{1}{f(x)}}{h} = 
+  \limh\frac{f(x)-f(x+h)}{h \krat f(x+h)\krat f(x)} = \comment{Po definiciji \eqref{eq:odv:def}.} \\
+  &= \limh-\frac{f(x+h)-f(x)}{h \krat f(x+h)f(x)} = -\frac{f'(x)}{f^2(x)}
+\end{align*}
+
+Dokaz pravila \eqref{eq:odv:prav:del}:
+\begin{align*}
+  \left( \frac{f(x)}{g(x)} \right)' &= \left( f(x)\krat\frac{1}{g(x)} \right)' =
+  f'(x)\frac{1}{g(x)} + f(x)\left( \frac{1}{g(x)} \right)' = \comment{Po pravilu \eqref{eq:odv:prav:krat}.}\\ 
+  &= f'(x)\frac{1}{g(x)} - f(x)\frac{g'(x)}{g^2(x)} = \frac{f'(x)g(x) - f(x)g'(x)}{g^2(x)}
+  \comment{Po pravilu \eqref{eq:odv:prav:enaz}.}
+\end{align*}
+
+Dokaz pravila \eqref{eq:odv:prav:komp}:
+\begin{align*}
+  \left( f(g(x)) \right)' = \limh\frac{f(g(x+h))-f(g(x))}{h} = \comment{Glej sliko \ref{fig:odv:komp}.} \\
+  \lim_{\substack{h\rightarrow0\\k\rightarrow0}}\frac{f(g(x)+k) - f(g(x))}{hk} = 
+  \lim_{\substack{h\rightarrow0\\k\rightarrow0}}\frac{\left( f(g(x)+k)-f(g(x)) \right)k}{hk} = \\
+  \lim_{\substack{h\rightarrow0\\k\rightarrow0}}\frac{\left(f(g(x)+k) -f(g(x))
+  \right)}{k}\frac{\left( g(x+h) - g(x) \right)}{h} = f'(g(x))g'(x)
+\end{align*}
+
+\begin{figure}[ht]
+  \begin{center}
+      \begin{pspicture*}(-3.5,-3.5)(7.5,3.5)
+        \psaxes[labels=none]{->}(0,0)(-.5,-.5)(3.5,3.5)
+        \psplot[plotstyle=curve,linecolor=black, linewidth=.5pt]{-.5}{3.5}{x x mul .5 mul}
+        \psline(1,0)(1,.5) \psline(2,0)(2,.5) \psline[linecolor=red,linewidth=1.5pt](2,.5)(2,2)
+        \psline[linestyle=dashed](1,.5)(2.5,.5) \psline[linestyle=dashed](2,2)(2.5,2)
+        \uput[d](1,0){$x$} \uput[d](2,0){$x+h$}
+        \uput[r](2.5,.5){$g(x)$} \uput[r](2.5,2){$g(x+h)$}
+        \uput[r](2,1.25){$k = g(x+h)-g(x)$}
+        \uput[r](1.5,3.2){$g(x)$}
+      \end{pspicture*}
+  \end{center}
+  \beforecaptionskip
+  \caption{Graf funkcije $g(x)$ za izpeljavo odvoda kompozituma funkcij.}
+  \label{fig:odv:komp}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagebreak
+\listoffigures
+%\pagebreak
+%\printindex
 
 \end{document}
+% pazi kje je kazalo slik !!!
 % vim: spell spelllang=sl
