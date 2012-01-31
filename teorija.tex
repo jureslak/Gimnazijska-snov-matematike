@@ -1630,7 +1630,7 @@ so definirane kasneje, v razdelku \ref{sec:kot}.}
 \frac{\pi}{2} \right] \]
 
 \textbf{Arcus kosinus} $x$ je tisti kot, pri katerem je kosinus enak $x$.
-\[ y = \arccos x \iff \cos y = x, \; D_f = [-1,1], Z_f = \left[0, \pi \right] \]
+\[ y = \arccos x \iff \kos y = x, \; D_f = [-1,1], Z_f = \left[0, \pi \right] \]
 
 \textbf{Arcus tangens} $x$ je tisti kot, pri katerem je tangens enak $x$.
 \[ y = \arctan x \iff \tan y = x, \; D_f = \R, Z_f = \left( -\frac{\pi}{2},
@@ -5124,6 +5124,8 @@ presečišču.
 \subsection{Pravila za odvajanje}
 \label{sec:odvod:prav}
 
+\subsubsection{Osnovna pravila}
+\label{sec:odvod:prav:osn}
 \begin{align}
   & C' = 0 \label{eq:odv:prav:konst} \\
   & x' = 1 \label{eq:odv:prav:lin} \\
@@ -5244,6 +5246,47 @@ Dokaz pravila \eqref{eq:odv:prav:komp}:
   \caption{Graf funkcije $g(x)$ za izpeljavo odvoda kompozituma funkcij.}
   \label{fig:odv:komp}
 \end{figure}
+
+\subsubsection{Odvodi kotnih in krožnih funkcij}
+\label{sec:odvod:prav:kot}
+
+\begin{align}
+  & \left( \sin x \right)' = \kos x \label{eq:odv:prav:sin} \\
+  & \left( \kos x \right)' = -\sin x \label{eq:odv:prav:cos} \\
+  & \left( \tan x \right)' = \frac{1}{\kos^2x} \label{eq:odv:prav:tan} \\
+  & \left( \cot x \right)' = -\frac{1}{\sin^2x} \label{eq:odv:prav:cot} \\
+  & \left( \arcsin x \right)' = \frac{1}{\sqrt{1-x^2}} \label{eq:odv:prav:asin} \\ 
+  & \left( \arccos x \right)' = -\frac{1}{\sqrt{1-x^2}} \label{eq:odv:prav:acos} \\ 
+  & \left( \arctan x \right)' = \frac{1}{x^2+1} \label{eq:odv:prav:atan} \\ 
+  & \left( \arccot x \right)' = -\frac{1}{x^2+1} \label{eq:odv:prav:acot}
+\end{align}
+
+\subsubsection{Odvod eksponentne in logaritemske funkcije}
+\label{sec:odvod:prav:exp}
+
+\begin{align}
+  & \left( \ln x \right)' = \frac{1}{x} \label{eq:odv:prav:ln} \\
+  & \left( \log_a x \right)' = \frac{1}{x\ln a} \label{eq:odv:prav:log} \\
+  & \left( e^x \right)' = e^x \label{eq:odv:prav:ex} \\
+  & \left( a^x \right)' = a^x\ln a \label{eq:odv:prav:ax}
+\end{align}
+
+\subsection{Implicitni odvod}
+\label{sec:odv:impl}
+Uporabljamo kadar bi bil eksplicitni odvod bolj zapleten, ali kadar odvisne spremenljivke
+v eksplicitni obliki sploh ne moremo izraziti.
+
+Odvajamo enačbo po neodvisni spremenljivki, odvisno obravnavamo kot sestavljeno funkcijo
+$y(x)$.
+
+\textbf{Primer}:
+\begin{align*}
+  x^2 + y^2 &= 4  \comment{Odvajamo obe strani enačbe.} \\
+  2x + 2yy' &= 0  \comment{$y$ je sestavljena funkcija, odvajamo po pravilu
+  \eqref{eq:odv:prav:komp}.} \\
+  2yy' &= -2x \comment{Izrazimo $y'$.}
+  y' &= -\frac{x}{y} 
+\end{align*}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
