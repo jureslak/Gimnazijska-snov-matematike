@@ -2023,6 +2023,53 @@ Rešitve poiščemo tako, da izračunamo ničle funkcije $f(x)
 = ax^2 + bx + c$ in ugotovimo predznak kvadratne funkcije na celotni realni osi ter nato 
 izberemo želene intervale, ki ustrezajo pogojem. Skica je priporočljiva.
 
+Primer obravnave enačbe $ax^2+bx+c \le 0$ na sliki~\ref{fig:neenac:kvad}. Z $\mathcal{R}$ označujmo množico rešitev.
+\begin{figure}[ht]
+  \begin{center}
+    \subfigure[$a > 0$]{
+      \label{fig:neenac:kvad:aplus}
+      \begin{pspicture*}(-7,-2)(5,2.8)
+        \qline(-7,.5)(7,.5)
+        \parabola(-7,3)(-5.5,0)
+        \parabola(-3,3)(-1.5,0.5)
+        \parabola(1,3)(2.5,1)
+        \uput[r](-6.2,2.5){$D > 0$}
+        \uput[r](-6.7,2){$\mathcal{R} = [x_1, x_2]$}
+        \uput[r](-2.3,2.5){$D = 0$}
+        \uput[r](-2.3,2){$\mathcal{R} = {x_1}$}
+        \uput[r](1.8,2.5){$D < 0$}
+        \uput[r](1.8,2){$\mathcal{R} = \emptyset$}
+        \psdots(-6.1,.5)(-4.9,.5)(-1.5,.5)
+        \uput[dl](-6.1,.5){$x_1$} \uput[dr](-4.9,.5){$x_2$}
+        \uput[d](-1.5,.5){$x_1=x_2$}
+      \end{pspicture*}
+    }
+    \subfigure[$a < 0$]{
+      \label{fig:neenac:kvad:aminus}
+      \begin{pspicture*}(-7,-2)(5,2)
+        \qline(-7,.5)(7,.5)
+        \parabola(-7,-3)(-5.5,0)
+        \parabola(-3,-3)(-1.5,0.5)
+        \parabola(1,-3)(2.5,1)
+        \uput[r](-6.2,-1.5){$D < 0$}
+        \uput[r](-6.2,-1){$\mathcal{R} = \R$}
+        \uput[r](-2.3,-1.5){$D = 0$}
+        \uput[r](-2.3,-1){$\mathcal{R} = \R$}
+        \uput[r](1.8,-1.5){$D > 0$}
+%        \uput[r](.55,-.5){$\mathcal{R} = (-\infty,x_1] \cup [x_2, \infty)$}
+        \uput[r](1.7,-1){$\mathcal{R} = \R - (x_1, x_2)$}
+        \psdots(-1.5,.5)(1.97,.5)(3.03,.5)
+        \uput[u](-1.5,.5){$x_1=x_2$} \uput[ul](1.97,.5){$x_1$}
+        \uput[ur](3.03,.5){$x_2$}
+      \end{pspicture*}
+    }
+  \end{center}
+  \beforecaptionskip
+  \caption{Obravnava kvadratne neenačbe $ax^2+bx+c\le0$}
+  \label{fig:neenac:kvad}
+\end{figure}
+
+
 \subsection{Polinomske neenačbe}
 \label{sec:neenac:pol}
 Polinomska neenačba je vsaka neenačba oblike $p(x)$
