@@ -5443,6 +5443,84 @@ $y(x)$.
   y' &= -\frac{x}{y} 
 \end{align*}
 
+
+\subsection{Naraščanje, padanje, ekstremi funkcije}
+\label{sec:odv:eks}
+
+Funkcija v neki točki \textbf{narašča} kadar je odvod v tej točki \textbf{pozitiven}.
+\[ f(x) \text{ v } x_0 \text{ narašča} \iff f'(x_0) > 0 \]
+
+Funkcija v neki točki \textbf{pada} kadar je odvod v tej točki \textbf{negativen}.
+\[ f(x) \text{ v } x_0 \text{ pada} \iff f'(x_0) < 0 \]
+
+\textbf{Stacionarne točke} so točke v katerih je odvod enak 0.
+
+Funkcija $y=f(x)$ doseže na območju $I$ v točki $x_0$ \textbf{lokalni maksimum}, natanko takrat ko je $f(x_0)$
+\textbf{največja} funkcijska vrednost na intervalu $I$.
+\[ y = f(x) \text{ na } I \text{ v } x_0 \text{ lokalni maksimum} \iff
+f(x_0) > f(x), x \in I, x \neq x_0 \]
+
+Funkcija $y=f(x)$ doseže na območju $I$ v točki $x_0$ \textbf{lokalni minimum}, natanko takrat ko je $f(x_0)$
+\textbf{najmanjša} funkcijska vrednost na intervalu $I$.
+\[ y = f(x) \text{ na } I \text{ v } x_0 \text{ lokalni minimum} \iff
+f(x_0) < f(x), x \in I, x \neq x_0 \]
+
+Lokalni maksimum je prehod iz naraščanja v padanje, lokalni minimum pa prehod iz padanja v
+naraščanje.
+
+\textbf{Globalni maksimum} funkcije na določenem območju je $x$ pri katerem funkcija
+doseže \textbf{največjo} vrednost.
+
+\textbf{Globalni minimum} funkcije na določenem območju je $x$ pri katerem funkcija doseže
+\textbf{najmanjšo} vrednost.
+
+Lokalni in globalni ekstremi funkcije na nekem območju so prikazani na sliki. Kriterij za
+ugotavljanje kaj se dogaja s funkcijo v stacionarni točki s pomočjo predznaka odvoda je
+podan v tabeli~\ref{tab:odv:stac}.
+
+% slika lokalnih in globalnih minimumov
+
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{c|c|c|c}
+    oblika & $x < x_0$ & $x_0$ & $x > x_0$ \\ \noalign{\hrule height 1pt}
+    lokalni maksimum  & $+$ & \hspace{16pt}0\hspace{16pt} & $-$ \\ \hline
+    lokalni minimum & $-$ & 0 & $+$ \\ \hline
+    prevoj, sedlo & $+$ & 0 & $+$ \\ \hline
+    prevoj, sedlo & $-$ & 0 & $-$
+  \end{tabular}
+  \caption{Možni predznaki odvoda v okolici stacionarne točke}
+  \label{tab:odv:stac}
+\end{table}
+
+\subsection{Drugi odvod}
+\label{sec:odv:drug}
+Funkcija $y=f(x)$ je na nekem območju $I$ \textbf{konveksna}, natanko takrat kadar je drugi odvod
+funkcije na tem območju \textbf{pozitiven}.
+\[ f(x) \text{ na } I \text{ konveksna } \iff f''(x) > 0, \; \forall x \in I \]
+
+Funkcija $y=f(x)$ je na nekem območju $I$ \textbf{konkavna}, natanko takrat kadar je drugi odvod
+funkcije na tem območju \textbf{negativen}.
+\[ f(x) \text{ na } I \text{ konkavna } \iff f''(x) < 0,\; \forall x \in I \]
+
+Funkcija $y=f(x)$ ima v točki $x_0$ \textbf{prevoj}, če je drugi odvod v točki $x_0$ enak 0.
+\[ f(x) \text{ v } x_0 \text{ prevoj } \iff f''(x_0) = 0 \]
+
+Kriterij za ugotavljanje kaj se dogaja s funkcijo v stacionarni točki s pomočjo drugega
+odvoda je prikazan v tabeli~\ref{tab:odv:drug}.
+
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{c|c|c}
+    oblika & $f'(x)$ & $f''(x)$ \\ \noalign{\hrule height 1.0pt}
+    lokalni minimum & 0 & $+$ \\ \hline
+    lokalni maksimum & 0 & $-$ \\ \hline
+    prevoj, sedlo & 0 & 0 
+  \end{tabular}
+  \caption{Drugi odvod funkcije v stacionarni točki.}
+  \label{tab:odv:drug}
+\end{table}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \pagebreak
