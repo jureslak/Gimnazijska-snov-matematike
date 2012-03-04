@@ -5146,7 +5146,7 @@ Geometrijski pomen odvoda je prikazan na sliki~\ref{fig:odv:geom}. Če bi se $h$
 proti nič, bi se sekanta modre krivulje približevala zeleni tangenti. 
 \begin{figure}[ht]
   \begin{center}
-      \begin{pspicture*}(-1.5,-.5)(10,3.5)
+      \begin{pspicture*}(-1.5,-.7)(10,3.5)
         \psaxes[labels=none]{->}(0,0)(-1.5,-.5)(6.5,3.5)
         \psplot[plotstyle=curve,linecolor=blue, linewidth=.5pt]{0}{6.5}{x sqrt}
         \psline(1,0)(1,1) \psline(5,0)(5,2.236)
@@ -5482,11 +5482,26 @@ doseže \textbf{največjo} vrednost.
 \textbf{Globalni minimum} funkcije na določenem območju je $x$ pri katerem funkcija doseže
 \textbf{najmanjšo} vrednost.
 
-Lokalni in globalni ekstremi funkcije na nekem območju so prikazani na sliki. Kriterij za
+Lokalni in globalni ekstremi funkcije na nekem območju so prikazani na sliki~\ref{fig:odv:eks}. Kriterij za
 ugotavljanje kaj se dogaja s funkcijo v stacionarni točki s pomočjo predznaka odvoda je
 podan v tabeli~\ref{tab:odv:stac}.
 
-% slika lokalnih in globalnih minimumov
+\begin{figure}[ht]
+  \begin{center}
+      \begin{pspicture*}(-.2,-3)(7,2)
+        \psaxes[labels=none]{->}(0,0)(-.2,-2.1)(7,2)
+        \psplot[plotstyle=curve,linecolor=blue,linewidth=.5pt]{0.72}{6.5}{90 x mul cos x div 3 mul}
+        \psdots(1.78,-1.58)(3.9,.76)(5.93,-0.51)(0.72,1.77)
+        \uput[d](1.78,-1.58){lok. in glob. min.}
+        \uput[u](3.9,.76){lok. maks.}
+        \uput[d](5.9, -.5){lok. min.}
+        \uput[dr](0.72,1.77){glob. maks.}
+      \end{pspicture*}
+  \end{center}
+  \beforecaptionskip
+  \caption[Ekstremi funkcije na prikazanem območju.]{Ekstremi funkcije na prikazanem območju. $f(x) = 3\frac{\kos \frac{\pi}{2}x}{x}, \; 0,72 \le x \le 6,5$}
+  \label{fig:odv:eks}
+\end{figure}
 
 \begin{table}[ht]
   \centering
@@ -5543,7 +5558,7 @@ $\df$ --- diferencial funkcije $f$\\
 $\dx$ --- diferencial neodvisne spremenljivke
 
 Dopišemo znak za integral\footnote{Znak $\int$ izhaja iz ležečega (italic) znaka za dolgi s, kot okrajšavo
-za besedo \textit{summa}. Dolgi s: \url{http://en.wikipedia.org/wiki/Long_s}} na obe strani, 
+za besedo \textit{summa}. Dolgi s: \url{http://en.wikipedia.org/wiki/Long_s\#Modern_usage}} na obe strani, 
 \begin{align*}
  \int\!\df &= \int\!f'(x) \dx \\
  f(x) &= \int\!f'(x) \dx
@@ -5560,10 +5575,37 @@ pod integralskim znakom.
 \end{equation}
 
 \textbf{Diferencial} funkcije $f(x)$ je odvod funkcije $f(x)$ pomnožen s diferencialom neodvisne
-spremenljivke. Diferencial funkcije $f$ je prikazan na sliki.
+spremenljivke. Diferencial funkcije $f$ je prikazan na sliki~\ref{fig:int:dif}.
 \begin{equation}
   \df = f'(x) \krat \dx \label{eq:int:dif}
 \end{equation}
+
+\begin{figure}[ht]
+  \begin{center}
+      \begin{pspicture*}(-1.5,-.5)(10,3.5)
+        \psaxes[labels=none]{->}(0,0)(-1.5,-.5)(6.5,3.5)
+        \psplot[plotstyle=curve,linecolor=blue, linewidth=.5pt]{0}{6.5}{x sqrt}
+        \psline(1,0)(1,1) \psline(5,0)(5,2.236)
+        \psline[linecolor=red,linewidth=1.5pt](1,1)(4.95,1)(4.95,3)
+        \psline[linecolor=cyan,linewidth=1.5pt](5,1)(5,2.236)
+        \psline[linecolor=lightorange,linewidth=1.5pt](5,2.236)(5,3)
+        \psline[linecolor=green](-2,-.5)(6,3.5)
+        \uput[ul](1,1){$T$} 
+        \uput[d](3,1){$\Delta x = \dx$} 
+        \uput[r](5,1.6){$\Delta y$}
+        \uput[r](5,2.7){napaka}
+        \uput[l](5,1.9){$\df$}
+        \uput[u](4,2.5){$t$} 
+        \uput[d](1,0){$x_0$} 
+        \uput[d](5,0){$x_0+\Delta x$}
+        \uput[d](6,2.45){$\sqrt{x}$} 
+        \uput[u](1.8,.9){$\alpha$}
+      \end{pspicture*}
+  \end{center}
+  \beforecaptionskip
+  \caption{Diferencial funkcije}
+  \label{fig:int:dif}
+\end{figure}
 
 \subsection{Pravila za integriranje}
 \label{sec:int:prav}
