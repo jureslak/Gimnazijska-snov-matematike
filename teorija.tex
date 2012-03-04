@@ -24,7 +24,6 @@ menucolor=black, runcolor=black, urlcolor=black%
     textwidth=15cm,
     ]{geometry}
 
-
 \usepackage{amsthm}
 {
 \newtheorem{izrek}{Izrek} %[section]
@@ -37,8 +36,8 @@ menucolor=black, runcolor=black, urlcolor=black%
 }
 }
 
-\usepackage{makeidx} % stvarno kazalo
-\makeindex
+%\usepackage{makeidx} % stvarno kazalo
+%\makeindex
 
 \usepackage{enumerate} % za lep enumerate
 \usepackage{auto-pst-pdf} % slike
@@ -87,6 +86,20 @@ menucolor=black, runcolor=black, urlcolor=black%
 \newcommand{\pr}{\ensuremath{\operatorname{pr}}} % pravokotna projekcija
 \newcommand{\st}{\ensuremath{\operatorname{st}}} % stopnja polinoma
 
+% PST DRAWING
+% colour settings
+\newrgbcolor{lightgreen1}{0.3164 0.9531 0.3125}
+\newrgbcolor{lightgrey}{0.8 0.8 0.8}
+\newrgbcolor{skyblue}{0.3125 0.5898 0.9531}
+\newrgbcolor{orange}{0.9531 0.5625 0.3125}
+\newrgbcolor{violet}{0.6172 0.3125 0.9531}
+\newrgbcolor{pink}{0.9258 0.3125 0.9531}
+\newrgbcolor{lightred}{0.9531 0.3125 0.3867}
+\newrgbcolor{lightorange}{0.9531 0.7031 0.3125}
+\newrgbcolor{lightgreen2}{0.5547 0.9141 0.2734}
+\psset{arrowscale=1.5,RightAngleSize=.3} % arrow settings, angle markers
+
+
 \newcommand{\asimptota}{\psline[linecolor=lightgrey, linestyle=dashed, linewidth=.5pt]}
 \newcommand{\oznaka}{\psline[linecolor=red, linestyle=dotted]}
 \newcommand{\ii}{\ensuremath{\imath}}
@@ -97,6 +110,13 @@ menucolor=black, runcolor=black, urlcolor=black%
 \def\limi{\displaystyle\lim_{n\to\infty}} % limit to infty
 \def\limh{\lim_{h\rightarrow0}} % limit h to 0
 \def\sumi{\displaystyle\sum^{\infty}} % sum to infty
+\renewcommand{\d}{\ensuremath{\,d}} %use mathrm{d} for non italic d
+\newcommand{\dx}{\ensuremath{\d x}}
+\newcommand{\df}{\ensuremath{\d f}}
+\newcommand{\dt}{\ensuremath{\d t}}
+\newcommand{\du}{\ensuremath{\d u}}
+
+\allowdisplaybreaks[1] % prelomi align
 
 % multi line table cell with 0.5mm margin
 \newcommand{\mltc}[1]{\pbox{21cm}{\vspace{0.5mm} #1 \vspace{0.5mm}}}
@@ -108,18 +128,6 @@ menucolor=black, runcolor=black, urlcolor=black%
 % arrow resetings
 \renewcommand\implies\Rightarrow
 \renewcommand\iff\Leftrightarrow
-
-% PST DRAWING
-% colour settings
-\newrgbcolor{lightgreen1}{0.3164 0.9531 0.3125}
-\newrgbcolor{skyblue}{0.3125 0.5898 0.9531}
-\newrgbcolor{orange}{0.9531 0.5625 0.3125}
-\newrgbcolor{violet}{0.6172 0.3125 0.9531}
-\newrgbcolor{pink}{0.9258 0.3125 0.9531}
-\newrgbcolor{lightred}{0.9531 0.3125 0.3867}
-\newrgbcolor{lightorange}{0.9531 0.7031 0.3125}
-\newrgbcolor{lightgreen2}{0.5547 0.9141 0.2734}
-\psset{arrowscale=1.5,RightAngleSize=.3} % arrow settings, angle markers
 
 %counter settings
 \numberwithin{equation}{section}
@@ -582,8 +590,8 @@ Formule za preoblikovanje izrazov:\\
    \label{eq:izr:razlikakvadratov} a^2 - b^2 &= (a+b)(a-b) \comment{razlika kvadratov} \\
    \label{eq:izr:vsotakubov} a^3 \pm b^3 &= (a \pm b)(a^2 \mp ab + b^2) \comment{razlika ali
    vsota kubov} \\
-   \label{eq:izr:vietovo} (x\pm a)(x\pm b) &= x^2 + (a\pm b)x \pm ab \comment{Viètovo
-   previlo} \\
+   \label{eq:izr:vietovo} (x\pm a)(x\pm b) &= x^2 + (a\pm b)x \pm ab \comment{Vi\`{e}tovo
+   pravilo} \\
    \label{eq:izr:ananminusbnan} a^n - b^n &= (a - b)(a^{n-1} + a^{n-2}b + \cdots
    + ab^{n-2} + b^{n-1}) \\ 
    a^n - b^n &= (a - b)\sum_{i=1}^{n} a^{i-1}b^{n-i} = (a - b)\sum_{i=1}^{n} a^{n-i}b^{i-1} \nonumber \\
@@ -1007,7 +1015,7 @@ Pretvarjanje med kartezičnim in polarnih sistemom je možno. Držijo naslednje 
         \pscurve{->}(1.5,0)(1.40,.5)(1.2,.9)
         \uput[d](1.5,0){$x$}
         \uput[r](2,.75){$y$}
-        \psline[width=.5pt](1.8,0)(1.8,.2)(2,.2) % pravi kot
+        \psline[linewidth=.5pt](1.8,0)(1.8,.2)(2,.2) % pravi kot
       \end{pspicture*}
   \end{center}
   \beforecaptionskip
@@ -5174,8 +5182,6 @@ presečišču.
 \subsection{Pravila za odvajanje}
 \label{sec:odvod:prav}
 
-\subsubsection{Osnovna pravila}
-\label{sec:odvod:prav:osn}
 \begin{align}
   & C' = 0 \label{eq:odv:prav:konst} \\
   & x' = 1 \label{eq:odv:prav:lin} \\
@@ -5297,8 +5303,10 @@ Dokaz pravila \eqref{eq:odv:prav:komp}:
   \label{fig:odv:komp}
 \end{figure}
 
+\subsection{Odvodi elementarnih funkcij}
+\label{sec:odv:elem}
 \subsubsection{Odvodi kotnih in krožnih funkcij}
-\label{sec:odvod:prav:kot}
+\label{sec:odv:elem:kot}
 
 \begin{align}
   & \left( \sin x \right)' = \kos x \label{eq:odv:prav:sin} \\
@@ -5384,7 +5392,7 @@ Dokaz pravila \eqref{eq:odv:prav:atan}:
 \end{align*}
 
 \subsubsection{Odvod eksponentne in logaritemske funkcije}
-\label{sec:odvod:prav:exp}
+\label{sec:odv:elem:exp}
 
 \begin{align}
   & \left( \ln x \right)' = \frac{1}{x} \label{eq:odv:prav:ln} \\
@@ -5520,6 +5528,160 @@ odvoda je prikazan v tabeli~\ref{tab:odv:drug}.
   \caption{Drugi odvod funkcije v stacionarni točki.}
   \label{tab:odv:drug}
 \end{table}
+
+\section{Integralski račun}
+\label{sec:int}
+\subsection{Notacija}
+\label{sec:int:not}
+Zapišimo diferenčni kvocient kot:
+\[ \frac{f(x+h)-f(x)}{h} = \frac{\Delta x}{\Delta y} \]
+Ker včasih niso poznali limite, so rekli, da bo odvod zelo majhna sprememba, označena z d.
+\[ f'(x) = \frac{\d y}{\dx} = \frac{\df}{\dx} \]
+Če obrnemo enačbo, dobimo:
+\[ \df = f'(x) \dx \]
+$\df$ --- diferencial funkcije $f$\\
+$\dx$ --- diferencial neodvisne spremenljivke
+
+Dopišemo znak za integral\footnote{Znak $\int$ izhaja iz ležečega (italic) znaka za dolgi s, kot okrajšavo
+za besedo \textit{summa}. Dolgi s: \url{http://en.wikipedia.org/wiki/Long_s}} na obe strani, 
+\begin{align*}
+ \int\!\df &= \int\!f'(x) \dx \\
+ f(x) &= \int\!f'(x) \dx
+\end{align*}
+Iz zadnje vrstice vidimo našo notacijo na nedoločeni integral funkcije:
+\[ \int\!f(x)\dx \comment{Beri: integral $f(x)$ d\'{e} x} \] 
+
+\subsection{Definicija}
+\label{set:int:def}
+\textbf{Nedoločeni integral} funkcije $f(x)$ je vsaka funkcija $F(x)$ katere odvod je enak funkciji
+pod integralskim znakom.
+\begin{equation}
+  \int\!f(x)\dx = F(x)+C \iff F'(x) = f(x) \label{eq:int:def}
+\end{equation}
+
+\textbf{Diferencial} funkcije $f(x)$ je odvod funkcije $f(x)$ pomnožen s diferencialom neodvisne
+spremenljivke. Diferencial funkcije $f$ je prikazan na sliki.
+\begin{equation}
+  \df = f'(x) \krat \dx \label{eq:int:dif}
+\end{equation}
+
+\subsection{Pravila za integriranje}
+\label{sec:int:prav}
+Direktno iz definicije \eqref{eq:int:def} sledi:
+\begin{equation}
+  \left( \int\!f(x)\dx \right)' = f(x) \label{eq:int:osn}
+\end{equation}
+
+Nedoločeni integral vsote funkcij je enak vsoti nedoločenih integralov posameznih funkcij
+\begin{equation}
+  \int\!\left( f(x) + g(x) \right)\dx = \int\!f(x)\dx + \int\!g(x)\dx \label{eq:int:sum}
+\end{equation}
+
+Konstanto pod integralskim znakom lahko postavimo pred integralski znak.
+\begin{equation}
+  \int\!C\krat f(x)\dx = C\krat \int\!f(x)\dx \label{eq:int:konst}
+\end{equation}
+
+Dokaz pravila~\eqref{eq:int:sum}: \\
+Odvajamo obe strani:
+\begin{gather*}
+  \left( \int\!\left( f(x) + g(x) \right)\dx\right)' = f(x) + g(x) \comment{Po osnovni izpleljavi~\eqref{eq:int:osn}.} \\
+  \left( \int\!f(x)\dx + \int\!g(x)\dx \right)' = \left( \int\!f(x)\dx \right)' + \left( \int\!g(x)dx \right)' = \comment{Po pravilu~\eqref{eq:odv:prav:sum}.} \\ 
+  = f(x) + g(x) \comment{Po osnovni izpleljavi~\eqref{eq:int:osn}.} 
+\end{gather*}
+
+Dokaz pravila~\eqref{eq:int:konst}: \\
+Odvajamo obe strani:
+\begin{gather*}
+  \left( \int\!C\krat f(x)\dx \right)' = C\krat f(x) \comment{Po osnovni izpleljavi~\eqref{eq:int:osn}.} \\
+  \left( C\krat \int\!f(x)\dx \right)' = C\krat \left( \int\!f(x)\dx \right)' = C \krat f(x) \comment{Po pravilu~\eqref{eq:odv:prav:konstkrat} in~\eqref{eq:int:osn}.}
+\end{gather*}
+
+
+\subsection{Integrali elementarnih funkcij}
+\label{sec:int:elem}
+\begin{gather}
+  \int\!\!dx = x + C \label{sec:int:elem:1} \\
+  \int\!x^r\dx = \frac{x^{r+1}}{r+1} + C, \; r \neq -1 \label{sec:int:elem:xnan} \\
+  \int\!\frac{1}{x}\dx = \ln|x| + C \label{sec:int:elem:xnam1} \\
+  \int\!\kos x\dx = \sin x + C \label{sec:int:elem:cos} \\
+  \int\!\sin x\dx = -\kos x + C \label{sec:int:elem:sin} \\
+  \int\!\frac{1}{\sin^2x}\dx = -\cot x + C \label{sec:int:elem:1zsin2} \\
+  \int\!\frac{1}{\kos^2x}\dx = \tan x + C \label{sec:int:elem:1zcos2} \\
+  \int\!\frac{1}{1+x^2}\dx = \arctan x + C \label{sec:int:elem:1z1x2} \\
+  \int\!\frac{1}{\sqrt{1-x^2}}\dx = \arcsin x + C \label{sec:int:elem:1zkor1mx2} \\
+  \int\!e^x\dx = e^x + C \label{sec:int:elem:ex} \\
+  \int\!a^x\dx = \frac{1}{\ln a}a^x + C \label{sec:int:elem:ax} \\
+  \int\!\frac{\dx}{\sqrt{x^2+k}} = \ln|x+\sqrt{x^2+k}| + C \label{sec:int:elem:dolga}
+\end{gather}
+
+Dokazi pravil so večinoma samo obrnjena pravila za odvode iz
+razdelka~\ref{sec:odv:elem}. \\
+Dokaz pravila~\eqref{sec:int:elem:xnam1}:
+\begin{gather*}
+  y = \ln x = 
+  \begin{cases}
+    \hfill    \ln x; & \text{če $x > 0$,} \\
+    \hfill \ln (-x); & \text{če $x < 0$.}
+  \end{cases} \\
+  y' = 
+  \begin{cases}
+    \hfill \frac{1}{x}; & \text{če $x > 0$,} \\
+    \hfill -\frac{1}{x}(-1) = \frac{1}{x}; & \text{če $x < 0$.}
+  \end{cases}
+\end{gather*}
+
+Dokaz pravila~\eqref{sec:int:elem:dolga}: \\
+\[ \int\!\frac{\dx}{\sqrt{x^2+k}} = 
+\begin{cases}
+  \hfill \ln(x+\sqrt{x^2+k}) + C; & \text{če $x > 0$,} \\
+  \hfill \ln(-(x+\sqrt{x^2+k})) + C; & \text{če $x < 0$.}
+\end{cases} \]
+Odvajajmo posebej za pozitivne in negativne $x$.
+\begin{enumerate*}
+  \item $x > 0$
+    \begin{align*}
+      & \left( \ln \left(x + \sqrt{x^2 + k}\right)\right)' = 
+          \frac{1}{x + \sqrt{x^2 + k}} \left( x+(x^2+k)^{\frac{1}{2}} \right)' = \\
+      & = \frac{1}{x + \sqrt{x^2 + k}} \left( 1 + \frac{1}{2}(x^2 + k)^{-\frac{1}{2}} \krat (x^2 + k)' \right) = \\
+      & = \frac{1}{x + \sqrt{x^2 + k}} \left( 1 + \frac{1}{2\sqrt{x^2 + k}}\krat 2x \right) = \\
+      & = \frac{1}{x + \sqrt{x^2 + k}} \left( \frac{\sqrt{x^2+k}}{\sqrt{x^2+k}} + \frac{x}{\sqrt{x^2 + k}} \right) = \\
+      & = \frac{1}{x + \sqrt{x^2 + k}} \left( \frac{\sqrt{x^2 + k} + x}{\sqrt{x^2+k}} \right) = \comment{Krajšamo.} \\
+      & = \frac{1}{\sqrt{x^2 + k}}
+    \end{align*}
+  \item $x < 0$
+    \begin{align*}
+      & \left( \ln(-(x+\sqrt{x^2+k}))\right)' = 
+      -\frac{1}{x+\sqrt{x^2+k}}\left( -\left( x+\sqrt{x^2+k} \right)\right)' = \\
+      & \frac{1}{x+\sqrt{x^2+k}}\left(x+\sqrt{x^2+k} \right)' = \cdots \comment{Enako kot zgoraj.}
+    \end{align*}
+\end{enumerate*}
+
+\subsection{Integriranje z uvedbo nove spremenljivke}
+\label{sec:int:subst}
+Del izraza pod integralskim znakom zamenjamo z novo spremenljivko in nato izračunamo nov
+diferencial te spremenljivke, po formuli~\eqref{eq:int:dif}. Nato v integralu zamenjamo
+želeni izraz in $\!\dx$ ter integriramo, na koncu pa spremenljivko zamenjamo nazaj.
+
+Primer:
+\begin{align*}
+  \int\!\kos5x\dx &= \int\!\kos u\frac{\du}{5} = \frac{1}{5}\!\int\!\kos u \du =
+  \frac{1}{5} \sin u + C = \frac{\sin 5x}{5} + C \\
+  u &= 5x \\
+  \du &= 5\krat \dx \\
+  \dx &= \frac{\du}{5} 
+\end{align*}
+
+Lepo je če imamo sledečo situacijo:
+\[ \int\!f(g(x))g'(x)\dx = \int\!f(t)\dt = F(t)+C = F(g(x)) + C \]
+\[ t = g(x) \implies \dt = g'(x) \krat \dx \]
+
+Primer:\\
+\begin{align*}
+  \int\!\frac{3x^2}{x^3+2}\dx &= \int\!\frac{dt}{t} = \ln|t| + C = \ln|x^3+2| + C \\
+  t &= x^3+2 \\
+  \dt &= 3x^2 \dx \\
+\end{align*}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
