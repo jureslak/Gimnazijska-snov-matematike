@@ -90,6 +90,7 @@ menucolor=black, runcolor=black, urlcolor=black%
 % colour settings
 \newrgbcolor{lightgreen1}{0.3164 0.9531 0.3125}
 \newrgbcolor{lightgrey}{0.8 0.8 0.8}
+\newrgbcolor{verylightgrey}{0.9 0.9 0.9}
 \newrgbcolor{skyblue}{0.3125 0.5898 0.9531}
 \newrgbcolor{orange}{0.9531 0.5625 0.3125}
 \newrgbcolor{violet}{0.6172 0.3125 0.9531}
@@ -115,6 +116,7 @@ menucolor=black, runcolor=black, urlcolor=black%
 \newcommand{\df}{\ensuremath{\d f}}
 \newcommand{\dt}{\ensuremath{\d t}}
 \newcommand{\du}{\ensuremath{\d u}}
+\newcommand{\dv}{\ensuremath{\d v}}
 
 \allowdisplaybreaks[1] % prelomi align
 
@@ -264,8 +266,8 @@ množici $B$. ($A \cup B = \left\{x:x \in A \lor x \in B \right\}$)
 \textbf{Presek} množic $A$ in $B$ ($A \cap B$) je nova množica, ki vsebuje elemente, ki so v množici $A$ in v
 množici $B$. ($A \cup B = \left\{x:x \in A \land x \in B \right\}$)
 
-\textbf{Razlika} množic $A$ in $B$ ($A - B$ ali $A \setminus B$) je nova množica, ki vsebuje vse elemente, ki so v drugi množici
-v prvi pa ne. ($A - B = \left\{x \in A; x \notin B \right\}$)
+\textbf{Razlika} množic $A$ in $B$ ($A - B$ ali $A \setminus B$) je nova množica, ki
+vsebuje vse elemente, ki so v prvi množici v prvi pa ne. ($A - B = \left\{x \in A; x \notin B \right\}$)
 
 \textbf{Komplement} množice $A$ ($A^c$) je nova množica, ki vsebuje vse elemente, ki niso
 v množici $A$. ($A^c = \mathcal{U} - A$)
@@ -1726,11 +1728,11 @@ vrednosti po absolutni vrednosti.
 
 Vsako racionalno funkcijo lahko zapišemo kot vsoto polinoma in nove racionalne funkcije,
 ki ima v števcu polinom nižje stopnje kot v imenovalcu.
-\begin{align*}
+\begin{align}
   p(x) &= k(x) \krat q(x) + o(x) \comment{$:q(x)$}  \quad \st(q(x)) > \st(o(x))
-  \comment{Izrek~\eqref{eq:pol:osndel}.} \\
-    \frac{p(x)}{q(x)} &= k(x) + \frac{o(x)}{q(x)} 
-\end{align*}
+  \comment{Izrek~\eqref{eq:pol:osndel}.} \nonumber \\
+  \frac{p(x)}{q(x)} &= k(x) + \frac{o(x)}{q(x)} \label{eq:rac:del}
+\end{align}
 
 $k(x)$ je \textbf{asimptota} racionalne funkcije. Je krivulja, kateri se graf približuje pri zelo
 velikih in majhnih $x$-ih, ker je takrat ulomek $\frac{o(x)}{q(x)} \approx 0$, ker je $q(x)
@@ -4140,7 +4142,8 @@ Dokaz:
   x_n \text{ ničla} &\implies p(x) =
   k_n(x)\underbrace{(x-x_1)(x-x_2)\krat\,\cdots\,\krat(x-x_n)}_{n \text{ ničel}} \\
   \st\left( k_n(x) \right) &= 0 \comment{Polinom $k_n(x)$ je konstanten.} \\
-  p(x) &= c(x-x_1)(x-x_2)\krat\,\cdots\,\krat(x-x_n) \comment{Oblika za ničle.}
+  p(x) &= c(x-x_1)(x-x_2)\krat\,\cdots\,\krat(x-x_n) \comment{Oblika za ničle.} \\ 
+  p(x) &= c\prod_{i=1}^{n}(x-x_i)
 \end{align*}
 $c$ je vodilni koeficient. Polinom je z ničlami določen do konstante natančno.
 
@@ -5566,7 +5569,11 @@ za besedo \textit{summa}. Dolgi s: \url{http://en.wikipedia.org/wiki/Long_s\#Mod
 Iz zadnje vrstice vidimo našo notacijo na nedoločeni integral funkcije:
 \[ \int\!f(x)\dx \comment{Beri: integral $f(x)$ d\'{e} x} \] 
 
-\subsection{Definicija}
+Notacija za določeni integral bo zelo podobna, le da bomo ob vrhu in ob dnu znaka pisali
+še meje integrala.
+\[ \int_a^b\!f(x)\dx \text{ ali } \int\limits_a^b\!f(x)\dx \]
+
+\subsection{Nedoločeni integral}
 \label{set:int:def}
 \textbf{Nedoločeni integral} funkcije $f(x)$ je vsaka funkcija $F(x)$ katere odvod je enak funkciji
 pod integralskim znakom.
@@ -5612,9 +5619,9 @@ sliki~\ref{fig:int:dif}.
   \label{fig:int:dif}
 \end{figure}
 
-\subsection{Pravila za integriranje}
+\subsubsection{Pravila za integriranje}
 \label{sec:int:prav}
-Direktno iz definicije \eqref{eq:int:def} sledi:
+Neposredno iz definicije \eqref{eq:int:def} sledi:
 \begin{equation}
   \left( \int\!f(x)\dx \right)' = f(x) \label{eq:int:osn}
 \end{equation}
@@ -5645,7 +5652,7 @@ Odvajamo obe strani:
 \end{gather*}
 
 
-\subsection{Integrali elementarnih funkcij}
+\subsubsection{Integrali elementarnih funkcij}
 \label{sec:int:elem}
 \begin{gather}
   \int\!\!dx = x + C \label{sec:int:elem:1} \\
@@ -5704,7 +5711,7 @@ Odvajajmo posebej za pozitivne in negativne $x$.
     \end{align*}
 \end{enumerate*}
 
-\subsection{Integriranje z uvedbo nove spremenljivke}
+\subsubsection{Integriranje z uvedbo nove spremenljivke}
 \label{sec:int:subst}
 Del izraza pod integralskim znakom zamenjamo z novo spremenljivko in nato izračunamo nov
 diferencial te spremenljivke, po formuli~\eqref{eq:int:dif}. Nato v integralu zamenjamo
@@ -5729,6 +5736,248 @@ Primer:\\
   t &= x^3+2 \\
   \dt &= 3x^2 \dx \\
 \end{align*}
+
+\subsubsection{Integriranje racionalnih funkcij}
+\label{sec:int:rac}
+Racionalne funkcije znamo integrirati na dva načina:
+
+Prvega uporabljamo, če je stopnja polinoma v števcu večja od stopnje polinoma v
+imenovalcu. Števec delimo z imenovalcem in racionalno funkcijo zapišemo kot 
+vsoto polinoma in nove racionalne funkcije, ki ima v števcu polinom nižje stopnje kot v
+imenovalcu (enačba~\eqref{eq:rac:del}). Tako dobimo integral vsote, ki ga razbijemo da dva
+integrala, ki sta lažja kot tisti prej (če imamo srečo).
+
+Drugi način je, ko se da imenovalec funkcije razcepiti. Funkcijo spet zapišemo v dveh
+ulomkih, vsak ima en del razcepljenega števca. Kako ugotovimo kaj je v imenovalcih števcev
+je prikazano na primeru. Nato integriramo vsak ulomek posebej.
+
+Primer:
+\begin{gather*}
+  \int\!\frac{-3x}{x^2-5x+4}\dx = \int\!\frac{-3x}{(x-4)(x-1)} = \comment{Razcepimo
+  ulomek.} \\
+  \frac{-3x}{(x-4)(x-1)} = \frac{A}{x-4} + \frac{B}{x-1} = \comment{Na skupni imanovalec.}  \\
+  \frac{A(x-1)+B(x-4)}{(x-1)(x-4)} = \frac{x(A+B) - A - 4}{(x-1)(x-4)} \comment{Dobimo
+  sistem za $A$ in $B$.} \\
+  A + B = -3 \text{ in } -A - 4 = 0 \comment{Dobljeno iz števca ulomka.} \\
+  A = -4 \text{ in } B = 1 \comment{Rešimo sistem.} \\
+  = \int\!\left(\frac{-4}{x-4}+\frac{1}{x-1}\right)\!\dx = \cdots =
+  \ln\left|\frac{x-1}{(x-4)^4}\right|+C
+\end{gather*}
+
+\subsubsection{Integracija ``per partes''}
+\label{sec:int:perpartes}
+\begin{align}
+  \left( u(x)\krat v(x) \right)' &= u'(x)v(x) + v'(x)u(x) \nonumber \\
+  \int\!\left( u(x)\krat v(x) \right)'\!\dx &= \int\!\left( u'(x)v(x) + v'(x)u(x)
+  \right)\!\dx \nonumber \\
+  u(x)\krat v(x) &= \int\!u'(x)v(x)\dx + \int\!v'(x)u(x)\dx \comment{$\du = u'(x)\krat
+  \dx$ \eqref{eq:int:dif}} \nonumber \\
+  uv &= \int\!v\du + \int\!u\dv \nonumber \\
+  \int\!u\dv &= uv - \int\!v\du \label{eq:int:perpartes}
+\end{align}
+
+Primer:
+\begin{gather*}
+  \int\!x\sin x\dx = \\
+  \begin{matrix*}[l]
+    u = x & \du = 1\krat\dx \\
+    dv = \sin x\dx & v = -\kos x
+  \end{matrix*} \\
+  = -x\kos x - \int\!(-\kos x\dx) = -x\kos x + \sin x + C
+\end{gather*}
+
+\subsection{Določeni integral}
+\label{sec:dint}
+Imejmo funkcijo $y = f(x)$, ki naj bo na intervalu $[a,b]$ \textbf{pozitivna} in
+\textbf{zvezna}. Zanima nas ploščina med krivuljo $y$ in $x$-osjo na intervalu $[a,b]$.
+Izpeljava se nanaša na sliko~\ref{fig:dint}.
+
+\begin{figure}[ht]
+  \begin{center}
+      \begin{pspicture*}(-1.5,-1)(10,4.5)
+        \psframe*[linecolor=verylightgrey](1,0)(2,2.74)
+        \psframe*[linecolor=verylightgrey](2,0)(3,2.29)
+        \psframe*[linecolor=verylightgrey](3,0)(4,2.034)
+        \psframe*[linecolor=verylightgrey](4,0)(5,2.034)
+        \psframe*[linecolor=verylightgrey](5,0)(6,2.29)
+        \psframe*[linecolor=verylightgrey](6,0)(7,2.74)
+        \psaxes[labels=none]{->}(0,0)(-1.5,-.5)(8.5,4.5)
+        \psplot[plotstyle=curve,linecolor=blue, linewidth=.5pt]{-1}{8}{x 5 add 30 mul sin 3 add}
+        \psline[linecolor=red](1,0)(1,3) 
+        \psline[linecolor=green](2,0)(2,2.5) 
+        \psline[linecolor=green](3,0)(3,2.13) 
+        \psline[linecolor=green](4,0)(4,2.0) 
+        \psline[linecolor=green](5,0)(5,2.13) 
+        \psline[linecolor=green](6,0)(6,2.5) 
+        \psline[linestyle=dashed,linecolor=violet](1.5,0)(1.5,2.74)
+        \psline[linestyle=dashed,linecolor=violet](2.5,0)(2.5,2.29)
+        \psline[linestyle=dashed,linecolor=violet](3.5,0)(3.5,2.034)
+        \psline[linestyle=dashed,linecolor=violet](4.5,0)(4.5,2.034)
+        \psline[linestyle=dashed,linecolor=violet](5.5,0)(5.5,2.29)
+        \psline[linestyle=dashed,linecolor=violet](6.5,0)(6.5,2.74)
+        \psline[linecolor=red](7,0)(7,3)
+        \uput[d](1,0){$a$}
+        \uput[d](1,-.5){$x_0$}
+        \uput[d](1.5,0){$t_1$}
+        \uput[d](2,0){$x_1$}
+        \uput[d](3,0){$x_2$}
+        \uput[d](5,0){$x_{i-1}$}
+        \uput[d](5.5,0){$t_i$}
+        \uput[d](6,0){$x_i$}
+        \uput[d](7,0){$b$}
+        \uput[d](7,-.5){$x_n$}
+        \uput[u](1.5,2.74){$f(t_1)$}
+        \uput[u](5.5,2.29){$f(t_i)$}
+        \uput[r](6,3.7){$y=f(x)$}
+     \end{pspicture*}
+  \end{center}
+  \beforecaptionskip
+  \caption{Določeni integral funkcije}
+  \label{fig:dint}
+\end{figure}
+
+Razdelimo interval $[a,b]$ na manjše intervale. $a = x_0$, $b = x_n$.
+\[ [x_0,x_1], [x_1,x_2], \cdots, [x_{i-1},x_i], \cdots, [x_{n-1},x_n] \]
+Izberimo si točko $t$ na sredini vsakega intervala in izračunajmo funkcijsko vrednost v
+$t$. Na $i$-tem intervalu imamo tako pravokotnik, katerega osnovnica je dolžine
+$x_i-x_{i-1}$ in katerega višina je $f(t_i)$. Tako lahko na intervalu $[x_{i-1},x_i]$
+zapišemo približek za ploščino pod krivuljo: $(x_i-x_{i-1})\krat f(t_i)$ (ploščina
+pravokotnika). 
+Približek za ploščino pod grafom funkcije na intervalu $[a,b]$ je ploščina
+celotnega sivega območja jo zapišemo kot
+\[ p(L') = \sum_{i=1}^{n}\left( x_i-x_{i-1}\right)\krat f(t_i) \]
+
+Približek bi izboljšali, če bi začetni interval razdelili na več intervalov. Tako je
+ploščina lika pod krivuljo na intervalu $[a,b]$ enaka
+\[  p(L) = \limi\sum_{i=1}^{n}\left( x_i-x_{i-1}\right)\krat f(t_i) \]
+
+Zgornjo limito bomo vzeli kot definicijo \textbf{določenega integrala}. Rečemo ji
+\textbf{integralska vsota}.
+\[ \int_a^b\!f(x)\dx = \limi\sum_{i=1}^{n}\left( x_i-x_{i-1}\right)\krat f(t_i) \]
+
+Določeni integral funkcije $f(x)\dx$ na intervalu $[a,b]$ predstavlja \textbf{ploščino} lika med
+krivuljo $y=f(x)$ in abscisno osjo, \textbf{samo če} je funkcija na tem intervalu pozitivna in
+zvezna.
+
+\subsubsection{Lastnosti določenega integrala}
+\label{sec:dint:last}
+\begin{gather*}
+  \int_a^a\!f(x)\dx = 0 \\
+  \int_a^b\!f(x)\dx = -\int_b^a\!f(x)\dx \\
+  \int_a^b\!f(x)\dx = \int_a^c\!f(x)\dx + \int_c^b\!f(x)\dx;\quad a < c < b \text{ in
+  $f(x)$ pozitivna na $[a,b]$} \\
+  \int_a^b\!f(x)\dx = -p(L) \; \text{ če $f(x)$ negativna na $[a,b]$} \\
+  \int_a^b\!\left( f(x)+g(x) \right)\dx = \int_a^b\!f(x) + \int_a^b\!g(x)\dx \\
+  \int_a^b\!C\krat f(x)\dx = C\krat \int_a^b\!f(x)\dx
+\end{gather*}
+
+\subsubsection{Newton-Leibnizova formula}\
+\label{sec:dint:newlei}
+Newton-Leibnizova formula povezuje nedoločeni in določeni integral.
+
+\[ \int\!f(x)\dx = F(x) \]
+\[ \int_a^b\!f(x)\dx = F(b) - F(a) = F(x)\Big|_a^b \quad \footnotemark\]
+\footnotetext{Notacija $f(x)\Big|_a^b$ se bere $f(x)$ v mejah $a$ $b$ in pomeni $f(b)-f(a)$.}
+
+Ploščina med dvema krivuljama se izračuna po formuli
+\[ p = \int_a^b\!f(x)\dx-\int_a^b\!g(x)\dx = \int_a^b\!\left( f(x)-g(x) \right)\dx \]
+To formulo lahko uporabljamo tudi če sta krivulji na območju mogoče negativni, saj lahko
+obe togo premaknemo za poljubno konstanto navzgor, ker se pri tem ploščina ne spremeni.
+$f(x)$ mora biti zgornja krivulja, če ne je rezultat enak $-p$.
+
+
+\subsubsection{Prostornina vrtenine}
+\label{sec:dint:vrt}
+Izpeljava se nanaša na sliko~\ref{fig:dint:vrt}
+
+\begin{figure}[ht]
+  \begin{center}
+      \begin{pspicture*}(-1.5,-4.5)(10,4.5)
+        \psframe*[linecolor=verylightgrey](4,-2.034)(5,2.034)
+        \psaxes[labels=none]{->}(0,0)(-1.5,-4.5)(8.5,4.5)
+        \psplot[plotstyle=curve,linecolor=blue, linewidth=.5pt]{-1}{8}{x 5 add 30 mul sin 3 add}
+        \psplot[plotstyle=curve,linecolor=blue, linewidth=.5pt]{-1}{8}{x 5 add 30 mul sin 3 add neg}
+        \psline[linecolor=red](1,-3)(1,3) 
+        \psline[linecolor=green](2,-2.5)(2,2.5) 
+        \psline[linecolor=green](3,-2.13)(3,2.13) 
+        \psline[linecolor=green](4,-2)(4,2.0) 
+        \psline[linecolor=green](5,-2.13)(5,2.13) 
+        \psline[linecolor=green](6,-2.5)(6,2.5) 
+        \psline[linestyle=dashed,linecolor=violet](4.5,0)(4.5,2.034)
+        \psline[linecolor=red](7,-3)(7,3)
+        \psellipse[linestyle=dashed,linewidth=.5pt,linecolor=lightgrey](1,0)(.5,3)
+        \psellipse[linestyle=dashed,linewidth=.5pt,linecolor=lightgrey](7,0)(.5,3)
+        \uput[dl](1,0){$a$}
+        \uput[d](4,0){$x_{i-1}$}
+        \uput[d](4.5,0){$t_i$}
+        \uput[dr](5,0){$x_i$}
+        \uput[dr](7,0){$b$}
+        \uput[u](4.5,2.1){$f(t_i)$}
+        \uput[r](6,3.7){$y=f(x)$}
+     \end{pspicture*}
+  \end{center}
+  \beforecaptionskip
+  \caption{Prostornina vrtenine}
+  \label{fig:dint:vrt}
+\end{figure}
+
+Izračunajmo približek prostornine podobno kot smo to počeli pri ploščini. Razdelimo
+vrtenino na $n$ valjev. $i$-ti valj ima tako višino $x_i-x_{i-1}$ in polmer $f(t_i)$, kot
+je prikazano za siv valj na sliki. Volumen enega valja je enak $\pi f^2(t_i)(x_i-x_{i-1})$.
+Volumen približka prostornine je
+\[ V' = \sum_{i=1}^n \pi f^2(t_i)(x_i-x_{i-1}) \]
+$\pi$ lahko izpostavimo. Približek bo tem bolj natančen, čim večji je $n$.
+\begin{align}
+ V &= \limi\pi\sum_{i=1}^nf^2(t_i)(x_i-x_{i-1}) \nonumber \\
+ V &= \pi\int_a^b\!f^2(x)\dx = \pi\int_a^b\!y^2\dx \label{eq:dint:vrt}
+\end{align}
+
+\section{Kombinatorika}
+\label{sec:komb}
+
+Osnovni izrek kombinatorike ali \textbf{pravilo produkta}:
+
+Naj postopek odločanja poteka v $k$ zaporednih fazah. V vsaki fazi se odločamo
+\textbf{neodvisno} od odločitev prejšnjih faz. Če imamo v vsaki fazi $n_i$ možnosti, je
+vseh možnosti
+\[ n = n_1 \krat n_2 \krat \cdots \krat n_k = \prod_{i=1}^kn_i \]
+
+\textbf{Pravilo vsote}:
+
+Če se pri procesu odločanja odločamo med $n_1$ možnostmi iz prve množice izborov
+\textbf{ali} med $n_2$ možnostmi iz druge množice izborov \textbf{ali} med $n_i$ možnostmi
+iz $i$-te množice izborov potem je vseh možnosti
+\[ n = n_1 + n_2 + n_3 + \cdots + n_k = \sum_{i=1}^kn_i \]
+
+Vse možnosti se lahko prikaže tudi s kombinatoričnim drevesom. Primer kombinatoričnega
+drevesa je prikazan na sliki~\ref{fig:komb:drevo}. Na začetku se odločamo med 3 možnostmi,
+nato med 4 in nato še med dvema. (Na koliko načinov se lahko oblečemo, če imamo na voljo 3
+hlače, štiri majice in dvoje čevljev in nam je vseeno kako zgledamo.)
+
+\begin{figure}[ht]
+  \begin{center}
+    \includegraphics[width=\textwidth]{slike/komb_drevo.pdf}
+   \end{center}
+  \beforecaptionskip
+  \caption{Kombinatorično drevo.}
+  \label{fig:komb:drevo}
+\end{figure}
+
+\subsection{Permutacije}
+\label{sec:komb:perm}
+Razporeditve $n$ elementov v ravno vrsto so permutacije $n$ elementov. Število permutacij
+$n$ elementov označimo s $P_n$.
+\[ P_n = n\krat(n-1)\krat(n-2)\krat \,\cdots\, \krat 3 \krat 2 \krat 1 \]
+
+Za namen računanja takih produktov definirajmo \textbf{fakulteto} ($n!$, beri $n$
+fakulteta).
+\[ n! = 1 \krat 2 \krat 3 \krat \,\cdots\, \krat (n-1) \krat n = \prod_{i=1}^ni \]
+Dodatno definirajmo še $0! = 1$.
+
+Število permutacije je tako enako
+\[ P_n = n! \]
+
+Permutacije so vse možne \textbf{bijektivne preslikave} množice same nase.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
