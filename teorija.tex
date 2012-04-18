@@ -5965,7 +5965,7 @@ hlače, štiri majice in dvoje čevljev in nam je vseeno kako zgledamo.)
 
 \subsection{Permutacije}
 \label{sec:komb:perm}
-Razporeditve $n$ elementov v ravno vrsto so permutacije $n$ elementov. Število permutacij
+Razporeditve $n$ elementov v ravno vrsto so \textbf{permutacije} $n$ elementov. Število permutacij
 $n$ elementov označimo s $P_n$.
 \[ P_n = n\krat(n-1)\krat(n-2)\krat \,\cdots\, \krat 3 \krat 2 \krat 1 \]
 
@@ -5978,6 +5978,95 @@ Dodatno definirajmo še $0! = 1$.
 \[ P_n = n! \]
 
 Permutacije so vse možne \textbf{bijektivne preslikave} množice same nase.
+
+\subsection{Permutacije s ponavljanjem}
+\label{sec:komb:ppon}
+Permutacije $n$ elementov s ponavljanjem so vse možne razporeditve $n$ elementov v vrsto,
+pri čemer dopuščamo \textbf{ponavljanje} elementov. 
+\[ P_n^{k_1,k_2,\ldots,k_r} = \frac{n!}{k_1!k_2!\cdots k_r!} =
+\frac{n!}{\displaystyle \prod_{i=1}^rk_r!} \qquad \sum_{i=1}^rk_i \le n \]
+
+Izpeljava formule: Denimo, da imamo tri elemente, ki jih postavljamo v vrsto: $AB_1B_2$.
+Njihove permutacije so: $AB_1B_2, AB_2B_1, B_1AB_2, B_1B_2A, B_2AB_1, B_2B_1A$.
+Če $B$-jev sedaj ne razlikujemo med seboj, opazimo, da je vseh permutacij ravno dvakrat
+preveč, ker lahko $B_1$ in $B_2$ permutiramo na $2! = 2$ načinov. Če bi imeli $k$ enakih
+$B$-jev, bi imeli $k!$ krat preveč permutacij. Če bi imeli $r$
+elementov, ki se ponavljajo vsak $k_r$ krat, potem je vseh permutacij ravno $k_1!\krat
+k_2! \krat \, \cdots \, \krat k_r!$ krat preveč.
+
+Primer: Koliko besed lahko sestavimo iz črk besede \texttt{MATEMATIKA}?
+\[ n = P_{10}^{3,2,2} = \frac{10!}{3!2!2!} = 151200 \]
+
+\subsection{Variacije}
+\label{sec:komb:var}
+
+\textbf{Variacije} reda $r$ iz $n$ elementov so vse možne razporeditve $r$ elementov v
+vrsto, pri čemer elemente izbiramo iz množice z $n$ elementi.
+
+\[ V_n^r = \frac{n!}{(n-r)!} \qquad r \le n \]
+
+Izpeljava formule: Imejmo mesta v vrsti od 1 do $r$:
+za prvo mesto izbiramo med $n$ elementi, za drugo med $n-1$ elementi, za $r$-to med
+$n-(r-1)$ elementi. Torej je vseh možnosti po pravilu produkta enako
+\[ n \krat (n-1) \krat (n-2) \krat \, \cdots \, \krat (n-r+1) \]
+Pa recimo, da si to ful želimo zapisat s fakultetami in opazimo, da je produkt skoraj enak
+$n!$, če bi le imel še člene $(n-r)!\krat(n-r-1)! \krat \, \cdots \, \krat 2!\krat
+1!$. Pa jih dodamo, ampak da ohranimo vrednost izraza moramo s tem tudi deliti. In to je
+zapisano v zgornji formuli.
+
+Variacije so vse možne \textbf{injektivne preslikave} iz množice z močjo $r$ v množico z močjo
+$n$.
+
+Primer: Na koliko načinov lahko postavimo 3 dekleta v vrsto pred tablo, če izbiramo med 12
+dekleti v razredu.
+\[ n = V_{12}^3 = \frac{12!}{9!} = 12\krat 11 \krat 10 = 1320 \]
+
+\subsection{Variacije s ponavljanjem}
+\label{sec:komb:varp}
+Variacije reda $r$ iz $n$ elementov s ponavljanjem so vse možne razporeditve $r$ elementov
+v vrsto, pri čemer elemente izbiramo iz množice z $n$ elementi in dopuščamo ponavljanje.
+
+\[ ^{(p)}V_n^r = n^r \]
+
+Izpeljava formule: Elemente postavljamo v vrsto z mesi od 1 do $r$. Za prvo mesto izbiramo
+med $n$ elementi. Za drugo mesto prav tako izbiramo med $n$ elementi. O glej, za vsako
+izmed $r$ mest izbiramo med $n$ elementi. Tako je po osnovnem izreku kombinatorike vseh
+možnosti $\underbrace{n \krat n \krat n \krat \, \cdots \, \krat n}_{r} = n^r$.
+
+Variacije s ponavljanjem so vse možne \textbf{preslikave} iz množice z močjo $r$ v množico z močjo
+$n$.
+
+\subsection{Kombinacije}
+\label{sec:komb:komb}
+
+Kombinacije reda $r$ iz $n$ elementov so vse podmnožice z močjo $r$ množice z močjo $n$.
+
+\[ C_n^r = \frac{V_n^r}{r!} = \frac{n!}{(n-r)!\krat r!} \qquad r \le n\]
+
+Izpeljava formule: Vseh možnih razporeditev $r$ elementov iz $n$ elementov je $V_n^r$.
+Vendar smo pri tem upoštevali tudi vrstni red elementov. Ker pa delamo z množicami, vrstni
+red ni pomemben in smo dobili, če smo izbirali $r$ elementov, ne le vse možne različne
+elemente, temveč tudi na vse načine razporejene vse možne različne elemente. Načinov
+razporeditve $r$ elementov je $r!$, in ravno tolikokrat preveč smo jih dobili, zato
+število variacij delimo z $r!$.
+
+Primer: V razredu je 30 dijakov. Koliko različnih skupin po 3 lahko oblikujejo?
+\[ n = C_{30}^3 = \frac{30!}{27!\krat 3!} = 4060 \]
+
+\subsection{Kombinacije s ponavljanjem}
+\label{sec:komb:kombp}
+
+Kombinacije s ponavljanjem reda $r$ iz $n$ elementov so vse podmnožice z močjo $r$ množice
+z močjo $r$, pri čemer dopuščamo da se elementi ponavljajo.
+\[ ^{(p)}C_n^r = C_{n+r-1}^r \]
+
+Primer: Na razpolago imamo 3 vrste čaja v vrečkah. Za pripravo vrča čaja
+potrebujemo 7 vrečk. Koliko različnih mešanic čaja lahko pripravimo?
+\[ n = ^{(p)}C_3^7 = C_9^7 = \frac{9!}{7!\krat 2!} = 36 \]
+
+
+\section{Verjetnostni račun}
+\label{sec:verj}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
