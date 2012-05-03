@@ -260,27 +260,51 @@ množice $B$.
 
 Dve množici sta \textbf{enaki}, če imata iste elemente.
 
-\textbf{Unija} množic $A$ in $B$ ($A \cup B$) je nova množica, ki vsebuje elemente, ki so v množici $A$ ali v
-množici $B$. ($A \cup B = \left\{x:x \in A \lor x \in B \right\}$)
-
-\textbf{Presek} množic $A$ in $B$ ($A \cap B$) je nova množica, ki vsebuje elemente, ki so v množici $A$ in v
-množici $B$. ($A \cup B = \left\{x:x \in A \land x \in B \right\}$)
-
-\textbf{Razlika} množic $A$ in $B$ ($A - B$ ali $A \setminus B$) je nova množica, ki
-vsebuje vse elemente, ki so v prvi množici v prvi pa ne. ($A - B = \left\{x \in A; x \notin B \right\}$)
-
-\textbf{Komplement} množice $A$ ($A^c$) je nova množica, ki vsebuje vse elemente, ki niso
-v množici $A$. ($A^c = \mathcal{U} - A$)
-
 \textbf{Moč} množice je število njenih elementov. ($|A|$) 
 
+\textbf{Unija} množic $A$ in $B$ ($A \cup B$) je nova množica, ki vsebuje elemente, ki so v množici $A$ ali v
+množici $B$. \[ A \cup B = \left\{x:x \in A \lor x \in B \right\}, \quad \min\{|A|, |B|\} \le |A \cup B| \le |A| + |B| \]
+
+\textbf{Presek} množic $A$ in $B$ ($A \cap B$) je nova množica, ki vsebuje elemente, ki so v množici $A$ in v
+množici $B$. \[ A \cap B = \left\{x:x \in A \land x \in B \right\}, \quad 0 \le |A \cap B|
+\le \min\{|A|, |B|\} \]
+
+\textbf{Razlika} množic $A$ in $B$ ($A - B$ ali $A \setminus B$) je nova množica, ki
+vsebuje vse elemente, ki so v prvi množici v prvi pa ne. 
+\[ A - B = \left\{x : x \in A; x \notin B \right\} \]
+
+\textbf{Komplement} množice $A$ ($A^c$) je nova množica, ki vsebuje vse elemente, ki niso
+v množici $A$. $A^c = \mathcal{U} - A$
+
 \textbf{Potenčna množica} množice $A$ je množica vseh podmnožic množice $A$.
-($|\mathcal{P}(A)| = 2^{|A|}$). 
+\[ |\mathcal{P}(A)| = 2^{|A|} \]
 
 \textbf{Kartezični produkt} množic $A$ in $B$ ($A \times B$) je nova množica, ki vsebuje urejene pare, v katerih
-je prvi element iz množice $A$, drugi pa iz množice $B$. ($A \times B = \left\{ \left(a,
-b \right); a \in A \land b \in B \right\}, \; \left|A \times B \right| = \left|A\right|
-\krat \left|B\right|$).
+je prvi element iz množice $A$, drugi pa iz množice $B$. 
+\[ A \times B = \left\{ \left(a, b \right); a \in A \land b \in B \right\}, \; \left|A \times B \right| = \left|A\right|
+\krat \left|B\right| \]
+
+Množice lahko predstavimo z Vennovimi diagrami, kot na primer na
+sliki~\ref{fig:mnoz:venn}, kartezični produkt pa kot mrežo kjer vodoravne črte
+predstavljajo elemente množice $A$, navpične elemente množice $B$, presečišča pa so
+elementi kartezičnega produkta. Taka predstavitev je prikazana na
+sliki~\ref{fig:mnoz:kart}.
+
+\begin{figure}[h]
+  \begin{center}
+    \subfigure[Predstavitev razlike množic $A$ in $B$ z Vennovim diagramom.]{
+      \includegraphics[width=0.4\textwidth]{slike/venn.pdf}
+      \label{fig:mnoz:venn}
+      }\hspace{2em}
+    \subfigure[Predstavitev kartezičnega produkta $A \times B$.] {
+      \includegraphics[width=0.4\textwidth]{slike/kart.pdf}
+      \label{fig:mnoz:kart}
+    }
+  \end{center}
+  \beforecaptionskip
+  \caption{Grafična predstavitev množic.}
+  \label{fig:mnoz}
+\end{figure}
 
 \section{Preslikave}
 \label{sec:preslikave}
@@ -407,6 +431,7 @@ Vsako naravno število $a$ lahko zapišemo na en sam način v številskem sestav
 \end{align}
 
 \subsubsection{Kriteriji deljivosti}
+\vspace{-1ex}
 \begin{align*}
   2|a &\iff 2|a_0 \\
   3|a &\iff 3|(a_0 + a_1 + \cdots + a_n) \\
@@ -434,7 +459,7 @@ hkrati. (oznaka: $D(a,b)$) \\
 \textbf{Najmanjši skupni večkratnik} dveh števil $a$ in $b$ je največje število, ki je deljivo z obema
 številoma hkrati. (oznaka: $v(a,b)$) \\
 Med $D(a,b)$ in $v(a,b)$ velja zveza: 
-\[ D(a,b) \krat v(a,b) = a \krat b \edot \]
+\[ D(a,b) \krat v(a,b) = a \krat b \]
 Števili sta si \textbf{tuji}, ko je njun največji skupni delitelj enak 1. \\
 \textbf{Evklidov algoritem} je postopek s katerim dobimo $D(a,b)$. Zadnji od nič različen
 ostanek je $D(a,b)$.
@@ -562,7 +587,7 @@ spremenljivke x, razen za x = 0.
 Dva matematična izraza sta \textbf{enakovredna}, če imata pri istih izbirah spremenljivk vedno
 enako vrednost.
 Primer: Zgornji izraz je enakovreden izrazu 
-\[ 1 + \frac{1}{x} \edot \]
+\[ 1 + \frac{1}{x} \]
 
 Izraz \textbf{poimenujemo} glede na glavno računsko operacijo, ki v njem nastopa -- to je računska
 operacija, ki jo izračunamo nazadnje.
@@ -2621,7 +2646,7 @@ Pogledamo enačbi~\eqref{eq:kot:fakt:1} in~\eqref{eq:kot:fakt:2} pri faktorizaci
 \[ \sin(\alpha+\beta) + \sin(\alpha-\beta) = 2\sin\alpha\kos\beta \]
 in izpeljemo
 \[ \sin\alpha\kos\beta = \frac{1}{2}\left[ \sin(\alpha+\beta) + \sin(\alpha-\beta) \right]
-\edot \]
+\]
 
 Podobno naredimo tudi za ostale formule.
 \begin{align*}
@@ -5853,7 +5878,10 @@ ploščina lika pod krivuljo na intervalu $[a,b]$ enaka
 
 Zgornjo limito bomo vzeli kot definicijo \textbf{določenega integrala}. Rečemo ji
 \textbf{integralska vsota}.
-\[ \int_a^b\!f(x)\dx = \limi\sum_{i=1}^{n}\left( x_i-x_{i-1}\right)\krat f(t_i) \]
+\begin{equation}
+  \int_a^b\!f(x)\dx = \limi\sum_{i=1}^{n}\left( x_i-x_{i-1}\right)\krat f(t_i)
+  \label{eq:int:dint:def}
+\end{equation}
 
 Določeni integral funkcije $f(x)\dx$ na intervalu $[a,b]$ predstavlja \textbf{ploščino} lika med
 krivuljo $y=f(x)$ in abscisno osjo, \textbf{samo če} je funkcija na tem intervalu pozitivna in
@@ -5928,8 +5956,9 @@ Volumen približka prostornine je
 \[ V' = \sum_{i=1}^n \pi f^2(t_i)(x_i-x_{i-1}) \]
 $\pi$ lahko izpostavimo. Približek bo tem bolj natančen, čim večji je $n$.
 \begin{align}
- V &= \limi\pi\sum_{i=1}^nf^2(t_i)(x_i-x_{i-1}) \nonumber \\
- V &= \pi\int_a^b\!f^2(x)\dx = \pi\int_a^b\!y^2\dx \label{eq:dint:vrt}
+  V &= \limi\pi\sum_{i=1}^nf^2(t_i)(x_i-x_{i-1}) \comment{kar je po
+  \eqref{eq:int:dint:def} enako} \nonumber \\
+ V &= \pi\!\int_a^b\!f^2(x)\dx = \pi\!\int_a^b\!y^2\dx \label{eq:dint:vrt}
 \end{align}
 
 \section{Kombinatorika}
@@ -6062,13 +6091,168 @@ z močjo $r$, pri čemer dopuščamo da se elementi ponavljajo.
 
 Primer: Na razpolago imamo 3 vrste čaja v vrečkah. Za pripravo vrča čaja
 potrebujemo 7 vrečk. Koliko različnih mešanic čaja lahko pripravimo?
-\[ n = ^{(p)}C_3^7 = C_9^7 = \frac{9!}{7!\krat 2!} = 36 \]
+\[ n =\ ^{(p)}C_3^7 = C_9^7 = \frac{9!}{7!\krat 2!} = 36 \]
 
 
 \section{Verjetnostni račun}
 \label{sec:verj}
+Verjetnostni \textbf{poskus} je poskus, katerega rezultat je odvisen od naključja.
+Osnovne rezultate verjetnostnega poskusa imenujemo \textbf{izidi} ali \textbf{elementarni
+dogodki}. Označimo jih z $e_1, e_2, \dots, e_n$.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\textbf{Dogodek} je vsak pojav, ki se lahko zgodi pri poskusu. Dogodek lahko zapišemo kot
+\textbf{množico elementarnih dogodkov}, ki so za ta dogodek ugodni.
+\textbf{Univerzalna množica} je množica vseh elementarnih dogodkov. Njeno moč označimo z
+$n$.
+
+\textbf{Nemogoč dogodek} je dogodek, ki se pri poskusu ne more zgoditi. Predstavlja ga prazna
+množica $\emptyset$.
+\textbf{Gotov dogodek} je dogodek, ki se zgodi vedno. Predstavlja ga univerzalna množica
+$\mathcal U$.
+
+Množica vseh možnih dogodkov je potenčna množica množice $\mathcal U$. Vseh možnih
+dogodkov je $|\mathcal P (\mathcal U)| = 2^n$.
+
+Dogodka ki se ne moreta zgoditi hkrati se imenujeta \textbf{nezdružljiva} dogodka, dogodka, ki pa
+se lahko zgodita hkrati, pa se imenujeta \textbf{združljiva} dogodka.
+
+Primer:\\
+Poskus: met poštene kocke\\
+Elementarni dogodki: $\mathcal U = \{\text{pade 1}, \text{pade 2}, \text{pade 3},
+\text{pade 4}, \text{pade 5}, \text{pade 6}\}$\\
+Dogodek: $A = \{\text{pade praštevilo}\} = \{e_2, e_3, e_5\}$\\
+Gotov dogodek: $B = \{\text{pade manj kot 9000}\} = \mathcal U$\\
+Nemogoč dogodek: $C = \{\text{pade 13}\} = \{\}$ \\
+Združljiva: $D = \{\text{pade sodo}\}$ in $A$. \\
+Nezdružljiva: $E = {e_1, e_3}$ in $D$. \\
+
+\subsection{Računanje z dogodki}
+\label{sec:verj:racdog}
+Dogodek $A'$ je \textbf{nasproten} dogodek dogodka A, ki se zgodi, če se ne zgodi $A$.
+Če dogodek $A$ predstavimo z množico ugodnih izidov, dogodku $A'$ ustreza komplement
+množice $A$.
+
+\textbf{Vsota} ali unija dogodkov $A$ in $B$ je nov dogodek $A \cup B$ ($A+B$), ki se zgodi, če se
+zgodi dogodek $A$ ali dogodek $B$.
+
+\textbf{Produkt} ali presek dogodkov $A$ in $B$ je nov dogodek $A \cap B$ ($A\krat B$), ki se
+zgodi, če se zgodita dogodka $A$ in $B$ hkrati. Če je produkt dogodkov enak nič, sta
+dogodka nezdružljiva.
+
+\textbf{Razlika} dogodkov $A$ in $B$ je nov dogodek $A - B$, ki se zgodi, če se zgodi dogodek $A$
+in ne dogodek $B$.
+
+Dogodek $A$ je način dogodka $B$, če se vedno, kadar se zgodi $A$, hkrati zgodi tudi $B$.
+Če dogodka predstavimo z množicama ugodnih izidov, to pomeni, da je $A$ podmnožica množice
+$B$.
+
+\subsection{Klasična definicija verjetnosti}
+\label{sec:verj:def}
+
+Naj bo množica $\mathcal P(\mathcal U)$ množica vseh dogodkov pri poskusu. Verjetnost ($P$) je
+funkcija, ki množico $\mathcal P (\mathcal U)$ preslika v množico realnih števil, če so
+izpolnjeni sledeči aksiomi:
+\begin{enumerate*}
+  \item Verjetnost dogodka je vedno \textbf{večja ali enaka 0}.
+  \item Verjetnost \textbf{gotovega} dogodka je enaka \textbf{1}. $P(\mathcal U) = 1$
+    \label{enum:ver:aks:got}
+  \item Če sta dogodka $A$ in $B$ \textbf{nezdružljiva} je verjetnost teh dveh dogodkov
+    enaka \textbf{vsoti} verjetnosti posameznih dogodkov.
+    \[ A \cap B = \emptyset \implies P(A \cup B) = P(A) + P(B) \] \label{enum:ver:aks:vsota}
+\end{enumerate*}
+
+\vspace{-5ex}
+Naj bo pri poskusu možnih $n$ elementarnih dogodkov, ki so enako verjetni. Potem je
+verjetnost vsakega od njih $\frac{1}{n}$. 
+\[ P(e_i) = \frac{1}{n} \]
+
+Dokaz:
+\begin{align*}
+  \mathcal U &=  e_1 \cup e_2 \cup \cdots \cup e_n \\
+  P(\mathcal U) &= P(e_1 \cup e_2 \cup \cdots \cup e_n) \\
+  1 &= P(e_1) + P(e_2) + \cdots + P(e_n) \comment{Po aksiomih \ref{enum:ver:aks:got} in
+  \ref{enum:ver:aks:vsota}.} \\
+  1 &= n\krat P(e_i) \comment{Ker so vsi enako verjetni.} \\
+  P(e_i) &= \frac{1}{n}
+\end{align*}
+
+Naj bo za dogodek $A$ ugodnih $m$ elementarnih dogodkov, pri poskusu, pri katerem imamo
+$n$ možnih enako verjetnih elementarnih dogodkov. Verjetnost dogodka $A$ je enaka
+kvocientu med številom ugodnih elementarnih dogodkov in vseh elementarnih dogodkov.
+\[ P(A) = \frac{m}{n} \]
+
+Dokaz:
+\begin{align*}
+  A &= \{\underbrace{e_x, \ldots, e_y}_m\} \\
+  P(A) &= P(\{\underbrace{e_x, \ldots, e_y}_m\}) \\
+  P(A) &= \underbrace{P(e_x) + \cdots + P(e_y)}_m \\
+  P(A) &= m \krat \frac{1}{n} \\
+  P(A) &= \frac{m}{n}
+\end{align*}
+
+\subsection{Verjetnost nasprotnega dogodka}
+\label{sec:verj:nasp}
+Vsota verjetnosti dogodka in verjetnosti njemu nasprotnega dogodka je enaka 1.
+\begin{gather*}
+  A \cup A' = \mathcal U \\
+  P(A \cup A') = P(\mathcal U) \\
+  P(A) + P(A') = 1 \comment{$A$ in $A'$ sta nezdružljiva.} \\
+  P(A) = 1 - P(A')  
+\end{gather*}
+
+\subsection{Verjetnost vsote združljivih dogodkov}
+\label{sec:verj:zdruz}
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics{slike/verjetnost_dogodki.pdf}
+  \end{center}
+  \beforecaptionskip
+  \caption{Združljiva dogodka.}
+  \label{fig:verj:zdruz}
+\end{figure}
+
+Imejmo dogodka $A$ in $B$, ki naj bosta združljiva. Primer je prikazan na
+sliki~\ref{fig:verj:zdruz}.
+Število ugodnih elementarnih dogodkov za ta dogodek je tako enako:
+\begin{gather*}
+  m_{A\cup B} = m_A + m_B - m_{A\cap B} \\
+  P(A \cup B) = \frac{m_A + m_B - m_{A\cap B}}{n} \\
+  P(A \cup B) = \frac{m_A}{n} + \frac{m_B}{n} - \frac{m_{A\cap B}}{n} \\
+  P(A \cup B) = P(A) + P(B) - P(A\cap B)
+\end{gather*}
+
+\subsection{Pogojna verjetnost}
+\label{sec:verj:pog}
+
+\textbf{Pogojna} verjetnost je verjetnost dogodka, pod \textbf{pogojem} da se je neki drug dogodek že
+zgodil. ($P(A|B)$, beri: verjetnost $A$, pri pogoju da se je zgodil $B$.)
+
+Pomagajmo si s sliko~\ref{fig:verj:zdruz}.
+Če vemo da se je že zgodil dogodek $B$, potem je moč $B$ število vseh možnosti, ki jih
+imamo, saj vemo, da se je $B$ že zgodil.
+Število ugodnih možnosti pa je sedaj enako le še $m_{A\cap B}$, saj vemo, da so vse ugodne
+možnosti elementi $A$-ja in $B$-ja. Verjetnost je tako enaka:
+\[ P(A|B) = \frac{m_{A\cap B}}{m_B} = \frac{\frac{m_{A\cap B}}{n}}{\frac{m_B}{n}} =
+\frac{P(A\cap B)}{P(B)} \]
+
+\textbf{Verjetnost} dogodka $A$ pod \textbf{pogojem}, da se je zgodil dogodek $B$ je kvocient med
+verjetnostjo produkta $A \cap B$ in verjetnostjo dogodka $B$.
+\[ P(A|B) = \frac{P(A\cap B)}{P(B)} \]
+
+Če zamenjamo črke dobimo:
+\[ P(B|A) = \frac{P(A\cap B)}{P(A)} \]
+in \textbf{verjetnost produkta} dogodkov je tako enaka:
+\[ P(A\cap B) = P(A) \krat P(B|A) \]
+
+Dogodka $A$ in $B$ sta neodvisna natanko takrat, kadar velja:
+\[ P(A|B) = P(B) \]
+To pomeni, da izid dogodka $B$ nima nikakršnega vpliva na možne izide dogodka $A$.
+
+Verjetnost produkta \textbf{neodvisnih} dogodkov je enaka:
+\[ P(A \cap B) = P(A)\krat P(B) \]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \pagebreak
 \listoffigures
