@@ -285,7 +285,7 @@ je prvi element iz množice $A$, drugi pa iz množice $B$.
 \krat \left|B\right| \]
 
 Množice lahko predstavimo z Vennovimi diagrami, kot na primer na
-sliki~\ref{fig:mnoz:venn}, kartezični produkt pa kot mrežo kjer vodoravne črte
+sliki~\ref{fig:mnoz:venn}, kartezični produkt pa kot šahovnico ali kot mrežo kjer vodoravne črte
 predstavljajo elemente množice $A$, navpične elemente množice $B$, presečišča pa so
 elementi kartezičnega produkta. Taka predstavitev je prikazana na
 sliki~\ref{fig:mnoz:kart}.
@@ -350,6 +350,16 @@ Z $\N_n$ označimo množico prvih $n$ naravnih števil.
 
 \textbf{Operacija} dvema elementoma priredi nov element.
 
+Definirajmo še soda in liha števila: \\
+$\mathcal S = \{2n; n \in \N \}$ \\
+$\mathcal L = \{2n+1; n \in \N \}$
+
+Velja tudi: \\
+vsota dveh lihih števil je sodo število. 
+\[ (2n+1) + (2m+1) = 2(n+m+1) = 2k \]
+kvadrat lihega števila je liho število. 
+\[ (2n+1)^2 = 4n^2 + 4n + 1 = 2(2n^2 + 2n) + 1 = 2k+1 \]
+
 \subsection{Zakoni}
 \label{sec:naravna:zakoni}
 Zakon o \textbf{komutativnosti} ali zakon o zamenjavi za množenje in seštevanje:
@@ -362,7 +372,6 @@ Zakon o \textbf{asociativnosti} ali zakon o združevanju za množenje in seštev
 
 Zakon o \textbf{distributivnosti} ali zakon o razčlenjevanju:
 \[ a \krat (b + c) = a \krat b + a \krat c \]
-
 
 \subsection{Številski sestavi}
 Vsako število v desetiškem sistemu z osnovo 10 lahko zapišemo v kateremkoli sistemu
@@ -444,15 +453,12 @@ Vsako naravno število $a$ lahko zapišemo na en sam način v številskem sestav
 
 \textbf{Praštevila} so števila, ki imajo natanko dva delitelja. Praštevil je neskončno mnogo.
 Dokaz manjka. Števila, ki imajo več kot dva različna delitelja so \textbf{sestavljena} števila. 
-\begin{izrek}
-  \textnormal{\textbf{Osnovni izrek aritmetike:} Vsako število lahko zapišemo kot produkt
-  samih praštevil.}
-\end{izrek}
 
-\begin{izrek}
-  \textnormal{\textbf{Osnovni izrek o deljenju:} Za vsaki dve števili $a$ in $b$ obstajata
-  natanko določeni števili $k$ in $o$, tako da velja $a = k \krat b+ o; \quad 0 \leq o < b$.}
-\end{izrek}
+\textbf{Osnovni izrek aritmetike:} Vsako število lahko zapišemo kot produkt
+samih praštevil.
+
+\textbf{Osnovni izrek o deljenju:} Za vsaki dve števili $a$ in $b$ obstajata
+natanko določeni števili $k$ in $o$, tako da velja $a = k \krat b+ o; \quad 0 \leq o < b$.
 
 \textbf{Največji skupni delitelj} števil $a$ in $b$ je največje število, ki deli obe števili
 hkrati. (oznaka: $D(a,b)$) \\
@@ -492,6 +498,12 @@ $\forall a, b, c \in \Z \!:$
 
 \section{Racionalna števila}
 \label{sec:rac}
+Ulomek je zapis oblike $\frac{a}{b}$ kjer sta $a$ in $b$ cela in je $b$ različen od nič. Ulomek je
+tako urejen par celih števil, pomeni pa $a$ deljeno z $b$.
+
+Dva ulomka $\frac{a}{b}$ in $\frac{c}{d}$ sta enaka natanko takrat, kadar velja $a \krat d = b \krat
+c$.
+
 \[ \Q = \left\{\frac{a}{b}; a,b \in \Z, b \neq 0 \right\} \]
 
 \subsection{Zakoni}
@@ -517,18 +529,27 @@ decimalna števila.
 
 \subsection{Urejenost racionalnih števil}
 Ulomke lahko predstavimo na številski premici. Množica racionalnih števil je povsod enako
-gosta. Med dvema racionalnima številoma je vedno še vsaj eno racionalno število.
+\textbf{gosta}. Med dvema racionalnima številoma je vedno še vsaj eno racionalno število.
 \[ a < \frac{a+b}{2} < b; a, b \in \Q \] 
 
-\section{Realna števila}
-To je množica vseh \textbf{decimalnih} števil. Med množico \R{} in množico točk na premici
-obstaja bijektivna preslikava.
-\begin{izrek}
-  \label{izrek:koren2nirac}
-  $\sqrt{2} \notin \Q$
-\end{izrek}
+\textbf{Razmerje} je zapis ki podaja odnos men ponavadi dvema količinama. Zapišemo ga kot $a:b$
+(beri $a$ proti $b$). \\
+\textbf{Osnova} je celota izbrana celota, glede na katero obravnavamo delež. \\
+\textbf{Delež} je izbrani del celote. \\
+\textbf{Relativni delež} je razmerje med deležem in osnovo. Ponavadi ga pišemo v obliki okrajšanega
+ulomka. \\
+\textbf{Odstotek} ali procent je relativni delež pomnožen s 100.
 
-\textbf{Dokaz izreka \ref{izrek:koren2nirac}:} 
+\section{Realna števila}
+To je množica vseh \textbf{decimalnih} števil.
+\[ \R = \Q \cup \mathcal I \]
+Racionalna števila imajo končen ali periodičen decimalni zapis, medtem ko imajo iracionalna števila
+neskončen decimalni zapis.
+
+Iracionalna števila so na primer $\sqrt{2}, \sqrt{3}, \sqrt[3]{5}, \pi, e, \ldots$. V decimalni
+obliki lahko zapišemo je njihove približke. 
+
+Dokaz, da $\sqrt{2} \notin \Q$
 \begin{align*}
   A &:= \sqrt{2} \notin \Q \\
   \neg A &:= \sqrt{2} \in \Q  \comment{dokažimo trditev $\neg A$} \\
@@ -543,6 +564,31 @@ obstaja bijektivna preslikava.
   \neg A = 0 &\Rightarrow A = 1 \comment{$\sqrt{2}$ torej ni element \Q} \\
 \end{align*}
 \[  \sqrt{2} \notin \Q \]
+
+Številska premica je premica, na kateri ponazarjamo števila. Izberemo si izhodišče -- število 0 -- in na levi
+predstavimo negativna števila na desni pa pozitivna. Oddaljenost od izhodišča predstavlja absolutna
+vrednost tega števila. Med množico \R{} in množico točk na premici obstaja bijektivna preslikava.
+
+%todo ponazoritev realnih in racionalnih števil
+
+\subsection{Intervali}
+\label{sec:realna:intervali}
+$\left[a,b \right] = \left\{x; a \leq x \leq b; \; x \in \R \right\}$ --- zaprt interval \\
+$\left(a,b \right) = \left\{x; a < x < b; \; x \in \R \right\}$ --- odprt interval \\
+$\left[a,b \right] = \left\{x; a \leq x < b; \; x \in \R \right\}$ --- polodprt interval \\
+$\left(a,b \right] = \left\{x; a < x \leq b; \; x \in \R \right\}$ --- polzaprt interval \\
+$(-\infty,\infty) = \R$
+
+Predstavimo jih kot daljico na številski premici, če se daljica konča s piko je interval na tisti
+strani zaprt, če se konča s puščico je odprt.
+
+\subsection{Absolutna in relativna napaka}
+\label{sec:realna:nap}
+Naj bo dano določeno število $s$ in njegov približek $p$.
+Absolutna napaka približka je enaka 
+\[ \Delta = |s-p| \]
+Relativna napaka pa je enaka
+\[ \delta = \frac{\Delta}{s} \]
 
 \section{Absolutna vrednost}
 \begin{equation}
@@ -565,15 +611,8 @@ obstaja bijektivna preslikava.
     absolutnih vrednosti. (\textbf{trikotniška neenakost})
 \end{itemize*}
 
-\section{Intervali}
-\label{sec:intervali}
-$\left[a,b \right] = \left\{x; a \leq x \leq b; \; x \in \R \right\}$ --- zaprt interval \\
-$\left(a,b \right) = \left\{x; a < x < b; \; x \in \R \right\}$ --- odprt interval \\
-$\left[a,b \right] = \left\{x; a \leq x < b; \; x \in \R \right\}$ --- polodprt interval \\
-$\left(a,b \right] = \left\{x; a < x \leq b; \; x \in \R \right\}$ --- polzaprt interval \\
-$(-\infty,\infty) = \R$
-
 \section{Izrazi}
+\label{sec:izr}
 \textbf{Matematični izraz} je zapis sestavljen iz števil, spremenljivk, matematičnih funkcij in
 operacij ter iz oklepajev, ki določajo vrstni red računanja. Da je tak zapis res
 matematični izraz, mora biti tudi \textbf{smiseln:} Če namesto spremenljivk vstavimo konkretna
@@ -4929,7 +4968,7 @@ Dokaži da velja:
 \subsection{Limita zaporedja}
 \label{sec:zap:lim}
 \textbf{Okolica} $\varepsilon$ točke $a$ je odprt interval\footnote{Za osvežitev spomina o
-intervalih glej razdelek~\ref{sec:intervali}.} $(-\varepsilon+a, a+\varepsilon)$. Točka
+intervalih glej razdelek~\ref{sec:realna:intervali}.} $(-\varepsilon+a, a+\varepsilon)$. Točka
 $a$ je \textbf{stekališče} zaporedja $a_n$, če je v vsaki okolici točke $a$ neskončno mnogo členov
 zaporedja. Točka $a$ je \textbf{limita} zaporedja $a_n$ če je v vsaki okolici točke $a$
 \textbf{neskončno} mnogo členov zaporedja, izven te okolice pa \textbf{končno} mnogo. Zaporedje, ki ima limito je
@@ -6093,6 +6132,82 @@ Primer: Na razpolago imamo 3 vrste čaja v vrečkah. Za pripravo vrča čaja
 potrebujemo 7 vrečk. Koliko različnih mešanic čaja lahko pripravimo?
 \[ n =\ ^{(p)}C_3^7 = C_9^7 = \frac{9!}{7!\krat 2!} = 36 \]
 
+\subsection{Binomski koeficienti in binomski izrek}
+\label{sec:komb:bin}
+
+Definirajmo \textbf{binomski koeficient} oz. binomski simbol (simbol beremo $n$ nad $r$)
+\[ \binom{n}{r} = C^r_n = \frac{n!}{(n-r)!r!} \]
+
+Vrednost binomskega koeficienta je odgovor na vprašanje: ``Koliko je podmnožic z močjo $r$
+množice z močjo $n$?''
+
+\textbf{Osnovne vrednosti} binomskih simbolov: 
+\[ \binom{n}{0} = 1 \qquad \binom{n}{1} = n \qquad \binom{n}{n} = 1 \]
+
+Za binomske simbole veljata tudi dve lastnosti: simetričnost in aditivnost. \\
+\textbf{Simetričnost:}
+\[ \binom{n}{r} = \binom{n}{n-r} \]
+Dokaz:
+\begin{align*}
+  \frac{n!}{(n-r)!r!} &= \frac{n!}{(n-(n-r))!(n-r)!} \\
+  \frac{n!}{(n-r)!r!} &= \frac{n!}{r!(n-r)!}
+\end{align*}
+Simetričnost se vidi tudi takole: če ima množica s 100 elementi $k$ podmnožic s 75 elementi, ima
+tudi $k$ podmnožic s 25 elementi, saj vsaki podmnožici s 75 elementi ustreza določena množica s 25
+elementi.
+
+\textbf{Aditivnost:}
+\[ \binom{n}{r} + \binom{n}{r+1} = \binom{n+1}{r+1} \]
+Dokaz:
+\begin{align*}
+  &\binom{n}{r} + \binom{n}{r+1} = \frac{n!}{(n-r)!r!} + \frac{n!}{(n-r-1)!(r+1)!} = \\
+  &= \frac{n!}{r!(n-r-1)!}\left( \frac{1}{n-r} + \frac{1}{r+1} \right) =
+  \frac{n!}{r!(n-r-1)!}\left( \frac{r+1+n-r}{(n-r)(r+1)} \right) = \\
+  &= \frac{n!(n+1)}{r!(r+1)(n-r-1)!(n-r)} = \frac{(n+1)!}{(r+1)!(n-r)!} = \\
+  &= \binom{n+1}{r+1}
+\end{align*}
+
+\subsubsection{Pascalov trikotnik}
+\label{sec:komb:bin:pasc}
+Pascalov trikotnik je trikotnik kjer so v vrsticah in stolpcih zapisani posamezni binomski koeficienti.
+
+\input{pascal_binom.tex}
+
+\input{pascal.tex}
+
+Koeficienti ob levi in desni strani Pascalovega trikotnika so vedno enaki 1, ena izmed osnovnih
+vrednosti binomskega simbola. Simetričnost binomskih koeficientov se kaže tudi v simetričnosti
+Pascalovega trikotnika. Vsako novo vrstico (razen prvega in zadnjega koeficienta) dobimo iz prejšnje
+po pravilu aditivnosti: koeficienta levo in desno zgoraj od želenega se seštejeta ravno vanj. Tako
+lahko precej enostavno zapišemo prvih nekaj vrstic Pascalovega trikotnika.
+
+\subsubsection{Binomski izrek}
+\label{sec:komb:bin:bin}
+Binomski izrek je izrek, ki opisuje potenciranje \textbf{binoma}\footnote{Binom je druga beseda za dvočlenik} z naravnim številom ali 0.
+\begin{gather*}
+  (a+b)^n = \sum_{r=0}^n\binom{n}{r}a^{n-r}b^r = \\
+  = \textstyle \binom{n}{0}a^nb^0 + \binom{n}{1}a^{n-1}b^1 + \binom{n}{2}a^{n-2}b^2 + \cdots +
+  \binom{n}{n-2}a^2b^{n-2} + \binom{n}{n-1}a^1b^{n-1} + \binom{n}{n}a^0b^n
+\end{gather*}
+
+Pravimo, da razvijemo binom v \textbf{binomsko vrsto}. Splošni člen te binomske vrste je
+\[ \binom{n}{r}a^{n-r}b^r \comment{$r+1$-ti člen!!, ker se začne z $r = 0$} \]
+
+Razlaga formule:\\
+Potencirajmo na primer $(a+b)^5 = (a+b)(a+b)(a+b)(a+b)(a+b)(a+b)$. Ko bi te oklepaje množili med
+seboj, bi lahko iz vseh izbrali $a$ in bi dobili člen $a^5$. Seveda moramo množiti vsakega z vsakim,
+in tako moramo tudi izbrati en $b$ in 4 $a$-je, da dobimo člen $a^4b$. Vendar lahko ta $b$ izberemo
+na več različnih načinov, na točno $C^1_5$ načinov. Podobno izbiramo 2 $b$-ja in 3 $a$-je, da dobimo
+člen $a^3b^2$ in to lahko izberemo na $\binom{5}{2}$ možnih načinov. Tako pridemo nazadnje do člena
+$b^5$, kjer izberemo samo vse $b$-je, na en sam možen način.
+
+Iz binomskega izreka tudi sledi, da je vsota posamezne vrstice v Pascalovem trikotniku enaka $2^n$.
+\textbf{Število podmnožic} neke množice je prav tako enako $2^n$. Število podmnožic množice z močjo $n$ lahko
+zapišemo kot število podmnožic z močjo 0 + število podmnožic z močjo $1 + \cdots + $ število
+podmnožic z močjo $n$, ali drugače
+\[ \binom{n}{0} + \binom{n}{1} + \cdots + \binom{n}{n-1} + \binom{n}{n} \comment{$n$-ta
+vrstica Pascalovega trikotnika} \]
+Tako binomsko vrsto pa lahko dobimo le, če potenciramo binom $(1+1)^n$, kar pa je enako $2^n$. Duh.
 
 \section{Verjetnostni račun}
 \label{sec:verj}
@@ -6176,7 +6291,7 @@ Dokaz:
   P(e_i) &= \frac{1}{n}
 \end{align*}
 
-Naj bo za dogodek $A$ ugodnih $m$ elementarnih dogodkov, pri poskusu, pri katerem imamo
+Naj bo za dogodek $A$ ugodnih $m$ \textbf{elementarnih} dogodkov, pri poskusu, pri katerem imamo
 $n$ možnih enako verjetnih elementarnih dogodkov. Verjetnost dogodka $A$ je enaka
 kvocientu med številom ugodnih elementarnih dogodkov in vseh elementarnih dogodkov.
 \[ P(A) = \frac{m}{n} \]
@@ -6189,6 +6304,10 @@ Dokaz:
   P(A) &= m \krat \frac{1}{n} \\
   P(A) &= \frac{m}{n}
 \end{align*}
+
+Obstaja tudi statistična definicija verjetnosti, pa še kakšna druga tudi. Po statistični
+definiciji verjetnosti je verjetnost limita relativne frekvence, ko gre število poskusov v
+neskončno. 
 
 \subsection{Verjetnost nasprotnega dogodka}
 \label{sec:verj:nasp}
@@ -6203,15 +6322,6 @@ Vsota verjetnosti dogodka in verjetnosti njemu nasprotnega dogodka je enaka 1.
 \subsection{Verjetnost vsote združljivih dogodkov}
 \label{sec:verj:zdruz}
 
-\begin{figure}[h]
-  \begin{center}
-    \includegraphics{slike/verjetnost_dogodki.pdf}
-  \end{center}
-  \beforecaptionskip
-  \caption{Združljiva dogodka.}
-  \label{fig:verj:zdruz}
-\end{figure}
-
 Imejmo dogodka $A$ in $B$, ki naj bosta združljiva. Primer je prikazan na
 sliki~\ref{fig:verj:zdruz}.
 Število ugodnih elementarnih dogodkov za ta dogodek je tako enako:
@@ -6221,6 +6331,15 @@ sliki~\ref{fig:verj:zdruz}.
   P(A \cup B) = \frac{m_A}{n} + \frac{m_B}{n} - \frac{m_{A\cap B}}{n} \\
   P(A \cup B) = P(A) + P(B) - P(A\cap B)
 \end{gather*}
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics{slike/verjetnost_dogodki.pdf}
+  \end{center}
+  \beforecaptionskip
+  \caption{Združljiva dogodka.}
+  \label{fig:verj:zdruz}
+\end{figure}
 
 \subsection{Pogojna verjetnost}
 \label{sec:verj:pog}
@@ -6246,11 +6365,37 @@ in \textbf{verjetnost produkta} dogodkov je tako enaka:
 \[ P(A\cap B) = P(A) \krat P(B|A) \]
 
 Dogodka $A$ in $B$ sta neodvisna natanko takrat, kadar velja:
-\[ P(A|B) = P(B) \]
-To pomeni, da izid dogodka $B$ nima nikakršnega vpliva na možne izide dogodka $A$.
+\[ P(A|B) = P(A) \text{in} P(B|A) = P(B) \]
+To pomeni, da izid dogodka $B$ nima nikakršnega vpliva na možne izide dogodka $A$ in
+obratno.
 
 Verjetnost produkta \textbf{neodvisnih} dogodkov je enaka:
 \[ P(A \cap B) = P(A)\krat P(B) \]
+
+\subsection{Bernoullijevo zaporedje}
+\label{sec:ver:bern}
+
+Zaporedje \textbf{neodvisnih} poskusov je \textbf{Bernoullijevo zaporedje}, če se lahko v vsaki ponovitvi
+poskusa zgodi samo dogodek $A$ z verjetnostjo $p$ ali njegov nasprotni dogodek.
+\[ P(A) = p \qquad \quad P(A') = 1-p \]
+Verjetnost, da se nek dogodek z verjetnostjo $p$ v $n$ ponovitvah poskusa zgodi natanko
+$k$-krat, je enaka
+\[ P(n, p, k) = \binom{n}{k}p^k(1-p)^{n-k} \]
+
+Pojasnijo formule:\\
+Za lažjo obravnavo denimo, da nas zanima kolikšna je verjetnost, da se najprej zgodi
+$k$ dogodkov $A$ in nato $n-k$ dogodkov $A'$.
+\begin{gather*}
+  P(\underbrace{A \cap A \cap \cdots \cap A}_k \cap \underbrace{A' \cap A' \cap \cdots
+  \cap A'}_{n-k}) = \comment{Neodvisni dogodki.}\\
+  = \underbrace{P(A)\krat P(A) \krat \, \cdots \, \krat P(A)}_k \krat
+  \underbrace{P(A')\krat P(A')\krat \, \cdots \, \krat P(A')}_{n-k} = \\
+  = (P(A))^k \krat (P(A'))^{n-k} = p^k(1-p)^{n-k}
+\end{gather*}
+Sedaj pa se vrnimo na osnovni problem. Ne zanima nas vrstni red v katerem se je zgodilo
+$k$ dogodkov $A$, zanima nas le verjetnost, da se jih je zgodilo $k$. Na koliko 
+različnih načinov pa se lahko zgodi $k$ dogodkov $A$ v $n$ poskusih? Na $C^k_n =
+\binom{n}{k}$, torej je verjetnost, da se zgodi dogodek $A$, ravno $\binom{n}{k}$-krat večja.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 
