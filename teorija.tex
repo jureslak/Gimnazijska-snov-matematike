@@ -467,8 +467,27 @@ hkrati. (oznaka: $D(a,b)$) \\
 Med $D(a,b)$ in $v(a,b)$ velja zveza: 
 \[ D(a,b) \krat v(a,b) = a \krat b \]
 Števili sta si \textbf{tuji}, ko je njun največji skupni delitelj enak 1. \\
-\textbf{Evklidov algoritem} je postopek s katerim dobimo $D(a,b)$. Zadnji od nič različen
-ostanek je $D(a,b)$.
+\textbf{Evklidov algoritem} je postopek s katerim dobimo $D(a,b)$. Za potek algoritma privzemimo $a
+\ge b$.
+
+Po osnovnem izreku  deljenju lahko $a$ zapišemo kot:
+\[ a = k_1\krat b + o_1 \]
+Nato postopek ponovimo, samo da za $a$ vzamemo $b$ in namesto $b$ vzamemo $o_1$:
+\[ b = k_2\krat o_1 + o_2 \]
+Postopek ponavljamo dokler ni $o$ enak 0. Zadnji od nič različen
+ostanek je $D(a,b)$. V psevdokodi je algoritem zapisan kot algoritem~\ref{algo:evklid}.
+
+\begin{algorithm}[h]
+  \caption{Evklidov algoritem}\label{algo:evklid}
+  \begin{algorithmic}[1]
+    \While{$b \neq 0$}
+        \State $o \gets a\ \%\ b$
+        \State $a \gets b$
+        \State $b \gets o$
+    \EndWhile
+    \State \Return $a$, ki je $D(a, b)$
+  \end{algorithmic}
+\end{algorithm}
 
 \section{Cela števila}
 \label{sec:cela}
@@ -527,6 +546,8 @@ Ulomki, ki jih lahko razširimo tako, da imajo v imenovalcu potenco z osnovo 10,
 imenujejo \textbf{desetiški} ulomki. V razcepu imajo lahko le faktorja 5 in 2. Taki ulomki so končna 
 decimalna števila.
 
+Zakoni urejenosti za racionalna in tudi za realna števila so enaki kot za cela števila.
+
 \subsection{Urejenost racionalnih števil}
 Ulomke lahko predstavimo na številski premici. Množica racionalnih števil je povsod enako
 \textbf{gosta}. Med dvema racionalnima številoma je vedno še vsaj eno racionalno število.
@@ -569,7 +590,24 @@ Dokaz, da $\sqrt{2} \notin \Q$
 predstavimo negativna števila na desni pa pozitivna. Oddaljenost od izhodišča predstavlja absolutna
 vrednost tega števila. Med množico \R{} in množico točk na premici obstaja bijektivna preslikava.
 
-%todo ponazoritev realnih in racionalnih števil
+\subsection{Ponazoritev realnih in racionalnih števil}
+Vsa racionalna in nekatera realna števila lahko konstruiramo in tako ponazorimo na številski
+premici. Racionalna števila konstruiramo tako, da iz znane točke narišemo poltrak, na njem označimo
+$a$ enakih delov in zadnjega povežemo z drugo znano točko na številski premici. Nato potegnemo
+vzporednico skozi $m$-to izmed označb in kjer seka številsko premico je število $\frac{m}{n}$.
+
+Iracionalne korene lahko prav tako konstruiramo. Uporabimo lahko diagonalo pravokotnika ali višino
+trikotnika (pri tem si do želenega korena pomagamo z višinskim izrekom).
+
+Konstrukcija realnih in racionalnih števil je prikazana na sliki~\ref{fig:real:konstr}.
+
+\begin{figure}[ht]
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{slike/realrac.pdf}
+  \end{center}
+  \caption{Konstrukcija racionalnih in realnih števil na primeru $\frac{1}{3}$ in $-\sqrt{2}$.}
+  \label{fig:real:konstr}
+\end{figure}
 
 \subsection{Intervali}
 \label{sec:realna:intervali}
@@ -660,10 +698,10 @@ Formule za preoblikovanje izrazov:\\
    pravilo} \\
    \label{eq:izr:ananminusbnan} a^n - b^n &= (a - b)(a^{n-1} + a^{n-2}b + \cdots
    + ab^{n-2} + b^{n-1}) \\ 
-   a^n - b^n &= (a - b)\sum_{i=1}^{n} a^{i-1}b^{n-i} = (a - b)\sum_{i=1}^{n} a^{n-i}b^{i-1} \nonumber \\
+   a^n - b^n &= (a - b)\sum_{i=1}^{n} a^{n-i}b^{i-1} \nonumber \\
    \label{eq:izr:ananplubnan}  a^n + b^n &=  (a + b)(a^{n-1} - a^{n-2}b + \cdots
    - ab^{n-2} + b^{n-1}) \\
-   a^n +b^n &= (a+b)\sum_{i=1}^{n} (-1)^{i+1}a^{i-1}b^{n-i} \comment{za lihe $n$} \nonumber
+   a^n +b^n &= (a+b)\sum_{i=1}^{n} (-1)^{i+1}a^{n-i}b^{i-1} \comment{za lihe $n$} \nonumber
 \end{align}
 }
 \footnotetext{Kub dvočlenika.}
@@ -892,21 +930,21 @@ Dogovora:
 \end{align*}
 
 \vspace{-24pt}
-\hspace{95pt}
+\hspace{100pt}
 \footnote{Matematiki za logaritem z osnovo $e$ pogosto uporabljajo
 kar zapis $\log x$.}
 
 \subsection{Pravila za računanje}
 \label{sec:eq:log:prav}
-Logaritem potence je enak produktu med eksponentom in logaritmom osnove:
+Logaritem \textbf{potence} je enak produktu med eksponentom in logaritmom osnove:
 \begin{equation}
   \log_a\! x^n = n\log_a\! x \label{eq:log:prav:loganan}
 \end{equation}
-Logaritem produkta je enak vsoti logaritmov posameznih faktorjev:
+Logaritem \textbf{produkta} je enak vsoti logaritmov posameznih faktorjev:
 \begin{equation}
   \log_a\! xy = \log_a\!x+ \log_a\!y \label{eq:log:prav:logprod}
 \end{equation}
-Logaritem kvocienta je enak razliki med logaritmom števca in imenovalca:
+Logaritem \textbf{kvocienta} je enak razliki med logaritmom števca in imenovalca:
 \begin{equation}
   \log_a\!\frac{x}{y} = \log_a\!x-\log_a\!y \label{eq:log:prav:logkvoc}
 \end{equation}
@@ -1157,9 +1195,11 @@ Funkcija je na nekem območju \textbf{konkavna}, če za vsaki dve točki na graf
 leži graf nad daljico, ki jo določata ti dve točki.
 
 Funkcija je \textbf{soda}, če za vsak $x$ iz definicijskega območja velja: $f(-x) = f(x)$.
+Graf sode funkcije je simetričen glede na $y$ os.
 \[ f(x) \textnormal{ soda } \iff f(-x) = f(x); \; \forall x \in D_f \]
 
 Funkcija je \textbf{liha}, če za vsak $x$ iz definicijskega območja velja: $f(-x) = -f(x)$.
+Graf lihe funkcije je središčno simetričen glede na izhodišče.
 \[ f(x) \textnormal{ liha } \iff f(-x) = -f(x); \; \forall x \in D_f \]
 
 Funkcija je na nekem območju \textbf{pozitivna}, če so vse funkcijske vrednosti na tem območju
@@ -1643,6 +1683,19 @@ izhaja iz definicije~\eqref{eq:pot:defz}. Vse z osnovo iz enake skupine se razli
 po \textbf{strmini} padanja in naraščanja. Lahko jih premikamo ali raztegujemo.
 \[ f(x) = b\krat a^{x-p} + q \]
 
+\subsubsection{Naravna rast}
+V naravi se velikokrat zgodi, da sta dve spremenljivki med seboj odvisni $eksponentno$. Osnova
+eksponentne funkcije, ki ju povezuje pa je pri veliko naravnih zakonih enaka $e$. $e$ je iracionalno
+število, ki nastopa kot osnova eksponentnih funkcij, ki opisujejo naravne zakone. $e$ se lahko
+izračuna na več načinov in je v splošnem enak
+\[ e = \frac{1}{1!} + \frac{1}{2!} + \frac{1}{3!} + \cdots = \sum_{i=1}^\infty\frac{1}{i!} \] 
+\[ e = \limi\left( 1+\frac{1}{n} \right)^n \]
+
+Z eksponentno funkcijo oblike $y = e^{kx}$ se tako lahko opiše večino primerov eksponentne rasti v
+naravi, kot so rast prebivalstva, množenje bakterij (kar je isto kot rast prebivalstva če pogledaš
+postrani), razpad jeder, obrestni račun, \dots
+
+
 \subsection{Logaritemska funkcija}
 \textbf{Logaritemska funkcija} je vsaka funkcija oblike $y = \log_a\!x, \; a \in \R^+ - \left\{ 1
 \right\}$.
@@ -1800,8 +1853,13 @@ ki ima v števcu polinom nižje stopnje kot v imenovalcu.
 
 $k(x)$ je \textbf{asimptota} racionalne funkcije. Je krivulja, kateri se graf približuje pri zelo
 velikih in majhnih $x$-ih, ker je takrat ulomek $\frac{o(x)}{q(x)} \approx 0$, ker je $q(x)
-\gg o(x)$. Racionalna funkcija ima asimptoto če je stopnja polinoma v imenovalcu večja ali
-enaka stopnji polinoma v števcu. Če sta stopnji enaki je asimptota vodoravna.
+\gg o(x)$. Racionalna funkcija ima svojo asimptoto, če je v imenovalcu nekonstanten polinom.
+Če je stopnja polinoma v imenovalcu večja od stopnje polinoma v števcu, potem je asimptota polinom,
+katerega stopnja je enaka razliki stopenj v števcu in v imenovalcu. Če je ta stopnja enaka 1, potem
+je asimptota poševna. Če je stopnja polinoma v števcu
+enaka stopnji polinoma v imenovalcu, potem je asimptota vodoravna, če je stopnja polinoma v
+imenovalcu manjša od stopnje polinoma v števcu, potem je asimptota prav tako vodoravna in sicer je
+enaka $y = 0$.
 
 \textbf{Presečišče z asimptoto} (kadar je funkcijska vrednost enaka $k(x)$)
 \begin{align*}
@@ -1825,6 +1883,8 @@ Kompozitum funkcij je \textbf{asociativna} operacija.
 Kompozitum \textbf{inverznih} funkcij je enak $x$.
 \[ (f \circ f^{-1})(x) = (f^{-1} \circ f)(x) = f(f^{-1}(x)) = f^{-1}(f(x)) = x \]
 
+Za sestavljeno funkcijo $(g \circ f)$, če $f\!: A \rightarrow B, g\!: B \rightarrow C$ velja, da $(g
+\circ f)$ slika $ A \rightarrow C$.
 
 \section{Enačbe}
 \label{sec:enac}
@@ -1982,10 +2042,15 @@ definiciji in rešimo nastalo enačbo. Lahko se rešujejo tudi s \textbf{substit
 \label{sec:enac:trig}
 \textbf{Trigonometrična enačba} je vsaka enačba v kateri nastopa neznanka v \textbf{kotnih funkcijah}.
 
-Enostavne: $\sin x = a; \; a \in \R$. Običajno dve neskončni množici rešitev. Skica je
-priporočljiva.
+Enostavne: $\sin x = a; \; a \in \R$. 
+Enačba ima rešitve samo če $a \in [-1,1]$. Takrat je rešitev neskončno mnogo:
+$x = \arcsin a + 2k\pi$ in $a = \pi - \arcsin a + 2k\pi,\, k \in \Z$. Pri kosinusu je situacija zelo
+podobna.
 
-\index{Enačba!Homogena enačba}
+Enačba $\tan x = a; \; a \in \R$ pa ima rešitve za vsak $a$. Rešitve so $x = \arctan a + k\pi, \, k
+\in \Z$.
+
+
 \textbf{Homogene:} $A\sin x + B\kos x = 0$ in podobne višjih stopenj. Lahko se deli s $\kos x$ ali
 $\sin x$, ker noben izmed njiju ni enak 0. Vsi členi morajo imeti enako število faktorjev
 s kotno funkcijo.
@@ -3346,7 +3411,8 @@ imaginarni komponenti obeh števil.
   & z + w = (a+b\ii) + (c+d\ii) = (a+c) + (b\ii + d\ii) = (a+c) + (b+d)\ii \\
   & z - w = z + (-w) = (a + b\ii) + (c+d\ii) = (a-c) + (b-d)\ii
 \end{align*}
-Rezultat seštevanja ali odštevanja dveh kompleksnih števil je vedno kompleksno število.
+Rezultat seštevanja ali odštevanja dveh kompleksnih števil je vedno kompleksno število. Seštevanje
+kompleksnih števil se ponazori tako kot seštevanje vektorjev.
 
 \subsection{Množenje kompleksnih števil}
 \label{sec:kompl:mnoz}
@@ -3356,13 +3422,15 @@ Rezultat seštevanja ali odštevanja dveh kompleksnih števil je vedno kompleksn
   z \krat w &=  (a+b\ii)(c+d\ii) = ac + ad\ii + b\ii c + b\ii d\ii = \\ 
   &= ac + (ad + bc)\ii + bd\ii^2 = (ac-bd) + (ad+bc)\ii
 \end{align*}
-Rezultat množenja kompleksnih števil je vedno kompleksno število.
+Rezultat množenja kompleksnih števil je vedno kompleksno število. Množenje kompleksnega števila z
+realnih številom se v kompleksni ravnini ponazori tako, kot množenje vektorja s skalarjem, množenje
+kompleksnega števila z $\ii$ pa se ponazori kot rotacija za kot $\frac{\pi}{2}$ v pozitivni smeri.
 
 \begin{align*}
   &\ii^{4n} = (i^4)^n \krat \ii^0 = 1 \krat 1 = 1 \\
   &\ii^{4n+1} = (i^4)^n \krat \ii^1 = 1 \krat \ii = \ii \\
   &\ii^{4n+2} = (i^4)^n \krat \ii^2 = 1 \krat -1 = -1 \\
-  &\ii^{4n+3} = (i^4)^n \krat \ii^3 = 1 \krat -\ii = -\ii \\
+  &\ii^{4n+3} = (i^4)^n \krat \ii^3 = 1 \krat -\ii = -\ii
 \end{align*}
 
 \subsection{Konjugirano kompleksno število}
@@ -3398,6 +3466,12 @@ Rezultat množenja kompleksnih števil je vedno kompleksno število.
       \label{eq:kompl:konj:konst}
     \end{equation}
 \end{itemize*}
+
+Dokaz lastnosti~\eqref{eq:kompl:konj:plus}:
+\[ \konj{z}+\konj{w} = a-b\ii+c-d\ii = (a+c) -\ii(b+d) = \konj{z+w} \]
+
+Dokaz lastnosti~\eqref{eq:kompl:konj:krat}:
+\[ \konj{z}\krat\konj{w} = (a-b\ii)\krat(c-d\ii) = ac - bd - \ii(ad+bc) = \konj{z\krat w} \]
 
 \begin{figure}[ht]
   \begin{center}
@@ -4247,7 +4321,7 @@ poznamo eno njegovo kompleksno ničlo $a+b\ii$:
 \begin{align*}
   p(x) &= a(x-x_1)(x-(a+b\ii))(x-(a-b\ii)) = \comment{Po pravilu \eqref{eq:pol:konjug}.} \\
   &= a(x-x_1)(x^2 -(a+b\ii+a-b\ii)x + (a+b\ii)(a-b\ii) = \\
-  &= a(x-x_1)(x^2 -2ax + a^2+b^2) \comment{$x_1$ je realna ničla.}
+  &= a(x-x_1)(x^2 -2ax + a^2+b^2) \comment{Oba faktorja sta realna.}
 \end{align*}
 
 \subsubsection{Cele ničle polinoma s celimi koeficienti}
@@ -5176,6 +5250,8 @@ od $A$.
 \mathcal{O}_\delta(a) \implies f(x) \ge A \]
 \[ \lim_{x\rightarrow a}f(x) = -\infty \iff (\forall A < 0)(\exists \delta > 0): x \in
 \mathcal{O}_\delta(a) \implies f(x) \le A \]
+Če velja $\displaystyle\lim_{x\rightarrow a}f(x) = \infty$ potem ima funkcija pol pri $x = a$.
+
 
 Limita v neskončnosti, oz. limita $f(x)$ ko gre $x$ proti $\infty$ je $b$, če za vsako
 pozitivno realno število $\varepsilon$ obstaja pozitivno realno število $A$, tako da je
@@ -5184,6 +5260,7 @@ funkcijska vrednost vsakega $x$, ki je večji od $A$, element $\varepsilon$ okol
 \implies f(x) \in \mathcal{O}_\varepsilon(b) \]
 \[ \lim_{x\rightarrow-\infty}f(x) = b \iff (\forall\varepsilon>0)(\exists A<0): x < A
 \implies f(x) \in \mathcal{O}_\varepsilon(b) \]
+Če velja $\displaystyle\lim_{x\rightarrow\infty}f(x) = a$ potem ima graf funkcije asimptoto $y = a$.
 
 \section{Diferencialni račun}
 \label{sec:odvod}
