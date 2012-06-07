@@ -632,7 +632,7 @@ Konstrukcija realnih in racionalnih števil je prikazana na sliki~\ref{fig:real:
 \label{sec:realna:intervali}
 $\left[a,b \right] = \left\{x; a \leq x \leq b; \; x \in \R \right\}$ --- zaprt interval \\
 $\left(a,b \right) = \left\{x; a < x < b; \; x \in \R \right\}$ --- odprt interval \\
-$\left[a,b \right] = \left\{x; a \leq x < b; \; x \in \R \right\}$ --- polodprt interval \\
+$\left[a,b \right) = \left\{x; a \leq x < b; \; x \in \R \right\}$ --- polodprt interval \\
 $\left(a,b \right] = \left\{x; a < x \leq b; \; x \in \R \right\}$ --- polzaprt interval \\
 $(-\infty,\infty) = \R$
 
@@ -1203,7 +1203,8 @@ realnega števila $m$ (spodnja meja).
 
 Funkcija je \textbf{omejena}, če je omejena navzgor in navzdol.
 
-\textbf{Pol} je realno število, za katerega funkcija ni definirana. 
+\textbf{Pol} je realno število, za katerega funkcija ni definirana, v njegovi bližini pa funkcija
+narašča ali pada čez vse meje (proti $\infty$ ali $-\infty$). 
 
 \textbf{Asimptota} je krivulja, ki se ji graf približuje pri po absolutni vrednosti velikih
 vrednostih neodvisne spremenljivke.
@@ -1592,6 +1593,7 @@ Prikazan je na sliki~\ref{fig:fun:kvad:aD}.
         \uput[r](-6.2,2.5){$D > 0$}
         \uput[r](-2.3,2.5){$D = 0$}
         \uput[r](1.8,2.5){$D < 0$}
+        \uput[u](4,.5){$x$}
       \end{pspicture*}
     }
     \subfigure[$a < 0$]{
@@ -1604,6 +1606,7 @@ Prikazan je na sliki~\ref{fig:fun:kvad:aD}.
         \uput[r](-6.2,-1.5){$D < 0$}
         \uput[r](-2.3,-1.5){$D = 0$}
         \uput[r](1.8,-1.5){$D > 0$}
+        \uput[u](4,.5){$x$}
       \end{pspicture*}
     }
   \end{center}
@@ -1725,7 +1728,7 @@ Je \textbf{inverzna} funkcija eksponentni funkciji.
   $D_f = \R^+, Z_f = \R$, & $D_f = \R^+, Z_f = \R$, \\
   ničla $x = 1$, naraščajoča, konkavna, & ničla $x = 1$, padajoča, konveksna, \\
   pozitivna $x > 1$, negativna $x < 1$, & pozitivna $x < 1$, negativna $x > 1$, \\
-  navzgor omejena & navzgor omejena \\
+  pol $x = 0$ & pol $x = 0$ \\
   graf na sliki~\ref{fig:fun:log:avec} & graf na sliki~\ref{fig:fun:log:amanj}
 \end{tabular}
 
@@ -1742,6 +1745,7 @@ Je \textbf{inverzna} funkcija eksponentni funkciji.
         \uput[d](3.7,0){$\log_{10}\!x$}
         \uput[r](2.7,2){$\log_e\!x$}
         \uput[r](1.5,3.8){$\log_{1,5}\!x$}
+        \asimptota(-.1,-5)(-.1,5)
       \end{pspicture*}
     }
     \subfigure[$a < 1$]{
@@ -1754,6 +1758,7 @@ Je \textbf{inverzna} funkcija eksponentni funkciji.
         \uput[u](3.5,0){$\log_{0,1}\!x$}
         \uput[r](2.2,-2.2){$\log_{0,4}\!x$}
         \uput[r](2,-4){$\log_{\frac{2}{3}}\!x$}
+        \asimptota(-.1,-5)(-.1,5)
       \end{pspicture*}
     }
     \psset{unit=1cm}
@@ -1854,8 +1859,9 @@ Grafi arcus funkcij so prikazani na sliki~\ref{fig:fun:arc:grafi}.
 \textbf{Racionalna funkcija} je vsaka funkcija oblike $f(x) = \frac{p(x)}{q(x)}$, pri čemer je ta
 ulomek okrajšan.
 
-\textbf{Ničle} racionalne funkcije so ničle polinoma $p(x)$, \textbf{poli} racionalne funkcije pa so ničle
-polinoma $q(x)$, torej abscise pri katerih funkcija ni definirana. \textbf{Stopnja} pola racionalne funkcije je enaka stopnji ničle
+\textbf{Ničle} racionalne funkcije so ničle polinoma\footnote{Polinomi so definirani kasneje, v
+razdelku~\ref{sec:pol}.} $p(x)$, \textbf{poli} racionalne funkcije pa so ničle
+polinoma $q(x)$, torej abscise, pri katerih funkcija ni definirana. \textbf{Stopnja} pola racionalne funkcije je enaka stopnji ničle
 imenovalca. Stopnja ničle racionalne funkcije je enaka stopnji ničle števca.
 
 Pri polih in ničlah \textbf{lihe} stopnje se predznak racionalne funkcije spremeni, pri polih ali
@@ -2077,9 +2083,9 @@ s kotno funkcijo.
 Produkt dveh kotnih funkcij je enak 0: $\sin x \krat \tan x = 0$. Glej razcepne enačbe
 (razdelek \ref{sec:enac:razc}).
 
-Uporaba \textbf{faktorizacije}, \textbf{substitucije}, metoda \textbf{polovičnih kotov}
-(substitucija $x = 2\alpha$, pri enačbah $A\sin x + B\kos x = C$. Ne pozabite, ko
-izračunate $\alpha$ izračunati še $x$) \textbf{razčlenjevanje} (produkt dveh kotnih funkcij v enem členu)
+Enačbe se rešuje tudi z uporabo \textbf{faktorizacije}, \textbf{substitucije}, metode \textbf{polovičnih kotov}
+(substitucija $x = 2\alpha$, pri enačbah $A\sin x + B\kos x = C$), \textbf{razčlenjevanja} (produkt
+dveh kotnih funkcij v enem členu).
 
 \subsection{Polinomske enačbe}
 \label{sec:enac:pol}
@@ -2264,6 +2270,8 @@ Naslednje dokaze je treba znat:
 \section{Podobnost}
 \label{sec:podob}
 Enakoležne stranice so tiste, ki ležijo nasproti istim kotom.
+Trikotnika sta si \textbf{podobna}, če se ujemata v \textbf{dveh kotih}. Podobnost označimo  z
+znakom $\sim$ in pišemo kot $\triangle ABC \sim \triangle DEF$.
 
 \subsection{Talesovi izreki}
 \label{sec:podob:tales}
@@ -2994,7 +3002,7 @@ V ravnini je toliko različnih vektorjev kot točk.
 
 \subsection{Seštevanje vektorjev}
 \label{sec:vec:sest}
-Dva vektorja \textbf{seštejemo} tako, da začetno točno 2. vektorja postavimo v začetno točko 1. vektorja. Vsota je vektor, ki
+Dva vektorja \textbf{seštejemo} tako, da začetno točko 2. vektorja postavimo v začetno točko 1. vektorja. Vsota je vektor, ki
 se začne v začetni točki 1. vektorja in konča v končni točki 2. vektorja. Seštevanje
 vektorjev je prikazano na sliki~\ref{fig:vec:sest}.
 \textbf{Paralelogramsko} pravilo je prikazano na sliki~\ref{fig:vec:sest:par},
@@ -3199,8 +3207,8 @@ sliki~\ref{fig:vec:proj}.
 
 \subsection{Skalarni produkt}
 \label{sec:vec:skal}
-\textbf{Kot} $\varphi$ med dvema vektorjema, ki se začneta v isti točki, je manjši od obeh kotov,
-ki ju vektorja določata.
+\textbf{Kot} $\varphi$ med dvema vektorjema, ki se začneta v isti točki, je manjši od obeh
+pozitivnih kotov, ki ju vektorja določata.
 
 \textbf{Skalarni produkt} dveh vektorjev je enak produktu dolžin obeh vektorjev s
 kosinusom vmesnega kota.
@@ -3216,10 +3224,10 @@ kosinusom vmesnega kota.
   &\vec{a} \perp \vec{b} \implies \vec{a}\vec{b} = 0 \label{eq:vec:skal:prav} \\
   &\hspace{-20pt} \text{Skalarni produkt vektorja samega s seboj je enak kvadratu njegove dolžine:} \nonumber \\
   &\vec{a}\vec{a} = a^2  \label{eq:vec:skal:aajea2} \\
-  &x(\vec{a}\vec{b} = (x\vec{a})\vec{b} = \vec{a}(x\vec{b}) \comment{Homogenost.}
+  &x\left(\vec{a}\vec{b}\right) = \left(x\vec{a}\right)\vec{b} = \vec{a}\left(x\vec{b}\right) \comment{Homogenost.}
   \label{eq:vec:skal:hom} \\
   &\vec{a}\vec{b} =  a \krat \pr_{\vec{a}}\vec{b} \label{eq:vec:skal:proj} \\
-  &\vec{a}\left( \vec{b} + \vec{c} \right) =  \vec{a}\vec{b} + \vec{a} + \vec{b}
+  &\vec{a}\left( \vec{b} + \vec{c} \right) =  \vec{a}\vec{b} + \vec{a}\vec{c}
   \comment{Distributivnost.} \label{eq:vec:skal:dist}
 \end{align}
 
