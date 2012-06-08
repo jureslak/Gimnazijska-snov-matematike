@@ -5215,7 +5215,9 @@ jih preračunamo na isti trenutek.
     rezultata je mediana aritmetična sredina teh dveh rezultatov.
   \item[Ranžirna vrsta] so podatki, urejeni po velikosti.
   \item[Frekvenčna tabela] je tabela, v katero razporedimo rezultate tako, da poleg vsake
-    vrednosti napišemo kolikokrat se pojavlja.
+    vrednosti napišemo kolikokrat se pojavlja. Če je vrednosti veliko, kar se rado zgodi
+    pri zveznih spremenljivkah, jih razporedimo v \textbf{frekvenčne razrede} in si tako
+    zmanjšamo število vrednosti, s katerimi dejansko delamo.
   \item[Absolutna frekvenca $f$] pove kolikokrat se pojavi določena vrednost (število enot
     v posameznem frekvenčnem razredu). Velja: $\sum_{i=0}^nf_i = n.$
   \item[Relativna frekvenca $f'$] predstavlja delež enot v celoti. $f' = \frac{f}{n}$
@@ -5925,7 +5927,7 @@ je prikazano na primeru. Nato integriramo vsak ulomek posebej.
 
 Primer:
 \begin{gather*}
-  \int\!\frac{-3x}{x^2-5x+4}\dx = \int\!\frac{-3x}{(x-4)(x-1)} = \comment{Razcepimo
+  \int\!\frac{-3x}{x^2-5x+4}\dx = \int\!\frac{-3x}{(x-4)(x-1)}\dx = \comment{Razcepimo
   ulomek posebej.} \\[6pt] \hline \\[-12pt]
   \frac{-3x}{(x-4)(x-1)} = \frac{A}{x-4} + \frac{B}{x-1} = \comment{Na skupni imanovalec.}  \\
   \frac{A(x-1)+B(x-4)}{(x-1)(x-4)} = \frac{x(A+B) - A - 4}{(x-1)(x-4)} \comment{Dobimo
