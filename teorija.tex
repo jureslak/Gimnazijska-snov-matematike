@@ -219,6 +219,10 @@ menucolor=black, runcolor=black, urlcolor=black%
 \vspace{-10pt}
 \noindent \mbox{} \hspace{-20pt} \scalebox{35}{$e^{\pi i}$}
 
+\vfill
+\hfill
+\vspace{-5ex}
+\scalebox{0.7}{v. 0.98}
 %\vfill
 %\hfill 
 
@@ -3813,7 +3817,7 @@ Glej sliki~\ref{fig:liki:trik1} in~\ref{fig:liki:trik2}.
 
 \subsection{Pravilni mnogokotnik}
 \label{sec:liki:nkot}
-Pravilni mnogokotnik mnogokotnik, ki ima vse stranice enako
+Pravilni mnogokotnik je mnogokotnik, ki ima vse stranice enako
 dolge in vse kote med seboj skladne.
 Pravilni mnogokotnik je vedno konveksen.
 Vsakemu pravilnemu mnogokotniku se da hkrati včrtati in očrtati krožnico, ki imata skupno
@@ -3902,7 +3906,7 @@ Uporaba: kadar imamo podana 2 kota in stranico ali 2 stranici in kot, ki ni med 
 Ob izpeljavi glej sliko~\ref{fig:liki:cos}.
 \begin{align*}
   c^2 &= \vec{c}\krat\vec{c} \\
-  c^2 &= (\vec{a} = \vec{b})(\vec{a} - \vec{b}) \\
+  c^2 &= (\vec{a} - \vec{b})(\vec{a} - \vec{b}) \\
   c^2 &= a^2 - 2ab\kos\gamma + b^2 \\
   c^2 &= a^2 + b^2 - 2ab\kos\gamma
 \end{align*}
@@ -4137,7 +4141,7 @@ vse robove enako dolge.
   P &= O + pl \\
   V &= \frac{O \krat v}{3} \\
   \alpha &= \angle(s,O) \comment{Kot med stranskim robom in osnovno ploskvijo.} \\
-  \beta &= \angle(v_s,0) \comment{Kot med stransko in osnovno ploskvijo.}
+  \beta &= \angle(v_s,O) \comment{Kot med stransko in osnovno ploskvijo.}
 \end{align*}
 
 \subsection{Stožec}
@@ -4150,8 +4154,8 @@ točko, ki ni v isti ravnini kot osnovna ploskev.
 in ravnino v kateri leži osnovna ploskev. \textbf{Stranica} stožca $s$ je daljica, ki povezuje vrh
 stožca s točko na robu osnovne ploskve.
 
-Poznamo \textbf{poševen} in \textbf{pokončen} stožec. Stožec je pokončen, če se vrh projicira v središče
-osnovne ploskve, če ne, je poševen. 
+Poznamo \textbf{poševen} in \textbf{pokončen} stožec. Stožec je pokončen, če se vrh
+pravokotno projicira v središče osnovne ploskve, če ne, je poševen. 
 
 \textbf{Osni} presek pokončnega stožca je enakokrak trikotnik.
 \textbf{Značilni} presek stožca vsebuje višino, \textbf{pravokotni} pa je pravokoten na značilnega in je
@@ -4197,7 +4201,6 @@ Površina krogle (psevdodokaz):
   P &= \frac{3 \krat 4\pi r^3}{3r} \\
   P &= 4\pi r^2
 \end{align*}
-
 
 
 \section{Polinomi}
@@ -4347,9 +4350,9 @@ stopnje 4: 4 realne ali 2 realni in 2 kompleksni ali 4 kompleksne. \\
 Polinom stopnje 3 lahko zapišemo kot produkt dveh polinomov z realnimi koeficienti, če
 poznamo eno njegovo kompleksno ničlo $a+b\ii$:
 \begin{align*}
-  p(x) &= a(x-x_1)(x-(a+b\ii))(x-(a-b\ii)) = \comment{Po pravilu \eqref{eq:pol:konjug}.} \\
-  &= a(x-x_1)(x^2 -(a+b\ii+a-b\ii)x + (a+b\ii)(a-b\ii) = \\
-  &= a(x-x_1)(x^2 -2ax + a^2+b^2) \comment{Vsi koeficienti realna.}
+  p(x) &= c(x-x_1)(x-(a+b\ii))(x-(a-b\ii)) = \comment{Po pravilu \eqref{eq:pol:konjug}.} \\
+  &= c(x-x_1)(x^2 -(a+b\ii+a-b\ii)x + (a+b\ii)(a-b\ii) = \\
+  &= c(x-x_1)(x^2 -2ax + a^2+b^2) \comment{Vsi koeficienti realna.}
 \end{align*}
 
 \subsubsection{Cele ničle polinoma s celimi koeficienti}
@@ -5084,7 +5087,7 @@ Pomembne limite:
   & \limi C = C \comment{Limita konstante je konstanta.} \label{eq:zap:lim:konst} \\
   & \limi \frac{1}{n} = 0  \label{eq:zap:lim:1n} \\
   & \limi a^n = 0; \; \left|a\right| < 1 \label{eq:zap:lim:an} \\
-  & \limi \left(1 + \frac{1}{n}\right)^n = e \label{eq:zap:lim:e} \\
+  & \limi \left(1 + \frac{1}{n}\right)^n = e \label{eq:zap:lim:e}
 \end{align}
 
 \subsubsection{Pravila za računanje z limitami}
@@ -5179,7 +5182,7 @@ Pri \textbf{obrestnem} obrestovanju je vrednost glavnice po $n$ kapitalizacijski
   a_1 &= a + a\krat \frac{p}{100} = a\left(1 + \frac{p}{100}\right) = ak \\
   a_2 &= a_1 + a_1\left( 1+\frac{p}{100} \right) = a\left(1+\frac{p}{100}\right)^2 = ak^2  \\
   a_n &= a\left( 1+\frac{p}{100} \right)^n = a\krat k^n \comment{Geometrijsko zaporedje.} \\
-  k &= \left( 1+\frac{p}{100} \right)^n \comment{Obrestovalni faktor.}
+  k &= 1+\frac{p}{100} \comment{Obrestovalni faktor.}
 \end{align*}
 
 \textbf{Relativna obrestna mera} je obrestna mera, ki se enakomerno razdeli na posamezna
@@ -5238,7 +5241,7 @@ jih preračunamo na isti trenutek.
 
 \section{Zveznost in limite funkcij}
 \label{sec:zvez}
-Limita funkcije $f(x)$ je $b$, ko gre $x$ proti $a$, če za vsako zaporedje $x$-ov, ki
+Limita funkcije $f(x)$, ko gre $x$ proti $a$, je $b$, če za vsako zaporedje $x$-ov, ki
 konvergira proti $a$, ustrezno zaporedje funkcijskih vrednosti konvergira proti $b$.
 \[ \lim_{x\rightarrow a} f(x) = b \iff (\forall\varepsilon>0)(\exists\delta>0): x \in
 \mathcal{O}_\delta(a) \implies y \in \mathcal{O}_\varepsilon(b) \]
@@ -5271,7 +5274,7 @@ Limita funkcije, ko gre $x$ proti $a$ je $f(a)$, če je funkcija pri $a$ definir
 \[\lim_{x\rightarrow\infty} \left( 1+\frac{1}{x} \right)^x = e \]
 
 \subsection{Neskončna limita in limita v neskončnosti}
-\textbf{Neskončna limita} $f(x)$, ko gre $x$ proti $a$ obstaja, če za vsako pozitivno realno število $A$
+\textbf{Neskončna limita} $f(x)$, ko gre $x$ proti $a$, obstaja, če za vsako pozitivno realno število $A$
 obstaja taka $\delta$ okolica $a$, da so funkcijske vrednosti vseh števil v okolici večje
 od $A$.
 \[ \lim_{x\rightarrow a}f(x) = \infty \iff (\forall A > 0)(\exists \delta > 0): x \in
@@ -5281,7 +5284,7 @@ od $A$.
 Če velja $\displaystyle\lim_{x\rightarrow a}f(x) = \infty$ potem ima funkcija pol pri $x = a$.
 
 
-Limita v neskončnosti, oz. limita $f(x)$ ko gre $x$ proti $\infty$ je $b$, če za vsako
+Limita v neskončnosti, oz. limita $f(x)$, ko gre $x$ proti $\infty$, je $b$, če za vsako
 pozitivno realno število $\varepsilon$ obstaja pozitivno realno število $A$, tako da je
 funkcijska vrednost vsakega $x$, ki je večji od $A$, element $\varepsilon$ okolice števila $b$.
 \[ \lim_{x\rightarrow\infty}f(x) = b \iff (\forall\varepsilon>0)(\exists A>0): x > A
@@ -5923,14 +5926,14 @@ je prikazano na primeru. Nato integriramo vsak ulomek posebej.
 Primer:
 \begin{gather*}
   \int\!\frac{-3x}{x^2-5x+4}\dx = \int\!\frac{-3x}{(x-4)(x-1)} = \comment{Razcepimo
-  ulomek.} \\
+  ulomek posebej.} \\[6pt] \hline \\[-12pt]
   \frac{-3x}{(x-4)(x-1)} = \frac{A}{x-4} + \frac{B}{x-1} = \comment{Na skupni imanovalec.}  \\
   \frac{A(x-1)+B(x-4)}{(x-1)(x-4)} = \frac{x(A+B) - A - 4}{(x-1)(x-4)} \comment{Dobimo
   sistem za $A$ in $B$.} \\
   A + B = -3 \text{ in } -A - 4 = 0 \comment{Dobljeno iz števca ulomka.} \\
-  A = -4 \text{ in } B = 1 \comment{Rešimo sistem.} \\
+  A = -4 \text{ in } B = 1 \comment{Rešimo sistem.} \\[6pt] \hline \\[-12pt]
   = \int\!\left(\frac{-4}{x-4}+\frac{1}{x-1}\right)\!\dx = \cdots =
-  \ln\left|\frac{x-1}{(x-4)^4}\right|+C
+  \ln\left|\frac{x-1}{(x-4)^4}\right|+C \comment{Integriramo do konca.}
 \end{gather*}
 
 \subsubsection{Integracija ``per partes''}
@@ -6157,15 +6160,16 @@ Permutacije so vse možne \textbf{bijektivne preslikave} množice same nase.
 Permutacije $n$ elementov s ponavljanjem so vse možne razporeditve $n$ elementov v vrsto,
 pri čemer dopuščamo \textbf{ponavljanje} elementov. 
 \[ P_n^{k_1,k_2,\ldots,k_r} = \frac{n!}{k_1!k_2!\cdots k_r!} =
-\frac{n!}{\displaystyle \prod_{i=1}^rk_r!} \qquad \sum_{i=1}^rk_i \le n \]
+\frac{n!}{\displaystyle \prod_{i=1}^rk_i!} \qquad \sum_{i=1}^rk_i \le n \]
 
 Izpeljava formule: Denimo, da imamo tri elemente, ki jih postavljamo v vrsto: $AB_1B_2$.
 Njihove permutacije so: $AB_1B_2, AB_2B_1, B_1AB_2, B_1B_2A, B_2AB_1, B_2B_1A$.
 Če $B$-jev sedaj ne razlikujemo med seboj, opazimo, da je vseh permutacij ravno dvakrat
 preveč, ker lahko $B_1$ in $B_2$ permutiramo na $2! = 2$ načinov. Če bi imeli $k$ enakih
-$B$-jev, bi imeli $k!$ krat preveč permutacij. Če bi imeli $r$
-elementov, ki se ponavljajo vsak $k_r$ krat, potem je vseh permutacij ravno $k_1!\krat
-k_2! \krat \, \cdots \, \krat k_r!$ krat preveč.
+$B$-jev, bi imeli $k!$-krat preveč permutacij. Če bi imeli $r$
+elementov, izmed katerih se $i$-it ponavlja $k_i$-krat, potem je vseh permutacij ravno 
+$k_1!k_2! \cdots k_i! \cdots k_r!$ krat preveč, zato število vseh permutacij delimo s tem
+produktom.
 
 Primer: Koliko besed lahko sestavimo iz črk besede \texttt{MATEMATIKA}?
 \[ n = P_{10}^{3,2,2} = \frac{10!}{3!2!2!} = 151200 \]
