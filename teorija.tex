@@ -42,8 +42,8 @@ menucolor=black, runcolor=black, urlcolor=black%
 \usepackage{enumerate} % za lep enumerate
 \usepackage{auto-pst-pdf} % slike
 \usepackage{pst-plot} %slike
-\usepackage{pst-math} %slike 
-\usepackage{pst-eucl} %slike 
+\usepackage{pst-math} %slike
+\usepackage{pst-eucl} %slike
 \usepackage{subfigure} % podlsike
 %\usepackage{multido} % while
 \usepackage{gensymb} % stopinje
@@ -54,7 +54,7 @@ menucolor=black, runcolor=black, urlcolor=black%
 \usepackage{footmisc} % da lahko ponavlam footnote
 \usepackage{floatflt} % floating figure and table
 \usepackage{algorithm} % za algoritem kot float
-\usepackage{algpseudocode} % za psevdokodo 
+\usepackage{algpseudocode} % za psevdokodo
 
 \def\R{\ensuremath{\mathbb R}}
 \def\N{\ensuremath{\mathbb N}}
@@ -81,7 +81,7 @@ menucolor=black, runcolor=black, urlcolor=black%
 % operators
 \newcommand{\beforecaptionskip}{\vspace{-12pt}}
 \newcommand{\arccot}{\ensuremath{\operatorname{arccot}}} % arccot
-\newcommand{\tg}{\ensuremath{\operatorname{tg}}} % tg 
+\newcommand{\tg}{\ensuremath{\operatorname{tg}}} % tg
 \newcommand{\ctg}{\ensuremath{\operatorname{ctg}}} % ctg
 \newcommand{\pr}{\ensuremath{\operatorname{pr}}} % pravokotna projekcija
 \newcommand{\st}{\ensuremath{\operatorname{st}}} % stopnja polinoma
@@ -125,7 +125,7 @@ menucolor=black, runcolor=black, urlcolor=black%
 % new column type that expands and centers content
 \newcolumntype{C}{>{\centering\arraybackslash}X}
 
-% your definitions here ... 
+% your definitions here ...
 
 % arrow resetings
 \renewcommand\implies\Rightarrow
@@ -202,7 +202,7 @@ menucolor=black, runcolor=black, urlcolor=black%
 \setlength{\abovedisplayskip}{3pt}
 \setlength{\belowdisplayskip}{6pt}
 
-\renewcommand{\listfigurename}{Kazalo slik} 
+\renewcommand{\listfigurename}{Kazalo slik}
 \floatname{algorithm}{Algoritem}
 
 \thispagestyle{empty}
@@ -224,7 +224,7 @@ menucolor=black, runcolor=black, urlcolor=black%
 \vspace{-5ex}
 \scalebox{0.7}{v. 0.98}
 %\vfill
-%\hfill 
+%\hfill
 
 \pagebreak
 
@@ -237,23 +237,23 @@ menucolor=black, runcolor=black, urlcolor=black%
 \textbf{Izjava} je smiseln povedni stavek, ki mu lahko določimo njegovo vrednost.
 
 \textbf{Negacija} izjave $A$ je nova izjava, ``Ni res, da drži $A$.'' ($\neg A$), ki je pravilna, če je izjava $A$
-napačna in obratno. 
+napačna in obratno.
 
 \textbf{Konjunkcija} izjav $A$ in $B$ je nova izjava ``$A$ in $B$.'' ($A \land
 B$), ki je pravilna le, če sta izjavi $A$ in $B$ pravilni.
 
-\textbf{Disjunkcija} izjav $A$ in $B$ je nova izjava ``$A$ ali $B$.'' ($A \lor B$), 
+\textbf{Disjunkcija} izjav $A$ in $B$ je nova izjava ``$A$ ali $B$.'' ($A \lor B$),
 ki je pravilna, ko je pravilna vsaj ena izmed izjav $A$ in $B$.
 
 \textbf{Implikacija} izjav $A$ in $B$ je nova izjava ``Če $A$, potem sledi $B$.'' ($A
 \implies B$), ki je napačna samo v primeru, da je prva izjava pravilna, druga pa napačna.
 
-\textbf{Ekvivalenca} izjav $A$ in $B$ je nova izjava ``Če $A$, natanko takrat $B$.'' ($A 
+\textbf{Ekvivalenca} izjav $A$ in $B$ je nova izjava ``Če $A$, natanko takrat $B$.'' ($A
 \iff B$), ki je pravilna, če imata izjavi enako vrednost.
 
 \section{Množice}
 \label{sec:mnozice}
-\textbf{Množica} je skupina elementov, ki jih druži neka skupna lastnost. 
+\textbf{Množica} je skupina elementov, ki jih druži neka skupna lastnost.
 
 \textbf{Prazna množica} je množica brez elementa. ($\emptyset$)
 
@@ -264,7 +264,7 @@ množice $B$.
 
 Dve množici sta \textbf{enaki}, če imata iste elemente.
 
-\textbf{Moč} množice je število njenih elementov. ($\text{m}(a) \text{ ali } |A|$) 
+\textbf{Moč} množice je število njenih elementov. ($\text{m}(a) \text{ ali } |A|$)
 
 \textbf{Unija} množic $A$ in $B$ ($A \cup B$) je nova množica, ki vsebuje elemente, ki so v množici $A$ ali v
 množici $B$. \[ A \cup B = \left\{x:x \in A \lor x \in B \right\}, \quad \min\{|A|, |B|\} \le |A \cup B| \le |A| + |B| \]
@@ -274,7 +274,7 @@ množici $B$. \[ A \cap B = \left\{x:x \in A \land x \in B \right\}, \quad 0 \le
 \le \min\{|A|, |B|\} \]
 
 \textbf{Razlika} množic $A$ in $B$ ($A - B$ ali $A \setminus B$) je nova množica, ki
-vsebuje vse elemente, ki so v prvi množici v prvi pa ne. 
+vsebuje vse elemente, ki so v prvi množici v prvi pa ne.
 \[ A - B = \left\{x : x \in A; x \notin B \right\} \]
 
 \textbf{Komplement} množice $A$ ($A^c$) je nova množica, ki vsebuje vse elemente, ki niso
@@ -284,7 +284,7 @@ v množici $A$. $A^c = \mathcal{U} - A$
 \[ |\mathcal{P}(A)| = 2^{|A|} \comment{Za dokaz glej razdelek~\ref{sec:komb:bin}.} \]
 
 \textbf{Kartezični produkt} množic $A$ in $B$ ($A \times B$) je nova množica, ki vsebuje urejene pare, v katerih
-je prvi element iz množice $A$, drugi pa iz množice $B$. 
+je prvi element iz množice $A$, drugi pa iz množice $B$.
 \[ A \times B = \left\{ \left(a, b \right); a \in A \land b \in B \right\}, \; \left|A \times B \right| = \left|A\right|
 \krat \left|B\right| \]
 
@@ -312,20 +312,20 @@ sliki~\ref{fig:mnoz:kart}.
 
 \section{Preslikave}
 \label{sec:preslikave}
-\textbf{Preslikava}, ki množico $A$ preslika v množico $B$ ($f\!\!: A \rightarrow B,
-f\!\!:a \mapsto b$), je predpis, ki vsakemu elementu iz
-množice $A$ priredi natanko določen element iz množice $B$. 
+\textbf{Preslikava}, ki množico $A$ preslika v množico $B$ ($f\colon A \rightarrow B,
+f\colon a \mapsto b$), je predpis, ki vsakemu elementu iz
+množice $A$ priredi natanko določen element iz množice $B$.
 
 Preslikava je \textbf{injektivna}, kadar se par različnih elementov iz množice $A$ preslika v par
 različnih elementov iz množice $B$. ($a_1 \neq a_2 \implies f(a_1) \neq f(a_2); a_1, a_2
 \in A$)
 
 Preslikava je \textbf{surjektivna}, kadar je vsak element množice $B$ slika vsaj enega elementa iz
-množice $A$. ($\forall b \in B, \exists a \in A\!: b = f(a)$)
+množice $A$. ($\forall b \in B, \exists a \in A\colon b = f(a)$)
 
 Preslikava je \textbf{bijektivna}, če je injektivna in surjektivna hkrati.
 
-Graf preslikave $f\!\!: A \rightarrow B$ je podmnožica kartezičnega produkta $A \times B$.
+Graf preslikave $f\colon A \rightarrow B$ je podmnožica kartezičnega produkta $A \times B$.
 
 \section{Relacije}
 \label{sec:relacije}
@@ -333,15 +333,15 @@ Graf preslikave $f\!\!: A \rightarrow B$ je podmnožica kartezičnega produkta $
 Relacija je podmnožica kartezičnega produkta.
 
 Relacija je \textbf{refleksivna}, če za vsak element v množici velja, da je element v relaciji sam s
-seboj. ($\Rel \text{ refleksivna} \iff \forall a \in A\!: a \Rel a$)
+seboj. ($\Rel \text{ refleksivna} \iff \forall a \in A\colon a \Rel a$)
 
 Relacija je \textbf{simetrična}, kadar za vsak par elementov velja: če je prvi v relaciji z drugim,
-je tudi drugi v relaciji s prvim. 
-($\Rel \text{ simetrična} \iff \forall a, b \in A\!: a \Rel b \implies b \Rel a$)
+je tudi drugi v relaciji s prvim.
+($\Rel \text{ simetrična} \iff \forall a, b \in A\colon a \Rel b \implies b \Rel a$)
 
 Relacija je \textbf{tranzitivna}, če za vsako trojico elementov velja: če je prvi v relaciji z
 drugim in drugi v relaciji s tretjim, potem je tudi prvi v relaciji s tretjim.
-($\Rel \text{ tranzitivna} \iff \forall a, b, c \in A\!: (a \Rel b \land b \Rel c) \implies a \Rel c$)
+($\Rel \text{ tranzitivna} \iff \forall a, b, c \in A\colon (a \Rel b \land b \Rel c) \implies a \Rel c$)
 
 Relacija je \textbf{ekvivalenčna}, če je refleksivna, simetrična in tranzitivna hkrati.
 
@@ -359,9 +359,9 @@ $\mathcal S = \{2n; n \in \N \}$ \\
 $\mathcal L = \{2n+1; n \in \N \}$
 
 Velja tudi: \\
-vsota dveh lihih števil je sodo število. 
+vsota dveh lihih števil je sodo število.
 \[ (2n+1) + (2m+1) = 2(n+m+1) = 2k \]
-kvadrat lihega števila je liho število. 
+kvadrat lihega števila je liho število.
 \[ (2n+1)^2 = 4n^2 + 4n + 1 = 2(2n^2 + 2n) + 1 = 2k+1 \]
 
 \subsection{Zakoni}
@@ -452,11 +452,11 @@ Vsako naravno število $a$ lahko zapišemo na en sam način v številskem sestav
   5|a &\iff 5|a_0 \\
   6|a &\iff 2|a \land 3|a \\
   8|a &\iff 8|(100a_2 + 10a_1+a_0) \\
-  9|a &\iff 9|(a_0 + a_1 + \cdots + a_n) 
+  9|a &\iff 9|(a_0 + a_1 + \cdots + a_n)
 \end{align*}
 
 \textbf{Praštevila} so števila, ki imajo natanko dva delitelja. Praštevil je neskončno mnogo.
-Števila, ki imajo več kot dva različna delitelja so \textbf{sestavljena} števila. 
+Števila, ki imajo več kot dva različna delitelja so \textbf{sestavljena} števila.
 
 Dokaz, da je praštevil neskončno mnogo (Evklid): \\
 Privzemimo, da bi jih boli končno mnogo. Sedaj zmnožimo vsa obstoječa praštevila in dobljenemu
@@ -474,7 +474,7 @@ natanko določeni števili $k$ in $o$, tako da velja $a = k \krat b+ o; \quad 0 
 hkrati. (oznaka: $D(a,b)$) \\
 \textbf{Najmanjši skupni večkratnik} dveh števil $a$ in $b$ je največje število, ki je deljivo z obema
 številoma hkrati. (oznaka: $v(a,b)$) \\
-Med $D(a,b)$ in $v(a,b)$ velja zveza: 
+Med $D(a,b)$ in $v(a,b)$ velja zveza:
 \[ D(a,b) \krat v(a,b) = a \krat b \]
 Števili sta si \textbf{tuji}, če je njun največji skupni delitelj enak 1. \\
 \textbf{Evklidov algoritem} je postopek s katerim dobimo $D(a,b)$. Za potek algoritma privzemimo $a
@@ -508,15 +508,15 @@ ostanek je $D(a,b)$. V psevdokodi je algoritem zapisan kot algoritem~\ref{algo:e
 Vsi zakoni kot za naravna (razdelek \ref{sec:naravna:zakoni}). Poleg teh velja še: \\
 Obstaja \textbf{nevtralni element za seštevanje} in je 0:
 \[ a + 0 = a \]
-Obstaja \textbf{nevtralni element za množenje} in je 1: 
+Obstaja \textbf{nevtralni element za množenje} in je 1:
 \[ 1 \krat a = a \]
-Vsota števila in nasprotnega števila je enaka 0 ali ``\textbf{nasprotnost je vzajemna}'': 
+Vsota števila in nasprotnega števila je enaka 0 ali ``\textbf{nasprotnost je vzajemna}'':
 \[ a + (-a) = 0 \]
 
 \subsection{Zakoni urejenosti}
 \label{sec:cela:zakoniurejenosti}
 Za vsako trojico števil $a$, $b$ in $c$ veljajo aksiomi urejenosti: \\
-$\forall a, b, c \in \Z \!:$ 
+$\forall a, b, c \in \Z \colon$
 \begin{enumerate*}
   \item $a < b \lor a = b \lor a > b$
   \item $a < b \land b < c \implies a < c$
@@ -537,7 +537,7 @@ c$.
 
 \subsection{Zakoni}
 Vsi zakoni kot za cela števila (razdelek \ref{sec:cela:zakoni}). Poleg teh še: \\
-Produkt števila in obratnega števila je enak 1 ali ``\textbf{obratnost je vzajemna}'': 
+Produkt števila in obratnega števila je enak 1 ali ``\textbf{obratnost je vzajemna}'':
 \[ a \krat a^{-1} = 1 \]
 
 \textbf{Deljenje} je množenje z obratno vrednostjo. \\
@@ -545,7 +545,7 @@ Razširjanje ulomkov: ulomek lahko v števcu in v imenovalcu pomnožimo z enakim
 se vrednost ne spremeni:
 \[ \frac{a}{b} = \frac{a \krat k}{b \krat k} \]
 
-\textbf{Seštevanje} racionalnih števil: 
+\textbf{Seštevanje} racionalnih števil:
 \[ \frac{a}{b} \pm \frac{c}{d} = \frac{ad}{bd} \pm \frac{cb}{bd} = \frac{ad \pm bc}{bd} \]
 
 \textbf{Množenje} racionalnih števil:
@@ -553,7 +553,7 @@ se vrednost ne spremeni:
 
 Vsak ulomek lahko zapišemo z \textbf{decimalnim številom}, ki je lahko končno ali periodično.
 Ulomki, ki jih lahko razširimo tako, da imajo v imenovalcu potenco z osnovo 10, se
-imenujejo \textbf{desetiški} ulomki. V razcepu imajo lahko le faktorja 5 in 2. Taki ulomki so končna 
+imenujejo \textbf{desetiški} ulomki. V razcepu imajo lahko le faktorja 5 in 2. Taki ulomki so končna
 decimalna števila.
 
 Zakoni urejenosti za racionalna in tudi za realna števila so enaki kot za cela števila.
@@ -561,7 +561,7 @@ Zakoni urejenosti za racionalna in tudi za realna števila so enaki kot za cela 
 \subsection{Urejenost racionalnih števil}
 Ulomke lahko predstavimo na številski premici. Množica racionalnih števil je povsod enako
 \textbf{gosta}. Med dvema racionalnima številoma je vedno še vsaj eno racionalno število.
-\[ a < \frac{a+b}{2} < b; a, b \in \Q \] 
+\[ a < \frac{a+b}{2} < b; a, b \in \Q \]
 
 Dokaz, da med številoma $a$ in $b$ ($a < b$) vedno obstaja še eno število:
 \begin{align*}
@@ -593,7 +593,7 @@ Racionalna števila imajo končen ali periodičen decimalni zapis, medtem ko ima
 neskončen neperiodičen decimalni zapis.
 
 Iracionalna števila so na primer $\sqrt{2}, \sqrt{3}, \sqrt[3]{5}, \pi, e, \ldots$. V decimalni
-obliki lahko zapišemo le njihove približke. 
+obliki lahko zapišemo le njihove približke.
 
 Dokaz, da $\sqrt{2} \notin \Q$
 \begin{align*}
@@ -608,7 +608,7 @@ Dokaz, da $\sqrt{2} \notin \Q$
   2n^2 &= m^2 \\
   &\vdots \comment{$p$ je sodo, $q$ je sodo, torej ulomek ni okrajšan, trditev je napačna} \\
   \neg A = 0 &\Rightarrow A = 1 \comment{$\sqrt{2}$ torej ni element \Q} \\
-  \sqrt{2} \notin \Q 
+  \sqrt{2} \notin \Q
 \end{align*}
 
 Številska premica je premica, na kateri ponazarjamo števila. Izberemo si izhodišče (število 0) in na levi
@@ -649,7 +649,7 @@ enake operacije kot med množicami.
 \subsection{Absolutna in relativna napaka}
 \label{sec:realna:nap}
 Naj bo dano določeno število $s$ in njegov približek $p$.
-Absolutna napaka približka je enaka 
+Absolutna napaka približka je enaka
 \[ \Delta = |s-p| \]
 Relativna napaka pa je enaka
 \[ \delta = \frac{\Delta}{s} \]
@@ -657,8 +657,8 @@ Relativna napaka pa je enaka
 \section{Absolutna vrednost}
 \begin{equation}
   \label{eq:abs}
-  \left| x \right| = 
-  \begin{cases} 
+  \left| x \right| =
+  \begin{cases}
     \hfill  x; & \text{če $x \geq 0$,} \\
     \hfill -x; & \text{če $x < 0$.}
   \end{cases}
@@ -689,7 +689,7 @@ spremenljivke x, razen za x = 0.
 
 Dva matematična izraza sta \textbf{enakovredna}, če imata pri istih izbirah spremenljivk vedno
 enako vrednost.
-Primer: Zgornji izraz je enakovreden izrazu 
+Primer: Zgornji izraz je enakovreden izrazu
 \[ 1 + \frac{1}{x} \]
 
 Izraz \textbf{poimenujemo} glede na glavno računsko operacijo, ki v njem nastopa -- to je računska
@@ -723,7 +723,7 @@ Formule za preoblikovanje izrazov:\\
    \label{eq:izr:vietovo} (x\pm a)(x\pm b) &= x^2 + (a\pm b)x \pm ab \comment{Vi\`{e}tovo
    pravilo} \\
    \label{eq:izr:ananminusbnan} a^n - b^n &= (a - b)(a^{n-1} + a^{n-2}b + \cdots
-   + ab^{n-2} + b^{n-1}) \\ 
+   + ab^{n-2} + b^{n-1}) \\
    a^n - b^n &= (a - b)\sum_{i=1}^{n} a^{n-i}b^{i-1} \nonumber \\
    \label{eq:izr:ananplubnan}  a^n + b^n &=  (a + b)(a^{n-1} - a^{n-2}b + \cdots
    - ab^{n-2} + b^{n-1}) \\
@@ -848,7 +848,7 @@ Osnovne izpeljave:
 \label{sec:kor:prav}
 \begin{align}
   \sqrt[n]{a^m} &= \sqrt[p]{a^q} \iff mp = qn \label{eq:kor:prav:mpjeqn} \\
-  \sqrt[n]{a^m} &= \sqrt[nx]{a^{mx}} \label{eq:kor:prav:razsirjanje} \\ 
+  \sqrt[n]{a^m} &= \sqrt[nx]{a^{mx}} \label{eq:kor:prav:razsirjanje} \\
   \sqrt[n]{a} \krat \sqrt[n]{b} &= \sqrt[n]{a \krat b} \label{eq:kor:prav:prodenakkor} \\
   \frac{\sqrt[n]{a}}{\sqrt[n]{b}} &= \sqrt[n]{\frac{a}{b}} \label{eq:kor:prav:ulenakkor} \\
   \sqrt[n]{a^m} \krat \sqrt[p]{a^q} &= \sqrt[np]{a^{mp+qn}} \label{eq:kor:prav:prodkor} \\
@@ -938,7 +938,7 @@ Dokaz pravila \ref{eq:kor:prav:korkoranannaq}:
 \label{sec:log}
 \begin{equation}
   \label{eq:log:def}
-  \log_a\! x = y \iff a^y = x 
+  \log_a\! x = y \iff a^y = x
 \end{equation}
 
 Osnovne izpeljave iz definicije:
@@ -1045,7 +1045,7 @@ Pomembni \textbf{premici}:
   y &= -x \comment{simetrala sodih kvadrantov}
 \end{align*}
 
-\textbf{Pas:} $a < x < b$ 
+\textbf{Pas:} $a < x < b$
 
 \textbf{Razdalja} med dvema točkama (dokaz: Pitagorov izrek):
 \begin{align*}
@@ -1063,7 +1063,7 @@ vrednosti.}:
 \[ T_{ABC} = \left( \frac{x_a+x_b+x_c}{3},\frac{y_a+y_b+y_c}{3} \right) \]
 \[ p\sigma = \frac{1}{2} \begin{vmatrix}
     x_2 - x_1 & y_2 - y_1 \\
-    x_3 - x_1 & y_3 - y_1 
+    x_3 - x_1 & y_3 - y_1
 \end{vmatrix} \comment{$\sigma$ je orientacija trikotnika.} \]
 \[ p\sigma = \frac{1}{2} \left[ (x_2-x_1)(y_3-y_1) + (y_2-y_1)(x_3-x_1) \right] \]
 \[ p\sigma = \frac{1}{2} \left[ x_1(y_2-y_3 + x_2(y_3-y_1) + x_3(y_1-y_2) \right] \]
@@ -1168,10 +1168,10 @@ indukcijo):
 
 \section{Funkcije}
 \label{sec:fun}
-\[ f(x)\!: A \rightarrow B \]
+\[ f\colon A \rightarrow B \]
 \textbf{Funkcija}, ki množico $A$ preslika v množico $B$ je predpis, ki vsakemu elementu iz množice
 $A$ priredi natanko določen element iz množice $B$.
-\[ f(x)\!: A \rightarrow B; \; A, B \subseteq \R \]
+\[ f(x)\colon A \rightarrow B; \; A, B \subseteq \R \]
 Funkcija je \textbf{realna}, če podmnožico realnih števil preslika v podmnožico realnih števil.
 
 \textbf{Definicijsko območje} ($D_f$) funkcije $f$ je množica realnih števil, za katera lahko
@@ -1210,7 +1210,7 @@ realnega števila $m$ (spodnja meja).
 Funkcija je \textbf{omejena}, če je omejena navzgor in navzdol.
 
 \textbf{Pol} je realno število, za katerega funkcija ni definirana, v njegovi bližini pa funkcija
-narašča ali pada čez vse meje (proti $\infty$ ali $-\infty$). 
+narašča ali pada čez vse meje (proti $\infty$ ali $-\infty$).
 
 \textbf{Asimptota} je krivulja, ki se ji graf približuje pri po absolutni vrednosti velikih
 vrednostih neodvisne spremenljivke.
@@ -1285,10 +1285,10 @@ po $x$ osi (levo -- desno), parameter $q$ pa na premik po $y$ osi (gor -- dol).
 Funkcijo $y = f(x)$ raztegnemo s parametroma $a$ in $b$.
 \[ y = a \krat f\left( \frac{x}{b} \right) \]
 Parameter $a$ predstavlja razteg v smeri $y$ osi, če je negativen, se graf preslika čez
-$x$ os. Odvisnost funkcije od parametra $a$ je prikazana na sliki~\ref{fig:fun:a}. 
+$x$ os. Odvisnost funkcije od parametra $a$ je prikazana na sliki~\ref{fig:fun:a}.
 
 Parameter $b$ predstavlja razteg v smeri $x$ osi, če je negativen, se graf
-preslika čez $y$ os. Odvisnost funkcije od parametra $b$ je prikazana na sliki~\ref{fig:fun:b}. 
+preslika čez $y$ os. Odvisnost funkcije od parametra $b$ je prikazana na sliki~\ref{fig:fun:b}.
 
 \begin{figure}[ht]
   \begin{center}
@@ -1340,9 +1340,9 @@ prvotna funkcija \textbf{injektivna}.\footnote{Za definicijo injektivnosti glej 
 Graf linearne funkcije je premica. Funkcijski predpis lahko zapišemo v treh oblikah:
 \label{sec:fun:lin}
 \begin{align*}
-  y = kx + n \comment{eksplicitna,} \\
-  ax + by + c = 0 \comment{implicitna,} \\
-  \frac{x}{m} + \frac{y}{n} = 1 \comment{odsekovna enačba premice}
+  y &= kx + n \comment{eksplicitna,} \\
+  ax + by + c &= 0 \comment{implicitna,} \\
+  \frac{x}{m} + \frac{y}{n} &= 1 \comment{odsekovna enačba premice}
 \end{align*}
 V eksplicitni obliki ne moremo napisati premic vzporednih z ordinatno osjo, v odsekovni
 obliki pa ne moremo napisati premic, ki so vzporedne katerikoli izmed osi ali gredo skozi
@@ -1360,7 +1360,7 @@ in razliko v smeri $x$ osi.
 padajoča.
 
 Družina premic ki so \textbf{vzporedne} premici $y = k_1x+n_1$: $y=k_1x+n_2$ \\
-Družina premic, ki gredo skozi \textbf{točko} $T_0(x_0,y_0)$: $y - y_0 = k(x-x_0)$ 
+Družina premic, ki gredo skozi \textbf{točko} $T_0(x_0,y_0)$: $y - y_0 = k(x-x_0)$
 
 \textbf{Vzporedna} premica dani premici ima enak $k$ kot podana, $k$ premice, ki je na dano premico
 \textbf{pravokotna}, pa je nasprotno in obratno število smernemu koeficientu dane premice.
@@ -1571,7 +1571,7 @@ $D = 0$ in nobene realne ničle, če je $D < 0$.
   a(x-p)^2 &= -q \\
   (x-p)^2 &= -\frac{q}{a} \\
   x-p &= \pm \sqrt{-\frac{q}{a}} \\
-  x &= p \pm \sqrt{-\frac{q}{a}} \comment{zamenjamo $p$ in $q$ po 
+  x &= p \pm \sqrt{-\frac{q}{a}} \comment{zamenjamo $p$ in $q$ po
   \eqref{eq:fun:kvad:p} in \eqref{eq:fun:kvad:q}} \\
   x &= - \frac{b}{2a} \pm \sqrt{-\frac{-\frac{D}{4a}}{a}} \\
   x &= - \frac{b}{2a} \pm \sqrt{\frac{D}{4a^2}} \\
@@ -1717,7 +1717,7 @@ V naravi se velikokrat zgodi, da sta dve spremenljivki med seboj odvisni $ekspon
 eksponentne funkcije, ki ju povezuje pa je pri veliko naravnih zakonih enaka $e$. $e$ je iracionalno
 število, ki nastopa kot osnova eksponentnih funkcij, ki opisujejo naravne zakone. $e$ se lahko
 izračuna na več načinov in je v splošnem enak
-\[ e = \frac{1}{1!} + \frac{1}{2!} + \frac{1}{3!} + \cdots = \sum_{i=1}^\infty\frac{1}{i!} \] 
+\[ e = \frac{1}{1!} + \frac{1}{2!} + \frac{1}{3!} + \cdots = \sum_{i=1}^\infty\frac{1}{i!} \]
 \[ e = \limi\left( 1+\frac{1}{n} \right)^n \]
 
 Z eksponentno funkcijo oblike $y = e^{kx}$ se tako lahko opiše večino primerov eksponentne rasti v
@@ -1775,7 +1775,7 @@ Je \textbf{inverzna} funkcija eksponentni funkciji.
 \end{figure}
 
 Navpična \textbf{asimptota} je $y$ os. Vse logaritemske funkcije gredo skozi točko $N(1,0)$, kar
-izhaja iz izpeljave iz definicije~\eqref{eq:log:log1je0}. Vse funkcije z bazo iz enake 
+izhaja iz izpeljave iz definicije~\eqref{eq:log:log1je0}. Vse funkcije z bazo iz enake
 skupine se razlikujejo le
 po \textbf{strmini} padanja in naraščanja. Lahko jih premikamo ali raztegujemo.
 \[ f(x) = b\krat\log_a\!(x-p) + q \]
@@ -1914,7 +1914,7 @@ Kompozitum funkcij je \textbf{asociativna} operacija.
 Kompozitum \textbf{inverznih} funkcij je enak $x$.
 \[ (f \circ f^{-1})(x) = (f^{-1} \circ f)(x) = f(f^{-1}(x)) = f^{-1}(f(x)) = x \]
 
-Za sestavljeno funkcijo $(g \circ f)$, če $f\!: A \rightarrow B, g\!: B \rightarrow C$ velja, da $(g
+Za sestavljeno funkcijo $(g \circ f)$, če $f\colon A \rightarrow B, g\colon B \rightarrow C$ velja, da $(g
 \circ f)$ slika $ A \rightarrow C$.
 
 \section{Enačbe}
@@ -1945,7 +1945,7 @@ ali izraz. Iz tega izhaja tudi ``prenašanje'' člena preko enačaja (na obeh st
 prištejemo ta člen).
 
   \item Enačbo lahko na obeh straneh \textbf{množimo} ali \textbf{delimo} s poljubnim številom ali izrazom, ki ni
-enak 0. 
+enak 0.
 
   \item Na levi in na desni strani lahko \textbf{izvedemo} isto matematično \textbf{funkcijo}, ki mora biti
 \textbf{bijektivna}.\footnote{Za definicijo bijektivne preslikave glej
@@ -2073,7 +2073,7 @@ definiciji in rešimo nastalo enačbo. Lahko se rešujejo tudi s \textbf{substit
 \label{sec:enac:trig}
 \textbf{Trigonometrična enačba} je vsaka enačba v kateri nastopa neznanka v \textbf{kotnih funkcijah}.
 
-Enostavne: $\sin x = a; \; a \in \R$. 
+Enostavne: $\sin x = a; \; a \in \R$.
 Enačba ima rešitve samo če $a \in [-1,1]$. Takrat je rešitev neskončno mnogo:
 $x = \arcsin a + 2k\pi$ in $a = \pi - \arcsin a + 2k\pi,\, k \in \Z$. Pri kosinusu je situacija zelo
 podobna.
@@ -2096,7 +2096,7 @@ dveh kotnih funkcij v enem členu).
 \subsection{Polinomske enačbe}
 \label{sec:enac:pol}
 \textbf{Polinomska\footnote{Polinomi so definirani kasneje, v razdelku \ref{sec:pol}.}
-enačba} je vsaka enačba oblike $p(x) = 0$ ali vsaka enačba, ki jo v to obliko lahko prevedemo. 
+enačba} je vsaka enačba oblike $p(x) = 0$ ali vsaka enačba, ki jo v to obliko lahko prevedemo.
 
 Rešitve enačbe so ničle polinoma $p(x)$.
 
@@ -2127,7 +2127,7 @@ Neenačaj je lahko katerikoli od znakov za relacijo
 urejenosti ($<$, $\leq$, $>$, $\geq$, včasih tudi $\neq$). Izraza, ki nastopata v neenačbi,
 imenujemo \textbf{leva stran} in \textbf{desna stran} neenačbe.
 Spremenljivke, ki nastopajo v neenačbi, imenujemo \textbf{neznanke}.
-\textbf{Rešitev} neenačbe je vrednost neznanke, ki zadosti neenakosti. 
+\textbf{Rešitev} neenačbe je vrednost neznanke, ki zadosti neenakosti.
 Množico rešitev, ki je pogosto neskončna, ponavadi zapišemo z intervalom.
 Primer:
 \[ x + 1 \leq 2 \implies x \in (-\infty, 1] \]
@@ -2155,7 +2155,7 @@ ali izrazom.
   \item Če neenačbo na desni in na levi strani \textbf{množimo} ali \textbf{delimo} z istim \textit{negativnim} številom
 ali izrazom, se neenačaj obrne.
 
-  \item Na levi in desni strani lahko \textbf{izvedemo} isto matematično \textbf{funkcijo}, ki pa mora biti povsod 
+  \item Na levi in desni strani lahko \textbf{izvedemo} isto matematično \textbf{funkcijo}, ki pa mora biti povsod
 \textit{strogo rastoča}.
 
   \item Če na levi in desni strani \textbf{izvedemo} isto matematično \textbf{funkcijo}, ki je povsod \textit{strogo
@@ -2190,7 +2190,7 @@ Preoblikujemo jo v $ax<-b$.
 ali vsaka neenačba, ki jo v to obliko lahko prevedemo.
 
 Rešitve poiščemo tako, da izračunamo ničle funkcije $f(x)
-= ax^2 + bx + c$ in ugotovimo predznak kvadratne funkcije na celotni realni osi ter nato 
+= ax^2 + bx + c$ in ugotovimo predznak kvadratne funkcije na celotni realni osi ter nato
 izberemo želene intervale, ki ustrezajo pogojem. Skica je priporočljiva.
 
 Primer obravnave enačbe $ax^2+bx+c \le 0$ na sliki~\ref{fig:neenac:kvad}. Z $\mathcal{R}$ označujmo množico rešitev.
@@ -2247,7 +2247,7 @@ Polinomska neenačba je vsaka neenačba oblike $p(x)$
 neenačba, ki jo v to obliko lahko prevedemo.
 
 Rešitve poiščemo tako, da izračunamo ničle polinoma $p(x)$
-in ugotovimo predznak funkcije na celotni realni osi ter nato 
+in ugotovimo predznak funkcije na celotni realni osi ter nato
 izberemo želene intervale, ki ustrezajo pogojem. Skica je priporočljiva.
 
 \subsection{Racionalne neenačbe}
@@ -2284,7 +2284,7 @@ znakom $\sim$ in pišemo kot $\triangle ABC \sim \triangle DEF$.
 Če sta si trikotnika podobna, je razmerje dveh enakoležnih stranic enako razmerju drugih
 dveh enakoležnih stranic.
 \begin{equation}
-  \frac{a_1}{a} = \frac{b_1}{b} = \frac{c_1}{c} = k 
+  \frac{a_1}{a} = \frac{b_1}{b} = \frac{c_1}{c} = k
   \label{eq:podob:tal1}
 \end{equation}
 
@@ -2512,13 +2512,13 @@ Ob izpeljavi glej sliko~\ref{fig:kot:sincosdef}.
   \label{eq:kot:cosdef}
 \end{equation}
 
-\[ \left|\vec{a} \times \vec{b}\right| = \left|\left( 
+\[ \left|\vec{a} \times \vec{b}\right| = \left|\left(
 \begin{vmatrix} a_2 & a_3 \\ b_2 & b_3 \end{vmatrix},
 \begin{vmatrix} a_3 & a_1 \\ b_3 & b_1 \end{vmatrix},
 \begin{vmatrix} a_1 & a_2 \\ b_1 & b_2 \end{vmatrix}
 \right)\right| =  \left| \left( 0,0, \begin{vmatrix} a_1 & a_2 \\ b_1 & b_2
 \end{vmatrix} \right) \right| = \begin{vmatrix} a_1 & a_2 \\ b_1 & b_2 \end{vmatrix} =
-ab\sin\alpha \] 
+ab\sin\alpha \]
 
 \begin{equation}
   \sin\alpha = \frac{\begin{vmatrix} a_1 & a_2 \\ b_1 & b_2 \end{vmatrix}}{a\krat b} =
@@ -2584,7 +2584,7 @@ Grafična predstavitev sinusa in kosinusa je prikazana na sliki~\ref{fig:kot:dal
 \label{sec:kot:tancot}
 \textbf{Tangens} kota je enak razmerju med sinusom in kosinusom kota.
 \begin{equation}
-  \tan\alpha = \frac{\sin\alpha}{\kos\alpha} 
+  \tan\alpha = \frac{\sin\alpha}{\kos\alpha}
   \label{eq:kot:tandef}
 \end{equation}
 
@@ -2656,7 +2656,7 @@ sinus~\eqref{eq:kot:sindef}, kosinus~\eqref{eq:kot:cosdef}, tangens~\eqref{eq:ko
 kotangens~\eqref{eq:kot:cotdef}.
 \[\kos(\alpha+\beta) = \vec{a}\krat\vec{b} = (\kos\alpha, -\sin\alpha)\krat(\kos\beta,
 \sin\beta) = \kos\alpha\kos\beta - \sin\alpha\sin\beta \]
-\[\sin(\alpha+\beta) = \begin{vmatrix} a_1 & a_2 \\ b_1 & b_2 \end{vmatrix} = 
+\[\sin(\alpha+\beta) = \begin{vmatrix} a_1 & a_2 \\ b_1 & b_2 \end{vmatrix} =
   \begin{vmatrix*}[r] \kos\alpha & -\sin\alpha \\ \kos\beta & \sin\beta \end{vmatrix*} =
   \sin\alpha\kos\beta + \sin\beta\kos\alpha \]
 
@@ -2696,11 +2696,11 @@ Formule se izpelje iz adicijskih izrekov definiranih v razdelku~\ref{sec:kot:adi
 \label{sec:kot:polov}
 
 \begin{align}
-  \sin\alpha &= 2\sin\frac{\alpha}{2}\kos\frac{\alpha}{2} 
+  \sin\alpha &= 2\sin\frac{\alpha}{2}\kos\frac{\alpha}{2}
   \comment{Po formuli \eqref{eq:kot:dblsin}.} \label{eq:kot:pol:1} \\
   \kos\alpha &= \kos^2\frac{\alpha}{2} - \sin^2\frac{\alpha}{2}
   \comment{Po formuli \eqref{eq:kot:dblcos}.} \label{eq:kot:pol:2} \\
-  1 &= \kos^2\frac{\alpha}{2} + \sin^2\frac{\alpha}{2} 
+  1 &= \kos^2\frac{\alpha}{2} + \sin^2\frac{\alpha}{2}
   \comment{Po osnovni zvezi \eqref{eq:kot:zvez:sincos}.} \label{eq:kot:pol:3}
 \end{align}
 
@@ -2814,14 +2814,14 @@ V naslednjih definicijah velja: $k \in \Z$.
 \begin{tabular}[h!]{ll}
   ničle:    & $x = k\pi$ \\
   minimumi: & $x = -\frac{\pi}{2} + 2k\pi$ \\
-  maksimumi:& $x = \frac{\pi}{2} + 2k\pi$ \\  
+  maksimumi:& $x = \frac{\pi}{2} + 2k\pi$ \\
   graf:     & slika~\ref{fig:kot:graf:sin}
 \end{tabular} \\[12pt]
 \textbf{Kosinus:}\\[6pt]
 \begin{tabular}[h!]{ll}
   ničle:    & $x = \frac{\pi}{2} + k\pi$ \\
   minimumi: & $x = \pi + 2k\pi$ \\
-  maksimumi:& $x = 2k\pi$ \\ 
+  maksimumi:& $x = 2k\pi$ \\
   graf:     & slika~\ref{fig:kot:graf:cos}
 \end{tabular} \\[12pt]
 }
@@ -2988,7 +2988,7 @@ Po izrekih za kote v trikotniku (razdelek~\ref{sec:geom},
   & \alpha_1 + \varphi = \alpha_2 \\
   & \varphi = \alpha_2 - \alpha_1 \\
   & \tan\alpha = \tan(\alpha_2 - \alpha_1) \\
-  & \tan\varphi = \frac{\tan\alpha_2 - \tan\alpha_1}{1+\tan\alpha_1\tan\alpha_2} 
+  & \tan\varphi = \frac{\tan\alpha_2 - \tan\alpha_1}{1+\tan\alpha_1\tan\alpha_2}
   \comment{Po adicijskem izreku za tangens~\eqref{eq:kot:adic:tan}.} \\
   & \tan\varphi = \left| \frac{k_2-k_1}{1+k_1k_2} \right| \comment{Po
   izpeljavah~\eqref{eq:kot:prem:1} in~\eqref{eq:kot:prem:2}.}
@@ -2997,7 +2997,7 @@ Po izrekih za kote v trikotniku (razdelek~\ref{sec:geom},
 \section{Vektorji}
 \label{sec:vec}
 Vektor je \textbf{usmerjena daljica}. Vektor je \textbf{urejen par točk} v prostoru.
-Vektor \textbf{nič}, $\vec{0}$, je vektor $\Vec{AA}$, ki je točka. 
+Vektor \textbf{nič}, $\vec{0}$, je vektor $\Vec{AA}$, ki je točka.
 \textbf{Enotski} vektor je vektor z dolžino 1.
 
 Dva vektorja sta \textbf{enaka}, če sta enako dolga, imata enako smer in sta vzporedna.
@@ -3106,7 +3106,7 @@ sliki~\ref{fig:vec:sest:trik}.
 produktu dolžine vektorja $\vec{a}$ in absolutne vrednosti skalarja $x$. Za vektor velja,
 da je vzporeden vektorju $\vec{a}$. Če je $x$ pozitiven ima isto smer kot $\vec{a}$, če je
 $x$ negativen ima nasprotno, če je $x$ enak 0 pa je rezultat vektor $\vec{0}$.
-\[ \left| x\vec{a} \right| = \left| x \right| \krat \left| \vec{a} \right|, \; x \in \R \] 
+\[ \left| x\vec{a} \right| = \left| x \right| \krat \left| \vec{a} \right|, \; x \in \R \]
 
 \textbf{Lastnosti:}\\[6pt]
 \begin{tabular}[h!]{ll}
@@ -3140,17 +3140,17 @@ sam način kot linearno kombinacijo baznih vektorjev.
 
 \subsection{Pravokotna projekcija}
 \label{sec:vec:proj}
-Imejmo vektorja $\vec{a} = \Vec{OA}$ in $\vec{b} = \Vec{ZK}$. Naj bo točka $Z'$ pravokotna 
+Imejmo vektorja $\vec{a} = \Vec{OA}$ in $\vec{b} = \Vec{ZK}$. Naj bo točka $Z'$ pravokotna
 projekcija začetka vektorja $ZK$ na nosilko vektorja $\Vec{OA}$, točka $K'$ pa projekcija konca.
 Potem je pravokotna projekcija vektorja $\vec{b}$ na vektor $\vec{a}$ enaka
 \textbf{razdalji} med
 točkama $Z'$ in $K'$. Če ima vektor $\Vec{OA}$ enako smer kot vektor $\Vec{Z'K'}$, potem
 je razdalja \textbf{pozitivno} predznačena, če ne je \textbf{negativno} predznačena.
 
-\[ \pr_{\vec{a}}\vec{b} = 
+\[ \pr_{\vec{a}}\vec{b} =
 \begin{cases}
   \hfill \left| Z'K' \right|; & \Vec{Z'K'} \;\uparrow\uparrow\; \Vec{OA} \\
-  \hfill -\left| Z'K' \right|; & \Vec{Z'K'} \;\uparrow\downarrow\; \Vec{OA} 
+  \hfill -\left| Z'K' \right|; & \Vec{Z'K'} \;\uparrow\downarrow\; \Vec{OA}
 \end{cases} \]
 
 \[ \pr_{\vec{a}}\vec{b} = b\krat\kos\varphi \]
@@ -3271,13 +3271,13 @@ Dokaz lastnosti~\ref{eq:vec:skal:proj}:
 Dokaz lastnosti~\ref{eq:vec:skal:dist}:
 \begin{align*}
   &\vec{a}(\vec{b} + \vec{c}) = a\krat\pr_{\vec{a}}(\vec{b}+\vec{c}) =
-  a\krat(\pr_{\vec{a}}\vec{b} + \pr_{\vec{a}}\vec{c}) = 
+  a\krat(\pr_{\vec{a}}\vec{b} + \pr_{\vec{a}}\vec{c}) =
   a\krat\pr_{\vec{a}}\vec{b} + a\krat\pr_{\vec{a}}\vec{c} = \vec{a}\vec{b} +
   \vec{a}\vec{c}
 \end{align*}
 
 Iz formule za skalarni produkt izpeljemo tudi formulo za računanje \textbf{kota} med vektorjema:
-\[ \kos\varphi = \frac{\vec{a}\vec{b}}{ab} \implies \varphi = \arccos\left( 
+\[ \kos\varphi = \frac{\vec{a}\vec{b}}{ab} \implies \varphi = \arccos\left(
 \frac{\vec{a}\vec{b}}{ab} \right) \]
 
 \subsection{Krajevni vektorji}
@@ -3288,7 +3288,7 @@ ki so med sabo paroma pravokotni, ležijo na koordinatnih oseh in so dolgi 1 eno
 konča v točki $A$. (oznaka: $\Vec{r_A}$)
 
 Vsak krajevni vektor lahko zapišemo kot linearno kombinacijo baznih vektorjev, ki jo
-predstavimo z urejeno trojico, ki jo imenujemo \textbf{komponente} vektorjev. 
+predstavimo z urejeno trojico, ki jo imenujemo \textbf{komponente} vektorjev.
 Komponente vektorjev so enake koordinatam točke, do katere vektor kaže.
 \[ \Vec{r_A} = a_1\vec{i} + a_2\vec{j} + a_3\vec{k} = (a_1,a_2,a_3) \]
 
@@ -3302,7 +3302,7 @@ Vektorje v komponentah seštevamo tako, da seštevamo istoležne komponente.
 \unboldmath
 \begin{align*}
   (a_1,a_2,a_3) + (b_1,b_2,b_3) &=  a_1\vec{i} + a_2\vec{j} + a_3\vec{k} + b_1\vec{i} +
-  b_2\vec{j} + b_3\vec{k}=\\ &= 
+  b_2\vec{j} + b_3\vec{k}=\\ &=
   \vec{i}(a_1 + b_1) + \vec{j}(a_2+b_2) + \vec{k}(a_3+b_3) =\\&=  (a_1+b_1,a_2+b_2,a_3+b_3)
 \end{align*}
 
@@ -3315,7 +3315,7 @@ Vektor v komponentah množimo s skalarjem tako da množimo vsako komponento pose
 \end{align*}
 \unboldmath
 \begin{align*}
-  x(a_1,a_2,a_3) &= x(a_1\vec{i} + a_2\vec{j} + a_3\vec{k}) = 
+  x(a_1,a_2,a_3) &= x(a_1\vec{i} + a_2\vec{j} + a_3\vec{k}) =
   xa_1\vec{i} + xa_2\vec{j} + xa_3\vec{k} =  (xa_1,\,xa_2,\,xa_3)
 \end{align*}
 
@@ -3329,7 +3329,7 @@ Ob izpeljavi glej sliko~\ref{fig:vec:kraj:AB}.
 \end{align*}
 \unboldmath
 \begin{align*}
-  \Vec{AB} &= -\Vec{r_A} + \Vec{r_B} = -(a_1,a_2,a_3) + (b_1,b_2,b_3) = \\ 
+  \Vec{AB} &= -\Vec{r_A} + \Vec{r_B} = -(a_1,a_2,a_3) + (b_1,b_2,b_3) = \\
   &=  (-a_1,-a_2,-a_3) + (b_1,b_2,b_3) = (b_1-a_1,\;b_2-a_2,\;b_3-a_3)
 \end{align*}
 
@@ -3453,7 +3453,7 @@ kompleksnih števil se ponazori tako kot seštevanje vektorjev.
 \begin{align*}
   z &= a + b\ii  \\
   w &= c + d\ii \\
-  z \krat w &=  (a+b\ii)(c+d\ii) = ac + ad\ii + b\ii c + b\ii d\ii = \\ 
+  z \krat w &=  (a+b\ii)(c+d\ii) = ac + ad\ii + b\ii c + b\ii d\ii = \\
   &= ac + (ad + bc)\ii + bd\ii^2 = (ac-bd) + (ad+bc)\ii
 \end{align*}
 Rezultat množenja kompleksnih števil je vedno kompleksno število. Množenje kompleksnega števila z
@@ -3479,7 +3479,7 @@ kompleksnega števila z $\ii$ pa se ponazori kot rotacija za kot $\frac{\pi}{2}$
     $\konj{\konj{z}} = z \]
   \item produkt števila in njegove konjugirane vrednosti je enak vsoti kvadratov realne in
     imaginarne komponente: \begin{equation} z\krat \konj{z} = (x+y\ii)(x-y\ii) = x^2+y^2 \label{eq:kompl:zzkonj} \end{equation}
-  \item konjugirana vrednost vsote je enaka vsoti konjugiranih vrednosti: 
+  \item konjugirana vrednost vsote je enaka vsoti konjugiranih vrednosti:
     \begin{equation}
       \konj{z+w} = \konj{z} + \konj{w}
       \label{eq:kompl:konj:plus}
@@ -3587,12 +3587,12 @@ omejena s sklenjeno krivuljo ali lomljeno črto.
 Ploščina je funkcija, ki liku priredi določeno število, ki nam pove, koliko enotskih
 kvadratkov popolnoma prekrije dani lik.
 
-\textbf{Lastnosti:} 
+\textbf{Lastnosti:}
 \begin{itemize*}
   \item $p(L) \ge 0$
-  \item 
+  \item
     \setlength{\unitlength}{.5cm}
-    $ p\left( 
+    $ p\left(
     \begin{picture}(1,1.2)
       \put(0,0){\line(0,1){1}}
       \put(0,0){\line(1,0){1}}
@@ -3655,8 +3655,8 @@ Glej sliko~\ref{fig:liki:paral}.
 \label{sec:liki:trap}
 Glej sliki~\ref{fig:liki:trap1} in~\ref{fig:liki:trap2}.
 \begin{align*}
-  p &=  \frac{(a+c)\krat v}{2} = \frac{a+c}{2} \krat v = s + v \\ 
-  o &=  a + b + c + d 
+  p &=  \frac{(a+c)\krat v}{2} = \frac{a+c}{2} \krat v = s + v \\
+  o &=  a + b + c + d
 \end{align*}
 \begin{align*}
   s &=  a - x - y \\
@@ -3677,7 +3677,7 @@ Glej sliko~\ref{fig:liki:delt}.
 \label{sec:liki:romb}
 \begin{align*}
   p &=  a\krat v_a = \frac{e\krat f}{2} = a^2\krat\sin\alpha = a^2\krat\sin\beta \\
-  o &=  4\krat a 
+  o &=  4\krat a
 \end{align*}
 }
 \begin{figure}[ht]
@@ -4032,7 +4032,7 @@ Poznamo \textbf{okrogla} in \textbf{oglata} telesa. Okrogla so med drugim tudi
 (\textbf{platonska telesa}), \textbf{piramide} in \textbf{prizme}.
 
 \textbf{Rob} je stičišče dveh ploskev. \textbf{Oglišče} je stičišče dveh ali več robov.
-\textbf{Površina} telesa je enaka vsoti ploščin vseh mejnih ploskev. 
+\textbf{Površina} telesa je enaka vsoti ploščin vseh mejnih ploskev.
 \textbf{Volumen} ali prostornina je funkcija, ki telesu
 priredi določeno število, ki nam pove koliko enotskih kock popolnoma napolni lik.
 
@@ -4075,7 +4075,7 @@ ploskvi pravilna $n$-kotnika in če je pokončna. Prizma je enakoroba, če so vs
 enako dolgi. (ni nujno pokončna).
 \begin{align*}
   P &= 2 \krat O + pl \\
-  V &= O \krat v 
+  V &= O \krat v
 \end{align*}
 
 \parbox[t]{0.5\textwidth}{
@@ -4136,12 +4136,12 @@ značilnega in je vedno pravokotnik.
 je zgrajen iz $n$ trikotnikov.
 
 \textbf{Vrh} piramide $V$ je oglišče, ki ne meji na osnovno ploskev. \textbf{Višina}
-piramide $v$ je najkrajša razdalja med 
+piramide $v$ je najkrajša razdalja med
 vrhom in ravnino v kateri leži osnovna ploskev. Poznamo \textbf{poševne} in
-\textbf{pokončne} piramide. Piramida je \textbf{pokončna}, 
+\textbf{pokončne} piramide. Piramida je \textbf{pokončna},
 če se vrh piramide projicira v središče $n$-kotniku očrtanega kroga. Piramida je
-\textbf{pravilna}, če je pokončna in če je osnovna ploskev pravilni $n$-kotnik. 
-Stranske ploskve so enakokraki trikotniki. Piramida je \textbf{enakoroba}, če ima 
+\textbf{pravilna}, če je pokončna in če je osnovna ploskev pravilni $n$-kotnik.
+Stranske ploskve so enakokraki trikotniki. Piramida je \textbf{enakoroba}, če ima
 vse robove enako dolge.
 \begin{align*}
   P &= O + pl \\
@@ -4153,15 +4153,15 @@ vse robove enako dolge.
 \subsection{Stožec}
 \label{sec:tel:stoz}
 \textbf{Krožni stožec} je množica točk v prostoru, ki je omejena s ploskvijo, ki je krog
-in plaščem, ki je unija vseh daljic, ki povezujejo rob osnovne ploskve s poljubno 
-točko, ki ni v isti ravnini kot osnovna ploskev. 
+in plaščem, ki je unija vseh daljic, ki povezujejo rob osnovne ploskve s poljubno
+točko, ki ni v isti ravnini kot osnovna ploskev.
 
 \textbf{Vrh} stožca $V$ je edino oglišče stožca. \textbf{Višina} stožca $v$ je najkrajša razdalja med vrhom
 in ravnino v kateri leži osnovna ploskev. \textbf{Stranica} stožca $s$ je daljica, ki povezuje vrh
 stožca s točko na robu osnovne ploskve.
 
 Poznamo \textbf{poševen} in \textbf{pokončen} stožec. Stožec je pokončen, če se vrh
-pravokotno projicira v središče osnovne ploskve, če ne, je poševen. 
+pravokotno projicira v središče osnovne ploskve, če ne, je poševen.
 
 \textbf{Osni} presek pokončnega stožca je enakokrak trikotnik.
 \textbf{Značilni} presek stožca vsebuje višino, \textbf{pravokotni} pa je pravokoten na značilnega in je
@@ -4193,7 +4193,7 @@ Volumen polkrogle je po Cavalierjevem načelu enak valju z višino in radijem $r
 največji možen stožec.
 \begin{align*}
   \frac{V}{2} &= \pi r^2 r - \frac{\pi r^2 r}{3} \\
-  V &= \frac{4 \pi r^3}{3} 
+  V &= \frac{4 \pi r^3}{3}
 \end{align*}
 
 Površina krogle (psevdodokaz):
@@ -4317,7 +4317,7 @@ Dokaz:
   x_n \text{ ničla} &\implies p(x) =
   k_n(x)\underbrace{(x-x_1)(x-x_2)\krat\,\cdots\,\krat(x-x_n)}_{n \text{ ničel}} \\
   \st\left( k_n(x) \right) &= 0 \comment{Polinom $k_n(x)$ je konstanten.} \\
-  p(x) &= c(x-x_1)(x-x_2)\krat\,\cdots\,\krat(x-x_n) \comment{Oblika za ničle.} \\ 
+  p(x) &= c(x-x_1)(x-x_2)\krat\,\cdots\,\krat(x-x_n) \comment{Oblika za ničle.} \\
   p(x) &= c\prod_{i=1}^{n}(x-x_i)
 \end{align*}
 $c$ je vodilni koeficient. Polinom je z ničlami določen do konstante natančno.
@@ -4365,7 +4365,7 @@ poznamo eno njegovo kompleksno ničlo $a+b\ii$:
 \label{sec:pol:nic:cel}
 Če je celo število $c$ ničla polinoma s celimi koeficienti, potem velja, da $c$ deli
 prosti člen.
-\[ c \in \Z\!:\;p(c) = 0 \implies c|a_0 \]
+\[ c \in \Z\colon\;p(c) = 0 \implies c|a_0 \]
 Dokaz:
 \begin{align*}
   p(c) &= 0 \\
@@ -4379,7 +4379,7 @@ Dokaz:
 \label{sec:pol:nic:rac}
 Če je okrajšani ulomek $\frac{c}{d}$ ničla polinoma s celimi koeficienti, potem velja, da $c$ deli
 prosti člen, $d$ pa deli vodilni koeficient.
-\[ \frac{c}{d} \in \Q,\,D(c,d)=1\!:\;p\left( \frac{c}{d} \right) = 0 \implies
+\[ \frac{c}{d} \in \Q,\,D(c,d)=1\colon\;p\left( \frac{c}{d} \right) = 0 \implies
 c|a_0 \land d|a_n \]
 Dokaz:
 \begin{align}
@@ -4402,7 +4402,7 @@ Dokaz:
 
 \subsection{Graf polinoma}
 \label{sec:pol:graf}
-\[ p(x)\!: \R \rightarrow \R \]
+\[ p(x)\colon \R \rightarrow \R \]
 Med dvema zaporednima ničlama polinom \textbf{ne more spremeniti predznaka}. Vsak polinom z
 realnimi koeficienti lahko zapišemo kot produkt linearnih faktorjev in kvadratnih
 faktorjev, ki imajo diskriminanto negativno.
@@ -4466,11 +4466,11 @@ so zelo majhna števila}} \]
 \subsection{Bisekcija}
 \label{sec:pol:bisekcija}
 Bisekcija je postopek za iskanje ničel zveznih funkcij. Denimo, da poznamo tak interval $[a, b]$,
-da je zvezna funkcija $f\!: \R \rightarrow \R$ (npr. polinom) v krajiščih različno predznačena.
-Potem iz zveznosti sledi, da ima $f$ na intervalu $(a, b)$ vsaj eno ničlo. Če vzamemo sredinsko 
-točko $s = \frac{a + b}{2}$, potem bo, razen, če je $f(s) = 0$, kar pomeni, da smo imeli srečo in 
-zadeli ničlo, na enem izmed intervalov $[a, s]$ ali $[s, b]$ funkcija v krajiščih spet različno 
-predznačena in to vzamemo za nov interval $[a, b]$. Postopek rekurzivno ponavljamo in v vsakem 
+da je zvezna funkcija $f\colon \R \rightarrow \R$ (npr. polinom) v krajiščih različno predznačena.
+Potem iz zveznosti sledi, da ima $f$ na intervalu $(a, b)$ vsaj eno ničlo. Če vzamemo sredinsko
+točko $s = \frac{a + b}{2}$, potem bo, razen, če je $f(s) = 0$, kar pomeni, da smo imeli srečo in
+zadeli ničlo, na enem izmed intervalov $[a, s]$ ali $[s, b]$ funkcija v krajiščih spet različno
+predznačena in to vzamemo za nov interval $[a, b]$. Postopek rekurzivno ponavljamo in v vsakem
 koraku nadaljujemo z razpolovljenim intervalom, ki zagotovo vsebuje vsaj eno ničlo. Ko je interval
 dovolj majhen (manjši od želene vrednosti $\epsilon$), končamo in vrnemo točko s sredine intervala
 kot približek za ničlo funkcije $f$. Ker mora biti funkcija v krajiščih različno
@@ -4890,9 +4890,9 @@ parabole pa na sliki~\ref{fig:stoz:para:b}.
 \section{Zaporedja}
 \label{sec:zap}
 Zaporedje je vsaka \textbf{funkcija}, ki množico \textbf{naravnih} števil preslika v
-\textbf{realna} števila. 
-\[ f\!: \N \rightarrow \R \]
-Slike funkcije se imenujejo \textbf{členi} zaporedja in jih označimo s $a_1,a_2,a_3, \ldots$. 
+\textbf{realna} števila.
+\[ f\colon \N \rightarrow \R \]
+Slike funkcije se imenujejo \textbf{členi} zaporedja in jih označimo s $a_1,a_2,a_3, \ldots$.
 \begin{align*}
   1 &\mapsto f(1) = a_1 \\
   2 &\mapsto f(2) = a_2 \\
@@ -4903,7 +4903,7 @@ Slike funkcije se imenujejo \textbf{členi} zaporedja in jih označimo s $a_1,a_
 Zaporedje lahko navajamo s funkcijo, s splošnim členom ali s členi zaporedja.
 Poznamo \textbf{končna} in \textbf{neskončna} zaporedja. Končno zaporedje je vsaka
 funkcija, ki množico prvih $n$ naravnih števil preslika v realna števila.
-\[ f\!: \N_n \rightarrow \R \]
+\[ f\colon \N_n \rightarrow \R \]
 
 Zaporedje je \textbf{alternirajoče} kadar imata vsaka dva zaporedna člena različen predznak.
 \[ a_n \text{ padajoče} \iff a_n \krat a_{n+1} < 0 \quad \forall n \in \N \]
@@ -4974,7 +4974,7 @@ Dokaz:
 \begin{align*}
   S_n - S_{n-1} &= a_n + a_{n-1} + a_{n-2} + \cdots + a_2 + a_1 - (a_{n-1} + a_{n-2} +
   \cdots + a_2 + a_1) = \\ &= a_n + a_{n-1} - a_{n-1} + a_{n-2} - a_{n-2} + \cdots + a_2 - a_2 +
-  a_1 - a_1 = \\ &=  a_n 
+  a_1 - a_1 = \\ &=  a_n
 \end{align*}
 
 \textbf{Razlika} dveh členov aritmetičnega zaporedja.
@@ -4982,7 +4982,7 @@ Dokaz:
 Dokaz:
 \begin{align*}
   a_n - a_m &=  a_1 + (n-1)d - ( a_1 + (m-1)d) = (n-1)d - (m-1)d = \\
-  &= d(n-1-m+1) = (n-m)d  
+  &= d(n-1-m+1) = (n-m)d
 \end{align*}
 
 \subsection{Geometrijsko zaporedje}
@@ -5027,7 +5027,7 @@ geometrijske vrste.
   S_n &= a_1\frac{k^n - 1}{k-1}; \; k \neq 0
 \end{align*}
 \begin{equation}
-  S_n = \sum_{i=1}^n a_i = a_1\frac{k^n-1}{k-1} = a_n\frac{k^n -1}{k^n - k^{n-1}}; \; k \neq 0 
+  S_n = \sum_{i=1}^n a_i = a_1\frac{k^n-1}{k-1} = a_n\frac{k^n -1}{k^n - k^{n-1}}; \; k \neq 0
   \label{eq:zap:geomsum}
 \end{equation}
 \[ S_n = n\krat a_1; \; k = 0 \]
@@ -5042,7 +5042,7 @@ Vsak člen geometrijskega zaporedja je \textbf{geometrijska sredina} simetrično
 \[ a_n = \sqrt{a_{n-1}\krat a_{n+1}} \]
 Dokaz:
 \begin{align*}
-  \frac{a_n}{a_{n-1}} &=  \frac{a_{n+1}}{a_n} \comment{Po definiciji geometrijskega 
+  \frac{a_n}{a_{n-1}} &=  \frac{a_{n+1}}{a_n} \comment{Po definiciji geometrijskega
   zaporedja.} \\
   a_n^2 &= a_{n-1}\krat a_{n+1} \\
   a_n &= \sqrt{a_{n-1}\krat a_{n+1}}
@@ -5083,7 +5083,7 @@ intervalih glej razdelek~\ref{sec:realna:intervali}.} $(-\varepsilon+a, a+\varep
 $a$ je \textbf{stekališče} zaporedja $a_n$, če je v vsaki okolici točke $a$ neskončno mnogo členov
 zaporedja. Točka $a$ je \textbf{limita} zaporedja $a_n$ če je v vsaki okolici točke $a$
 \textbf{neskončno} mnogo členov zaporedja, izven te okolice pa \textbf{končno} mnogo. Zaporedje, ki ima limito je
-\textbf{konvergentno} zaporedje, zaporedje, ki limite nima pa je \textbf{divergentno}. 
+\textbf{konvergentno} zaporedje, zaporedje, ki limite nima pa je \textbf{divergentno}.
 \[ a_n \in \mathcal{O}_{\varepsilon}(a) \iff |a_n - a| > \varepsilon; \; \varepsilon > 0 \]
 \[ \limi a_n = a \iff (\forall \varepsilon > 0)(\exists N \in \N): n > N \implies a_n \in
 \mathcal{O}_{\varepsilon}(a) \]
@@ -5131,13 +5131,13 @@ Primer računanja:
   & = \frac{\limi3 + \limi\textstyle\frac{4}{n}}{\limi\textstyle\frac{1}{n} - \limi2} = \comment{Uporabimo pravilo~\eqref{eq:zap:lim:krat}.} \\
   & = \frac{\limi3 + \limi4 \krat \limi\textstyle\frac{1}{n}}{\limi\textstyle\frac{1}{n} - \limi2} =
   \comment{Izračunamo poznane limite~\eqref{eq:zap:lim:konst} in~\eqref{eq:zap:lim:1n}.} \\
-  & = \frac{3 + 4 \krat 0}{0 - 2} = -\frac{3}{2} 
+  & = \frac{3 + 4 \krat 0}{0 - 2} = -\frac{3}{2}
 \end{align*}
 
 \subsection{Geometrijska vrsta}
 \label{sec:zap:geovrst}
 \textbf{Vrsta} je \textbf{vsota} vseh členov zaporedja. Poznamo \textbf{končne} in
-\textbf{neskončne} vrste. 
+\textbf{neskončne} vrste.
 \[ \sumi_{i=1} a_i = a_1 + a_2 + a_2 + \cdots + a_n + \cdots \]
 
 Zaporedje delnih vsot:
@@ -5159,7 +5159,7 @@ $n$ v neskončnost in je enaka $S$.
 Vrsta je \textbf{konvergentna}, če ima svojo vsoto, če je nima, je \textbf{divergentna}.
 
 \textbf{Geometrijska vrsta} je vsota vseh členov geometrijskega zaporedja. Konvergentna
-je, kadar je količnik geometrijskega zaporedja po absolutni vrednosti manjši od 1. 
+je, kadar je količnik geometrijskega zaporedja po absolutni vrednosti manjši od 1.
 \[ \sumi_{n=1}a_n = a_1 + a_1k + a_1k^2 + \cdots + a_1k^{n-1} + \cdots = \frac{a_1}{1-k};
 \;  \left|k\right| < 1 \]
 Dokaz:
@@ -5197,7 +5197,7 @@ krajša obdobja.
 obresti enak znesek obresti. Izračuna se jih po formuli:
 \[ p_{d_1} = 100\left( \sqrt[d]{1+\frac{p}{100}} - 1 \right) ; \; d = \frac{d_2}{d_1} \]
 $d_2$ je osnovna kapitalizacijska doba, $d_1$ pa je doba na katero želimo preračunati
-konformno obrestno mero. 
+konformno obrestno mero.
 
 \textbf{Načelo ekvivalence glavnic} pravi, da lahko različne glavnice primerjamo tako, da
 jih preračunamo na isti trenutek.
@@ -5233,10 +5233,10 @@ jih preračunamo na isti trenutek.
     razredom glede na celoto. $F' = \frac{F}{n}$.
   \item[Variacijski razmik] je razlika med največjo in najmanjšo vrednostjo.
   \item[Standardni odklon] je povprečje kvadratov odstopanj od aritmetične sredine. Pove
-    nam, kako koncentrirani so podatki. 
+    nam, kako koncentrirani so podatki.
     \[ \sigma = \sqrt{\frac{1}{n}\sum_{i=1}^n\left(\bar{x}-x_i\right)^2} \]
   \item[Medčetrtinski razmik] je razlika med kvartiloma $Q_1$ in $Q_3$. Ta kvartila dobimo
-    kot mediani prve polovice podatkov (manjši od $Me$) in druge polovice podatkov 
+    kot mediani prve polovice podatkov (manjši od $Me$) in druge polovice podatkov
     (večji od $Me$). Tako lahko narišemo škatlo z brki, ki prikazuje razpršenost podatkov.
   \item[Histogram] grafična predstavitev rezultata s stolpci, sestavljena iz
     pravokotnikov, katerih višina je enaka frekvenci razreda, širina pa
@@ -5320,13 +5320,13 @@ pri $x$.
 
 \subsection{Geometrijski pomen odvoda}
 \label{sec:odvod:geom}
-Diferenčni kvocient funkcije predstavlja smerni koeficient sekante funkcije v točkah $T(x_0, f(x_0))$ in $U(x_0+h, f(x_0+h))$. 
+Diferenčni kvocient funkcije predstavlja smerni koeficient sekante funkcije v točkah $T(x_0, f(x_0))$ in $U(x_0+h, f(x_0+h))$.
 
 Premica, ki gre skozi točko $T(x_0, y_0)$ in ima smerni koeficient enak odvodu funkcije v
 točki $x_0$ se imenuje \textbf{tangenta} na graf funkcije $f$ v točki $T$.
 
 Geometrijski pomen odvoda je prikazan na sliki~\ref{fig:odv:geom}. Če bi se $h$ manjšal
-proti nič, bi se sekanta modre krivulje približevala zeleni tangenti. 
+proti nič, bi se sekanta modre krivulje približevala zeleni tangenti.
 \begin{figure}[ht]
   \begin{center}
       \begin{pspicture*}(-1.5,-.7)(10,3.5)
@@ -5408,7 +5408,7 @@ Dokaz pravila \eqref{eq:odv:prav:pow}:
 \begin{align*}
    f(x) = \sqrt[n]{x} &= x^{\frac{1}{n}} \\
   \left( \sqrt[n]{x} \right)^n &= x \comment{Odvajamo po \eqref{eq:odv:prav:komp}.} \\
-  n(\sqrt[n]{x})^{n-1}(\sqrt[n]{x})' &= 1 =  
+  n(\sqrt[n]{x})^{n-1}(\sqrt[n]{x})' &= 1 =
   \left(\sqrt[n]{x}\right)' = \frac{1}{n\left(\sqrt[n]{x}\right)^{n-1}} =  \\
   & = \frac{1}{n}\left(x^{\frac{1}{n}}\right)^{-n+1} = \frac{1}{n}x^{-\frac{n}{n} +
   \frac{1}{n}} = \frac{1}{n}x^{\frac{1}{n}-1}
@@ -5446,7 +5446,7 @@ Dokaz pravila \eqref{eq:odv:prav:krat}:
 
 Dokaz pravila \eqref{eq:odv:prav:enaz}:
 \begin{align*}
-  \left( \frac{1}{f(x)} \right)' &= \limh\frac{\frac{1}{f(x+h)}-\frac{1}{f(x)}}{h} = 
+  \left( \frac{1}{f(x)} \right)' &= \limh\frac{\frac{1}{f(x+h)}-\frac{1}{f(x)}}{h} =
   \limh\frac{f(x)-f(x+h)}{h \krat f(x+h)\krat f(x)} = \comment{Po definiciji \eqref{eq:odv:def}.} \\
   &= \limh-\frac{f(x+h)-f(x)}{h \krat f(x+h)f(x)} = -\frac{f'(x)}{f^2(x)}
 \end{align*}
@@ -5454,7 +5454,7 @@ Dokaz pravila \eqref{eq:odv:prav:enaz}:
 Dokaz pravila \eqref{eq:odv:prav:del}:
 \begin{align*}
   \left( \frac{f(x)}{g(x)} \right)' &= \left( f(x)\krat\frac{1}{g(x)} \right)' =
-  f'(x)\frac{1}{g(x)} + f(x)\left( \frac{1}{g(x)} \right)' = \comment{Po pravilu \eqref{eq:odv:prav:krat}.}\\ 
+  f'(x)\frac{1}{g(x)} + f(x)\left( \frac{1}{g(x)} \right)' = \comment{Po pravilu \eqref{eq:odv:prav:krat}.}\\
   &= f'(x)\frac{1}{g(x)} - f(x)\frac{g'(x)}{g^2(x)} = \frac{f'(x)g(x) - f(x)g'(x)}{g^2(x)}
   \comment{Po pravilu \eqref{eq:odv:prav:enaz}.}
 \end{align*}
@@ -5462,7 +5462,7 @@ Dokaz pravila \eqref{eq:odv:prav:del}:
 Dokaz pravila \eqref{eq:odv:prav:komp}:
 \begin{align*}
   \left( f(g(x)) \right)' = \limh\frac{f(g(x+h))-f(g(x))}{h} = \comment{Glej sliko \ref{fig:odv:komp}.} \\
-  \lim_{\substack{h\rightarrow0\\k\rightarrow0}}\frac{f(g(x)+k) - f(g(x))}{hk} = 
+  \lim_{\substack{h\rightarrow0\\k\rightarrow0}}\frac{f(g(x)+k) - f(g(x))}{hk} =
   \lim_{\substack{h\rightarrow0\\k\rightarrow0}}\frac{\left( f(g(x)+k)-f(g(x)) \right)k}{hk} = \\
   \lim_{\substack{h\rightarrow0\\k\rightarrow0}}\frac{\left(f(g(x)+k) -f(g(x))
   \right)}{k}\frac{\left( g(x+h) - g(x) \right)}{h} = f'(g(x))g'(x)
@@ -5496,9 +5496,9 @@ Dokaz pravila \eqref{eq:odv:prav:komp}:
   & \left( \kos x \right)' = -\sin x \label{eq:odv:prav:cos} \\
   & \left( \tan x \right)' = \frac{1}{\kos^2x} \label{eq:odv:prav:tan} \\
   & \left( \cot x \right)' = -\frac{1}{\sin^2x} \label{eq:odv:prav:cot} \\
-  & \left( \arcsin x \right)' = \frac{1}{\sqrt{1-x^2}} \label{eq:odv:prav:asin} \\ 
-  & \left( \arccos x \right)' = -\frac{1}{\sqrt{1-x^2}} \label{eq:odv:prav:acos} \\ 
-  & \left( \arctan x \right)' = \frac{1}{x^2+1} \label{eq:odv:prav:atan} \\ 
+  & \left( \arcsin x \right)' = \frac{1}{\sqrt{1-x^2}} \label{eq:odv:prav:asin} \\
+  & \left( \arccos x \right)' = -\frac{1}{\sqrt{1-x^2}} \label{eq:odv:prav:acos} \\
+  & \left( \arctan x \right)' = \frac{1}{x^2+1} \label{eq:odv:prav:atan} \\
   & \left( \arccot x \right)' = -\frac{1}{x^2+1} \label{eq:odv:prav:acot}
 \end{align}
 
@@ -5522,7 +5522,7 @@ Dokaz pravila \eqref{eq:odv:prav:tan}:
 \begin{align*}
   \left( \tan x \right)' &= \left( \frac{\sin x}{\kos x} \right)' = \frac{\kos x\kos x -
   \left( -\sin x \right)\sin x}{\kos^2x} = \frac{1}{\kos^2x} \comment{Pravilo
-  \ref{eq:odv:prav:del}, sledi \eqref{eq:kot:zvez:sincos}.} 
+  \ref{eq:odv:prav:del}, sledi \eqref{eq:kot:zvez:sincos}.}
 \end{align*}
 
 Dokaz pravila \eqref{eq:odv:prav:cot}:
@@ -5631,7 +5631,7 @@ $y(x)$.
   2x + 2yy' &= 0  \comment{$y$ je sestavljena funkcija, odvajamo po pravilu
   \eqref{eq:odv:prav:komp}.} \\
   2yy' &= -2x \comment{Izrazimo $y'$.} \\
-  y' &= -\frac{x}{y} 
+  y' &= -\frac{x}{y}
 \end{align*}
 
 
@@ -5721,7 +5721,7 @@ odvoda je prikazan v tabeli~\ref{tab:odv:drug}.
     oblika & $f'(x)$ & $f''(x)$ \\ \noalign{\hrule height 1.0pt}
     lokalni minimum & 0 & $+$ \\ \hline
     lokalni maksimum & 0 & $-$ \\ \hline
-    prevoj, sedlo & 0 & 0 
+    prevoj, sedlo & 0 & 0
   \end{tabular}
   \caption{Drugi odvod funkcije v stacionarni točki.}
   \label{tab:odv:drug}
@@ -5741,13 +5741,13 @@ $\df$ --- diferencial funkcije $f$\\
 $\dx$ --- diferencial neodvisne spremenljivke
 
 Dopišemo znak za integral\footnote{Znak $\int$ izhaja iz ležečega (italic) znaka za dolgi s, kot okrajšavo
-za besedo \textit{summa}. Dolgi s: \url{http://en.wikipedia.org/wiki/Long_s\#Modern_usage}} na obe strani, 
+za besedo \textit{summa}. Dolgi s: \url{http://en.wikipedia.org/wiki/Long_s\#Modern_usage}} na obe strani,
 \begin{align*}
  \int\!\df &= \int\!f'(x) \dx \\
  f(x) &= \int\!f'(x) \dx
 \end{align*}
 Iz zadnje vrstice vidimo našo notacijo na nedoločeni integral funkcije:
-\[ \int\!f(x)\dx \comment{Beri: integral $f(x)$ d\'{e} x} \] 
+\[ \int\!f(x)\dx \comment{Beri: integral $f(x)$ d\'{e} x} \]
 
 Notacija za določeni integral bo zelo podobna, le da bomo ob vrhu in ob dnu znaka pisali
 še meje integrala.
@@ -5769,7 +5769,7 @@ spremenljivke. Diferencial funkcije $f$ je prikazan na sliki~\ref{fig:int:dif}.
 
 Diferencial funkcije $f$ se lahko uporablja za aproksimacijo funkcijskih vrednosti v
 bližini neke točke, katero vrednost poznamo. Napaka takega računanja je označena na
-sliki~\ref{fig:int:dif}. 
+sliki~\ref{fig:int:dif}.
 \[ f(x_0+\dx) \doteq f(x_0) + \df = f(x_0) + \dx\krat f'(x_0) \]
 
 \begin{figure}[ht]
@@ -5782,15 +5782,15 @@ sliki~\ref{fig:int:dif}.
         \psline[linecolor=cyan,linewidth=1.5pt](5,1)(5,2.236)
         \psline[linecolor=lightorange,linewidth=1.5pt](5,2.236)(5,3)
         \psline[linecolor=green](-2,-.5)(6,3.5)
-        \uput[ul](1,1){$T$} 
-        \uput[d](3,1){$\Delta x = \dx$} 
+        \uput[ul](1,1){$T$}
+        \uput[d](3,1){$\Delta x = \dx$}
         \uput[r](5,1.6){$\Delta y$}
         \uput[r](5,2.7){napaka}
         \uput[l](5,1.9){$\df$}
-        \uput[u](4,2.5){$t$} 
-        \uput[d](1,0){$x_0$} 
+        \uput[u](4,2.5){$t$}
+        \uput[d](1,0){$x_0$}
         \uput[d](5,0){$x_0+\Delta x$}
-        \uput[d](6,2.45){$\sqrt{x}$} 
+        \uput[d](6,2.45){$\sqrt{x}$}
         \uput[u](1.8,.9){$\alpha$}
       \end{pspicture*}
   \end{center}
@@ -5820,8 +5820,8 @@ Dokaz pravila~\eqref{eq:int:sum}: \\
 Odvajamo obe strani:
 \begin{gather*}
   \left( \int\!\left( f(x) + g(x) \right)\dx\right)' = f(x) + g(x) \comment{Po osnovni izpleljavi~\eqref{eq:int:osn}.} \\
-  \left( \int\!f(x)\dx + \int\!g(x)\dx \right)' = \left( \int\!f(x)\dx \right)' + \left( \int\!g(x)dx \right)' = \comment{Po pravilu~\eqref{eq:odv:prav:sum}.} \\ 
-  = f(x) + g(x) \comment{Po osnovni izpleljavi~\eqref{eq:int:osn}.} 
+  \left( \int\!f(x)\dx + \int\!g(x)\dx \right)' = \left( \int\!f(x)\dx \right)' + \left( \int\!g(x)dx \right)' = \comment{Po pravilu~\eqref{eq:odv:prav:sum}.} \\
+  = f(x) + g(x) \comment{Po osnovni izpleljavi~\eqref{eq:int:osn}.}
 \end{gather*}
 
 Dokaz pravila~\eqref{eq:int:konst}: \\
@@ -5853,12 +5853,12 @@ Dokazi pravil so večinoma samo obrnjena pravila za odvode iz
 razdelka~\ref{sec:odv:elem}. \\
 Dokaz pravila~\eqref{sec:int:elem:xnam1}:
 \begin{gather*}
-  y = \ln x = 
+  y = \ln x =
   \begin{cases}
     \hfill    \ln x; & \text{če $x > 0$,} \\
     \hfill \ln (-x); & \text{če $x < 0$.}
   \end{cases} \\
-  y' = 
+  y' =
   \begin{cases}
     \hfill \frac{1}{x}; & \text{če $x > 0$,} \\
     \hfill -\frac{1}{x}(-1) = \frac{1}{x}; & \text{če $x < 0$.}
@@ -5866,7 +5866,7 @@ Dokaz pravila~\eqref{sec:int:elem:xnam1}:
 \end{gather*}
 
 Dokaz pravila~\eqref{sec:int:elem:dolga}: \\
-\[ \int\!\frac{\dx}{\sqrt{x^2+k}} = 
+\[ \int\!\frac{\dx}{\sqrt{x^2+k}} =
 \begin{cases}
   \hfill \ln(x+\sqrt{x^2+k}) + C; & \text{če $x > 0$,} \\
   \hfill \ln(-(x+\sqrt{x^2+k})) + C; & \text{če $x < 0$.}
@@ -5875,7 +5875,7 @@ Odvajajmo posebej za pozitivne in negativne $x$.
 \begin{enumerate*}
   \item $x > 0$
     \begin{align*}
-      & \left( \ln \left(x + \sqrt{x^2 + k}\right)\right)' = 
+      & \left( \ln \left(x + \sqrt{x^2 + k}\right)\right)' =
           \frac{1}{x + \sqrt{x^2 + k}} \left( x+(x^2+k)^{\frac{1}{2}} \right)' = \\
       & = \frac{1}{x + \sqrt{x^2 + k}} \left( 1 + \frac{1}{2}(x^2 + k)^{-\frac{1}{2}} \krat (x^2 + k)' \right) = \\
       & = \frac{1}{x + \sqrt{x^2 + k}} \left( 1 + \frac{1}{2\sqrt{x^2 + k}}\krat 2x \right) = \\
@@ -5885,7 +5885,7 @@ Odvajajmo posebej za pozitivne in negativne $x$.
     \end{align*}
   \item $x < 0$
     \begin{align*}
-      & \left( \ln(-(x+\sqrt{x^2+k}))\right)' = 
+      & \left( \ln(-(x+\sqrt{x^2+k}))\right)' =
       -\frac{1}{x+\sqrt{x^2+k}}\left( -\left( x+\sqrt{x^2+k} \right)\right)' = \\
       & \frac{1}{x+\sqrt{x^2+k}}\left(x+\sqrt{x^2+k} \right)' = \cdots \comment{Enako kot zgoraj.}
     \end{align*}
@@ -5903,7 +5903,7 @@ Primer:
   \frac{1}{5} \sin u + C = \frac{\sin 5x}{5} + C \\
   u &= 5x \\
   \du &= 5\krat \dx \\
-  \dx &= \frac{\du}{5} 
+  \dx &= \frac{\du}{5}
 \end{align*}
 
 Lepo je če imamo sledečo situacijo:
@@ -5922,7 +5922,7 @@ Primer:\\
 Racionalne funkcije znamo integrirati na dva načina:
 
 Prvega uporabljamo, če je stopnja polinoma v števcu večja od stopnje polinoma v
-imenovalcu. Števec delimo z imenovalcem in racionalno funkcijo zapišemo kot 
+imenovalcu. Števec delimo z imenovalcem in racionalno funkcijo zapišemo kot
 vsoto polinoma in nove racionalne funkcije, ki ima v števcu polinom nižje stopnje kot v
 imenovalcu (enačba~\eqref{eq:rac:del}). Tako dobimo integral vsote, ki ga razbijemo da dva
 integrala, ki sta lažja kot tisti prej (če imamo srečo).
@@ -5983,12 +5983,12 @@ Izpeljava se nanaša na sliko~\ref{fig:dint}.
         \psframe*[linecolor=verylightgrey](6,0)(7,2.74)
         \psaxes[labels=none]{->}(0,0)(-1.5,-.5)(8.5,4.5)
         \psplot[plotstyle=curve,linecolor=blue, linewidth=.5pt]{-1}{8}{x 5 add 30 mul sin 3 add}
-        \psline[linecolor=red](1,0)(1,3) 
-        \psline[linecolor=green](2,0)(2,2.5) 
-        \psline[linecolor=green](3,0)(3,2.13) 
-        \psline[linecolor=green](4,0)(4,2.0) 
-        \psline[linecolor=green](5,0)(5,2.13) 
-        \psline[linecolor=green](6,0)(6,2.5) 
+        \psline[linecolor=red](1,0)(1,3)
+        \psline[linecolor=green](2,0)(2,2.5)
+        \psline[linecolor=green](3,0)(3,2.13)
+        \psline[linecolor=green](4,0)(4,2.0)
+        \psline[linecolor=green](5,0)(5,2.13)
+        \psline[linecolor=green](6,0)(6,2.5)
         \psline[linestyle=dashed,linecolor=violet](1.5,0)(1.5,2.74)
         \psline[linestyle=dashed,linecolor=violet](2.5,0)(2.5,2.29)
         \psline[linestyle=dashed,linecolor=violet](3.5,0)(3.5,2.034)
@@ -6022,7 +6022,7 @@ Izberimo si točko $t$ na sredini vsakega intervala in izračunajmo funkcijsko v
 $t$. Na $i$-tem intervalu imamo tako pravokotnik, katerega osnovnica je dolžine
 $x_i-x_{i-1}$ in katerega višina je $f(t_i)$. Tako lahko na intervalu $[x_{i-1},x_i]$
 zapišemo približek za ploščino pod krivuljo: $(x_i-x_{i-1})\krat f(t_i)$ (ploščina
-pravokotnika). 
+pravokotnika).
 Približek za ploščino pod grafom funkcije na intervalu $[a,b]$ je ploščina
 celotnega sivega območja jo zapišemo kot
 \[ p(L') = \sum_{i=1}^{n}\left( x_i-x_{i-1}\right)\krat f(t_i) \]
@@ -6080,12 +6080,12 @@ Izpeljava se nanaša na sliko~\ref{fig:dint:vrt}
         \psaxes[labels=none]{->}(0,0)(-1.5,-4.5)(8.5,4.5)
         \psplot[plotstyle=curve,linecolor=blue, linewidth=.5pt]{-1}{8}{x 5 add 30 mul sin 3 add}
         \psplot[plotstyle=curve,linecolor=blue, linewidth=.5pt]{-1}{8}{x 5 add 30 mul sin 3 add neg}
-        \psline[linecolor=red](1,-3)(1,3) 
-        \psline[linecolor=green](2,-2.5)(2,2.5) 
-        \psline[linecolor=green](3,-2.13)(3,2.13) 
-        \psline[linecolor=green](4,-2)(4,2.0) 
-        \psline[linecolor=green](5,-2.13)(5,2.13) 
-        \psline[linecolor=green](6,-2.5)(6,2.5) 
+        \psline[linecolor=red](1,-3)(1,3)
+        \psline[linecolor=green](2,-2.5)(2,2.5)
+        \psline[linecolor=green](3,-2.13)(3,2.13)
+        \psline[linecolor=green](4,-2)(4,2.0)
+        \psline[linecolor=green](5,-2.13)(5,2.13)
+        \psline[linecolor=green](6,-2.5)(6,2.5)
         \psline[linestyle=dashed,linecolor=violet](4.5,0)(4.5,2.034)
         \psline[linecolor=red](7,-3)(7,3)
         \psellipse[linestyle=dashed,linewidth=.5pt,linecolor=lightgrey](1,0)(.5,3)
@@ -6166,7 +6166,7 @@ Permutacije so vse možne \textbf{bijektivne preslikave} množice same nase.
 \subsection{Permutacije s ponavljanjem}
 \label{sec:komb:ppon}
 Permutacije $n$ elementov s ponavljanjem so vse možne razporeditve $n$ elementov v vrsto,
-pri čemer dopuščamo \textbf{ponavljanje} elementov. 
+pri čemer dopuščamo \textbf{ponavljanje} elementov.
 \[ P_n^{k_1,k_2,\ldots,k_r} = \frac{n!}{k_1!k_2!\cdots k_r!} =
 \frac{n!}{\displaystyle \prod_{i=1}^rk_i!} \qquad \sum_{i=1}^rk_i \le n \]
 
@@ -6175,7 +6175,7 @@ Njihove permutacije so: $AB_1B_2, AB_2B_1, B_1AB_2, B_1B_2A, B_2AB_1, B_2B_1A$.
 Če $B$-jev sedaj ne razlikujemo med seboj, opazimo, da je vseh permutacij ravno dvakrat
 preveč, ker lahko $B_1$ in $B_2$ permutiramo na $2! = 2$ načinov. Če bi imeli $k$ enakih
 $B$-jev, bi imeli $k!$-krat preveč permutacij. Če bi imeli $r$
-elementov, izmed katerih se $i$-it ponavlja $k_i$-krat, potem je vseh permutacij ravno 
+elementov, izmed katerih se $i$-it ponavlja $k_i$-krat, potem je vseh permutacij ravno
 $k_1!k_2! \cdots k_i! \cdots k_r!$ krat preveč, zato število vseh permutacij delimo s tem
 produktom.
 
@@ -6258,7 +6258,7 @@ Definirajmo \textbf{binomski koeficient} oz. binomski simbol (simbol beremo $n$ 
 Vrednost binomskega koeficienta je odgovor na vprašanje: ``Koliko je podmnožic z močjo $r$
 množice z močjo $n$?''
 
-\textbf{Osnovne vrednosti} binomskih simbolov: 
+\textbf{Osnovne vrednosti} binomskih simbolov:
 \[ \binom{n}{0} = 1 \qquad \binom{n}{1} = n \qquad \binom{n}{n} = 1 \]
 
 Za binomske simbole veljata tudi dve lastnosti: simetričnost in aditivnost. \\
@@ -6398,7 +6398,7 @@ izpolnjeni sledeči aksiomi:
 
 \vspace{-5ex}
 Naj bo pri poskusu možnih $n$ elementarnih dogodkov, ki so enako verjetni. Potem je
-verjetnost vsakega od njih $\frac{1}{n}$. 
+verjetnost vsakega od njih $\frac{1}{n}$.
 \[ P(e_i) = \frac{1}{n} \]
 
 Dokaz:
@@ -6427,7 +6427,7 @@ Dokaz:
 
 Obstaja tudi statistična definicija verjetnosti, pa še kakšna druga tudi. Po statistični
 definiciji verjetnosti je verjetnost limita relativne frekvence, ko gre število poskusov v
-neskončno. 
+neskončno.
 
 \subsection{Verjetnost nasprotnega dogodka}
 \label{sec:verj:nasp}
@@ -6436,7 +6436,7 @@ Vsota verjetnosti dogodka in verjetnosti njemu nasprotnega dogodka je enaka 1.
   A \cup A' = \mathcal U \\
   P(A \cup A') = P(\mathcal U) \\
   P(A) + P(A') = 1 \comment{$A$ in $A'$ sta nezdružljiva.} \\
-  P(A) = 1 - P(A')  
+  P(A) = 1 - P(A')
 \end{gather*}
 
 \subsection{Verjetnost vsote združljivih dogodkov}
@@ -6513,7 +6513,7 @@ $k$ dogodkov $A$ in nato $n-k$ dogodkov $A'$.
   = (P(A))^k \krat (P(A'))^{n-k} = p^k(1-p)^{n-k}
 \end{gather*}
 Sedaj pa se vrnimo na osnovni problem. Ne zanima nas vrstni red v katerem se je zgodilo
-$k$ dogodkov $A$, zanima nas le verjetnost, da se jih je zgodilo $k$. Na koliko 
+$k$ dogodkov $A$, zanima nas le verjetnost, da se jih je zgodilo $k$. Na koliko
 različnih načinov pa se lahko zgodi $k$ dogodkov $A$ v $n$ poskusih? Na $C^k_n =
 \binom{n}{k}$, torej je verjetnost, da se zgodi dogodek $A$, ravno $\binom{n}{k}$-krat večja.
 
