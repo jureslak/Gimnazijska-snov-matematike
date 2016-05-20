@@ -238,7 +238,9 @@ menucolor=black, runcolor=black, urlcolor=black%
 
 \textbf{Negacija} izjave $A$ je nova izjava, ``Ni res, da drži $A$.'' ($\neg A$), ki je pravilna, če je izjava $A$
 napačna in obratno.
-\begin{center}
+\begin{table}[h]
+  \centering
+  \label{tab:izjave:neg}
   \begin{tabular}{ | l | r |}
     \hline
     $A$ & $\neg A$\\
@@ -248,11 +250,14 @@ napačna in obratno.
     0 & 1 \\
     \hline
   \end{tabular}
-\end{center}
+  \caption{Vrednostmi negacije izjave}
+\end{table}
 
 \textbf{Konjunkcija} izjav $A$ in $B$ je nova izjava ``$A$ in $B$.'' ($A \land
 B$), ki je pravilna le, če sta izjavi $A$ in $B$ pravilni.
-\begin{center}
+\begin{table}[h]
+  \centering
+  \label{tab:izjave:konj}
   \begin{tabular}{ | l | c | r |}
     \hline
     $A$ & $B$ & $A \land B$\\
@@ -266,11 +271,14 @@ B$), ki je pravilna le, če sta izjavi $A$ in $B$ pravilni.
     0 & 0 & 0\\
     \hline
   \end{tabular}
-\end{center}
+  \caption{Vrednosti konjukcije dveh izjav}
+\end{table}
 
 \textbf{Disjunkcija} izjav $A$ in $B$ je nova izjava ``$A$ ali $B$.'' ($A \lor B$),
 ki je pravilna, ko je pravilna vsaj ena izmed izjav $A$ in $B$.
-\begin{center}
+\begin{table}[h]
+  \centering
+  \label{tab:izjave:disj}
   \begin{tabular}{ | l | c | r |}
     \hline
     $A$ & $B$ & $A \lor B$\\
@@ -284,11 +292,14 @@ ki je pravilna, ko je pravilna vsaj ena izmed izjav $A$ in $B$.
     0 & 0 & 0\\
     \hline
   \end{tabular}
-\end{center}
+  \caption{Vrednosti disjunkcije dveh izjav}
+\end{table}
 
 \textbf{Implikacija} izjav $A$ in $B$ je nova izjava ``Če $A$, potem sledi $B$.'' ($A
 \implies B$), ki je napačna samo v primeru, da je prva izjava pravilna, druga pa napačna.
-\begin{center}
+\begin{table}[h]
+  \centering
+  \label{tab:izjave:imp}
   \begin{tabular}{ | l | c | r |}
     \hline
     $A$ & $B$ & $A \implies B$\\
@@ -302,11 +313,14 @@ ki je pravilna, ko je pravilna vsaj ena izmed izjav $A$ in $B$.
     0 & 0 & 1\\
     \hline
   \end{tabular}
-\end{center}
+  \caption{Vrednosti impikacije dveh izjav}
+\end{table}
 
 \textbf{Ekvivalenca} izjav $A$ in $B$ je nova izjava ``Če $A$, natanko takrat $B$.'' ($A
 \iff B$), ki je pravilna, če imata izjavi enako vrednost.
-\begin{center}
+\begin{table}[h]
+  \centering
+  \label{tab:izjave:ekv}
   \begin{tabular}{ | l | c | r |}
     \hline
     $A$ & $B$ & $A \iff B$\\
@@ -320,7 +334,8 @@ ki je pravilna, ko je pravilna vsaj ena izmed izjav $A$ in $B$.
     0 & 0 & 1\\
     \hline
   \end{tabular}
-\end{center}
+  \caption{Vrednosti ekvivalence dveh izjav}
+\end{table}
 
 
 \section{Množice}
@@ -6593,6 +6608,7 @@ različnih načinov pa se lahko zgodi $k$ dogodkov $A$ v $n$ poskusih? Na $C^k_n
 
 \pagebreak
 \listoffigures
+\listoftables
 %\pagebreak
 %\printindex
 
