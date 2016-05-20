@@ -237,18 +237,105 @@ menucolor=black, runcolor=black, urlcolor=black%
 
 \textbf{Negacija} izjave $A$ je nova izjava, ``Ni res, da drži $A$.'' ($\neg A$), ki je pravilna, če je izjava $A$
 napačna in obratno.
+\begin{table}[h]
+  \centering
+  \label{tab:izjave:neg}
+  \begin{tabular}{ | l | r |}
+    \hline
+    $A$ & $\neg A$\\
+    \hline
+    1 & 0 \\
+    \hline
+    0 & 1 \\
+    \hline
+  \end{tabular}
+  \caption{Vrednostmi negacije izjave}
+\end{table}
 
 \textbf{Konjunkcija} izjav $A$ in $B$ je nova izjava ``$A$ in $B$.'' ($A \land
 B$), ki je pravilna le, če sta izjavi $A$ in $B$ pravilni.
+\begin{table}[h]
+  \centering
+  \label{tab:izjave:konj}
+  \begin{tabular}{ | l | c | r |}
+    \hline
+    $A$ & $B$ & $A \land B$\\
+    \hline
+    1 & 1 & 1\\
+    \hline
+    1 & 0 & 0\\
+    \hline
+    0 & 1 & 0\\
+    \hline
+    0 & 0 & 0\\
+    \hline
+  \end{tabular}
+  \caption{Vrednosti konjukcije dveh izjav}
+\end{table}
 
 \textbf{Disjunkcija} izjav $A$ in $B$ je nova izjava ``$A$ ali $B$.'' ($A \lor B$),
 ki je pravilna, ko je pravilna vsaj ena izmed izjav $A$ in $B$.
+\begin{table}[h]
+  \centering
+  \label{tab:izjave:disj}
+  \begin{tabular}{ | l | c | r |}
+    \hline
+    $A$ & $B$ & $A \lor B$\\
+    \hline
+    1 & 1 & 1\\
+    \hline
+    1 & 0 & 1\\
+    \hline
+    0 & 1 & 1\\
+    \hline
+    0 & 0 & 0\\
+    \hline
+  \end{tabular}
+  \caption{Vrednosti disjunkcije dveh izjav}
+\end{table}
 
 \textbf{Implikacija} izjav $A$ in $B$ je nova izjava ``Če $A$, potem sledi $B$.'' ($A
 \implies B$), ki je napačna samo v primeru, da je prva izjava pravilna, druga pa napačna.
+\begin{table}[h]
+  \centering
+  \label{tab:izjave:imp}
+  \begin{tabular}{ | l | c | r |}
+    \hline
+    $A$ & $B$ & $A \implies B$\\
+    \hline
+    1 & 1 & 1\\
+    \hline
+    1 & 0 & 0\\
+    \hline
+    0 & 1 & 1\\
+    \hline
+    0 & 0 & 1\\
+    \hline
+  \end{tabular}
+  \caption{Vrednosti impikacije dveh izjav}
+\end{table}
 
 \textbf{Ekvivalenca} izjav $A$ in $B$ je nova izjava ``Če $A$, natanko takrat $B$.'' ($A
 \iff B$), ki je pravilna, če imata izjavi enako vrednost.
+\begin{table}[h]
+  \centering
+  \label{tab:izjave:ekv}
+  \begin{tabular}{ | l | c | r |}
+    \hline
+    $A$ & $B$ & $A \iff B$\\
+    \hline
+    1 & 1 & 1\\
+    \hline
+    1 & 0 & 0\\
+    \hline
+    0 & 1 & 0\\
+    \hline
+    0 & 0 & 1\\
+    \hline
+  \end{tabular}
+  \caption{Vrednosti ekvivalence dveh izjav}
+\end{table}
+
 
 \section{Množice}
 \label{sec:mnozice}
@@ -627,7 +714,7 @@ Konstrukcija realnih in racionalnih števil je prikazana na sliki~\ref{fig:real:
 
 \begin{figure}[ht]
   \begin{center}
-    \includegraphics[width=0.8\textwidth]{slike/realrac.pdf}
+    %\includegraphics[width=0.8\textwidth]{slike/realrac.pdf}
   \end{center}
   \caption{Konstrukcija racionalnih in realnih števil na primeru $\frac{1}{3}$ in $-\sqrt{2}$.}
   \label{fig:real:konstr}
@@ -6520,6 +6607,7 @@ različnih načinov pa se lahko zgodi $k$ dogodkov $A$ v $n$ poskusih? Na $C^k_n
 
 \pagebreak
 \listoffigures
+\listoftables
 %\pagebreak
 %\printindex
 
