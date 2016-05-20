@@ -238,18 +238,90 @@ menucolor=black, runcolor=black, urlcolor=black%
 
 \textbf{Negacija} izjave $A$ je nova izjava, ``Ni res, da drži $A$.'' ($\neg A$), ki je pravilna, če je izjava $A$
 napačna in obratno.
+\begin{center}
+  \begin{tabular}{ | l | r |}
+    \hline
+    $A$ & $\neg A$\\
+    \hline
+    1 & 0 \\
+    \hline
+    0 & 1 \\
+    \hline
+  \end{tabular}
+\end{center}
 
 \textbf{Konjunkcija} izjav $A$ in $B$ je nova izjava ``$A$ in $B$.'' ($A \land
 B$), ki je pravilna le, če sta izjavi $A$ in $B$ pravilni.
+\begin{center}
+  \begin{tabular}{ | l | c | r |}
+    \hline
+    $A$ & $B$ & $A \land B$\\
+    \hline
+    1 & 1 & 1\\
+    \hline
+    1 & 0 & 0\\
+    \hline
+    0 & 1 & 0\\
+    \hline
+    0 & 0 & 0\\
+    \hline
+  \end{tabular}
+\end{center}
 
 \textbf{Disjunkcija} izjav $A$ in $B$ je nova izjava ``$A$ ali $B$.'' ($A \lor B$),
 ki je pravilna, ko je pravilna vsaj ena izmed izjav $A$ in $B$.
+\begin{center}
+  \begin{tabular}{ | l | c | r |}
+    \hline
+    $A$ & $B$ & $A \lor B$\\
+    \hline
+    1 & 1 & 1\\
+    \hline
+    1 & 0 & 1\\
+    \hline
+    0 & 1 & 1\\
+    \hline
+    0 & 0 & 0\\
+    \hline
+  \end{tabular}
+\end{center}
 
 \textbf{Implikacija} izjav $A$ in $B$ je nova izjava ``Če $A$, potem sledi $B$.'' ($A
 \implies B$), ki je napačna samo v primeru, da je prva izjava pravilna, druga pa napačna.
+\begin{center}
+  \begin{tabular}{ | l | c | r |}
+    \hline
+    $A$ & $B$ & $A \implies B$\\
+    \hline
+    1 & 1 & 1\\
+    \hline
+    1 & 0 & 0\\
+    \hline
+    0 & 1 & 1\\
+    \hline
+    0 & 0 & 1\\
+    \hline
+  \end{tabular}
+\end{center}
 
 \textbf{Ekvivalenca} izjav $A$ in $B$ je nova izjava ``Če $A$, natanko takrat $B$.'' ($A
 \iff B$), ki je pravilna, če imata izjavi enako vrednost.
+\begin{center}
+  \begin{tabular}{ | l | c | r |}
+    \hline
+    $A$ & $B$ & $A \iff B$\\
+    \hline
+    1 & 1 & 1\\
+    \hline
+    1 & 0 & 0\\
+    \hline
+    0 & 1 & 0\\
+    \hline
+    0 & 0 & 1\\
+    \hline
+  \end{tabular}
+\end{center}
+
 
 \section{Množice}
 \label{sec:mnozice}
@@ -628,7 +700,7 @@ Konstrukcija realnih in racionalnih števil je prikazana na sliki~\ref{fig:real:
 
 \begin{figure}[ht]
   \begin{center}
-    \includegraphics[width=0.8\textwidth]{slike/realrac.pdf}
+    %\includegraphics[width=0.8\textwidth]{slike/realrac.pdf}
   \end{center}
   \caption{Konstrukcija racionalnih in realnih števil na primeru $\frac{1}{3}$ in $-\sqrt{2}$.}
   \label{fig:real:konstr}
