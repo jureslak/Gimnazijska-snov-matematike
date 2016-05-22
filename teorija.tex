@@ -38,7 +38,8 @@ menucolor=black, runcolor=black, urlcolor=black%
 
 %\usepackage{makeidx} % stvarno kazalo
 %\makeindex
-
+\usepackage[titles,subfigure]{tocloft} % za spacing v kazalu
+\setlength{\cftsubsecnumwidth}{2.8em}
 \usepackage{enumerate} % za lep enumerate
 \usepackage{auto-pst-pdf} % slike
 \usepackage{pst-plot} %slike
@@ -56,12 +57,12 @@ menucolor=black, runcolor=black, urlcolor=black%
 \usepackage{algorithm} % za algoritem kot float
 \usepackage{algpseudocode} % za psevdokodo
 
-\def\R{\ensuremath{\mathbb R}}
-\def\N{\ensuremath{\mathbb N}}
-\def\Z{\ensuremath{\mathbb Z}}
-\def\C{\ensuremath{\mathbb C}}
-\def\Q{\ensuremath{\mathbb Q}}
-\def\I{\ensuremath{\mathcal I}}
+\def\R{\ensuremath{\mathbb{R}}}
+\def\N{\ensuremath{\mathbb{N}}}
+\def\Z{\ensuremath{\mathbb{Z}}}
+\def\C{\ensuremath{\mathbb{C}}}
+\def\Q{\ensuremath{\mathbb{Q}}}
+\def\I{\ensuremath{\mathcal{I}}}
 \mathchardef\mhyphen="2D
 
 \newcommand{\edot}{\;\;\;.}
@@ -99,6 +100,7 @@ menucolor=black, runcolor=black, urlcolor=black%
 \newrgbcolor{lightorange}{0.9531 0.7031 0.3125}
 \newrgbcolor{lightgreen2}{0.5547 0.9141 0.2734}
 \psset{arrowscale=1.5,RightAngleSize=.3} % arrow settings, angle markers
+
 
 \newcommand{\asimptota}{\psline[linecolor=lightgrey, linestyle=dashed, linewidth=.5pt]}
 \newcommand{\oznaka}{\psline[linecolor=red, linestyle=dotted]}
@@ -221,7 +223,7 @@ menucolor=black, runcolor=black, urlcolor=black%
 \vfill
 \hfill
 \vspace{-5ex}
-\scalebox{0.7}{v. 0.98}
+\scalebox{0.7}{v.\ 1.01}
 %\vfill
 %\hfill
 
