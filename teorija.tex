@@ -4553,10 +4553,10 @@ Algoritem bisekcije je zapisan v psevdokodi kot algoritem~\ref{algo:bisekcija}.
   \begin{algorithmic}[1]
     \While{$|b-a| < \epsilon$}
         \State $s \gets \frac{a+b}{2}$
-        \If{\textsc{predznak}$(f(a)) =\ $\textsc{predznak}$(f(b))$}
-          \State $a \gets s$
-        \Else
+        \If{\textsc{predznak}$(f(a)) =\ $\textsc{predznak}$(f(s))$}
           \State $b \gets s$
+        \Else
+          \State $a \gets s$
         \EndIf
     \EndWhile
   \end{algorithmic}
