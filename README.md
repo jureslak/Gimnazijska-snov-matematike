@@ -12,4 +12,12 @@ Narejena v LaTeX-u, `.tex` je koda, `.pdf` je za gledat.
 
 Za popravke in dodatke se zahvaljujem Roku Kosu in Žigi Gosarju.
 
+## Prevajanje iz izvorne kode
+Jaz prevajam kodo s pomočjo orodja `pdflatex`. Zaženete samo
+```
+pdflatex -synctex=1 -interaction=nonstopmode -shell-escape teorija.tex
+```
+počakate nekaj časa in ven pride pdf. Opcija `-shell-escape` dovoli LaTeXu zaganjanje programov iz
+ukazne vrstice, in je lahko potencialno nevarja, vendar potrebna za avtomatsko risanje slik.
+
 Jure Slak
