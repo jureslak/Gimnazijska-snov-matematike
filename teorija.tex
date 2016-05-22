@@ -339,7 +339,7 @@ množici $B$. \[ A \cap B = \left\{x:x \in A \land x \in B \right\}, \quad 0 \le
 
 \textbf{Razlika} množic $A$ in $B$ ($A - B$ ali $A \setminus B$) je nova množica, ki
 vsebuje vse elemente, ki so v prvi množici v prvi pa ne.
-\[ A - B = \left\{x : x \in A; x \notin B \right\} \]
+\[ A - B = \left\{x : x \in A \land x \notin B \right\} \]
 
 \textbf{Komplement} množice $A$ ($A^c$) je nova množica, ki vsebuje vse elemente, ki niso
 v množici $A$. $A^c = \mathcal{U} - A$
@@ -667,7 +667,7 @@ Dokaz, da $\sqrt{2} \notin \Q$
   2 &= \frac{p^2}{q^2} \\
   2q^2 &= p^2 \comment{kvadrat $p$ je sodo, torej je tudi $p$ sodo; $p = 2m$} \\
   2q^2 &= \left( 2m \right)^2 \\
-  q^2 &= 2m^2 \comment{kvadrat $q$ je sodo, torej je tudi $q$ sodo; $q = 2n$} \\
+  q^2 &= 2n^2 \comment{kvadrat $q$ je sodo, torej je tudi $q$ sodo; $q = 2n$} \\
   \left( 2n \right)^2 &=  2m^2 \\
   2n^2 &= m^2 \\
   &\vdots \comment{$p$ je sodo, $q$ je sodo, torej ulomek ni okrajšan, trditev je napačna} \\
@@ -832,7 +832,7 @@ pogleda število faktorjev.
 
 \subsubsection{Pravila za računanje}
 \label{sec:pot:cela:prav}
-Veljajo vsa pravila kot za naravna števila (razdelek \ref{sec:pot:nar:prav}). Poleg teh veljajo še
+Veljajo vsa pravila kot za naravna števila (razdelek \ref{sec:naravna:zakoni}). Poleg teh veljajo še
 naslednja pravila, ki se dokažejo podobno kot pri naravnih eksponentih:
 \begin{align}
   \frac{a^n}{a^m} &= a^{n-m} \label{eq:pot:anandelanam} \\
@@ -1022,7 +1022,7 @@ Dogovora:
 \vspace{-24pt}
 \hspace{100pt}
 \footnote{Matematiki za logaritem z osnovo $e$ pogosto uporabljajo
-kar zapis $\log x$.}
+kar zapis $\ln x$.}
 
 \subsection{Pravila za računanje}
 \label{sec:eq:log:prav}
@@ -1130,7 +1130,7 @@ vrednosti.}:
     x_3 - x_1 & y_3 - y_1
 \end{vmatrix} \comment{$\sigma$ je orientacija trikotnika.} \]
 \[ p\sigma = \frac{1}{2} \left[ (x_2-x_1)(y_3-y_1) + (y_2-y_1)(x_3-x_1) \right] \]
-\[ p\sigma = \frac{1}{2} \left[ x_1(y_2-y_3 + x_2(y_3-y_1) + x_3(y_1-y_2) \right] \]
+\[ p\sigma = \frac{1}{2} \left[ x_1(y_2-y_3) + x_2(y_3-y_1) + x_3(y_1-y_2) \right] \]
 
 Determinanta:
 \begin{equation}
@@ -2100,7 +2100,7 @@ Izhajajmo iz kvadratne funkcije in njene oblike za ničle, upoštevajoč $a = 1$
 
 \subsection{Kompleksne enačbe}
 \label{sec:enac:kompl}
-\textbf{Kompleksna\footref{fn:komplnotyet} enačba} je vsaka enačba oblike $z = w;\; z, w \in \C$ ali vsaka neenačba, ki jo v
+\textbf{Kompleksna\footref{fn:komplnotyet} enačba} je vsaka enačba oblike $z = w;\; z, w \in \C$ ali vsaka enačba, ki jo v
 to obliko lahko prevedemo.
 
 Kompleksno število je enako nič, če sta obe njegovi komponenti enaki nič.
@@ -2177,9 +2177,9 @@ tako, da koren \textbf{osamimo} na eni strani in kvadriramo. Če nastopata dva t
 uporabimo trik z uporabo drugega dela enačbe~\ref{eq:izr:kub:dvoclenika}. Primer:
 \begin{align*}
   \sqrt[3]{x} + \sqrt[3]{x+1} &= 2  \comment{ na $^3$} \\
-  x + (x+1) + 3\sqrt[3]{x}\sqrt[3]{x+1}(\underbrace{\sqrt[3]{x} + \sqrt[3]{x+1}}_{2}) &=  2
+  x + (x+1) + 3\sqrt[3]{x}\sqrt[3]{x+1}(\underbrace{\sqrt[3]{x} + \sqrt[3]{x+1}}_{2}) &=  8
   \comment{Po zgornji enačbi.} \\
-  x + (x+1) + 3\sqrt[3]{x}\sqrt[3]{x+1} \krat 2 &= 2
+  x + (x+1) + 3\sqrt[3]{x}\sqrt[3]{x+1} \krat 2 &= 8
 \end{align*}
 
 
@@ -2774,7 +2774,7 @@ Odštejemo enačbi \eqref{eq:kot:pol:3} in \eqref{eq:kot:pol:2} med seboj.
   \sin\frac{\alpha}{2} &= \pm\sqrt{\frac{1-\kos\alpha}{2}}
 \end{align*}
 
-Seštejemo enačbi \eqref{eq:kot:pol:3} in \eqref{eq:kot:pol:1} med seboj.
+Seštejemo enačbi \eqref{eq:kot:pol:3} in \eqref{eq:kot:pol:2} med seboj.
 \begin{align*}
   1 + \kos\alpha &= 2\kos^2\frac{\alpha}{2} \\
   \kos\frac{\alpha}{2} &= \pm\sqrt{\frac{1+\kos\alpha}{2}}
@@ -3294,7 +3294,7 @@ kosinusom vmesnega kota.
   &\hspace{-20pt} \text{Skalarni produkt pravokotnih vektorjev je enak 0:} \nonumber \\
   &\vec{a} \perp \vec{b} \implies \vec{a}\vec{b} = 0 \label{eq:vec:skal:prav} \\
   &\hspace{-20pt} \text{Skalarni produkt vektorja samega s seboj je enak kvadratu njegove dolžine:} \nonumber \\
-  &\vec{a}\vec{a} = a^2  \label{eq:vec:skal:aajea2} \\
+  &\vec{a}\vec{a} = |\vec{a}|^2  \label{eq:vec:skal:aajea2} \\
   &x\left(\vec{a}\vec{b}\right) = \left(x\vec{a}\right)\vec{b} = \vec{a}\left(x\vec{b}\right) \comment{Homogenost.}
   \label{eq:vec:skal:hom} \\
   &\vec{a}\vec{b} =  a \krat \pr_{\vec{a}}\vec{b} \label{eq:vec:skal:proj} \\
@@ -3315,8 +3315,8 @@ Dokaz lastnosti~\ref{eq:vec:skal:prav}:
 
 Dokaz lastnosti~\ref{eq:vec:skal:aajea2}:
 \begin{align*}
-  &\vec{a}\vec{a} = a\krat a \krat\kos0\deg = a^2 \\
-  &a = \sqrt{\vec{a}\vec{a}} \comment{Formula za dolžino vektorja.}
+  &\vec{a}\vec{a} = a\krat a \krat\kos0\deg = |\vec{a}|^2 \\
+  &|\vec{a}| = \sqrt{\vec{a}\vec{a}} \comment{Formula za dolžino vektorja.}
 \end{align*}
 
 Dokaz lastnosti~\ref{eq:vec:skal:hom}:
@@ -3720,7 +3720,7 @@ Glej sliko~\ref{fig:liki:paral}.
 \label{sec:liki:trap}
 Glej sliki~\ref{fig:liki:trap1} in~\ref{fig:liki:trap2}.
 \begin{align*}
-  p &=  \frac{(a+c)\krat v}{2} = \frac{a+c}{2} \krat v = s + v \\
+  p &=  \frac{(a+c)\krat v}{2} = \frac{a+c}{2} \krat v = s \krat v \\
   o &=  a + b + c + d
 \end{align*}
 \begin{align*}
@@ -4082,9 +4082,9 @@ ravnini $\Pi$. Točki $S$ pravimo \textbf{središče}.
 Razmerje med obsegom in premerom kroga je \textbf{konstantno}. Konstanto označimo s~$\boldsymbol\pi$.
 \begin{align*}
   o &= 2\pi r \\
-  l &= \frac{\pi r\alpha}{180\deg} = r\alpha \\
+  l &= \frac{\pi r\alpha}{180\deg} = r\theta \\
   p &= \pi r^2 \\
-  p_{iz} &= \frac{\pi r^2\alpha}{360\deg} = \frac{r^2\alpha}{2} = \frac{l\krat
+  p_{iz} &= \frac{\pi r^2\alpha}{360\deg} = \frac{r^2\theta}{2} = \frac{l\krat
   r}{2} \\
   p_{od} &= p_{iz} - p_{\triangle}
 \end{align*}
@@ -5117,13 +5117,13 @@ Dokaz:
   k^{n-1-m+1} = k^{n-m} \]
 
 Vsak člen geometrijskega zaporedja je \textbf{geometrijska sredina} simetrično ležečih členov.
-\[ a_n = \sqrt{a_{n-1}\krat a_{n+1}} \]
+\[ a_n = \sqrt{a_{n-i}\krat a_{n+i}} \]
 Dokaz:
 \begin{align*}
-  \frac{a_n}{a_{n-1}} &=  \frac{a_{n+1}}{a_n} \comment{Po definiciji geometrijskega
+  \frac{a_n}{a_{n-i}} &=  \frac{a_{n+i}}{a_n} \comment{Po definiciji geometrijskega
   zaporedja.} \\
-  a_n^2 &= a_{n-1}\krat a_{n+1} \\
-  a_n &= \sqrt{a_{n-1}\krat a_{n+1}}
+  a_n^2 &= a_{n-i}\krat a_{n+i} \\
+  a_n &= \sqrt{a_{n-i}\krat a_{n+i}}
 \end{align*}
 
 \subsection{Matematična indukcija}
@@ -5140,12 +5140,12 @@ Primer: \\
 Dokaži da velja:
 \[ 1\krat 2 + 2\krat 5 + 3\krat 8 + \cdots + n(3n-1) = n^2(n+1) \]
 \begin{enumerate*}
-  \item $n = 1$
+  \item Dokažemo, da velja za $n = 1$
     \begin{align*}
       & n^2(n+1) = 1(1+1) = 2 \\
       & n(3n-1) = 1(3\krat 1 - 1) = 2
     \end{align*}
-  \item $n + 1$
+  \item Predpostavimo, da velja za $n$ in dokažemo da velja za $n + 1$
     \begin{align*}
       S_n &= n^2(n+1), S_{n+1} = (n+1)^2(n+1) \\
       S_{n+1} &= S_n + a_{n+1} = \\
