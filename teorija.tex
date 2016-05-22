@@ -1,4 +1,4 @@
-\documentclass[a4paper,oneside,12pt,fleqn]{article}
+\documentclass[a4paper,twoside,12pt,fleqn]{article}
 \usepackage[slovene]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -56,6 +56,7 @@ menucolor=black, runcolor=black, urlcolor=black%
 \usepackage{floatflt} % floating figure and table
 \usepackage{algorithm} % za algoritem kot float
 \usepackage{algpseudocode} % za psevdokodo
+\usepackage{fancyhdr} % za glavo in nogo
 
 \def\R{\ensuremath{\mathbb{R}}}
 \def\N{\ensuremath{\mathbb{N}}}
@@ -198,6 +199,13 @@ menucolor=black, runcolor=black, urlcolor=black%
 }
 \makeatother
 
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LO,LE]{\scshape Jure Slak, Teorija pri matematiki}
+\fancyhead[RO,RE]{\scshape\nouppercase{\leftmark}}
+\fancyfoot[LO,RE]{\thepage}
+\renewcommand{\sectionmark}[1]{\markboth{\thesection.~#1}{}}
+
 \begin{document}
 %set spacing 2
 \setlength{\abovedisplayskip}{3pt}
@@ -206,7 +214,7 @@ menucolor=black, runcolor=black, urlcolor=black%
 \renewcommand{\listfigurename}{Kazalo slik}
 \floatname{algorithm}{Algoritem}
 
-\thispagestyle{empty}
+\pagestyle{empty}
 % naslovnica
 
 \mbox{}\\
@@ -228,7 +236,6 @@ menucolor=black, runcolor=black, urlcolor=black%
 %\hfill
 
 \pagebreak
-\thispagestyle{empty}
 \section*{Predgovor}
 Pred vami je gimnazijska snov matematike štirih let, kot mi je bila povedana na
 Gimnaziji Vič v letih 2008 -- 2012. Zapiski so nastajali pred vsakim testom
@@ -255,9 +262,9 @@ Jure Slak
 
 \pagebreak
 
-\thispagestyle{empty}
 \tableofcontents
 \pagebreak
+\pagestyle{fancy}
 
 \section{Izjave}
 \label{sec:izjave}
