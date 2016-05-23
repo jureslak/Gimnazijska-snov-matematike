@@ -287,11 +287,9 @@ bodisi $B$.'' ($A \veebar B$ ali $A \otimes B$),
 ki je pravilna, ko je pravilna natanko ena izmed izjav $A$ in $B$.
 Za vrednosti glej tabelo~\ref{tab:izjave}.
 
-
 \textbf{Implikacija} izjav $A$ in $B$ je nova izjava ``Če $A$, potem sledi $B$.'' ($A
 \implies B$), ki je napačna samo v primeru, da je prva izjava pravilna, druga pa napačna.
 Za vrednosti glej tabelo~\ref{tab:izjave}.
-
 
 \textbf{Ekvivalenca} izjav $A$ in $B$ je nova izjava ``Če $A$, natanko takrat $B$.'' ($A
 \iff B$), ki je pravilna, če imata izjavi enako vrednost.
@@ -334,7 +332,7 @@ množici $B$. \[ A \cap B = \left\{x:x \in A \land x \in B \right\}, \quad 0 \le
 
 \textbf{Razlika} množic $A$ in $B$ ($A - B$ ali $A \setminus B$) je nova množica, ki
 vsebuje vse elemente, ki so v prvi množici v prvi pa ne.
-\[ A - B = \left\{x : x \in A; x \notin B \right\} \]
+\[ A - B = \left\{x : x \in A \land x \notin B \right\} \]
 
 \textbf{Komplement} množice $A$ ($A^c$) je nova množica, ki vsebuje vse elemente, ki niso
 v množici $A$. $A^c = \mathcal{U} - A$
@@ -827,7 +825,7 @@ pogleda število faktorjev.
 
 \subsubsection{Pravila za računanje}
 \label{sec:pot:cela:prav}
-Veljajo vsa pravila kot za naravna števila (razdelek \ref{sec:pot:nar:prav}). Poleg teh veljajo še
+Veljajo vsa pravila kot za naravna števila (razdelek \ref{sec:naravna:zakoni}). Poleg teh veljajo še
 naslednja pravila, ki se dokažejo podobno kot pri naravnih eksponentih:
 \begin{align}
   \frac{a^n}{a^m} &= a^{n-m} \label{eq:pot:anandelanam} \\
@@ -1125,7 +1123,7 @@ vrednosti.}:
     x_3 - x_1 & y_3 - y_1
 \end{vmatrix} \comment{$\sigma$ je orientacija trikotnika.} \]
 \[ p\sigma = \frac{1}{2} \left[ (x_2-x_1)(y_3-y_1) + (y_2-y_1)(x_3-x_1) \right] \]
-\[ p\sigma = \frac{1}{2} \left[ x_1(y_2-y_3 + x_2(y_3-y_1) + x_3(y_1-y_2) \right] \]
+\[ p\sigma = \frac{1}{2} \left[ x_1(y_2-y_3) + x_2(y_3-y_1) + x_3(y_1-y_2) \right] \]
 
 Determinanta:
 \begin{equation}
@@ -2095,7 +2093,7 @@ Izhajajmo iz kvadratne funkcije in njene oblike za ničle, upoštevajoč $a = 1$
 
 \subsection{Kompleksne enačbe}
 \label{sec:enac:kompl}
-\textbf{Kompleksna\footref{fn:komplnotyet} enačba} je vsaka enačba oblike $z = w;\; z, w \in \C$ ali vsaka neenačba, ki jo v
+\textbf{Kompleksna\footref{fn:komplnotyet} enačba} je vsaka enačba oblike $z = w;\; z, w \in \C$ ali vsaka enačba, ki jo v
 to obliko lahko prevedemo.
 
 Kompleksno število je enako nič, če sta obe njegovi komponenti enaki nič.
@@ -2172,9 +2170,9 @@ tako, da koren \textbf{osamimo} na eni strani in kvadriramo. Če nastopata dva t
 uporabimo trik z uporabo drugega dela enačbe~\ref{eq:izr:kub:dvoclenika}. Primer:
 \begin{align*}
   \sqrt[3]{x} + \sqrt[3]{x+1} &= 2  \comment{ na $^3$} \\
-  x + (x+1) + 3\sqrt[3]{x}\sqrt[3]{x+1}(\underbrace{\sqrt[3]{x} + \sqrt[3]{x+1}}_{2}) &=  2
+  x + (x+1) + 3\sqrt[3]{x}\sqrt[3]{x+1}(\underbrace{\sqrt[3]{x} + \sqrt[3]{x+1}}_{2}) &=  8
   \comment{Po zgornji enačbi.} \\
-  x + (x+1) + 3\sqrt[3]{x}\sqrt[3]{x+1} \krat 2 &= 2
+  x + (x+1) + 3\sqrt[3]{x}\sqrt[3]{x+1} \krat 2 &= 8
 \end{align*}
 
 
@@ -2769,7 +2767,7 @@ Odštejemo enačbi \eqref{eq:kot:pol:3} in \eqref{eq:kot:pol:2} med seboj.
   \sin\frac{\alpha}{2} &= \pm\sqrt{\frac{1-\kos\alpha}{2}}
 \end{align*}
 
-Seštejemo enačbi \eqref{eq:kot:pol:3} in \eqref{eq:kot:pol:1} med seboj.
+Seštejemo enačbi \eqref{eq:kot:pol:3} in \eqref{eq:kot:pol:2} med seboj.
 \begin{align*}
   1 + \kos\alpha &= 2\kos^2\frac{\alpha}{2} \\
   \kos\frac{\alpha}{2} &= \pm\sqrt{\frac{1+\kos\alpha}{2}}
@@ -3043,15 +3041,15 @@ Ob izpeljavi glej sliko~\ref{fig:kot:prem}.
 
 Po izrekih za kote v trikotniku (razdelek~\ref{sec:geom},
 \ref{enum:geom:notrzun}~element seznama) velja:
-\begin{align*}
-  & \alpha_1 + \varphi = \alpha_2 \\
-  & \varphi = \alpha_2 - \alpha_1 \\
-  & \tan\alpha = \tan(\alpha_2 - \alpha_1) \\
+\begin{align}
+  & \alpha_1 + \varphi = \alpha_2 \nonumber \\
+  & \varphi = \alpha_2 - \alpha_1 \nonumber \\
+  & \tan\alpha = \tan(\alpha_2 - \alpha_1) \nonumber \\
   & \tan\varphi = \frac{\tan\alpha_2 - \tan\alpha_1}{1+\tan\alpha_1\tan\alpha_2}
-  \comment{Po adicijskem izreku za tangens~\eqref{eq:kot:adic:tan}.} \\
+  \comment{Po adicijskem za tangens~\eqref{eq:kot:adic:tan}.} \\
   & \tan\varphi = \left| \frac{k_2-k_1}{1+k_1k_2} \right| \comment{Po
-  izpeljavah~\eqref{eq:kot:prem:1} in~\eqref{eq:kot:prem:2}.}
-\end{align*}
+  izpeljavah~\eqref{eq:kot:prem:1} in~\eqref{eq:kot:prem:2}.} \label{eq:kot:prem:3}
+\end{align}
 
 \section{Vektorji}
 \label{sec:vec}
@@ -3108,11 +3106,11 @@ sliki~\ref{fig:vec:sest:trik}.
 
 \textbf{Lastnosti:}\\[6pt]
 \begin{tabular}[h!]{ll}
-  \textbf{komutativnost}:       & $\vec{a} + \vec{b} = \vec{b} + \vec{a}$ Grafični dokaz:
-  slika~\ref{fig:vec:sest:zak:kom}. \\
+  \textbf{komutativnost}:       & $\vec{a} + \vec{b} = \vec{b} + \vec{a}$ \\
+  & Grafični dokaz: slika~\ref{fig:vec:sest:zak:kom}. \\
   \textbf{asociativnost}:       & $\vec{a} + \left( \vec{b} + \vec{c}  \right) = \left( \vec{a} +
-  \vec{b} \right) + \vec{c} = \vec{a} + \vec{b} + \vec{c}$ Grafični dokaz:
-  slika~\ref{fig:vec:sest:zak:asoc}. \\
+  \vec{b} \right) + \vec{c} = \vec{a} + \vec{b} + \vec{c}$ \\
+  & Grafični dokaz: slika~\ref{fig:vec:sest:zak:asoc}. \\
   \textbf{enota} za seštevanje: & $\vec{a} + \vec{0} = \vec{a}$ \\
   \textbf{nasprotni element}:   & $\vec{a} + \left( -\vec{a} \right) = \vec{0}$
 \end{tabular}
@@ -3288,7 +3286,7 @@ kosinusom vmesnega kota.
   &\hspace{-20pt} \text{Skalarni produkt pravokotnih vektorjev je enak 0:} \nonumber \\
   &\vec{a} \perp \vec{b} \implies \vec{a}\vec{b} = 0 \label{eq:vec:skal:prav} \\
   &\hspace{-20pt} \text{Skalarni produkt vektorja samega s seboj je enak kvadratu njegove dolžine:} \nonumber \\
-  &\vec{a}\vec{a} = a^2  \label{eq:vec:skal:aajea2} \\
+  &\vec{a}\vec{a} = |\vec{a}|^2  \label{eq:vec:skal:aajea2} \\
   &x\left(\vec{a}\vec{b}\right) = \left(x\vec{a}\right)\vec{b} = \vec{a}\left(x\vec{b}\right) \comment{Homogenost.}
   \label{eq:vec:skal:hom} \\
   &\vec{a}\vec{b} =  a \krat \pr_{\vec{a}}\vec{b} \label{eq:vec:skal:proj} \\
@@ -3309,8 +3307,8 @@ Dokaz lastnosti~\ref{eq:vec:skal:prav}:
 
 Dokaz lastnosti~\ref{eq:vec:skal:aajea2}:
 \begin{align*}
-  &\vec{a}\vec{a} = a\krat a \krat\kos0\deg = a^2 \\
-  &a = \sqrt{\vec{a}\vec{a}} \comment{Formula za dolžino vektorja.}
+  &\vec{a}\vec{a} = a\krat a \krat\kos0\deg = |\vec{a}|^2 \\
+  &|\vec{a}| = \sqrt{\vec{a}\vec{a}} \comment{Formula za dolžino vektorja.}
 \end{align*}
 
 Dokaz lastnosti~\ref{eq:vec:skal:hom}:
@@ -3714,7 +3712,7 @@ Glej sliko~\ref{fig:liki:paral}.
 \label{sec:liki:trap}
 Glej sliki~\ref{fig:liki:trap1} in~\ref{fig:liki:trap2}.
 \begin{align*}
-  p &=  \frac{(a+c)\krat v}{2} = \frac{a+c}{2} \krat v = s + v \\
+  p &=  \frac{(a+c)\krat v}{2} = \frac{a+c}{2} \krat v = s \krat v \\
   o &=  a + b + c + d
 \end{align*}
 \begin{align*}
@@ -4048,7 +4046,7 @@ Ob izpeljavi glej sliko~\ref{fig:liki:malir}.
   p &= \frac{b\krat c \krat \sin\alpha}{2} \comment{Kvadriramo, vse je pozitivno.} \\
   p^2 &= \frac{b^2\krat c^2\krat \sin^2\alpha}{4} \comment{Zamenjamo $\sin^2\alpha$ po osnovni
   zvezi~\eqref{eq:kot:zvez:sincos}.} \\
-  p^2 &= \frac{b^2c^2(1-cos^2\alpha)}{4} \comment{Razlika
+  p^2 &= \frac{b^2c^2(1-\kos^2\alpha)}{4} \comment{Razlika
   kvadratov~\eqref{eq:izr:razlikakvadratov}.} \\
   p^2 &= \frac{b^2c^2\left( 1-\kos\alpha \right)\left( 1+\kos\alpha \right)}{4}
   \comment{Kosinusni izrek~\ref{eq:liki:cos}. $\kos\alpha=\frac{b^2+c^2-a^2}{2bc}$} \\
@@ -4076,10 +4074,10 @@ ravnini $\Pi$. Točki $S$ pravimo \textbf{središče}.
 Razmerje med obsegom in premerom kroga je \textbf{konstantno}. Konstanto označimo s~$\boldsymbol\pi$.
 \begin{align*}
   o &= 2\pi r \\
-  l &= \frac{\pi r\alpha}{180\deg} = r\alpha \\
+  l &= \frac{\pi r\alpha}{180\deg} = r\alpha \comment{v zadnji formuli je $\alpha$ v radianih.} \\
   p &= \pi r^2 \\
   p_{iz} &= \frac{\pi r^2\alpha}{360\deg} = \frac{r^2\alpha}{2} = \frac{l\krat
-  r}{2} \\
+  r}{2} \comment{v predzadnji formuli je $\alpha$ v radianih.}\\
   p_{od} &= p_{iz} - p_{\triangle}
 \end{align*}
 
@@ -4328,6 +4326,13 @@ Shema:
   $a$ & $a_n$ & $a\krat a_n + a_{n-1}$ & $\dots$ & $\dots$ & \multicolumn{1}{|c}{$p(a)$}
 \end{tabular}
 
+Hornerjev algoritem se uporablja za:
+\begin{itemize*}
+  \item deljenje polinoma $p$ z linearnim polinomom $(x-a)$
+  \item računanje vrednosti polinoma $p$ v točki $a$
+  \item iskanje ničel polinoma $p$
+\end{itemize*}
+
 \subsection{Ničle polinoma}
 \label{sec:pol:nic}
 Število $a$ je \textbf{ničla} polinoma, če je vrednost polinoma pri $a$ enaka 0.
@@ -4541,7 +4546,7 @@ Algoritem bisekcije je zapisan v psevdokodi kot algoritem~\ref{algo:bisekcija}.
   \begin{algorithmic}[1]
     \While{$|b-a| < \epsilon$}
         \State $s \gets \frac{a+b}{2}$
-        \If{\textsc{predznak}$(f(a)) =\ $\textsc{predznak}$(f(b))$}
+        \If{\textsc{predznak}$(f(a)) =\ $\textsc{predznak}$(f(s))$}
           \State $a \gets s$
         \Else
           \State $b \gets s$
@@ -5012,6 +5017,12 @@ Lahko preoblikujemo v:
 
 Vsak člen aritmetičnega zaporedja je \textbf{aritmetična sredina} simetrično ležečih členov.
 \[ a_n = \frac{a_{n-i} + a_{n+i}}{2} \]
+Dokaz:
+\begin{align*}
+  a_n - a_{n-i} &= a_{n+i} - a_n\\
+  2a_n &= a_{n-i} + a_{n+i}\\
+  a_n &= \frac{a_{n-i} + a_{n+i}}{2}
+\end{align*}
 
 Formula za \textbf{vsoto} $n$ členov aritmetičnega zaporedja ali za vsoto končne
 aritmetične vrste.
@@ -5098,13 +5109,13 @@ Dokaz:
   k^{n-1-m+1} = k^{n-m} \]
 
 Vsak člen geometrijskega zaporedja je \textbf{geometrijska sredina} simetrično ležečih členov.
-\[ a_n = \sqrt{a_{n-1}\krat a_{n+1}} \]
+\[ a_n = \sqrt{a_{n-i}\krat a_{n+i}} \]
 Dokaz:
 \begin{align*}
-  \frac{a_n}{a_{n-1}} &=  \frac{a_{n+1}}{a_n} \comment{Po definiciji geometrijskega
+  \frac{a_n}{a_{n-i}} &=  \frac{a_{n+i}}{a_n} \comment{Po definiciji geometrijskega
   zaporedja.} \\
-  a_n^2 &= a_{n-1}\krat a_{n+1} \\
-  a_n &= \sqrt{a_{n-1}\krat a_{n+1}}
+  a_n^2 &= a_{n-i}\krat a_{n+i} \\
+  a_n &= \sqrt{a_{n-i}\krat a_{n+i}}
 \end{align*}
 
 \subsection{Matematična indukcija}
@@ -5121,12 +5132,12 @@ Primer: \\
 Dokaži da velja:
 \[ 1\krat 2 + 2\krat 5 + 3\krat 8 + \cdots + n(3n-1) = n^2(n+1) \]
 \begin{enumerate*}
-  \item $n = 1$
+  \item Dokažemo, da velja za $n = 1$
     \begin{align*}
       & n^2(n+1) = 1(1+1) = 2 \\
       & n(3n-1) = 1(3\krat 1 - 1) = 2
     \end{align*}
-  \item $n + 1$
+  \item Predpostavimo, da velja za $n$ in dokažemo, da velja za $n + 1$
     \begin{align*}
       S_n &= n^2(n+1), S_{n+1} = (n+1)^2(n+1) \\
       S_{n+1} &= S_n + a_{n+1} = \\
@@ -5419,7 +5430,7 @@ funkcijo v točki $T$.
 \textbf{Kot} med krivuljo in \textbf{abscisno osjo} je enak naklonskemu kotu tangente na krivuljo
 presečišču.
 
-\textbf{Kot} med krivuljama je enak kotu med tangentama na krivulji v presečišču.
+\textbf{Kot} med krivuljama je enak kotu med tangentama na krivulji v presečišču. In se zračuna po tej formuli v razdelku~\ref{eq:kot:prem:3}, kjer za $k_1$ in $k_2$ vstavimo odvoda teh funkcij v točki $T$.
 
 \subsection{Pravila za odvajanje}
 \label{sec:odvod:prav}
