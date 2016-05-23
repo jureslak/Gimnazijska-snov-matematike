@@ -6,9 +6,10 @@ na vsa maturitetna vprašanja.
 
 Vse sem naredil samo jaz, kar pomeni da nobena nova verzija ni preverjena in ni
 nujno pravilna (čeprav se seveda trudim, da je napak čim manj). Prosim, da mi
-odkrite napake sporočite (knajbolje da kar odprete issue). Z veseljem sprejemam tudi pull requeste.
+odkrite napake sporočite (knajbolje da kar odprete issue). Z veseljem sprejemam tudi pull requeste,
+pa ni treba dodajat pdfja, ker so potem samo težave z mergi..
 
-Narejena v LaTeX-u, `teotija.tex` je koda, `teorija.pdf` je glavni dokument za gledat.
+Narejena v LaTeX-u, `teorija.tex` je koda, `teorija.pdf` je glavni dokument za gledat.
 
 Za popravke in dodatke se zahvaljujem Roku Kosu in Žigi Gosarju.
 
