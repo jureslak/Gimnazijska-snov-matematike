@@ -118,6 +118,7 @@ menucolor=black, runcolor=black, urlcolor=black%
 \newcommand{\dt}{\ensuremath{\d t}}
 \newcommand{\du}{\ensuremath{\d u}}
 \newcommand{\dv}{\ensuremath{\d v}}
+\newcommand{\dvec}[1]{\ensuremath{|\vec{#1}|}} %dolzina vektorja (\right, \left s tema commandama ne zgleda tako lepo.. raztegne crte)
 
 \allowdisplaybreaks[1] % prelomi align
 
@@ -3203,7 +3204,7 @@ je razdalja \textbf{pozitivno} predznačena, če ne je \textbf{negativno} predzn
   \hfill -\left| Z'K' \right|; & \Vec{Z'K'} \;\uparrow\downarrow\; \Vec{OA}
 \end{cases} \]
 
-\[ \pr_{\vec{a}}\vec{b} = b\krat\kos\varphi \]
+\[ \pr_{\vec{a}}\vec{b} = \dvec{b}\krat\kos\varphi \]
 Pravokotna projekcija vektorja $\vec{b}$ na vektor $\vec{a}$ je prikazana na
 sliki~\ref{fig:vec:proj}.
 
@@ -3269,7 +3270,7 @@ pozitivnih kotov, ki ju vektorja določata.
 \textbf{Skalarni produkt} dveh vektorjev je enak produktu dolžin obeh vektorjev s
 kosinusom vmesnega kota.
 \begin{equation}
-  \vec{a} \krat \vec{b} = a \krat b \krat \kos\varphi \label{eq:vec:skal:def}
+  \vec{a} \krat \vec{b} = \dvec{a} \krat \dvec{b} \krat \kos\varphi \label{eq:vec:skal:def}
 \end{equation}
 
 
@@ -3279,7 +3280,7 @@ kosinusom vmesnega kota.
   &\hspace{-20pt} \text{Skalarni produkt pravokotnih vektorjev je enak 0:} \nonumber \\
   &\vec{a} \perp \vec{b} \implies \vec{a}\vec{b} = 0 \label{eq:vec:skal:prav} \\
   &\hspace{-20pt} \text{Skalarni produkt vektorja samega s seboj je enak kvadratu njegove dolžine:} \nonumber \\
-  &\vec{a}\vec{a} = |\vec{a}|^2  \label{eq:vec:skal:aajea2} \\
+  &\vec{a}\vec{a} = \dvec{a}^2  \label{eq:vec:skal:aajea2} \\
   &x\left(\vec{a}\vec{b}\right) = \left(x\vec{a}\right)\vec{b} = \vec{a}\left(x\vec{b}\right) \comment{Homogenost.}
   \label{eq:vec:skal:hom} \\
   &\vec{a}\vec{b} =  a \krat \pr_{\vec{a}}\vec{b} \label{eq:vec:skal:proj} \\
@@ -3289,46 +3290,46 @@ kosinusom vmesnega kota.
 
 Dokaz lastnosti~\ref{eq:vec:skal:kom}:
 \begin{align*}
-  & \vec{a}\vec{b} = ab\kos\varphi = ba\kos\varphi = \vec{b}\vec{a} \comment{Množenje je
+  & \vec{a}\vec{b} = \dvec{a}\dvec{b}\kos\varphi = \dvec{b}\dvec{a}\kos\varphi = \vec{b}\vec{a} \comment{Množenje je
   komutativno.}
 \end{align*}
 
 Dokaz lastnosti~\ref{eq:vec:skal:prav}:
 \begin{align*}
-  &\vec{a}\vec{b} = ab\kos90\deg = ab\krat0 = 0
+  &\vec{a}\vec{b} = \dvec{a}\dvec{b}\kos90\deg = \dvec{a}\dvec{b}\krat0 = 0
 \end{align*}
 
 Dokaz lastnosti~\ref{eq:vec:skal:aajea2}:
 \begin{align*}
-  &\vec{a}\vec{a} = a\krat a \krat\kos0\deg = |\vec{a}|^2 \\
-  &|\vec{a}| = \sqrt{\vec{a}\vec{a}} \comment{Formula za dolžino vektorja.}
+  &\vec{a}\vec{a} = \dvec{a}\krat \dvec{a} \krat\kos0\deg = \dvec{a}^2 \\
+  &\dvec{a} = \sqrt{\vec{a}\vec{a}} \comment{Formula za dolžino vektorja.}
 \end{align*}
 
 Dokaz lastnosti~\ref{eq:vec:skal:hom}:
 \begin{align*}
-  x(\vec{a}\vec{b}) &=  x(ab\kos\varphi) = xab\kos\varphi \\
-  (x\vec{a})\vec{b} &= (xa)b\kos\varphi = xab\kos\varphi \\
-  \vec{a}(x\vec{b}) &= a(xb)\kos\varphi = xab\kos\varphi \comment{Množenje je
+  x(\vec{a}\vec{b}) &=  x(\dvec{a}\dvec{b}\kos\varphi) = x\dvec{a}\dvec{b}\kos\varphi \\
+  (x\vec{a})\vec{b} &= (x\dvec{a})\dvec{b}\kos\varphi = x\dvec{a}\dvec{b}\kos\varphi \\
+  \vec{a}(x\vec{b}) &= \dvec{a}(x\dvec{b})\kos\varphi = x\dvec{a}\dvec{b}\kos\varphi \comment{Množenje je
   asociativno.}
 \end{align*}
 
 Dokaz lastnosti~\ref{eq:vec:skal:proj}:
 \begin{align*}
-  &\pr_{\vec{a}}\vec{b} = b\krat\kos\varphi \\
-  &\vec{a}\vec{b} = a\krat b\krat\kos\varphi = a \krat\pr_{\vec{a}}\vec{b}
+  &\pr_{\vec{a}}\vec{b} = \dvec{b}\krat\kos\varphi \\
+  &\vec{a}\vec{b} = \dvec{a}\krat \dvec{b}\krat\kos\varphi = \dvec{a} \krat\pr_{\vec{a}}\vec{b}
 \end{align*}
 
 Dokaz lastnosti~\ref{eq:vec:skal:dist}:
 \begin{align*}
-  &\vec{a}(\vec{b} + \vec{c}) = a\krat\pr_{\vec{a}}(\vec{b}+\vec{c}) =
-  a\krat(\pr_{\vec{a}}\vec{b} + \pr_{\vec{a}}\vec{c}) =
-  a\krat\pr_{\vec{a}}\vec{b} + a\krat\pr_{\vec{a}}\vec{c} = \vec{a}\vec{b} +
+  &\vec{a}(\vec{b} + \vec{c}) = \dvec{a}\krat\pr_{\vec{a}}(\vec{b}+\vec{c}) =
+  \dvec{a}\krat(\pr_{\vec{a}}\vec{b} + \pr_{\vec{a}}\vec{c}) =
+  \dvec{a}\krat\pr_{\vec{a}}\vec{b} + \dvec{a}\krat\pr_{\vec{a}}\vec{c} = \vec{a}\vec{b} +
   \vec{a}\vec{c}
 \end{align*}
 
 Iz formule za skalarni produkt izpeljemo tudi formulo za računanje \textbf{kota} med vektorjema:
-\[ \kos\varphi = \frac{\vec{a}\vec{b}}{ab} \implies \varphi = \arccos\left(
-\frac{\vec{a}\vec{b}}{ab} \right) \]
+\[ \kos\varphi = \frac{\vec{a}\vec{b}}{\dvec{a}\dvec{b}} \implies \varphi = \arccos\left(
+\frac{\vec{a}\vec{b}}{\dvec{a}\dvec{b}} \right) \]
 
 \subsection{Krajevni vektorji}
 \label{sec:vec:kraj}
@@ -3429,7 +3430,7 @@ Skalarni produkt vektorjev v komponentah je enak vsoti produktov istoležnih kom
 
 \subsubsection{Enotski vektor v smeri danega vektorja}
 \label{sec:vec:kraj:enot}
-\[ \Vec{e_{\vec{a}}} = \frac{\vec{a}}{\left| \vec{a} \right|} \]
+\[ \Vec{e_{\vec{a}}} = \frac{\vec{a}}{\dvec{a}} \]
 
 \subsection{Vektorski produkt}
 \label{sec:vec:vec}
@@ -3442,7 +3443,7 @@ konca krajša pot od vektorja $\vec{a}$ do vektorja $\vec{b}$ \textbf{pozitivna}
 \begin{vmatrix} a_3 & a_1 \\ b_3 & b_1 \end{vmatrix},
 \begin{vmatrix} a_1 & a_2 \\ b_1 & b_2 \end{vmatrix},
 \right) \comment{Za razrešitev determinante matrike glej~\eqref{eq:koor:determinanta}.} \]
-\[ \left| \vec{a}\times\vec{b} \right| = |\vec{a}| \krat |\vec{b}| \krat\sin\varphi \]
+\[ \left| \vec{a}\times\vec{b} \right| = \dvec{a} \krat \dvec{b} \krat\sin\varphi \]
 
 \section{Kompleksna števila}
 \label{sec:kompl}
