@@ -249,7 +249,7 @@ s strani srednješolca, kot je snov dojemal, ko jo je prvič slišal in zato mor
 dijakom bližje kot učbenik, in tudi zato jih nimam namena veliko spreminjati.
 
 Za popravke in dodatke se iskreno zahvaljujem Žigi Gosarju, ki je odpravil mnogo
-napak, tako vsebinskih kot slovničnih, ter Roku kosu, ki je posodobil in
+napak, tako vsebinskih kot slovničnih, ter Roku Kosu, ki je posodobil in
 izboljšal kose snovi ter popravil druge napake.
 
 Jure Slak
@@ -2459,7 +2459,7 @@ Dokaz izreka~\eqref{eq:podob:trik:pit}:
      $30\deg$ & \mltc{$\frac{1}{2}$} & \mltc{$\frac{\sqrt{3}}{2}$} & \mltc{$\frac{\sqrt{3}}{3}$} & $\sqrt{3}$ \\ \hline
      $45\deg$ & \mltc{$\frac{\sqrt{2}}{2}$} & \mltc{$\frac{\sqrt{2}}{2}$} & $1$ & $1$ \\ \hline
      $60\deg$ & \mltc{$\frac{\sqrt{3}}{2}$} & \mltc{$\frac{1}{2}$} & $\sqrt{3}$ & \mltc{$\frac{\sqrt{3}}{3}$} \\ \hline
-     $90\deg$ &     $1$      & \mltc{$\frac{\sqrt{3}}{2}$} & nedef. & $0$ \\
+     $90\deg$ &     $1$      &      $0$     &    nedef.    & $0$ \\
   \end{tabularx}
 \end{table}
 
@@ -3810,6 +3810,7 @@ Glej sliki~\ref{fig:liki:trik1} in~\ref{fig:liki:trik2}.
   p &= \frac{a \krat v_a}{2} = \frac{b \krat v_b}{2} = \frac{c \krat v_c}{2} \\
   p &= \frac{a \krat b \krat \sin\gamma}{2} = \frac{a \krat c \krat\sin\beta}{2} =
   \frac{b \krat c \krat\sin\alpha}{2} \\
+  p &= \sqrt{s\left( s-a \right)\left( s-b \right)\left( s-c \right)} \comment{Heronov obrazec, ki je razložen kasneje v sekciji \ref{sec:liki:heron}}\\
   o &= a + b + c
 \end{align*}
 } \parbox[t]{0.5\textwidth}{
@@ -4616,9 +4617,9 @@ sliki~\ref{fig:stoz:kroz}.
       \label{fig:stoz:kroz:b}
       \begin{pspicture*}(-3.5,-3.5)(3.5,3.5)
         \psaxes[labels=none]{->}(0,0)(-3.5,-3.5)(3.5,3.5)
-        \parametricplot[plotstyle=ccurve]{0}{360}{t cos 2 mul 1 add t sin 2 mul 1 sub}
-        \psdots[*](1,-1)
-        \uput[dr](1,-1){$S(1,-1)$}
+        \parametricplot[plotstyle=ccurve]{0}{360}{t cos 2 mul 1 sub t sin 2 mul 1 add}
+        \psdots[*](-1,1)
+        \uput[dr](-1,1){$S(-1,1)$}
       \end{pspicture*}
     }
   \end{center}
@@ -6389,7 +6390,7 @@ zapišemo kot število podmnožic z močjo 0 + število podmnožic z močjo $1 +
 podmnožic z močjo $n$, ali drugače
 \[ \binom{n}{0} + \binom{n}{1} + \cdots + \binom{n}{n-1} + \binom{n}{n} \comment{$n$-ta
 vrstica Pascalovega trikotnika} \]
-T\'{a}ko binomsko vrsto pa lahko dobimo le, če potenciramo binom $(1+1)^n$, kar pa je enako $2^n$. Duh.
+T\'{a}ko binomsko vrsto pa lahko dobimo le, če potenciramo binom $(1+1)^n$, kar pa je enako $2^n$.
 
 \section{Verjetnostni račun}
 \label{sec:verj}
