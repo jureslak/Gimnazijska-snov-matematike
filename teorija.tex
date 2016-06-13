@@ -119,6 +119,7 @@ menucolor=black, runcolor=black, urlcolor=black%
 \newcommand{\dt}{\ensuremath{\d t}}
 \newcommand{\du}{\ensuremath{\d u}}
 \newcommand{\dv}{\ensuremath{\d v}}
+\newcommand{\dvec}[1]{\ensuremath{|\vec{#1}|}} %dolzina vektorja (\right, \left s tema commandama ne zgleda tako lepo.. raztegne crte)
 
 \allowdisplaybreaks[1] % prelomi align
 
@@ -255,7 +256,7 @@ s strani srednješolca, kot je snov dojemal, ko jo je prvič slišal in zato mor
 dijakom bližje kot učbenik, in tudi zato jih nimam namena veliko spreminjati.
 
 Za popravke in dodatke se iskreno zahvaljujem Žigi Gosarju, ki je odpravil mnogo
-napak, tako vsebinskih kot slovničnih, ter Roku kosu, ki je posodobil in
+napak, tako vsebinskih kot slovničnih, ter Roku Kosu, ki je posodobil in
 izboljšal kose snovi ter popravil druge napake.
 
 Jure Slak
@@ -2465,7 +2466,7 @@ Dokaz izreka~\eqref{eq:podob:trik:pit}:
      $30\deg$ & \mltc{$\frac{1}{2}$} & \mltc{$\frac{\sqrt{3}}{2}$} & \mltc{$\frac{\sqrt{3}}{3}$} & $\sqrt{3}$ \\ \hline
      $45\deg$ & \mltc{$\frac{\sqrt{2}}{2}$} & \mltc{$\frac{\sqrt{2}}{2}$} & $1$ & $1$ \\ \hline
      $60\deg$ & \mltc{$\frac{\sqrt{3}}{2}$} & \mltc{$\frac{1}{2}$} & $\sqrt{3}$ & \mltc{$\frac{\sqrt{3}}{3}$} \\ \hline
-     $90\deg$ &     $1$      & \mltc{$\frac{\sqrt{3}}{2}$} & nedef. & $0$ \\
+     $90\deg$ &     $1$      &      $0$     &    nedef.    & $0$ \\
   \end{tabularx}
 \end{table}
 
@@ -3210,7 +3211,7 @@ je razdalja \textbf{pozitivno} predznačena, če ne je \textbf{negativno} predzn
   \hfill -\left| Z'K' \right|; & \Vec{Z'K'} \;\uparrow\downarrow\; \Vec{OA}
 \end{cases} \]
 
-\[ \pr_{\vec{a}}\vec{b} = b\krat\kos\varphi \]
+\[ \pr_{\vec{a}}\vec{b} = \dvec{b}\krat\kos\varphi \]
 Pravokotna projekcija vektorja $\vec{b}$ na vektor $\vec{a}$ je prikazana na
 sliki~\ref{fig:vec:proj}.
 
@@ -3276,7 +3277,7 @@ pozitivnih kotov, ki ju vektorja določata.
 \textbf{Skalarni produkt} dveh vektorjev je enak produktu dolžin obeh vektorjev s
 kosinusom vmesnega kota.
 \begin{equation}
-  \vec{a} \krat \vec{b} = a \krat b \krat \kos\varphi \label{eq:vec:skal:def}
+  \vec{a} \krat \vec{b} = \dvec{a} \krat \dvec{b} \krat \kos\varphi \label{eq:vec:skal:def}
 \end{equation}
 
 
@@ -3286,7 +3287,7 @@ kosinusom vmesnega kota.
   &\hspace{-20pt} \text{Skalarni produkt pravokotnih vektorjev je enak 0:} \nonumber \\
   &\vec{a} \perp \vec{b} \implies \vec{a}\vec{b} = 0 \label{eq:vec:skal:prav} \\
   &\hspace{-20pt} \text{Skalarni produkt vektorja samega s seboj je enak kvadratu njegove dolžine:} \nonumber \\
-  &\vec{a}\vec{a} = |\vec{a}|^2  \label{eq:vec:skal:aajea2} \\
+  &\vec{a}\vec{a} = \dvec{a}^2  \label{eq:vec:skal:aajea2} \\
   &x\left(\vec{a}\vec{b}\right) = \left(x\vec{a}\right)\vec{b} = \vec{a}\left(x\vec{b}\right) \comment{Homogenost.}
   \label{eq:vec:skal:hom} \\
   &\vec{a}\vec{b} =  a \krat \pr_{\vec{a}}\vec{b} \label{eq:vec:skal:proj} \\
@@ -3296,46 +3297,46 @@ kosinusom vmesnega kota.
 
 Dokaz lastnosti~\ref{eq:vec:skal:kom}:
 \begin{align*}
-  & \vec{a}\vec{b} = ab\kos\varphi = ba\kos\varphi = \vec{b}\vec{a} \comment{Množenje je
+  & \vec{a}\vec{b} = \dvec{a}\dvec{b}\kos\varphi = \dvec{b}\dvec{a}\kos\varphi = \vec{b}\vec{a} \comment{Množenje je
   komutativno.}
 \end{align*}
 
 Dokaz lastnosti~\ref{eq:vec:skal:prav}:
 \begin{align*}
-  &\vec{a}\vec{b} = ab\kos90\deg = ab\krat0 = 0
+  &\vec{a}\vec{b} = \dvec{a}\dvec{b}\kos90\deg = \dvec{a}\dvec{b}\krat0 = 0
 \end{align*}
 
 Dokaz lastnosti~\ref{eq:vec:skal:aajea2}:
 \begin{align*}
-  &\vec{a}\vec{a} = a\krat a \krat\kos0\deg = |\vec{a}|^2 \\
-  &|\vec{a}| = \sqrt{\vec{a}\vec{a}} \comment{Formula za dolžino vektorja.}
+  &\vec{a}\vec{a} = \dvec{a}\krat \dvec{a} \krat\kos0\deg = \dvec{a}^2 \\
+  &\dvec{a} = \sqrt{\vec{a}\vec{a}} \comment{Formula za dolžino vektorja.}
 \end{align*}
 
 Dokaz lastnosti~\ref{eq:vec:skal:hom}:
 \begin{align*}
-  x(\vec{a}\vec{b}) &=  x(ab\kos\varphi) = xab\kos\varphi \\
-  (x\vec{a})\vec{b} &= (xa)b\kos\varphi = xab\kos\varphi \\
-  \vec{a}(x\vec{b}) &= a(xb)\kos\varphi = xab\kos\varphi \comment{Množenje je
+  x(\vec{a}\vec{b}) &=  x(\dvec{a}\dvec{b}\kos\varphi) = x\dvec{a}\dvec{b}\kos\varphi \\
+  (x\vec{a})\vec{b} &= (x\dvec{a})\dvec{b}\kos\varphi = x\dvec{a}\dvec{b}\kos\varphi \\
+  \vec{a}(x\vec{b}) &= \dvec{a}(x\dvec{b})\kos\varphi = x\dvec{a}\dvec{b}\kos\varphi \comment{Množenje je
   asociativno.}
 \end{align*}
 
 Dokaz lastnosti~\ref{eq:vec:skal:proj}:
 \begin{align*}
-  &\pr_{\vec{a}}\vec{b} = b\krat\kos\varphi \\
-  &\vec{a}\vec{b} = a\krat b\krat\kos\varphi = a \krat\pr_{\vec{a}}\vec{b}
+  &\pr_{\vec{a}}\vec{b} = \dvec{b}\krat\kos\varphi \\
+  &\vec{a}\vec{b} = \dvec{a}\krat \dvec{b}\krat\kos\varphi = \dvec{a} \krat\pr_{\vec{a}}\vec{b}
 \end{align*}
 
 Dokaz lastnosti~\ref{eq:vec:skal:dist}:
 \begin{align*}
-  &\vec{a}(\vec{b} + \vec{c}) = a\krat\pr_{\vec{a}}(\vec{b}+\vec{c}) =
-  a\krat(\pr_{\vec{a}}\vec{b} + \pr_{\vec{a}}\vec{c}) =
-  a\krat\pr_{\vec{a}}\vec{b} + a\krat\pr_{\vec{a}}\vec{c} = \vec{a}\vec{b} +
+  &\vec{a}(\vec{b} + \vec{c}) = \dvec{a}\krat\pr_{\vec{a}}(\vec{b}+\vec{c}) =
+  \dvec{a}\krat(\pr_{\vec{a}}\vec{b} + \pr_{\vec{a}}\vec{c}) =
+  \dvec{a}\krat\pr_{\vec{a}}\vec{b} + \dvec{a}\krat\pr_{\vec{a}}\vec{c} = \vec{a}\vec{b} +
   \vec{a}\vec{c}
 \end{align*}
 
 Iz formule za skalarni produkt izpeljemo tudi formulo za računanje \textbf{kota} med vektorjema:
-\[ \kos\varphi = \frac{\vec{a}\vec{b}}{ab} \implies \varphi = \arccos\left(
-\frac{\vec{a}\vec{b}}{ab} \right) \]
+\[ \kos\varphi = \frac{\vec{a}\vec{b}}{\dvec{a}\dvec{b}} \implies \varphi = \arccos\left(
+\frac{\vec{a}\vec{b}}{\dvec{a}\dvec{b}} \right) \]
 
 \subsection{Krajevni vektorji}
 \label{sec:vec:kraj}
@@ -3436,7 +3437,7 @@ Skalarni produkt vektorjev v komponentah je enak vsoti produktov istoležnih kom
 
 \subsubsection{Enotski vektor v smeri danega vektorja}
 \label{sec:vec:kraj:enot}
-\[ \Vec{e_{\vec{a}}} = \frac{\vec{a}}{\left| \vec{a} \right|} \]
+\[ \Vec{e_{\vec{a}}} = \frac{\vec{a}}{\dvec{a}} \]
 
 \subsection{Vektorski produkt}
 \label{sec:vec:vec}
@@ -3449,7 +3450,7 @@ konca krajša pot od vektorja $\vec{a}$ do vektorja $\vec{b}$ \textbf{pozitivna}
 \begin{vmatrix} a_3 & a_1 \\ b_3 & b_1 \end{vmatrix},
 \begin{vmatrix} a_1 & a_2 \\ b_1 & b_2 \end{vmatrix},
 \right) \comment{Za razrešitev determinante matrike glej~\eqref{eq:koor:determinanta}.} \]
-\[ \left| \vec{a}\times\vec{b} \right| = |\vec{a}| \krat |\vec{b}| \krat\sin\varphi \]
+\[ \left| \vec{a}\times\vec{b} \right| = \dvec{a} \krat \dvec{b} \krat\sin\varphi \]
 
 \section{Kompleksna števila}
 \label{sec:kompl}
@@ -3816,6 +3817,7 @@ Glej sliki~\ref{fig:liki:trik1} in~\ref{fig:liki:trik2}.
   p &= \frac{a \krat v_a}{2} = \frac{b \krat v_b}{2} = \frac{c \krat v_c}{2} \\
   p &= \frac{a \krat b \krat \sin\gamma}{2} = \frac{a \krat c \krat\sin\beta}{2} =
   \frac{b \krat c \krat\sin\alpha}{2} \\
+  p &= \sqrt{s\left( s-a \right)\left( s-b \right)\left( s-c \right)} \comment{Heronov obrazec, ki je razložen kasneje v razdelku \ref{sec:liki:heron}}\\
   o &= a + b + c
 \end{align*}
 } \parbox[t]{0.5\textwidth}{
@@ -4597,7 +4599,8 @@ Enačba krožnice v \textbf{središčni} legi:
 \end{equation}
 
 Enačba krožnice v \textbf{premaknjeni} legi:
-\[ (x-p)^2 + (y-q)^2 = r^2 \]
+\[ (x-p)^2 + (y-q)^2 = r^2  \comment{Središče krožnice je v točki
+$S(p,q)$.} \]
 
 Potreben pogoj za krožnico. Do njega pridemo tako, da enačbo krožnice v premaknjeni legi
 razvijemo do konca in nato končno enačbo primerjamo s splošno enačbo stožnice.
@@ -4622,9 +4625,9 @@ sliki~\ref{fig:stoz:kroz}.
       \label{fig:stoz:kroz:b}
       \begin{pspicture*}(-3.5,-3.5)(3.5,3.5)
         \psaxes[labels=none]{->}(0,0)(-3.5,-3.5)(3.5,3.5)
-        \parametricplot[plotstyle=ccurve]{0}{360}{t cos 2 mul 1 add t sin 2 mul 1 sub}
-        \psdots[*](1,-1)
-        \uput[dr](1,-1){$S(1,-1)$}
+        \parametricplot[plotstyle=ccurve]{0}{360}{t cos 2 mul 1 sub t sin 2 mul 1 add}
+        \psdots[*](-1,1)
+        \uput[dr](-1,1){$S(-1,1)$}
       \end{pspicture*}
     }
   \end{center}
@@ -4707,8 +4710,8 @@ ordinatni osi. Za sliko ``ležeče'' elipse glej sliko~\ref{fig:stoz:elip:a}, za
 ``pokončne'' elipse pa glej sliko~\ref{fig:stoz:elip:b}.
 
 Enačba elipse v \textbf{premaknjeni} legi:
-\[ \frac{(x-p)^2}{a^2} + \frac{(y-q)^2}{b^2} = 1 \]
-Središče elipse je v točki $S(p,q)$.
+\[ \frac{(x-p)^2}{a^2} + \frac{(y-q)^2}{b^2} = 1 \comment{Središče elipse je v točki
+$S(p,q)$.} \]
 
 \textbf{Potreben pogoj} za elipso (do njega pridemo podobno kot pri krožnici):
 \[ B = 0 \land A \krat C > 0 \comment{$A$ in $C$ sta enako predznačena} \]
@@ -6395,7 +6398,7 @@ zapišemo kot število podmnožic z močjo 0 + število podmnožic z močjo $1 +
 podmnožic z močjo $n$, ali drugače
 \[ \binom{n}{0} + \binom{n}{1} + \cdots + \binom{n}{n-1} + \binom{n}{n} \comment{$n$-ta
 vrstica Pascalovega trikotnika} \]
-T\'{a}ko binomsko vrsto pa lahko dobimo le, če potenciramo binom $(1+1)^n$, kar pa je enako $2^n$. Duh.
+T\'{a}ko binomsko vrsto pa lahko dobimo le, če potenciramo binom $(1+1)^n$, kar pa je enako $2^n$(po osnovah aritmetike, ki jih spoznamo že zelo zgodnjem izobraževanju).
 
 \section{Verjetnostni račun}
 \label{sec:verj}
