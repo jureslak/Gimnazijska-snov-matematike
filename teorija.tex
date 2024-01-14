@@ -9,13 +9,6 @@
 \usepackage[reqno]{amsmath}
 \usepackage{amssymb}
 \usepackage{icomma}
-\usepackage[bookmarks, colorlinks=true, unicode=true,%
-linkcolor=black, anchorcolor=black, citecolor=black, filecolor=black,%
-menucolor=black, runcolor=black, urlcolor=black%
-]{hyperref}
-\hypersetup{pdftitle={Teorija pri matematiki}}
-\hypersetup{pdfauthor={Jure Slak}}
-\hypersetup{pdfsubject={Zapiski}}
 \usepackage[
     paper=a4paper,
     top=2.5cm,
@@ -50,13 +43,29 @@ menucolor=black, runcolor=black, urlcolor=black%
 \usepackage{gensymb} % stopinje
 \usepackage{tabularx} % stretching table
 \usepackage{pbox} % multi line table cell
-\usepackage{units} % da lahko napišeš 12kg lepo v math modu
+%\usepackage{units} % da lahko napišeš 12kg lepo v math modu
 \usepackage{mathtools} % matrike z alignment specification
 \usepackage{footmisc} % da lahko ponavlam footnote
 \usepackage{floatflt} % floating figure and table
 \usepackage{algorithm} % za algoritem kot float
 \usepackage{algpseudocode} % za psevdokodo
 \usepackage{fancyhdr} % za glavo in nogo
+
+\usepackage[bookmarks, colorlinks=true, unicode=true,%
+linkcolor=black, anchorcolor=black, citecolor=black, filecolor=black,%
+menucolor=black, runcolor=black, urlcolor=black%
+]{hyperref}
+% Fix incompatibility between pst-pdf (ghostscript) and hyperref.
+\makeatletter
+\ifPreview
+\let\Hy@FirstPageHook\relax
+\let\Hy@EveryPageAnchor\relax
+\fi
+\makeatother
+
+\hypersetup{pdftitle={Teorija pri matematiki}}
+\hypersetup{pdfauthor={Jure Slak}}
+\hypersetup{pdfsubject={Zapiski}}
 
 \def\R{\ensuremath{\mathbb{R}}}
 \def\N{\ensuremath{\mathbb{N}}}
@@ -264,7 +273,8 @@ Jure Slak
 \pagebreak
 
 \tableofcontents
-\pagebreak
+\newpage
+
 \pagestyle{fancy}
 
 \section{Izjave}
@@ -1072,7 +1082,7 @@ Glej tudi sliko~\ref{fig:koor:prav}.
 \begin{figure}[ht]
   \begin{center}
       \begin{pspicture*}(-3.5,-3.5)(3.5,3.5)
-        \psaxes[]{->}(0,0)(-3.5,-3.5)(3.5,3.5)
+        \psaxes[showorigin=false]{->}(0,0)(-3.5,-3.5)(3.5,3.5)
         \psdots(2,1)
         \uput[ur](2,1){$T(x,y)$}
         \uput[dl](0,0){$0$}
